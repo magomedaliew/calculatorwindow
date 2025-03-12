@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A000" xml:space="preserve">
+    <value>калькулятор °</value>
+  </data>
+  <data name="A001" xml:space="preserve">
+    <value>старт</value>
+  </data>
+  <data name="A002" xml:space="preserve">
+    <value>приложение</value>
+  </data>
+  <data name="A003" xml:space="preserve">
+    <value>решить</value>
+  </data>
+  <data name="A004" xml:space="preserve">
+    <value>стереть</value>
+  </data>
+  <data name="A005" xml:space="preserve">
+    <value>решения</value>
+  </data>
+  <data name="A006" xml:space="preserve">
+    <value>величины</value>
+  </data>
+  <data name="A007" xml:space="preserve">
+    <value>источник</value>
+  </data>
+  <data name="A008" xml:space="preserve">
+    <value>изображение</value>
+  </data>
+  <data name="A011" xml:space="preserve">
+    <value>калькулятор</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>обновление</value>
+  </data>
+  <data name="A013" xml:space="preserve">
+    <value>применение</value>
+  </data>
+  <data name="A014" xml:space="preserve">
+    <value>примеры</value>
+  </data>
+  <data name="A015" xml:space="preserve">
+    <value>величины</value>
+  </data>
+  <data name="A016" xml:space="preserve">
+    <value>х-формулы</value>
+  </data>
+  <data name="A017" xml:space="preserve">
+    <value>ф-формулы</value>
+  </data>
+  <data name="A018" xml:space="preserve">
+    <value>м-формулы</value>
+  </data>
+  <data name="A019" xml:space="preserve">
+    <value>выражения</value>
+  </data>
+  <data name="A020" xml:space="preserve">
+    <value>таблица елементов</value>
+  </data>
+  <data name="A021" xml:space="preserve">
+    <value>задание</value>
+  </data>
+  <data name="A022" xml:space="preserve">
+    <value>выражение</value>
+  </data>
+  <data name="A051" xml:space="preserve">
+    <value>уравнение</value>
+  </data>
+  <data name="A052" xml:space="preserve">
+    <value>подробнее</value>
+  </data>
+  <data name="A101" xml:space="preserve">
+    <value>в:</value>
+  </data>
+  <data name="A102" xml:space="preserve">
+    <value>w:</value>
+  </data>
+  <data name="A103" xml:space="preserve">
+    <value>у:</value>
+  </data>
+  <data name="A104" xml:space="preserve">
+    <value>u:</value>
+  </data>
+  <data name="A105" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="A106" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="A151" xml:space="preserve">
+    <value>о ш и б к а</value>
+  </data>
+  <data name="A152" xml:space="preserve">
+    <value>в е р с и я</value>
+  </data>
+  <data name="A153" xml:space="preserve">
+    <value>ф о р м у л а</value>
+  </data>
+  <data name="A154" xml:space="preserve">
+    <value>в в о д</value>
+  </data>
+  <data name="A155" xml:space="preserve">
+    <value>в ы в о д</value>
+  </data>
+  <data name="A156" xml:space="preserve">
+    <value>к о м м е н т а р и й</value>
+  </data>
+  <data name="A200" xml:space="preserve">
+    <value>В обработке</value>
+  </data>
+  <data name="B001" xml:space="preserve">
+    <value>Водород</value>
+  </data>
+  <data name="B002" xml:space="preserve">
+    <value>Гелий</value>
+  </data>
+  <data name="B003" xml:space="preserve">
+    <value>Литий</value>
+  </data>
+  <data name="B004" xml:space="preserve">
+    <value>Бериллий</value>
+  </data>
+  <data name="B005" xml:space="preserve">
+    <value>Бор</value>
+  </data>
+  <data name="B006" xml:space="preserve">
+    <value>Углерод</value>
+  </data>
+  <data name="B007" xml:space="preserve">
+    <value>Азот</value>
+  </data>
+  <data name="B008" xml:space="preserve">
+    <value>Кислород</value>
+  </data>
+  <data name="B009" xml:space="preserve">
+    <value>Фтор</value>
+  </data>
+  <data name="B010" xml:space="preserve">
+    <value>Неон</value>
+  </data>
+  <data name="B011" xml:space="preserve">
+    <value>Натрий</value>
+  </data>
+  <data name="B012" xml:space="preserve">
+    <value>Магний</value>
+  </data>
+  <data name="B013" xml:space="preserve">
+    <value>Алюминий</value>
+  </data>
+  <data name="B014" xml:space="preserve">
+    <value>Кремний</value>
+  </data>
+  <data name="B015" xml:space="preserve">
+    <value>Фосфор</value>
+  </data>
+  <data name="B016" xml:space="preserve">
+    <value>Сера</value>
+  </data>
+  <data name="B017" xml:space="preserve">
+    <value>Хлор</value>
+  </data>
+  <data name="B018" xml:space="preserve">
+    <value>Аргон</value>
+  </data>
+  <data name="B019" xml:space="preserve">
+    <value>Калий</value>
+  </data>
+  <data name="B020" xml:space="preserve">
+    <value>Кальций</value>
+  </data>
+  <data name="B021" xml:space="preserve">
+    <value>Скандий</value>
+  </data>
+  <data name="B022" xml:space="preserve">
+    <value>Титан</value>
+  </data>
+  <data name="B023" xml:space="preserve">
+    <value>Ванадий</value>
+  </data>
+  <data name="B024" xml:space="preserve">
+    <value>Хром</value>
+  </data>
+  <data name="B025" xml:space="preserve">
+    <value>Марганец</value>
+  </data>
+  <data name="B026" xml:space="preserve">
+    <value>Железо</value>
+  </data>
+  <data name="B027" xml:space="preserve">
+    <value>Кобальт</value>
+  </data>
+  <data name="B028" xml:space="preserve">
+    <value>Никель</value>
+  </data>
+  <data name="B029" xml:space="preserve">
+    <value>Медь</value>
+  </data>
+  <data name="B030" xml:space="preserve">
+    <value>Цинк</value>
+  </data>
+  <data name="B031" xml:space="preserve">
+    <value>Галлий</value>
+  </data>
+  <data name="B032" xml:space="preserve">
+    <value>Германий</value>
+  </data>
+  <data name="B033" xml:space="preserve">
+    <value>Мышьяк</value>
+  </data>
+  <data name="B034" xml:space="preserve">
+    <value>Селений</value>
+  </data>
+  <data name="B035" xml:space="preserve">
+    <value>Бром</value>
+  </data>
+  <data name="B036" xml:space="preserve">
+    <value>Криптон</value>
+  </data>
+  <data name="B037" xml:space="preserve">
+    <value>Рубидий</value>
+  </data>
+  <data name="B038" xml:space="preserve">
+    <value>Стронций</value>
+  </data>
+  <data name="B039" xml:space="preserve">
+    <value>Иттрий</value>
+  </data>
+  <data name="B040" xml:space="preserve">
+    <value>Цирконий</value>
+  </data>
+  <data name="B041" xml:space="preserve">
+    <value>Ниобий</value>
+  </data>
+  <data name="B042" xml:space="preserve">
+    <value>Молибден</value>
+  </data>
+  <data name="B043" xml:space="preserve">
+    <value>Технеций</value>
+  </data>
+  <data name="B044" xml:space="preserve">
+    <value>Рутений</value>
+  </data>
+  <data name="B045" xml:space="preserve">
+    <value>Родий</value>
+  </data>
+  <data name="B046" xml:space="preserve">
+    <value>Палладий</value>
+  </data>
+  <data name="B047" xml:space="preserve">
+    <value>Серебро</value>
+  </data>
+  <data name="B048" xml:space="preserve">
+    <value>Кадмий</value>
+  </data>
+  <data name="B049" xml:space="preserve">
+    <value>Индий</value>
+  </data>
+  <data name="B050" xml:space="preserve">
+    <value>Олово</value>
+  </data>
+  <data name="B051" xml:space="preserve">
+    <value>Сурьма</value>
+  </data>
+  <data name="B052" xml:space="preserve">
+    <value>Теллур</value>
+  </data>
+  <data name="B053" xml:space="preserve">
+    <value>Йод</value>
+  </data>
+  <data name="B054" xml:space="preserve">
+    <value>Ксенон</value>
+  </data>
+  <data name="B055" xml:space="preserve">
+    <value>Цезий</value>
+  </data>
+  <data name="B056" xml:space="preserve">
+    <value>Барий</value>
+  </data>
+  <data name="B057" xml:space="preserve">
+    <value>Лантан</value>
+  </data>
+  <data name="B058" xml:space="preserve">
+    <value>Церий</value>
+  </data>
+  <data name="B059" xml:space="preserve">
+    <value>Празеодим</value>
+  </data>
+  <data name="B060" xml:space="preserve">
+    <value>Неодим</value>
+  </data>
+  <data name="B061" xml:space="preserve">
+    <value>Прометий</value>
+  </data>
+  <data name="B062" xml:space="preserve">
+    <value>Самарий</value>
+  </data>
+  <data name="B063" xml:space="preserve">
+    <value>Европий</value>
+  </data>
+  <data name="B064" xml:space="preserve">
+    <value>Гадолиний</value>
+  </data>
+  <data name="B065" xml:space="preserve">
+    <value>Тербий</value>
+  </data>
+  <data name="B066" xml:space="preserve">
+    <value>Диспрозий</value>
+  </data>
+  <data name="B067" xml:space="preserve">
+    <value>Гольмий</value>
+  </data>
+  <data name="B068" xml:space="preserve">
+    <value>Эрбий</value>
+  </data>
+  <data name="B069" xml:space="preserve">
+    <value>Тулий</value>
+  </data>
+  <data name="B070" xml:space="preserve">
+    <value>Иттербий</value>
+  </data>
+  <data name="B071" xml:space="preserve">
+    <value>Лютеций</value>
+  </data>
+  <data name="B072" xml:space="preserve">
+    <value>Гафний</value>
+  </data>
+  <data name="B073" xml:space="preserve">
+    <value>Тантал</value>
+  </data>
+  <data name="B074" xml:space="preserve">
+    <value>Вольфрам</value>
+  </data>
+  <data name="B075" xml:space="preserve">
+    <value>Рений</value>
+  </data>
+  <data name="B076" xml:space="preserve">
+    <value>Осмий</value>
+  </data>
+  <data name="B077" xml:space="preserve">
+    <value>Иридий</value>
+  </data>
+  <data name="B078" xml:space="preserve">
+    <value>Платина</value>
+  </data>
+  <data name="B079" xml:space="preserve">
+    <value>Золото</value>
+  </data>
+  <data name="B080" xml:space="preserve">
+    <value>Ртуть</value>
+  </data>
+  <data name="B081" xml:space="preserve">
+    <value>Таллий</value>
+  </data>
+  <data name="B082" xml:space="preserve">
+    <value>Свинец</value>
+  </data>
+  <data name="B083" xml:space="preserve">
+    <value>Висмут</value>
+  </data>
+  <data name="B084" xml:space="preserve">
+    <value>Полоний</value>
+  </data>
+  <data name="B085" xml:space="preserve">
+    <value>Астат</value>
+  </data>
+  <data name="B086" xml:space="preserve">
+    <value>Радон</value>
+  </data>
+  <data name="B087" xml:space="preserve">
+    <value>Франций</value>
+  </data>
+  <data name="B088" xml:space="preserve">
+    <value>Радий</value>
+  </data>
+  <data name="B089" xml:space="preserve">
+    <value>Актиний</value>
+  </data>
+  <data name="B090" xml:space="preserve">
+    <value>Торий</value>
+  </data>
+  <data name="B091" xml:space="preserve">
+    <value>Протактиний</value>
+  </data>
+  <data name="B092" xml:space="preserve">
+    <value>Уран</value>
+  </data>
+  <data name="B093" xml:space="preserve">
+    <value>Нептуний</value>
+  </data>
+  <data name="B094" xml:space="preserve">
+    <value>Плутоний</value>
+  </data>
+  <data name="B095" xml:space="preserve">
+    <value>Америций</value>
+  </data>
+  <data name="B096" xml:space="preserve">
+    <value>Кюрий</value>
+  </data>
+  <data name="B097" xml:space="preserve">
+    <value>Берклий</value>
+  </data>
+  <data name="B098" xml:space="preserve">
+    <value>Калифорний</value>
+  </data>
+  <data name="B099" xml:space="preserve">
+    <value>Энштейний</value>
+  </data>
+  <data name="B100" xml:space="preserve">
+    <value>Фермий</value>
+  </data>
+  <data name="B101" xml:space="preserve">
+    <value>Менделеевий</value>
+  </data>
+  <data name="B102" xml:space="preserve">
+    <value>Нобелий</value>
+  </data>
+  <data name="B103" xml:space="preserve">
+    <value>Лоуренсий</value>
+  </data>
+  <data name="B104" xml:space="preserve">
+    <value>Резерфордий</value>
+  </data>
+  <data name="B105" xml:space="preserve">
+    <value>Дубний</value>
+  </data>
+  <data name="B106" xml:space="preserve">
+    <value>Сиборгий</value>
+  </data>
+  <data name="B107" xml:space="preserve">
+    <value>Борий</value>
+  </data>
+  <data name="B108" xml:space="preserve">
+    <value>Хассий</value>
+  </data>
+  <data name="B109" xml:space="preserve">
+    <value>Мейтнерий</value>
+  </data>
+  <data name="B110" xml:space="preserve">
+    <value>Дармштадтий</value>
+  </data>
+  <data name="B111" xml:space="preserve">
+    <value>Рентгений</value>
+  </data>
+  <data name="B112" xml:space="preserve">
+    <value>Коперниций</value>
+  </data>
+  <data name="B113" xml:space="preserve">
+    <value>Нихоний</value>
+  </data>
+  <data name="B114" xml:space="preserve">
+    <value>Флеровий</value>
+  </data>
+  <data name="B115" xml:space="preserve">
+    <value>Московий</value>
+  </data>
+  <data name="B116" xml:space="preserve">
+    <value>Ливерморий</value>
+  </data>
+  <data name="B117" xml:space="preserve">
+    <value>Теннессин</value>
+  </data>
+  <data name="B118" xml:space="preserve">
+    <value>Оганесон</value>
+  </data>
+  <data name="B201" xml:space="preserve">
+    <value>Главные группы</value>
+  </data>
+  <data name="B202" xml:space="preserve">
+    <value>Побочные группы</value>
+  </data>
+  <data name="B203" xml:space="preserve">
+    <value>Главные группы</value>
+  </data>
+  <data name="B204" xml:space="preserve">
+    <value>Газы</value>
+  </data>
+  <data name="B205" xml:space="preserve">
+    <value>Периоды</value>
+  </data>
+  <data name="B206" xml:space="preserve">
+    <value>Лантаноиды</value>
+  </data>
+  <data name="B207" xml:space="preserve">
+    <value>Актиноиды</value>
+  </data>
+  <data name="C000" xml:space="preserve">
+    <value>определение</value>
+  </data>
+  <data name="C001" xml:space="preserve">
+    <value>ускорение</value>
+  </data>
+  <data name="C002" xml:space="preserve">
+    <value>ускорение x</value>
+  </data>
+  <data name="C003" xml:space="preserve">
+    <value>ускорение y</value>
+  </data>
+  <data name="C004" xml:space="preserve">
+    <value>ускорение z</value>
+  </data>
+  <data name="C005" xml:space="preserve">
+    <value>молярная концентрация</value>
+  </data>
+  <data name="C006" xml:space="preserve">
+    <value>кинетическая начальная энергия</value>
+  </data>
+  <data name="C007" xml:space="preserve">
+    <value>кинетическая конечная энергия</value>
+  </data>
+  <data name="C008" xml:space="preserve">
+    <value>изменение кинетической энергии</value>
+  </data>
+  <data name="C009" xml:space="preserve">
+    <value>потенциальная начальная энергия</value>
+  </data>
+  <data name="C010" xml:space="preserve">
+    <value>потенциальная конечная энергия</value>
+  </data>
+  <data name="C011" xml:space="preserve">
+    <value>изменение потенциальной энергии</value>
+  </data>
+  <data name="C012" xml:space="preserve">
+    <value>сила</value>
+  </data>
+  <data name="C013" xml:space="preserve">
+    <value>сила x</value>
+  </data>
+  <data name="C014" xml:space="preserve">
+    <value>сила y</value>
+  </data>
+  <data name="C015" xml:space="preserve">
+    <value>сила z</value>
+  </data>
+  <data name="C016" xml:space="preserve">
+    <value>сила упругости</value>
+  </data>
+  <data name="C017" xml:space="preserve">
+    <value>сила упругости x</value>
+  </data>
+  <data name="C018" xml:space="preserve">
+    <value>сила упругости y</value>
+  </data>
+  <data name="C019" xml:space="preserve">
+    <value>сила упругости z</value>
+  </data>
+  <data name="C020" xml:space="preserve">
+    <value>сила реакции опоры</value>
+  </data>
+  <data name="C021" xml:space="preserve">
+    <value>сила трения скольжения</value>
+  </data>
+  <data name="C022" xml:space="preserve">
+    <value>сила трения скольжения x</value>
+  </data>
+  <data name="C023" xml:space="preserve">
+    <value>сила трения скольжения y</value>
+  </data>
+  <data name="C024" xml:space="preserve">
+    <value>сила трения скольжения z</value>
+  </data>
+  <data name="C025" xml:space="preserve">
+    <value>сила трения покоя</value>
+  </data>
+  <data name="C026" xml:space="preserve">
+    <value>сила трения покоя x</value>
+  </data>
+  <data name="C027" xml:space="preserve">
+    <value>сила трения покоя y</value>
+  </data>
+  <data name="C028" xml:space="preserve">
+    <value>сила трения покоя z</value>
+  </data>
+  <data name="C029" xml:space="preserve">
+    <value>сила трения качения</value>
+  </data>
+  <data name="C030" xml:space="preserve">
+    <value>сила трения качения x</value>
+  </data>
+  <data name="C031" xml:space="preserve">
+    <value>сила трения качения y</value>
+  </data>
+  <data name="C032" xml:space="preserve">
+    <value>сила трения качения z</value>
+  </data>
+  <data name="C033" xml:space="preserve">
+    <value>сила тяги</value>
+  </data>
+  <data name="C034" xml:space="preserve">
+    <value>сила тяги x</value>
+  </data>
+  <data name="C035" xml:space="preserve">
+    <value>сила тяги y</value>
+  </data>
+  <data name="C036" xml:space="preserve">
+    <value>сила тяги z</value>
+  </data>
+  <data name="C037" xml:space="preserve">
+    <value>коэффициент упругости</value>
+  </data>
+  <data name="C038" xml:space="preserve">
+    <value>молярная масса</value>
+  </data>
+  <data name="C039" xml:space="preserve">
+    <value>масса</value>
+  </data>
+  <data name="C040" xml:space="preserve">
+    <value>кооффициент трение скольжения</value>
+  </data>
+  <data name="C041" xml:space="preserve">
+    <value>кооффициент трение покоя</value>
+  </data>
+  <data name="C042" xml:space="preserve">
+    <value>кооффициент трение качения</value>
+  </data>
+  <data name="C043" xml:space="preserve">
+    <value>количество вещества</value>
+  </data>
+  <data name="C044" xml:space="preserve">
+    <value>мощность</value>
+  </data>
+  <data name="C045" xml:space="preserve">
+    <value>импульc</value>
+  </data>
+  <data name="C046" xml:space="preserve">
+    <value>импульc x</value>
+  </data>
+  <data name="C047" xml:space="preserve">
+    <value>импульc y</value>
+  </data>
+  <data name="C048" xml:space="preserve">
+    <value>импульc z</value>
+  </data>
+  <data name="C049" xml:space="preserve">
+    <value>начало пути</value>
+  </data>
+  <data name="C050" xml:space="preserve">
+    <value>начало пути x</value>
+  </data>
+  <data name="C051" xml:space="preserve">
+    <value>начало пути y</value>
+  </data>
+  <data name="C052" xml:space="preserve">
+    <value>начало пути z</value>
+  </data>
+  <data name="C053" xml:space="preserve">
+    <value>конец пути</value>
+  </data>
+  <data name="C054" xml:space="preserve">
+    <value>конец пути x</value>
+  </data>
+  <data name="C055" xml:space="preserve">
+    <value>конец пути y</value>
+  </data>
+  <data name="C056" xml:space="preserve">
+    <value>конец пути z</value>
+  </data>
+  <data name="C057" xml:space="preserve">
+    <value>изменение пути</value>
+  </data>
+  <data name="C058" xml:space="preserve">
+    <value>изменение пути x</value>
+  </data>
+  <data name="C059" xml:space="preserve">
+    <value>изменение пути y</value>
+  </data>
+  <data name="C060" xml:space="preserve">
+    <value>изменение пути z</value>
+  </data>
+  <data name="C061" xml:space="preserve">
+    <value>начало времени</value>
+  </data>
+  <data name="C062" xml:space="preserve">
+    <value>конец времени</value>
+  </data>
+  <data name="C063" xml:space="preserve">
+    <value>изменение времени</value>
+  </data>
+  <data name="C064" xml:space="preserve">
+    <value>объем</value>
+  </data>
+  <data name="C065" xml:space="preserve">
+    <value>скорость</value>
+  </data>
+  <data name="C066" xml:space="preserve">
+    <value>скорость x</value>
+  </data>
+  <data name="C067" xml:space="preserve">
+    <value>скорость y</value>
+  </data>
+  <data name="C068" xml:space="preserve">
+    <value>скорость z</value>
+  </data>
+  <data name="C069" xml:space="preserve">
+    <value>начальная скорость</value>
+  </data>
+  <data name="C070" xml:space="preserve">
+    <value>начальная скорость x</value>
+  </data>
+  <data name="C071" xml:space="preserve">
+    <value>начальная скорость y</value>
+  </data>
+  <data name="C072" xml:space="preserve">
+    <value>начальная скорость z</value>
+  </data>
+  <data name="C073" xml:space="preserve">
+    <value>конечная скорость</value>
+  </data>
+  <data name="C074" xml:space="preserve">
+    <value>конечная скорость x</value>
+  </data>
+  <data name="C075" xml:space="preserve">
+    <value>конечная скорость y</value>
+  </data>
+  <data name="C076" xml:space="preserve">
+    <value>конечная скорость z</value>
+  </data>
+  <data name="C077" xml:space="preserve">
+    <value>изменение скорости</value>
+  </data>
+  <data name="C078" xml:space="preserve">
+    <value>изменение скорости x</value>
+  </data>
+  <data name="C079" xml:space="preserve">
+    <value>изменение скорости y</value>
+  </data>
+  <data name="C080" xml:space="preserve">
+    <value>изменение скорости z</value>
+  </data>
+  <data name="C081" xml:space="preserve">
+    <value>средняя скорость</value>
+  </data>
+  <data name="C082" xml:space="preserve">
+    <value>средняя скорость x</value>
+  </data>
+  <data name="C083" xml:space="preserve">
+    <value>средняя скорость y</value>
+  </data>
+  <data name="C084" xml:space="preserve">
+    <value>средняя скорость z</value>
+  </data>
+  <data name="C085" xml:space="preserve">
+    <value>работа</value>
+  </data>
+  <data name="C086" xml:space="preserve">
+    <value>угол θ</value>
+  </data>
+  <data name="C087" xml:space="preserve">
+    <value>угол ϕ</value>
+  </data>
+  <data name="D001" xml:space="preserve">
+    <value>тело</value>
+  </data>
+  <data name="D002" xml:space="preserve">
+    <value>начало</value>
+  </data>
+  <data name="D003" xml:space="preserve">
+    <value>конец</value>
+  </data>
+  <data name="D004" xml:space="preserve">
+    <value>ранее</value>
+  </data>
+  <data name="D005" xml:space="preserve">
+    <value>после</value>
+  </data>
+</root>

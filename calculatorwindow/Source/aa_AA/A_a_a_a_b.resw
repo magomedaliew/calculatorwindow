@@ -1,0 +1,1096 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A001" xml:space="preserve">
+    <value>"1,008
+2,20
+1S1
+-259
+-253
+1, -1
+0,00(1)"</value>
+  </data>
+  <data name="A002" xml:space="preserve">
+    <value>"4,0026
+5,50
+1S2
+-
+-269"</value>
+  </data>
+  <data name="A003" xml:space="preserve">
+    <value>"6,94
+0,97
+[He]2S1
+181
+1247
+1
+-3,040(1)"</value>
+  </data>
+  <data name="A004" xml:space="preserve">
+    <value>"9,0122
+1,47
+[He]2S2
+1278
+2470
+2
+-1,79(2)"</value>
+  </data>
+  <data name="A005" xml:space="preserve">
+    <value>"10,81
+2,01
+[He]2S2 2p1
+2180 B
+3650
+3
+-0,890(3)"</value>
+  </data>
+  <data name="A006" xml:space="preserve">
+    <value>"12,011
+2,50
+[He]2S2 2p2
+3750 G
+4830
+4,2,-4
+0,206(4)"</value>
+  </data>
+  <data name="A007" xml:space="preserve">
+    <value>"14,007
+3,07
+[He]2S2 2p3
+-210
+-196
+5,4,3,2,-3
+1,45(3)"</value>
+  </data>
+  <data name="A008" xml:space="preserve">
+    <value>"15,999
+3,50
+[He]2S2 2p4
+-219
+-183
+-2,-1
+1,229(-2)"</value>
+  </data>
+  <data name="A009" xml:space="preserve">
+    <value>"18,998
+4,10
+[He]2S2 2p5
+-220
+-188
+-1
+3,053(-1)"</value>
+  </data>
+  <data name="A010" xml:space="preserve">
+    <value>"20,180
+4,84
+[He]2S2 2p6
+-249
+-246"</value>
+  </data>
+  <data name="A011" xml:space="preserve">
+    <value>"22,990
+1,01
+[Ne]3S1
+98
+883
+1
+-2,713(1)"</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>"24,305
+1,23
+[Ne]3S2
+649
+1107
+2
+-2,356(2)"</value>
+  </data>
+  <data name="A013" xml:space="preserve">
+    <value>"26,982
+1,47
+[Ne]3S2 3p1
+660
+2467
+3
+-1,676(3)"</value>
+  </data>
+  <data name="A014" xml:space="preserve">
+    <value>"28,085
+1,74
+[Ne]3S2 3p2
+1412
+2355
+4,-4
+-1,676(3)"</value>
+  </data>
+  <data name="A015" xml:space="preserve">
+    <value>"30,974
+2,06
+[Ne]3S2 3p3
+44
+281
+5,3,-3
+-0,502(3)"</value>
+  </data>
+  <data name="A016" xml:space="preserve">
+    <value>"32,06
+2,44
+[Ne]3S2 3p4
+113
+445 B
+6,4,2,-2
+0,144(-2)"</value>
+  </data>
+  <data name="A017" xml:space="preserve">
+    <value>"35,45
+2,83
+[Ne]3S2 3p5
+-101
+-34
+7,5,3,1,-1
+1,358(-1)"</value>
+  </data>
+  <data name="A018" xml:space="preserve">
+    <value>"39,948
+3,20
+[Ne]3S2 3p6
+-189
+-186"</value>
+  </data>
+  <data name="A019" xml:space="preserve">
+    <value>"39,098
+0,91
+[Ar]4S1
+63
+760
+1
+-2,925(1)"</value>
+  </data>
+  <data name="A020" xml:space="preserve">
+    <value>"40,078
+1,04
+[Ar]4S2
+839
+1484
+2
+-2,84(2)"</value>
+  </data>
+  <data name="A021" xml:space="preserve">
+    <value>"44,956
+1,20
+[Ar]3d1 4S2
+1541
+2836
+3
+-2,03(3)"</value>
+  </data>
+  <data name="A022" xml:space="preserve">
+    <value>"47,867
+1,32
+[Ar]3d2 4S2
+1668
+3262
+4,3
+-1,63(2)"</value>
+  </data>
+  <data name="A023" xml:space="preserve">
+    <value>"50,942
+1,45
+[Ar]3d3 4S2
+1890
+3378
+8,4,3,2,0
+-1,186(2)"</value>
+  </data>
+  <data name="A024" xml:space="preserve">
+    <value>"51,996
+1,56
+[Ar]3d5 4S1
+1890
+2640
+6,3,2,0
+-0,913(2)"</value>
+  </data>
+  <data name="A025" xml:space="preserve">
+    <value>"54,938
+1,60
+[Ar]3d5 4S2
+1244
+2032
+7,6,4,3,2,0,-1
+-1,180(2)"</value>
+  </data>
+  <data name="A026" xml:space="preserve">
+    <value>"55,845
+1,64
+[Ar]3d6 4S2
+1535
+2750
+6,3,2,0,-2
+-0,440(2)"</value>
+  </data>
+  <data name="A027" xml:space="preserve">
+    <value>"58,933
+1,70
+[Ar]3d7 4S2
+1495
+2870
+3,2,0,-1
+-0,277(2)"</value>
+  </data>
+  <data name="A028" xml:space="preserve">
+    <value>"58,693
+1,75
+[Ar]3d8 4S2
+1453
+2732
+3,2,0
+-0,257(2)"</value>
+  </data>
+  <data name="A029" xml:space="preserve">
+    <value>"63,546
+1,75
+[Ar]3d10 4S1
+1083
+2595
+2,1
+0,340(2)"</value>
+  </data>
+  <data name="A030" xml:space="preserve">
+    <value>"65,38
+1,66
+[Ar]3d10 4S2
+420
+907
+2
+-0,763(2)"</value>
+  </data>
+  <data name="A031" xml:space="preserve">
+    <value>"69,723
+1,82
+[Ar]3d10 4S2 4p1
+30
+2403
+3
+-0,529(3)"</value>
+  </data>
+  <data name="A032" xml:space="preserve">
+    <value>"72,63
+2,02
+[Ar]3d10 4S2 4p2
+937
+2830
+4
+-0,036(4)"</value>
+  </data>
+  <data name="A033" xml:space="preserve">
+    <value>"74,922
+2,20
+[Ar]3d10 4S2 4p3
+817
+615
+5,3,-3
+0,240(3)"</value>
+  </data>
+  <data name="A034" xml:space="preserve">
+    <value>"78,96
+2,48
+[Ar]3d10 4S2 4p4
+217
+685
+6,4,-2
+-0,40(-2)"</value>
+  </data>
+  <data name="A035" xml:space="preserve">
+    <value>"79,904
+2,74
+[Ar]3d10 4S2 4p5
+-7
+59
+7,5,3,1,-1
+1,065(-1)"</value>
+  </data>
+  <data name="A036" xml:space="preserve">
+    <value>"83,798
+2,94
+[Ar]3d10 4S2 4p6
+-157
+-153
+2"</value>
+  </data>
+  <data name="A037" xml:space="preserve">
+    <value>"85,446
+0,89
+[Kr]5S1
+39
+688
+1
+-2,924(1)"</value>
+  </data>
+  <data name="A038" xml:space="preserve">
+    <value>"87,62
+0,99
+[Kr]5S2
+769
+1384
+2
+-2,89(2)"</value>
+  </data>
+  <data name="A039" xml:space="preserve">
+    <value>"88,906
+1,11
+[Kr]4d1 5S2
+1522
+3338
+3
+-2,37(3)"</value>
+  </data>
+  <data name="A040" xml:space="preserve">
+    <value>"91,224
+1,22
+[Kr]4d2 5S2
+1852
+4377
+4
+-1,55(4)"</value>
+  </data>
+  <data name="A041" xml:space="preserve">
+    <value>"92,906
+1,23
+[Kr]4d4 5S1
+2468
+4928
+5,3
+-1,099(3)"</value>
+  </data>
+  <data name="A042" xml:space="preserve">
+    <value>"95,962
+1,30
+[Kr]4d5 5S1
+2617
+4825
+6,5,4,3,2,0
+-0,20(3)"</value>
+  </data>
+  <data name="A043" xml:space="preserve">
+    <value>"98,906
+1,36
+[Kr]4d6 5S1
+2172
+4877
+7
+0,28(4)"</value>
+  </data>
+  <data name="A044" xml:space="preserve">
+    <value>"101,07
+1,42
+[Kr]4d7 5S1
+2310
+3900
+8,6,4,3,2,0,-2
+0,623(3)"</value>
+  </data>
+  <data name="A045" xml:space="preserve">
+    <value>"102,91
+1,45
+[Kr]4d8 5S1
+1966
+3730
+5,4,3,2,1,0
+-0,76(3)"</value>
+  </data>
+  <data name="A046" xml:space="preserve">
+    <value>"106,42
+1,3
+[Kr]4d10
+1554
+3140
+4,2,0
+0,915(2)"</value>
+  </data>
+  <data name="A047" xml:space="preserve">
+    <value>"107,87
+1,42
+[Kr]4d10 5S1
+962
+2163
+2,1
+0,799(1)"</value>
+  </data>
+  <data name="A048" xml:space="preserve">
+    <value>"112,41
+1,46
+[Kr]4d10 5S2
+321
+765
+2
+-0,403(2)"</value>
+  </data>
+  <data name="A049" xml:space="preserve">
+    <value>"114,82
+1,49
+[Kr]4d10 5S2 5p1
+151
+2080
+3
+-0,343(3)"</value>
+  </data>
+  <data name="A050" xml:space="preserve">
+    <value>"118,71
+1,72
+[Kr]4d10 5S2 5p2
+232 B
+2687
+4,2
+-0,137(2)"</value>
+  </data>
+  <data name="A051" xml:space="preserve">
+    <value>"121,76
+1,82
+[Kr]4d10 5S2 5p3
+631 A
+1635
+5,3,-3
+0,150(3)"</value>
+  </data>
+  <data name="A052" xml:space="preserve">
+    <value>"127,60
+2,01
+[Kr]4d10 5S2 5p4
+450
+990
+6,4,-2
+-0,69(-2)"</value>
+  </data>
+  <data name="A053" xml:space="preserve">
+    <value>"126,90
+2,21
+[Kr]4d10 5S2 5p5
+114
+184
+7,5,1,-1
+0,536(-1)"</value>
+  </data>
+  <data name="A054" xml:space="preserve">
+    <value>"131,29
+2,4
+[Kr]4d10 5S2 5p6
+-112
+-108
+2,4,6"</value>
+  </data>
+  <data name="A055" xml:space="preserve">
+    <value>"132,91
+0,86
+[Xe]6S1
+28
+678
+1
+-2,923(1)"</value>
+  </data>
+  <data name="A056" xml:space="preserve">
+    <value>"137,33
+0,97
+[Xe]6S2
+725
+1696
+2
+-2,92(2)"</value>
+  </data>
+  <data name="A057" xml:space="preserve">
+    <value>"138,91
+1,08
+[Xe]5d1 6S2
+920
+3469
+3
+-2,38(3)"</value>
+  </data>
+  <data name="A058" xml:space="preserve">
+    <value>"140,12
+1,08
+[Xe]4F2 6S2
+798
+3443
+4,3
+-1,33(4)"</value>
+  </data>
+  <data name="A059" xml:space="preserve">
+    <value>"140,91
+1,07
+[Xe]4F3 6S2
+931
+3250
+4,3
+-0,96(4)"</value>
+  </data>
+  <data name="A060" xml:space="preserve">
+    <value>"144,24
+1,07
+[Xe]4F4 6S2
+1024
+3074
+3
+-2,2(2)"</value>
+  </data>
+  <data name="A061" xml:space="preserve">
+    <value>"146,92
+1,07
+[Xe]4F5 6S2
+931
+2730
+3
+-2,29(3)"</value>
+  </data>
+  <data name="A062" xml:space="preserve">
+    <value>"150,36
+1,07
+[Xe]4F6 6S2
+1074
+1794
+3,2
+-2,67(2)"</value>
+  </data>
+  <data name="A063" xml:space="preserve">
+    <value>"151,96
+1,01
+[Xe]4F7 6S2
+826
+1439
+3,2
+-2,80(2)"</value>
+  </data>
+  <data name="A064" xml:space="preserve">
+    <value>"157,25
+1,11
+[Xe]4F7 5d1 6S2
+1312
+3273
+3
+-2,28(3)"</value>
+  </data>
+  <data name="A065" xml:space="preserve">
+    <value>"158,93
+1,10
+[Xe]4F9 6S2
+1356
+3230
+4,3
+-2,31(3)"</value>
+  </data>
+  <data name="A066" xml:space="preserve">
+    <value>"162,50
+1,10
+[Xe]4F10 6S2
+1407
+2562
+3
+-2,29(3)"</value>
+  </data>
+  <data name="A067" xml:space="preserve">
+    <value>"164,93
+1,10
+[Xe]4F11 6S2
+1474
+2720
+3
+-2,33(3)"</value>
+  </data>
+  <data name="A068" xml:space="preserve">
+    <value>"167,26
+1,11
+[Xe]4F12 6S2
+1497
+2863
+3
+-2,32(3)"</value>
+  </data>
+  <data name="A069" xml:space="preserve">
+    <value>"168,93
+1,11
+[Xe]4F13 6S2
+1545
+1947
+3,2
+-2,32(3)"</value>
+  </data>
+  <data name="A070" xml:space="preserve">
+    <value>"173,05
+1,06
+[Xe]4F14 6S2
+819
+1196
+3,2
+-2,22(3)"</value>
+  </data>
+  <data name="A071" xml:space="preserve">
+    <value>"174,97
+1,14
+[Xe]4F14 5d1 6S2
+1663
+3395
+3
+-2,30(3)"</value>
+  </data>
+  <data name="A072" xml:space="preserve">
+    <value>"178,49
+1,23
+[Xe]4F14 5d2 6S2
+2227
+4602
+4
+-1,70(4)"</value>
+  </data>
+  <data name="A073" xml:space="preserve">
+    <value>"180,95
+1,33
+[Xe]4F14 5d3 6S2
+2996
+5425
+5
+-0,812(5)"</value>
+  </data>
+  <data name="A074" xml:space="preserve">
+    <value>"183,84
+1,40
+[Xe]4F14 5d4 6S2
+3410
+5657
+6,5,4,3,2,0
+-0,199(4)"</value>
+  </data>
+  <data name="A075" xml:space="preserve">
+    <value>"186,21
+1,46
+[Xe]4F14 5d5 6S2
+3180
+5630
+7,6,4,2,-1
+0,22(4)"</value>
+  </data>
+  <data name="A076" xml:space="preserve">
+    <value>"190,23
+1,52
+[Xe]4F14 5d6 6S2
+3054
+5027
+8,6,4,3,2,0,-2
+0,687(4)"</value>
+  </data>
+  <data name="A077" xml:space="preserve">
+    <value>"192,22
+1,55
+[Xe]4F14 5d7 6S2
+2410
+4530
+6,4,3,2,1,0,-1
+1,156(3)"</value>
+  </data>
+  <data name="A078" xml:space="preserve">
+    <value>"195,08
+1,42
+[Xe]4F14 5d9 6S1
+1772
+3827
+4,2,0
+1,188(2)"</value>
+  </data>
+  <data name="A079" xml:space="preserve">
+    <value>"196,97
+1,42
+[Xe]4F14 5d10 6S1
+1064
+2808
+3,1
+1,691(1)"</value>
+  </data>
+  <data name="A080" xml:space="preserve">
+    <value>"200,59
+1,44
+[Xe]4F14 5d10 6S2
+-39
+357
+2,1
+0,860(2)"</value>
+  </data>
+  <data name="A081" xml:space="preserve">
+    <value>"204,38
+1,44
+[Xe]4F14 5d10 6S2 6p1
+303
+1457
+3,1
+-0,336(1)"</value>
+  </data>
+  <data name="A082" xml:space="preserve">
+    <value>"207,2
+1,55
+[Xe]4F14 5d10 6S2 6p2
+328
+1740
+4,2
+-0,125(2)"</value>
+  </data>
+  <data name="A083" xml:space="preserve">
+    <value>"208,98
+1,67
+[Xe]4F14 5d10 6S2 6p3
+271
+1560
+5,3
+0,317(3)"</value>
+  </data>
+  <data name="A084" xml:space="preserve">
+    <value>"209,98
+1,76
+[Xe]4F14 5d10 6S2 6p4
+254
+962
+6,4,2
+&lt;1,0(-2)"</value>
+  </data>
+  <data name="A085" xml:space="preserve">
+    <value>"210,99
+1,96
+[Xe]4F14 5d10 6S2 6p5
+302
+370
+7,5,3,1,-1
+0,25(-1)"</value>
+  </data>
+  <data name="A086" xml:space="preserve">
+    <value>"222,02
+2,06
+[Xe]4F14 5d10 6S2 6p6
+-71
+-62
+2"</value>
+  </data>
+  <data name="A087" xml:space="preserve">
+    <value>"223,02
+0,86
+[Rn]7S1
+27
+677
+1
+-2,9(1)"</value>
+  </data>
+  <data name="A088" xml:space="preserve">
+    <value>"228,03
+0,97
+[Rn]7S2
+700
+1140
+2
+-2,916(2)"</value>
+  </data>
+  <data name="A089" xml:space="preserve">
+    <value>"227,03
+1,00
+[Rn]6d1 7S2
+1050
+3200
+3
+-2,13(3)"</value>
+  </data>
+  <data name="A090" xml:space="preserve">
+    <value>"232,04
+1,11
+[Rn]6d2 7S2
+1750
+4788
+4
+-1,83(4)"</value>
+  </data>
+  <data name="A091" xml:space="preserve">
+    <value>"231,04
+1,14
+[Rn]5F2 6d1 7S2
+1845
+4027
+5,4
+-1,19(5)"</value>
+  </data>
+  <data name="A092" xml:space="preserve">
+    <value>"238,05
+1,22
+[Rn]5F3 6d1 7S2
+1132
+3930
+6,5,4,3
+-0,836(3)"</value>
+  </data>
+  <data name="A093" xml:space="preserve">
+    <value>"237,05
+1,22
+[Rn]5F4 6d1 7S2
+630
+3902
+6,5,4,3
+-1,01(5)"</value>
+  </data>
+  <data name="A094" xml:space="preserve">
+    <value>"244,06
+1,22
+[Rn]5F6 7S2
+641
+3232
+6,5,4,3
+-1,25(4)"</value>
+  </data>
+  <data name="A095" xml:space="preserve">
+    <value>"243,06
+~1,2
+[Rn]5F7 7S2
+994
+2607
+6,5,4,3
+-1,95(2)"</value>
+  </data>
+  <data name="A096" xml:space="preserve">
+    <value>"248,07
+~1,2
+[Rn]5F7 6d1 7S2
+1340
+3110
+4,3
+-2,06(3)"</value>
+  </data>
+  <data name="A097" xml:space="preserve">
+    <value>"249,08
+~1,2
+[Rn]5F9 7S2
+986
+2950
+4,3
+-1,96(3)"</value>
+  </data>
+  <data name="A098" xml:space="preserve">
+    <value>"252,08
+~1,2
+[Rn]5F10 7S2
+950
+-
+4,3
+-1,91(3)"</value>
+  </data>
+  <data name="A099" xml:space="preserve">
+    <value>"254,09
+~1,2
+[Rn]5F11 7S2
+860
+-
+3
+-1,98(3)"</value>
+  </data>
+  <data name="A100" xml:space="preserve">
+    <value>"257,1
+~1,2
+[Rn]5F12 7S2
+900
+-
+3
+-2,5(2)"</value>
+  </data>
+  <data name="A101" xml:space="preserve">
+    <value>"260,10
+~1,2
+[Rn]5F13 7S2
+-
+-
+3
+-2,53(2)"</value>
+  </data>
+  <data name="A102" xml:space="preserve">
+    <value>"259,10
+[Rn]5F14 7S2
+-
+-
+3,2
+-2,6(2)"</value>
+  </data>
+  <data name="A103" xml:space="preserve">
+    <value>"262,11
+[Rn]5F14 6d1 7S2
+-
+-
+3
+-2,1(3)"</value>
+  </data>
+  <data name="A104" xml:space="preserve">
+    <value>"267,12
+[Rn]5F14 6d2 7S2"</value>
+  </data>
+  <data name="A105" xml:space="preserve">
+    <value>"268,13
+[Rn]5F14 6d3 7S2"</value>
+  </data>
+  <data name="A106" xml:space="preserve">
+    <value>"271,13
+[Rn]5F14 6d4 7S2"</value>
+  </data>
+  <data name="A107" xml:space="preserve">
+    <value>"267,13
+[Rn]5F14 6d5 7S2"</value>
+  </data>
+  <data name="A108" xml:space="preserve">
+    <value>"277,15
+[Rn]5F14 6d6 7S2"</value>
+  </data>
+  <data name="A109" xml:space="preserve">
+    <value>"276,15
+[Rn]5F14 6d7 7S2"</value>
+  </data>
+  <data name="A110" xml:space="preserve">
+    <value>"281,16
+[Rn]5F14 6d9 7S1"</value>
+  </data>
+  <data name="A111" xml:space="preserve">
+    <value>"280,16
+[Rn]5F14 6d10 7S1"</value>
+  </data>
+  <data name="A112" xml:space="preserve">
+    <value>"285,17
+[Rn]5F14 6d10 7S2"</value>
+  </data>
+  <data name="A113" xml:space="preserve">
+    <value>"284,18
+[Rn]5F14 6d10 7S2 7p1"</value>
+  </data>
+  <data name="A114" xml:space="preserve">
+    <value>"289,19
+[Rn]5F14 6d10 7S2 7p2"</value>
+  </data>
+  <data name="A115" xml:space="preserve">
+    <value>"288,19
+[Rn]5F14 6d10 7S2 7p3"</value>
+  </data>
+  <data name="A116" xml:space="preserve">
+    <value>"292,20
+[Rn]5F14 6d10 7S2 7p4"</value>
+  </data>
+  <data name="A117" xml:space="preserve">
+    <value>"(294)
+[Rn]5F14 6d10 7S2 7p5"</value>
+  </data>
+  <data name="A118" xml:space="preserve">
+    <value>"(294)
+[Rn]5F14 6d10 7S2 7p6"</value>
+  </data>
+</root>

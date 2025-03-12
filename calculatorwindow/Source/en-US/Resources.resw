@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A000" xml:space="preserve">
+    <value>calculator °</value>
+  </data>
+  <data name="A001" xml:space="preserve">
+    <value>start</value>
+  </data>
+  <data name="A002" xml:space="preserve">
+    <value>attachment</value>
+  </data>
+  <data name="A003" xml:space="preserve">
+    <value>calculate</value>
+  </data>
+  <data name="A004" xml:space="preserve">
+    <value>clear</value>
+  </data>
+  <data name="A005" xml:space="preserve">
+    <value>results</value>
+  </data>
+  <data name="A006" xml:space="preserve">
+    <value>dimensions</value>
+  </data>
+  <data name="A007" xml:space="preserve">
+    <value>source</value>
+  </data>
+  <data name="A008" xml:space="preserve">
+    <value>depiction</value>
+  </data>
+  <data name="A011" xml:space="preserve">
+    <value>calculator</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>upgrade</value>
+  </data>
+  <data name="A013" xml:space="preserve">
+    <value>application</value>
+  </data>
+  <data name="A014" xml:space="preserve">
+    <value>examples</value>
+  </data>
+  <data name="A015" xml:space="preserve">
+    <value>dimensions</value>
+  </data>
+  <data name="A016" xml:space="preserve">
+    <value>c-formulas</value>
+  </data>
+  <data name="A017" xml:space="preserve">
+    <value>p-formulas</value>
+  </data>
+  <data name="A018" xml:space="preserve">
+    <value>m-formulas</value>
+  </data>
+  <data name="A019" xml:space="preserve">
+    <value>expressions</value>
+  </data>
+  <data name="A020" xml:space="preserve">
+    <value>periodic table</value>
+  </data>
+  <data name="A021" xml:space="preserve">
+    <value>assignment</value>
+  </data>
+  <data name="A022" xml:space="preserve">
+    <value>expression</value>
+  </data>
+  <data name="A051" xml:space="preserve">
+    <value>equation</value>
+  </data>
+  <data name="A052" xml:space="preserve">
+    <value>detailed</value>
+  </data>
+  <data name="A101" xml:space="preserve">
+    <value>e:</value>
+  </data>
+  <data name="A102" xml:space="preserve">
+    <value>e:</value>
+  </data>
+  <data name="A103" xml:space="preserve">
+    <value>e:</value>
+  </data>
+  <data name="A104" xml:space="preserve">
+    <value>e:</value>
+  </data>
+  <data name="A105" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="A106" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="A151" xml:space="preserve">
+    <value>e r r o r</value>
+  </data>
+  <data name="A152" xml:space="preserve">
+    <value>v e r s i o n</value>
+  </data>
+  <data name="A153" xml:space="preserve">
+    <value>f o r m u l a</value>
+  </data>
+  <data name="A154" xml:space="preserve">
+    <value>i n p u t</value>
+  </data>
+  <data name="A155" xml:space="preserve">
+    <value>o u t p u t</value>
+  </data>
+  <data name="A156" xml:space="preserve">
+    <value>c o m m e n t</value>
+  </data>
+  <data name="A200" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="B001" xml:space="preserve">
+    <value>Hydrogen</value>
+  </data>
+  <data name="B002" xml:space="preserve">
+    <value>Helium</value>
+  </data>
+  <data name="B003" xml:space="preserve">
+    <value>Lithium</value>
+  </data>
+  <data name="B004" xml:space="preserve">
+    <value>Beryllium</value>
+  </data>
+  <data name="B005" xml:space="preserve">
+    <value>Boron</value>
+  </data>
+  <data name="B006" xml:space="preserve">
+    <value>Carbon</value>
+  </data>
+  <data name="B007" xml:space="preserve">
+    <value>Nitrogen</value>
+  </data>
+  <data name="B008" xml:space="preserve">
+    <value>Oxygen</value>
+  </data>
+  <data name="B009" xml:space="preserve">
+    <value>Fluorine</value>
+  </data>
+  <data name="B010" xml:space="preserve">
+    <value>Neon</value>
+  </data>
+  <data name="B011" xml:space="preserve">
+    <value>Sodium</value>
+  </data>
+  <data name="B012" xml:space="preserve">
+    <value>Magnesium</value>
+  </data>
+  <data name="B013" xml:space="preserve">
+    <value>Aluminium</value>
+  </data>
+  <data name="B014" xml:space="preserve">
+    <value>Silicon</value>
+  </data>
+  <data name="B015" xml:space="preserve">
+    <value>Phosphorus</value>
+  </data>
+  <data name="B016" xml:space="preserve">
+    <value>Sulfur</value>
+  </data>
+  <data name="B017" xml:space="preserve">
+    <value>Chlorine</value>
+  </data>
+  <data name="B018" xml:space="preserve">
+    <value>Argon</value>
+  </data>
+  <data name="B019" xml:space="preserve">
+    <value>Potassium</value>
+  </data>
+  <data name="B020" xml:space="preserve">
+    <value>Calcium</value>
+  </data>
+  <data name="B021" xml:space="preserve">
+    <value>Scandium</value>
+  </data>
+  <data name="B022" xml:space="preserve">
+    <value>Titanium</value>
+  </data>
+  <data name="B023" xml:space="preserve">
+    <value>Vanadium</value>
+  </data>
+  <data name="B024" xml:space="preserve">
+    <value>Chromium</value>
+  </data>
+  <data name="B025" xml:space="preserve">
+    <value>Manganese</value>
+  </data>
+  <data name="B026" xml:space="preserve">
+    <value>Iron</value>
+  </data>
+  <data name="B027" xml:space="preserve">
+    <value>Cobalt</value>
+  </data>
+  <data name="B028" xml:space="preserve">
+    <value>Nickel</value>
+  </data>
+  <data name="B029" xml:space="preserve">
+    <value>Copper</value>
+  </data>
+  <data name="B030" xml:space="preserve">
+    <value>Zinc</value>
+  </data>
+  <data name="B031" xml:space="preserve">
+    <value>Gallium</value>
+  </data>
+  <data name="B032" xml:space="preserve">
+    <value>Germanium</value>
+  </data>
+  <data name="B033" xml:space="preserve">
+    <value>Arsenic</value>
+  </data>
+  <data name="B034" xml:space="preserve">
+    <value>Selenium</value>
+  </data>
+  <data name="B035" xml:space="preserve">
+    <value>Bromine</value>
+  </data>
+  <data name="B036" xml:space="preserve">
+    <value>Krypton</value>
+  </data>
+  <data name="B037" xml:space="preserve">
+    <value>Rubidium</value>
+  </data>
+  <data name="B038" xml:space="preserve">
+    <value>Strontium</value>
+  </data>
+  <data name="B039" xml:space="preserve">
+    <value>Yttrium</value>
+  </data>
+  <data name="B040" xml:space="preserve">
+    <value>Zirconium</value>
+  </data>
+  <data name="B041" xml:space="preserve">
+    <value>Niobium</value>
+  </data>
+  <data name="B042" xml:space="preserve">
+    <value>Molybdenum</value>
+  </data>
+  <data name="B043" xml:space="preserve">
+    <value>Technetium</value>
+  </data>
+  <data name="B044" xml:space="preserve">
+    <value>Ruthenium</value>
+  </data>
+  <data name="B045" xml:space="preserve">
+    <value>Rhodium</value>
+  </data>
+  <data name="B046" xml:space="preserve">
+    <value>Palladium</value>
+  </data>
+  <data name="B047" xml:space="preserve">
+    <value>Silver</value>
+  </data>
+  <data name="B048" xml:space="preserve">
+    <value>Cadmium</value>
+  </data>
+  <data name="B049" xml:space="preserve">
+    <value>Indium</value>
+  </data>
+  <data name="B050" xml:space="preserve">
+    <value>Tin</value>
+  </data>
+  <data name="B051" xml:space="preserve">
+    <value>Antimony</value>
+  </data>
+  <data name="B052" xml:space="preserve">
+    <value>Tellurium</value>
+  </data>
+  <data name="B053" xml:space="preserve">
+    <value>Iodine</value>
+  </data>
+  <data name="B054" xml:space="preserve">
+    <value>Xenon</value>
+  </data>
+  <data name="B055" xml:space="preserve">
+    <value>Caesium</value>
+  </data>
+  <data name="B056" xml:space="preserve">
+    <value>Barium</value>
+  </data>
+  <data name="B057" xml:space="preserve">
+    <value>Lanthanum</value>
+  </data>
+  <data name="B058" xml:space="preserve">
+    <value>Cerium</value>
+  </data>
+  <data name="B059" xml:space="preserve">
+    <value>Praseodymium</value>
+  </data>
+  <data name="B060" xml:space="preserve">
+    <value>Neodymium</value>
+  </data>
+  <data name="B061" xml:space="preserve">
+    <value>Promethium</value>
+  </data>
+  <data name="B062" xml:space="preserve">
+    <value>Samarium</value>
+  </data>
+  <data name="B063" xml:space="preserve">
+    <value>Europium</value>
+  </data>
+  <data name="B064" xml:space="preserve">
+    <value>Gadolinium</value>
+  </data>
+  <data name="B065" xml:space="preserve">
+    <value>Terbium</value>
+  </data>
+  <data name="B066" xml:space="preserve">
+    <value>Dysprosium</value>
+  </data>
+  <data name="B067" xml:space="preserve">
+    <value>Holmium</value>
+  </data>
+  <data name="B068" xml:space="preserve">
+    <value>Erbium</value>
+  </data>
+  <data name="B069" xml:space="preserve">
+    <value>Thulium</value>
+  </data>
+  <data name="B070" xml:space="preserve">
+    <value>Ytterbium</value>
+  </data>
+  <data name="B071" xml:space="preserve">
+    <value>Lutetium</value>
+  </data>
+  <data name="B072" xml:space="preserve">
+    <value>Hafnium</value>
+  </data>
+  <data name="B073" xml:space="preserve">
+    <value>Tantalum</value>
+  </data>
+  <data name="B074" xml:space="preserve">
+    <value>Tungsten</value>
+  </data>
+  <data name="B075" xml:space="preserve">
+    <value>Rhenium</value>
+  </data>
+  <data name="B076" xml:space="preserve">
+    <value>Osmium</value>
+  </data>
+  <data name="B077" xml:space="preserve">
+    <value>Iridium</value>
+  </data>
+  <data name="B078" xml:space="preserve">
+    <value>Platinum</value>
+  </data>
+  <data name="B079" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="B080" xml:space="preserve">
+    <value>Mercury</value>
+  </data>
+  <data name="B081" xml:space="preserve">
+    <value>Thallium</value>
+  </data>
+  <data name="B082" xml:space="preserve">
+    <value>Lead</value>
+  </data>
+  <data name="B083" xml:space="preserve">
+    <value>Bismuth</value>
+  </data>
+  <data name="B084" xml:space="preserve">
+    <value>Polonium</value>
+  </data>
+  <data name="B085" xml:space="preserve">
+    <value>Astatine</value>
+  </data>
+  <data name="B086" xml:space="preserve">
+    <value>Radon</value>
+  </data>
+  <data name="B087" xml:space="preserve">
+    <value>Francium</value>
+  </data>
+  <data name="B088" xml:space="preserve">
+    <value>Radium</value>
+  </data>
+  <data name="B089" xml:space="preserve">
+    <value>Actinium</value>
+  </data>
+  <data name="B090" xml:space="preserve">
+    <value>Thorium</value>
+  </data>
+  <data name="B091" xml:space="preserve">
+    <value>Protactinium</value>
+  </data>
+  <data name="B092" xml:space="preserve">
+    <value>Uranium</value>
+  </data>
+  <data name="B093" xml:space="preserve">
+    <value>Neptunium</value>
+  </data>
+  <data name="B094" xml:space="preserve">
+    <value>Plutonium</value>
+  </data>
+  <data name="B095" xml:space="preserve">
+    <value>Americium</value>
+  </data>
+  <data name="B096" xml:space="preserve">
+    <value>Curium</value>
+  </data>
+  <data name="B097" xml:space="preserve">
+    <value>Berkelium</value>
+  </data>
+  <data name="B098" xml:space="preserve">
+    <value>Californium</value>
+  </data>
+  <data name="B099" xml:space="preserve">
+    <value>Einsteinium</value>
+  </data>
+  <data name="B100" xml:space="preserve">
+    <value>Fermium</value>
+  </data>
+  <data name="B101" xml:space="preserve">
+    <value>Mendelevium</value>
+  </data>
+  <data name="B102" xml:space="preserve">
+    <value>Nobelium</value>
+  </data>
+  <data name="B103" xml:space="preserve">
+    <value>Lawrencium</value>
+  </data>
+  <data name="B104" xml:space="preserve">
+    <value>Rutherfordium</value>
+  </data>
+  <data name="B105" xml:space="preserve">
+    <value>Dubnium</value>
+  </data>
+  <data name="B106" xml:space="preserve">
+    <value>Seaborgium</value>
+  </data>
+  <data name="B107" xml:space="preserve">
+    <value>Bohrium</value>
+  </data>
+  <data name="B108" xml:space="preserve">
+    <value>Hassium</value>
+  </data>
+  <data name="B109" xml:space="preserve">
+    <value>Meitnerium</value>
+  </data>
+  <data name="B110" xml:space="preserve">
+    <value>Darmstadtium</value>
+  </data>
+  <data name="B111" xml:space="preserve">
+    <value>Roentgenium</value>
+  </data>
+  <data name="B112" xml:space="preserve">
+    <value>Copernicium</value>
+  </data>
+  <data name="B113" xml:space="preserve">
+    <value>Nihonium</value>
+  </data>
+  <data name="B114" xml:space="preserve">
+    <value>Flerovium</value>
+  </data>
+  <data name="B115" xml:space="preserve">
+    <value>Moskovium</value>
+  </data>
+  <data name="B116" xml:space="preserve">
+    <value>Levirmorium</value>
+  </data>
+  <data name="B117" xml:space="preserve">
+    <value>Tennessine</value>
+  </data>
+  <data name="B118" xml:space="preserve">
+    <value>Oganesson</value>
+  </data>
+  <data name="B201" xml:space="preserve">
+    <value>Main group</value>
+  </data>
+  <data name="B202" xml:space="preserve">
+    <value>Subgroup</value>
+  </data>
+  <data name="B203" xml:space="preserve">
+    <value>Main group</value>
+  </data>
+  <data name="B204" xml:space="preserve">
+    <value>Noble gases</value>
+  </data>
+  <data name="B205" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="B206" xml:space="preserve">
+    <value>Lanthanide</value>
+  </data>
+  <data name="B207" xml:space="preserve">
+    <value>Actinide</value>
+  </data>
+  <data name="C000" xml:space="preserve">
+    <value>definition</value>
+  </data>
+  <data name="C001" xml:space="preserve">
+    <value>acceleration</value>
+  </data>
+  <data name="C002" xml:space="preserve">
+    <value>acceleration x</value>
+  </data>
+  <data name="C003" xml:space="preserve">
+    <value>acceleration y</value>
+  </data>
+  <data name="C004" xml:space="preserve">
+    <value>acceleration z</value>
+  </data>
+  <data name="C005" xml:space="preserve">
+    <value>molar concentration</value>
+  </data>
+  <data name="C006" xml:space="preserve">
+    <value>kinetic initial energy</value>
+  </data>
+  <data name="C007" xml:space="preserve">
+    <value>kinetic final energy</value>
+  </data>
+  <data name="C008" xml:space="preserve">
+    <value>kinetic energy change</value>
+  </data>
+  <data name="C009" xml:space="preserve">
+    <value>potential initial energy</value>
+  </data>
+  <data name="C010" xml:space="preserve">
+    <value>potential final energy</value>
+  </data>
+  <data name="C011" xml:space="preserve">
+    <value>potential energy change</value>
+  </data>
+  <data name="C012" xml:space="preserve">
+    <value>force</value>
+  </data>
+  <data name="C013" xml:space="preserve">
+    <value>force x</value>
+  </data>
+  <data name="C014" xml:space="preserve">
+    <value>force y</value>
+  </data>
+  <data name="C015" xml:space="preserve">
+    <value>force z</value>
+  </data>
+  <data name="C016" xml:space="preserve">
+    <value>spring force</value>
+  </data>
+  <data name="C017" xml:space="preserve">
+    <value>spring force x</value>
+  </data>
+  <data name="C018" xml:space="preserve">
+    <value>spring force y</value>
+  </data>
+  <data name="C019" xml:space="preserve">
+    <value>spring force z</value>
+  </data>
+  <data name="C020" xml:space="preserve">
+    <value>normal force</value>
+  </data>
+  <data name="C021" xml:space="preserve">
+    <value>sliding friction force</value>
+  </data>
+  <data name="C022" xml:space="preserve">
+    <value>sliding friction force x</value>
+  </data>
+  <data name="C023" xml:space="preserve">
+    <value>sliding friction force y</value>
+  </data>
+  <data name="C024" xml:space="preserve">
+    <value>sliding friction force z</value>
+  </data>
+  <data name="C025" xml:space="preserve">
+    <value>static friction</value>
+  </data>
+  <data name="C026" xml:space="preserve">
+    <value>static friction x</value>
+  </data>
+  <data name="C027" xml:space="preserve">
+    <value>static friction y</value>
+  </data>
+  <data name="C028" xml:space="preserve">
+    <value>static friction z</value>
+  </data>
+  <data name="C029" xml:space="preserve">
+    <value>rolling friction force</value>
+  </data>
+  <data name="C030" xml:space="preserve">
+    <value>rolling friction force x</value>
+  </data>
+  <data name="C031" xml:space="preserve">
+    <value>rolling friction force y</value>
+  </data>
+  <data name="C032" xml:space="preserve">
+    <value>rolling friction force z</value>
+  </data>
+  <data name="C033" xml:space="preserve">
+    <value>traction force</value>
+  </data>
+  <data name="C034" xml:space="preserve">
+    <value>traction force x</value>
+  </data>
+  <data name="C035" xml:space="preserve">
+    <value>traction force y</value>
+  </data>
+  <data name="C036" xml:space="preserve">
+    <value>traction force z</value>
+  </data>
+  <data name="C037" xml:space="preserve">
+    <value>spring constant</value>
+  </data>
+  <data name="C038" xml:space="preserve">
+    <value>molar mass</value>
+  </data>
+  <data name="C039" xml:space="preserve">
+    <value>mass</value>
+  </data>
+  <data name="C040" xml:space="preserve">
+    <value>sliding friction coefficient</value>
+  </data>
+  <data name="C041" xml:space="preserve">
+    <value>static friction coefficient</value>
+  </data>
+  <data name="C042" xml:space="preserve">
+    <value>rolling friction coefficient</value>
+  </data>
+  <data name="C043" xml:space="preserve">
+    <value>amount of substance</value>
+  </data>
+  <data name="C044" xml:space="preserve">
+    <value>power</value>
+  </data>
+  <data name="C045" xml:space="preserve">
+    <value>pulse</value>
+  </data>
+  <data name="C046" xml:space="preserve">
+    <value>pulse x</value>
+  </data>
+  <data name="C047" xml:space="preserve">
+    <value>pulse y</value>
+  </data>
+  <data name="C048" xml:space="preserve">
+    <value>pulse z</value>
+  </data>
+  <data name="C049" xml:space="preserve">
+    <value>initial displacement</value>
+  </data>
+  <data name="C050" xml:space="preserve">
+    <value>initial displacement x</value>
+  </data>
+  <data name="C051" xml:space="preserve">
+    <value>initial displacement y</value>
+  </data>
+  <data name="C052" xml:space="preserve">
+    <value>initial displacement z</value>
+  </data>
+  <data name="C053" xml:space="preserve">
+    <value>final displacement</value>
+  </data>
+  <data name="C054" xml:space="preserve">
+    <value>final displacement x</value>
+  </data>
+  <data name="C055" xml:space="preserve">
+    <value>final displacement y</value>
+  </data>
+  <data name="C056" xml:space="preserve">
+    <value>final displacement z</value>
+  </data>
+  <data name="C057" xml:space="preserve">
+    <value>displacement change</value>
+  </data>
+  <data name="C058" xml:space="preserve">
+    <value>displacement change x</value>
+  </data>
+  <data name="C059" xml:space="preserve">
+    <value>displacement change y</value>
+  </data>
+  <data name="C060" xml:space="preserve">
+    <value>displacement change z</value>
+  </data>
+  <data name="C061" xml:space="preserve">
+    <value>initial time</value>
+  </data>
+  <data name="C062" xml:space="preserve">
+    <value>final time</value>
+  </data>
+  <data name="C063" xml:space="preserve">
+    <value>time change</value>
+  </data>
+  <data name="C064" xml:space="preserve">
+    <value>volume</value>
+  </data>
+  <data name="C065" xml:space="preserve">
+    <value>velocity</value>
+  </data>
+  <data name="C066" xml:space="preserve">
+    <value>velocity x</value>
+  </data>
+  <data name="C067" xml:space="preserve">
+    <value>velocity y</value>
+  </data>
+  <data name="C068" xml:space="preserve">
+    <value>velocity z</value>
+  </data>
+  <data name="C069" xml:space="preserve">
+    <value>initial velocity</value>
+  </data>
+  <data name="C070" xml:space="preserve">
+    <value>initial velocity x</value>
+  </data>
+  <data name="C071" xml:space="preserve">
+    <value>initial velocity y</value>
+  </data>
+  <data name="C072" xml:space="preserve">
+    <value>initial velocity z</value>
+  </data>
+  <data name="C073" xml:space="preserve">
+    <value>final velocity</value>
+  </data>
+  <data name="C074" xml:space="preserve">
+    <value>final velocity x</value>
+  </data>
+  <data name="C075" xml:space="preserve">
+    <value>final velocity y</value>
+  </data>
+  <data name="C076" xml:space="preserve">
+    <value>final velocity z</value>
+  </data>
+  <data name="C077" xml:space="preserve">
+    <value>velocity change</value>
+  </data>
+  <data name="C078" xml:space="preserve">
+    <value>velocity change x</value>
+  </data>
+  <data name="C079" xml:space="preserve">
+    <value>velocity change y</value>
+  </data>
+  <data name="C080" xml:space="preserve">
+    <value>velocity change z</value>
+  </data>
+  <data name="C081" xml:space="preserve">
+    <value>average velocity</value>
+  </data>
+  <data name="C082" xml:space="preserve">
+    <value>average velocity x</value>
+  </data>
+  <data name="C083" xml:space="preserve">
+    <value>average velocity y</value>
+  </data>
+  <data name="C084" xml:space="preserve">
+    <value>average velocity z</value>
+  </data>
+  <data name="C085" xml:space="preserve">
+    <value>work</value>
+  </data>
+  <data name="C086" xml:space="preserve">
+    <value>angle θ</value>
+  </data>
+  <data name="C087" xml:space="preserve">
+    <value>angle ϕ</value>
+  </data>
+  <data name="D001" xml:space="preserve">
+    <value>body</value>
+  </data>
+  <data name="D002" xml:space="preserve">
+    <value>start</value>
+  </data>
+  <data name="D003" xml:space="preserve">
+    <value>finish</value>
+  </data>
+  <data name="D004" xml:space="preserve">
+    <value>before</value>
+  </data>
+  <data name="D005" xml:space="preserve">
+    <value>later</value>
+  </data>
+</root>

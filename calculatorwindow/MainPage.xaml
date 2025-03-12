@@ -1,0 +1,165 @@
+﻿<Page Name="AAAAA"
+  mc:Ignorable="d"
+  x:Class="calculatorwindow.MainPage"
+  xmlns:local="using:calculatorwindow"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  DataContext="{ThemeResource ButtonPadding}"
+  Background="White" RequestedTheme="Light">
+
+ <Grid Name="A000">
+  <Canvas Name="A001"/>
+  <Canvas Name="A002"/>
+  <Canvas Name="A003"/>
+
+  <Grid Name="A011">
+   <AppBarButton Name="A101" Click="ABAA">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+   <AppBarButton Name="A102" Click="ABAB">
+    <FontIcon Glyph="&#xE8A9;"/>
+   </AppBarButton>
+   <AppBarButton Name="A103" Click="ABAC">
+    <FontIcon Glyph="&#xE8EF;"/>
+   </AppBarButton>
+   <AppBarButton Name="A104" Click="ABAD">
+    <FontIcon Glyph="&#xE75C;"/>
+   </AppBarButton>
+   <AppBarButton Name="A105" Click="ABAE">
+    <FontIcon Glyph="&#xE8BC;"/>
+   </AppBarButton>
+   <AppBarButton Name="A106" Click="ABAF">
+    <FontIcon Glyph="&#xE8C4;"/>
+   </AppBarButton>
+   <AppBarButton Name="A107" Click="ABAG">
+    <FontIcon Glyph="&#xE781;"/>
+   </AppBarButton>
+   <AppBarButton Name="A108" Click="ABAH">
+    <FontIcon Glyph="&#xE8B9;"/>
+   </AppBarButton>
+   <AppBarButton Name="A109" Click="ABAI">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+   <AppBarButton Name="A110" Click="ABAJ">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+
+   <!--<AppBarButton Name="A101" Click="ABAA">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+   <AppBarButton Name="A102" Click="ABAB">
+    <FontIcon Glyph="&#xE8A9;"/>
+   </AppBarButton>
+   <AppBarButton Name="A103" Click="ABAC">
+    <FontIcon Glyph="&#xE8EF;"/>
+   </AppBarButton>
+   <AppBarButton Name="A104" Click="ABAD">
+    <FontIcon Glyph="&#xE75C;"/>
+   </AppBarButton>
+   <AppBarButton Name="A105" Click="ABAE">
+    <FontIcon Glyph="&#xE8BC;"/>
+   </AppBarButton>
+   <AppBarButton Name="A106" Click="ABAF">
+    <FontIcon Glyph="&#xE8C4;"/>
+   </AppBarButton>
+   <AppBarButton Name="A107" Click="ABAG">
+    <FontIcon Glyph="&#xE781;"/>
+   </AppBarButton>
+   <AppBarButton Name="A108" Click="ABAH">
+    <FontIcon Glyph="&#xE8B9;"/>
+   </AppBarButton>
+   <AppBarButton Name="A109" Click="ABAI">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+   <AppBarButton Name="A110" Click="ABAJ">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>-->
+   <!--<AppBarButton Name="A111" Click="ABAJ">
+               <FontIcon Glyph="&#xE713;"/>
+           </AppBarButton>-->
+  </Grid>
+  <Grid Name="A012">
+   <AutoSuggestBox Name="A201" TextChanged="ADAA"/>
+   <TextBox Name="A202" Foreground="Magenta"/>
+   <RichEditBox Name="A203" FontFamily="Consolas"/>
+   <RichEditBox Name="A204" FontFamily="Consolas"/>
+   <Rectangle Name="A205" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="A206" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="A207" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="A208" Stroke="White" StrokeThickness="3"/>
+  </Grid>
+  <Grid Name="A013">
+   <Button Name="A301" Click="ABOA"/>
+   <Button Name="A302" Click="ABOA"/>
+   <Button Name="A303" Click="ABOA"/>
+   <Button Name="A304" Click="ABOA"/>
+   <Button Name="A305" Click="ABOC"/>
+   <Button Name="A306" Click="ABOC"/>
+   <Button Name="A307" Click="ABOC"/>
+   <Button Name="A308" Click="ABOA"/>
+   <Button Name="A309" Click="ABOA"/>
+   <Button Name="A310" Click="ABOF"/>
+   <Button Name="A311" Click="ABOF"/>
+   <Button Name="A312" Click="ABOG"/>
+   <Button Name="A313" Click="ABOA"/>
+   <Button Name="A314" Click="ABOA"/>
+   <Button Name="A315" Click="ABOA"/>
+   <Button Name="A316" Click="ABOA"/>
+   <Button Name="A317" Click="ABOB"/>
+   <Button Name="A318" Click="ABOC"/>
+   <Button Name="A319" Click="ABOD"/>
+   <Button Name="A320" Click="ABOA"/>
+   <Button Name="A321" Click="ABOA"/>
+   <Button Name="A322" Click="ABOD"/>
+   <Button Name="A323" Click="ABOE"/>
+   <Button Name="A324" Click="ABOE"/>
+   <Button Name="A325" Click="ABOA"/>
+   <Button Name="A326" Click="ABOA"/>
+   <Button Name="A327" Click="ABOA"/>
+   <Button Name="A328" Click="ABOA"/>
+   <Button Name="A329" Click="ABOA"/>
+   <Button Name="A330" Click="ABOC"/>
+   <Button Name="A331" Click="ABOA"/>
+   <Button Name="A332" Click="ABOA"/>
+   <Button Name="A333" Click="ABOD"/>
+   <Button Name="A334" Click="ABOD"/>
+   <Button Name="A335" Click="ABOD"/>
+   <Button Name="A336" Click="ABOD"/>
+   <Button Name="A337" Click="ABOA"/>
+   <Button Name="A338" Click="ABOA"/>
+   <Button Name="A339" Click="ABOA"/>
+   <Button Name="A340" Click="ABOA"/>
+   <Button Name="A341" Click="ABOA"/>
+   <Button Name="A342" Click="ABOA"/>
+   <Button Name="A343" Click="ABOA"/>
+   <Button Name="A344" Click="ABOC"/>
+   <Button Name="A345" Click="ABOD"/>
+   <Button Name="A346" Click="ABOD"/>
+   <Button Name="A347" Click="ABOD"/>
+   <Button Name="A348" Click="ABOD"/>
+  </Grid>
+  <Grid Name="A014">
+   <HyperlinkButton Name="A401" Click="ACAA"/>
+   <HyperlinkButton Name="A402" Click="ACAB"/>
+   <HyperlinkButton Name="A403" Click="ACAC"/>
+   <HyperlinkButton Name="A404" Click="ACAD"/>
+   <HyperlinkButton Name="A405" Click="ACAE"/>
+   <HyperlinkButton Name="A406" Click="ACAF"/>
+   <HyperlinkButton Name="A407" Click="ACAG"/>
+   <HyperlinkButton Name="A408" Click="ACAH"/>
+   <HyperlinkButton Name="A409" Click="ACAI"/>
+   <HyperlinkButton Name="A410" Click="ACAJ"/>
+  </Grid>
+  <Grid Name="A015">
+   <Grid Name="A501"/>
+   <Grid Name="A502"/>
+   <ListView Name="A503"/>
+   <!--<Image Name="A209" 
+          Source="Assets/Images/BILD_A_1.PNG"
+                 (Images/(de-DE)/BILD_A_1)
+   />-->
+  </Grid>
+ </Grid>
+</Page>
