@@ -193,15 +193,9 @@
     <value>e:</value>
   </data>
   <data name="A103" xml:space="preserve">
-    <value>e:</value>
-  </data>
-  <data name="A104" xml:space="preserve">
-    <value>e:</value>
-  </data>
-  <data name="A105" xml:space="preserve">
     <value>,</value>
   </data>
-  <data name="A106" xml:space="preserve">
+  <data name="A104" xml:space="preserve">
     <value>.</value>
   </data>
   <data name="A151" xml:space="preserve">
@@ -878,5 +872,110 @@
   </data>
   <data name="D005" xml:space="preserve">
     <value>later</value>
+  </data>
+  <data name="E001" xml:space="preserve">
+    <value>Chemistry</value>
+  </data>
+  <data name="E002" xml:space="preserve">
+    <value>Physics</value>
+  </data>
+  <data name="E003" xml:space="preserve">
+    <value>Mathematics</value>
+  </data>
+  <data name="E051" xml:space="preserve">
+    <value>More updated formulas</value>
+  </data>
+  <data name="E052" xml:space="preserve">
+    <value>Less updated formulas</value>
+  </data>
+  <data name="E053" xml:space="preserve">
+    <value>Vectors</value>
+  </data>
+  <data name="E101" xml:space="preserve">
+    <value>1         Unmodified form</value>
+  </data>
+  <data name="E102" xml:space="preserve">
+    <value>2         Simplified form</value>
+  </data>
+  <data name="E103" xml:space="preserve">
+    <value>2.1       The number е</value>
+  </data>
+  <data name="E104" xml:space="preserve">
+    <value>2.2       The number π</value>
+  </data>
+  <data name="E105" xml:space="preserve">
+    <value>2.3      Bracket</value>
+  </data>
+  <data name="E106" xml:space="preserve">
+    <value>2.4      Modulus</value>
+  </data>
+  <data name="E107" xml:space="preserve">
+    <value>2.5      Zero</value>
+  </data>
+  <data name="E108" xml:space="preserve">
+    <value>2.6      One</value>
+  </data>
+  <data name="E109" xml:space="preserve">
+    <value>2.7      Same variables</value>
+  </data>
+  <data name="E110" xml:space="preserve">
+    <value>2.8      Sign</value>
+  </data>
+  <data name="E111" xml:space="preserve">
+    <value>2.9      Trigonometric numbers</value>
+  </data>
+  <data name="E112" xml:space="preserve">
+    <value>2.10     Logarithms with numbers</value>
+  </data>
+  <data name="E113" xml:space="preserve">
+    <value>2.11      Factorial</value>
+  </data>
+  <data name="E114" xml:space="preserve">
+    <value>2.12      Differentiation of a number</value>
+  </data>
+  <data name="E115" xml:space="preserve">
+    <value>2.13      Order of variables</value>
+  </data>
+  <data name="E116" xml:space="preserve">
+    <value>3        Distribution 1</value>
+  </data>
+  <data name="E117" xml:space="preserve">
+    <value>4         Distribution 2</value>
+  </data>
+  <data name="E118" xml:space="preserve">
+    <value>5         Fraction</value>
+  </data>
+  <data name="E119" xml:space="preserve">
+    <value>6         Exponentiation</value>
+  </data>
+  <data name="E120" xml:space="preserve">
+    <value>7         Roots</value>
+  </data>
+  <data name="E121" xml:space="preserve">
+    <value>8         Limit</value>
+  </data>
+  <data name="E122" xml:space="preserve">
+    <value>9         Logarithms</value>
+  </data>
+  <data name="E123" xml:space="preserve">
+    <value>10        Summation</value>
+  </data>
+  <data name="E124" xml:space="preserve">
+    <value>11        Product</value>
+  </data>
+  <data name="E125" xml:space="preserve">
+    <value>12        Integral</value>
+  </data>
+  <data name="E126" xml:space="preserve">
+    <value>13        Equation</value>
+  </data>
+  <data name="E127" xml:space="preserve">
+    <value>14        Quadratic equation</value>
+  </data>
+  <data name="E201" xml:space="preserve">
+    <value>In this calculator</value>
+  </data>
+  <data name="E202" xml:space="preserve">
+    <value>MATHPRINT</value>
   </data>
 </root>

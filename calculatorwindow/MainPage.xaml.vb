@@ -25,7 +25,6 @@ Public NotInheritable Class MainPage
   Dim _BB As Double
   Dim _BC As Double
 
-
   Dim _AA As String
   Dim _AB As String
   Dim _AC As String
@@ -45,10 +44,6 @@ Public NotInheritable Class MainPage
   Private CAG As String ' P:Formelnquellentext
   Private CAH As String ' M:P:Skizzeart
   Private CAI As String ' P:Letzte vom Benutzer gesuchte Dimension
-
-
-
-
 
   Dim _EA As New Color
   Dim _EB As New Color
@@ -77,18 +72,11 @@ Public NotInheritable Class MainPage
   Dim A_A, A_B, A_C, A_D As New ToolTip
   Dim A_E, A_F, A_G, A_H As New ToolTip
 
-  Dim NAA As New ResourceLoader("Resources")
-  Dim NAB As New ResourceLoader("Source_aa")
-  Dim NAC As New ResourceLoader("Source_ab")
-  Dim NAD As New ResourceLoader("Source_ac")
-  Dim NAE As New ResourceLoader("Source_ad")
-  Dim NAF As New ResourceLoader("A_a_a_a_a")
-  Dim NAG As New ResourceLoader("A_a_a_a_b")
-  Dim NAH As New ResourceLoader("B_a_a_a_a")
-
-
-
-
+  Dim NAA As New ResourceLoader("A_a_a_a_a")
+  Dim NAB As New ResourceLoader("A_a_a_a_b")
+  Dim NAC As New ResourceLoader("A_b_a_a_a")
+  Dim NAD As New ResourceLoader("Resources")
+  Dim NAE As New ResourceLoader("Source_aa")
 
   Private GAA() As Control ' A:Steuerelemente Buttons
   Private Delegate Sub HAA()
@@ -138,25 +126,7 @@ Public NotInheritable Class MainPage
   Private C7 As New List(Of Integer)
 #End Region ' *****
 #Region "A-A2"
-  Private Function AAA1() As String()
-    AAA1 = New String() {
-      "I A", "II A", "III B", "IV B", "V B", "VI B", "VII B", "VIII B", "VIII B", "VIII B", "I B", "II B",
-      "III A", "IV A", "V A", "VI A", "VII A", "0", "", "", "", "", "", "",
-      "1 H", "2 He", "3 Li", "4 Be", "5 B", "6 C", "7 N", "8 O", "9 F", "10 Ne",
-      "11 Na", "12 Mg", "13 Al", "14 Si", "15 P", "16 S", "17 Cl", "18 Ar", "19 K", "20 Ca",
-      "21 Sc", "22 Ti", "23 V", "24 Cr", "25 Mn", "26 Fe", "27 Co", "28 Ni", "29 Cu", "30 Zn",
-      "31 Ga", "32 Ge", "33 As", "34 Se", "35 Br", "36 Kr", "37 Rb", "38 Sr", "39 Y", "40 Zr",
-      "41 Nb", "42 Mo", "43 Tc", "44 Ru", "45 Rh", "46 Pd", "47 Ag", "48 Cd", "49 In", "50 Sn",
-      "51 Sb", "52 Te", "53 I", "54 Xe", "55 Cs", "56 Ba", "57 La", "58 Ce", "59 Pr", "60 Nd",
-      "61 Pm", "62 Sm", "63 Eu", "64 Gd", "65 Tb", "66 Dy", "67 Ho", "68 Er", "69 Tm", "70 Yb",
-      "71 Lu", "72 Hf", "73 Ta", "74 W", "75 Re", "76 Os", "77 Ir", "78 Pt", "79 Au", "80 Hg",
-      "81 Tl", "82 Pb", "83 Bi", "84 Po", "85 At", "86 Rn", "87 Fr", "88 Ra", "89 Ac", "90 Th",
-      "91 Pa", "92 U", "93 Np", "94 Pu", "95 Am", "96 Cm", "97 Bk", "98 Cf", "99 Es", "100 Fm",
-      "101 Md", "102 No", "103 Lr", "104 Rf", "105 Db", "106 Sg", "107 Bh", "108 Hs", "109 Mt", "110 Ds",
-      "111 Rg", "112 Cn", "113 Nh", "114 Fl", "115 Mc", "116 Lv", "117 Ts", "118 Og"
-      }
-    Return AAA1
-  End Function
+
 #End Region
 #Region "A-AA"
   Private Sub AAAA() Handles AAAAA.Loaded
@@ -167,25 +137,25 @@ Public NotInheritable Class MainPage
       'A101.Icon = New SymbolIcon(57656)
       'A101.Icon = New SymbolIcon(57808)
       'A101.Icon = New SymbolIcon(57606)
-      A330.Content = NAA.GetString("S039")
-      A401.Content = NAA.GetString("S011")
-      A402.Content = NAA.GetString("S012")
-      A403.Content = NAA.GetString("S013")
-      A404.Content = NAA.GetString("S014")
-      A405.Content = NAA.GetString("S015")
-      A406.Content = NAA.GetString("S016")
-      A407.Content = NAA.GetString("S017")
-      A408.Content = NAA.GetString("S018")
-      A409.Content = NAA.GetString("S019")
-      A410.Content = NAA.GetString("S020")
-      A_A.Content = NAA.GetString("S001")
-      A_B.Content = NAA.GetString("S002")
-      A_C.Content = NAA.GetString("S003")
-      A_D.Content = NAA.GetString("S004")
-      A_E.Content = NAA.GetString("S005")
-      A_F.Content = NAA.GetString("S006")
-      A_G.Content = NAA.GetString("S007")
-      A_H.Content = NAA.GetString("S008")
+      A330.Content = NAD.GetString("A104")
+      A401.Content = NAD.GetString("A011")
+      A402.Content = NAD.GetString("A012")
+      A403.Content = NAD.GetString("A013")
+      A404.Content = NAD.GetString("A014")
+      A405.Content = NAD.GetString("A015")
+      A406.Content = NAD.GetString("A016")
+      A407.Content = NAD.GetString("A017")
+      A408.Content = NAD.GetString("A018")
+      A409.Content = NAD.GetString("A019")
+      A410.Content = NAD.GetString("A020")
+      A_A.Content = NAD.GetString("A001")
+      A_B.Content = NAD.GetString("A002")
+      A_C.Content = NAD.GetString("A003")
+      A_D.Content = NAD.GetString("A004")
+      A_E.Content = NAD.GetString("A005")
+      A_F.Content = NAD.GetString("A006")
+      A_G.Content = NAD.GetString("A007")
+      A_H.Content = NAD.GetString("A008")
       ToolTipService.SetToolTip(A101, A_A)
       ToolTipService.SetToolTip(A102, A_B)
       ToolTipService.SetToolTip(A103, A_C)
@@ -227,9 +197,9 @@ Public NotInheritable Class MainPage
       A343.Content = "!" : A347.Content = "atan"
       A344.Content = "→" : A348.Content = "acot"
       A332.Content = "°" : _HB = New Integer() {}
-      A201.PlaceholderText = NAA.GetString("S025")
-      A203.PlaceholderText = NAA.GetString("S026")
-      A204.PlaceholderText = NAA.GetString("S100")
+      A201.PlaceholderText = NAD.GetString("A021")
+      A203.PlaceholderText = NAD.GetString("A021")
+      A204.PlaceholderText = NAD.GetString("A200")
       '2     Load a setting that is local to the device
       Dim aa As ApplicationDataContainer
       aa = ApplicationData.Current.LocalSettings
@@ -301,98 +271,98 @@ Public NotInheritable Class MainPage
       _GA = New Color() {_EA, _EB, _EC, _ED, _EE, _EF}
       '10    Physikslisten
       FAB = New String() {
-        "a", NAB.GetString("A001"), "1",
-        "ax", NAB.GetString("A002"), "1",
-        "ay", NAB.GetString("A003"), "1",
-        "az", NAB.GetString("A004"), "1",
-        "c", NAB.GetString("A005"), "0",
-        "Ek1", NAB.GetString("A006"), "2",
-        "Ek2", NAB.GetString("A007"), "2",
-        "ΔEk", NAB.GetString("A008"), "2",
-        "Ep1", NAB.GetString("A009"), "2",
-        "Ep2", NAB.GetString("A010"), "2",
-        "ΔEp", NAB.GetString("A011"), "2",
-        "F", NAB.GetString("A012"), "3",
-        "Fx", NAB.GetString("A013"), "3",
-        "Fy", NAB.GetString("A014"), "3",
-        "Fz", NAB.GetString("A015"), "3",
-        "Ff", NAB.GetString("A016"), "4",
-        "Ffx", NAB.GetString("A017"), "4",
-        "Ffy", NAB.GetString("A018"), "4",
-        "Ffz", NAB.GetString("A019"), "4",
-        "|Fn|", NAB.GetString("A020"), "5",
-        "Frg", NAB.GetString("A021"), "6",
-        "Frgx", NAB.GetString("A022"), "6",
-        "Frgy", NAB.GetString("A023"), "6",
-        "Frgz", NAB.GetString("A024"), "6",
-        "Frh", NAB.GetString("A025"), "7",
-        "Frhx", NAB.GetString("A026"), "7",
-        "Frhy", NAB.GetString("A027"), "7",
-        "Frhz", NAB.GetString("A028"), "7",
-        "Frr", NAB.GetString("A029"), "8",
-        "Frrx", NAB.GetString("A030"), "8",
-        "Frry", NAB.GetString("A031"), "8",
-        "Frrz", NAB.GetString("A032"), "8",
-        "Ft", NAB.GetString("A033"), "9",
-        "Ftx", NAB.GetString("A034"), "9",
-        "Fty", NAB.GetString("A035"), "9",
-        "Ftz", NAB.GetString("A036"), "9",
-        "k", NAB.GetString("A037"), "0",
-        "M", NAB.GetString("A038"), "0",
-        "m", NAB.GetString("A039"), "0",
-        "μg", NAB.GetString("A040"), "0",
-        "μh", NAB.GetString("A041"), "0",
-        "μr", NAB.GetString("A042"), "0",
-        "n", NAB.GetString("A043"), "0",
-        "P", NAB.GetString("A044"), "0",
-        "p", NAB.GetString("A045"), "10",
-        "px", NAB.GetString("A046"), "10",
-        "py", NAB.GetString("A047"), "10",
-        "pz", NAB.GetString("A048"), "10",
-        "s1", NAB.GetString("A049"), "11",
-        "sx1", NAB.GetString("A050"), "11",
-        "sy1", NAB.GetString("A051"), "11",
-        "sz1", NAB.GetString("A052"), "11",
-        "s2", NAB.GetString("A053"), "12",
-        "sx2", NAB.GetString("A054"), "12",
-        "sy2", NAB.GetString("A055"), "12",
-        "sz2", NAB.GetString("A056"), "12",
-        "Δs", NAB.GetString("A057"), "13",
-        "Δsx", NAB.GetString("A058"), "13",
-        "Δsy", NAB.GetString("A059"), "13",
-        "Δsz", NAB.GetString("A060"), "13",
-        "t1", NAB.GetString("A061"), "14",
-        "t2", NAB.GetString("A062"), "14",
-        "Δt", NAB.GetString("A063"), "14",
-        "V", NAB.GetString("A064"), "0",
-        "v", NAB.GetString("A065"), "15",
-        "vx", NAB.GetString("A066"), "15",
-        "vy", NAB.GetString("A067"), "15",
-        "vz", NAB.GetString("A068"), "15",
-        "v1", NAB.GetString("A069"), "16",
-        "vx1", NAB.GetString("A070"), "16",
-        "vy1", NAB.GetString("A071"), "16",
-        "vz1", NAB.GetString("A072"), "16",
-        "v2", NAB.GetString("A073"), "17",
-        "vx2", NAB.GetString("A074"), "17",
-        "vy2", NAB.GetString("A075"), "17",
-        "vz2", NAB.GetString("A076"), "17",
-        "Δv", NAB.GetString("A077"), "18",
-        "Δvx", NAB.GetString("A078"), "18",
-        "Δvy", NAB.GetString("A079"), "18",
-        "Δvz", NAB.GetString("A080"), "18",
-        "{v}", NAB.GetString("A081"), "19",
-        "{vx}", NAB.GetString("A082"), "19",
-        "{vy}", NAB.GetString("A083"), "19",
-        "{vz}", NAB.GetString("A084"), "19",
-        "W", NAB.GetString("A085"), "2",
-        "θ", NAB.GetString("A086"), "0",
-        "ϕ", NAB.GetString("A087"), "0"}
+        "a", NAD.GetString("A001"), "1",
+        "ax", NAD.GetString("C002"), "1",
+        "ay", NAD.GetString("C003"), "1",
+        "az", NAD.GetString("C004"), "1",
+        "c", NAD.GetString("C005"), "0",
+        "Ek1", NAD.GetString("C006"), "2",
+        "Ek2", NAD.GetString("C007"), "2",
+        "ΔEk", NAD.GetString("C008"), "2",
+        "Ep1", NAD.GetString("C009"), "2",
+        "Ep2", NAD.GetString("C010"), "2",
+        "ΔEp", NAD.GetString("C011"), "2",
+        "F", NAD.GetString("C012"), "3",
+        "Fx", NAD.GetString("C013"), "3",
+        "Fy", NAD.GetString("C014"), "3",
+        "Fz", NAD.GetString("C015"), "3",
+        "Ff", NAD.GetString("C016"), "4",
+        "Ffx", NAD.GetString("C017"), "4",
+        "Ffy", NAD.GetString("C018"), "4",
+        "Ffz", NAD.GetString("C019"), "4",
+        "|Fn|", NAD.GetString("C020"), "5",
+        "Frg", NAD.GetString("C021"), "6",
+        "Frgx", NAD.GetString("C022"), "6",
+        "Frgy", NAD.GetString("C023"), "6",
+        "Frgz", NAD.GetString("C024"), "6",
+        "Frh", NAD.GetString("C025"), "7",
+        "Frhx", NAD.GetString("C026"), "7",
+        "Frhy", NAD.GetString("C027"), "7",
+        "Frhz", NAD.GetString("C028"), "7",
+        "Frr", NAD.GetString("C029"), "8",
+        "Frrx", NAD.GetString("C030"), "8",
+        "Frry", NAD.GetString("C031"), "8",
+        "Frrz", NAD.GetString("C032"), "8",
+        "Ft", NAD.GetString("C033"), "9",
+        "Ftx", NAD.GetString("C034"), "9",
+        "Fty", NAD.GetString("C035"), "9",
+        "Ftz", NAD.GetString("C036"), "9",
+        "k", NAD.GetString("C037"), "0",
+        "M", NAD.GetString("C038"), "0",
+        "m", NAD.GetString("C039"), "0",
+        "μg", NAD.GetString("C040"), "0",
+        "μh", NAD.GetString("C041"), "0",
+        "μr", NAD.GetString("C042"), "0",
+        "n", NAD.GetString("C043"), "0",
+        "P", NAD.GetString("C044"), "0",
+        "p", NAD.GetString("C045"), "10",
+        "px", NAD.GetString("C046"), "10",
+        "py", NAD.GetString("C047"), "10",
+        "pz", NAD.GetString("C048"), "10",
+        "s1", NAD.GetString("C049"), "11",
+        "sx1", NAD.GetString("C050"), "11",
+        "sy1", NAD.GetString("C051"), "11",
+        "sz1", NAD.GetString("C052"), "11",
+        "s2", NAD.GetString("C053"), "12",
+        "sx2", NAD.GetString("C054"), "12",
+        "sy2", NAD.GetString("C055"), "12",
+        "sz2", NAD.GetString("C056"), "12",
+        "Δs", NAD.GetString("C057"), "13",
+        "Δsx", NAD.GetString("C058"), "13",
+        "Δsy", NAD.GetString("C059"), "13",
+        "Δsz", NAD.GetString("C060"), "13",
+        "t1", NAD.GetString("C061"), "14",
+        "t2", NAD.GetString("C062"), "14",
+        "Δt", NAD.GetString("C063"), "14",
+        "V", NAD.GetString("C064"), "0",
+        "v", NAD.GetString("C065"), "15",
+        "vx", NAD.GetString("C066"), "15",
+        "vy", NAD.GetString("C067"), "15",
+        "vz", NAD.GetString("C068"), "15",
+        "v1", NAD.GetString("C069"), "16",
+        "vx1", NAD.GetString("C070"), "16",
+        "vy1", NAD.GetString("C071"), "16",
+        "vz1", NAD.GetString("C072"), "16",
+        "v2", NAD.GetString("C073"), "17",
+        "vx2", NAD.GetString("C074"), "17",
+        "vy2", NAD.GetString("C075"), "17",
+        "vz2", NAD.GetString("C076"), "17",
+        "Δv", NAD.GetString("C077"), "18",
+        "Δvx", NAD.GetString("C078"), "18",
+        "Δvy", NAD.GetString("C079"), "18",
+        "Δvz", NAD.GetString("C080"), "18",
+        "{v}", NAD.GetString("C081"), "19",
+        "{vx}", NAD.GetString("C082"), "19",
+        "{vy}", NAD.GetString("C083"), "19",
+        "{vz}", NAD.GetString("C084"), "19",
+        "W", NAD.GetString("C085"), "2",
+        "θ", NAD.GetString("C086"), "0",
+        "ϕ", NAD.GetString("C087"), "0"}
       FAF = New String() {
         "", "a", "W", "F", "Ff", "|Fn|", "Frg", "Frh", "Frr", "Ft",
         "p", "s1", "s2", "Δs", "Δt", "v", "v1", "v2", "Δv", "{v}"}
       FAE = New String() {
-        NAB.GetString("A000"),
+        NAD.GetString("C000"),
 "Δs = s2 - s1   =>   Δs = s2 - s1",
 "Δs = s2 - s1   =>   s1 = s2 - Δs",
 "Δs = s2 - s1   =>   s2 = s1 + Δs",
@@ -533,7 +503,8 @@ Public NotInheritable Class MainPage
       Else
         AFAD(A203, A207) : If AAB = 2 Then AFAC(A204, A208)
         If AAB = 1 Then AFAF(0, A204, A208) : AFAH(13, A204, A208)
-      End If : Catch ex As Exception : AEAZ("S001") : End Try
+      End If
+    Catch ex As Exception : AEAZ("A001") : End Try
   End Sub
   Private Sub ABAB()
     Try : Dim aa, ab As New GradientStop : aa.Color = Colors.White
@@ -550,7 +521,7 @@ Public NotInheritable Class MainPage
       Grid.SetRowSpan(A003, 6) : Grid.SetRowSpan(A014, 13) : A012.Opacity = 1
 
       AGAH(64, 71, Colors.Goldenrod) : AEAA()
-    Catch ex As Exception : AEAZ("S002") : End Try
+    Catch ex As Exception : AEAZ("A002") : End Try
   End Sub
   Private Sub ABAC()
     ' Rechnen
@@ -558,7 +529,7 @@ Public NotInheritable Class MainPage
       A012.Opacity = 1 : If A202.Text = "" Then DAAA() Else EAAE()
     Catch ex As Exception ' : Exit Sub
       Try
-        AIAJ(NAA.GetString("S028") & ": " & CAA & vbCrLf & vbCrLf)
+        AIAJ(NAD.GetString("A151") & ": " & CAA & vbCrLf & vbCrLf)
         For i = 0 To KAH.Count - 1 Step 1
           AIAJ("IAA(" & CStr(i) & "): " & IAA(i) & vbCrLf) ' Vorzeichen
           AIAJ("IAB(" & CStr(i) & "): " & IAB(i) & vbCrLf) ' Operatorengruppe
@@ -576,7 +547,7 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub ABAD()
     Try : AAA = 1 : AEAA() : A012.Opacity = 1 : AIAP(0) : AEAX() : A201.Text = ""
-      AIAF(Colors.White) : Catch ex As Exception : AEAZ("S004") : End Try
+      AIAF(Colors.White) : Catch ex As Exception : AEAZ("A004") : End Try
   End Sub
 
   Private Sub ABAE()
@@ -585,19 +556,19 @@ Public NotInheritable Class MainPage
 
       If AAB = 2 Then AFAD(A203, A207) : AFAC(A204, A208) ' !!!
 
-      If A_E.Content = NAA.GetString("S005") Then ' : A204.FontSize = BAA * 10
+      If A_E.Content = NAD.GetString("A005") Then ' : A204.FontSize = BAA * 10
         For i = 0 To KAA.Count - 1 Step 1 : AIAZ() : AIAE(Colors.Blue)
-          AIAJ(KAA(i).Replace(NAA.GetString("S038"), NAA.GetString("S039")) & vbCrLf)
+          AIAJ(KAA(i).Replace(NAD.GetString("A103"), NAD.GetString("A104")) & vbCrLf)
           AIAZ() : AIAE(Colors.DeepSkyBlue) : AIAJ(KAB(i) & vbCrLf & vbCrLf)
         Next
-        A_E.Content = NAA.GetString("S041")
+        A_E.Content = NAD.GetString("A052")
         A105.Foreground = New SolidColorBrush(Colors.Violet)
-      ElseIf A_E.Content = NAA.GetString("S041") Then
+      ElseIf A_E.Content = NAD.GetString("A052") Then
         A105.Foreground = New SolidColorBrush(Colors.Violet)
         For j = 0 To KAL.Count - 1 Step 1
           AIAZ() : AIAE(JAC(j)) : A204.Document.Selection.Text += KAL(j)
         Next
-        A_E.Content = NAA.GetString("S005")
+        A_E.Content = NAD.GetString("A005")
       End If
       A204.Document.Selection.StartPosition = 0
       A204.Document.Selection.EndPosition = A204.Document.Selection.StoryLength
@@ -606,7 +577,7 @@ Public NotInheritable Class MainPage
       'A204.Document.Selection.CharacterFormat.Weight = 0
       A204.Document.Selection.CharacterFormat.Spacing = 1
 
-    Catch ex As Exception : AEAZ("S005") : End Try
+    Catch ex As Exception : AEAZ("A005") : End Try
   End Sub
   Private Sub ABAF()
     Try : If CAF = "" Then Exit Sub
@@ -615,7 +586,7 @@ Public NotInheritable Class MainPage
 
       AAA = 1 : AEAA() : A012.Opacity = 1 : AIAB() : AIAH(CAF)
       AIAP(10) : AIAE(Colors.Blue)
-      AIAF(Colors.White) : Catch ex As Exception : AEAZ("S006")
+      AIAF(Colors.White) : Catch ex As Exception : AEAZ("A006")
     End Try
   End Sub
   Private Sub ABAG()
@@ -639,11 +610,11 @@ Public NotInheritable Class MainPage
         AIAE(Colors.DeepSkyBlue) ' Die DeepSkyBlue Textfarbe in A204 des Kommentars
         AIAJ(aa(i + 1) & vbCrLf & vbCrLf) ' Die Definitionsformel unter ihre Formel
       Next
-    Catch ex As Exception : AEAZ("S007") : End Try
+    Catch ex As Exception : AEAZ("A007") : End Try
   End Sub
   Private Sub ABAH()
     Try : AAA = 1 : AEAA() : A012.Opacity = 0.3
-    Catch ex As Exception : AEAZ("S008") : End Try
+    Catch ex As Exception : AEAZ("A008") : End Try
   End Sub
   Private Sub ABAI()
     If A109.Content = "A1" Then
@@ -712,7 +683,7 @@ Public NotInheritable Class MainPage
   Private Sub ACAA()
     AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(20)
     A204.FontFamily = New FontFamily("Segoe UI")
-    AIAH(NAE.GetString("S001")) : AIAE(Colors.Blue)
+    AIAH(NAE.GetString("A001")) : AIAE(Colors.Blue)
     AIAF(Colors.White)
     'A401.NavigateUri = New Uri("http://www.bing.com")
   End Sub
@@ -724,7 +695,7 @@ Public NotInheritable Class MainPage
     A102.Background = New SolidColorBrush(Colors.AliceBlue)
     A402.Foreground = New SolidColorBrush(Colors.Goldenrod)
     AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(20)
-    AIAH(NAE.GetString("S002")) : AIAE(Colors.Blue)
+    AIAH(NAE.GetString("A002")) : AIAE(Colors.Blue)
     AIAF(Colors.White)
     A204.FontFamily = New FontFamily("Segoe UI")
 
@@ -757,264 +728,264 @@ Public NotInheritable Class MainPage
     'A204.Document.LoadFromStream(TextSetOptions.FormatRtf, aaaab)
   End Sub
   Private Sub ACAC()
-    Dim aa, ad() As String : Dim ab, ac As Integer
-    A204.FontFamily = New FontFamily("Segoe UI")
-    AAA = 3 : AEAA()
-    aa = NAE.GetString("S003") : aa = aa.Replace(vbLf & vbLf, "")
-    aa = aa.Replace(vbLf, "") : ad = aa.Split("#")
-    AIAB() : AIAM(0) : AIAP(0) : AIAJ(ad(0))
-    ac = ab + ad(0).Length + 1 : AIAM(ab) : AIAN(ac) : AIAF(Colors.White)
-    For i = 0 To 18 Step 2
-      AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(i + 1))
-      ac = ab + ad(i + 1).Length + 1 : AIAM(ab) : AIAN(ac) ' 1-20
-      AIAE(Colors.Blue) : ab = ac : AIAJ(vbLf & vbLf & ad(i + 2))
-      ac = ab + ad(i + 2).Length + 2 : AIAM(ab) : AIAN(ac)
-    Next
-    AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(21))
-    ac = ab + ad(21).Length + 1 : AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue) ' 21
+    'Dim aa, ad() As String : Dim ab, ac As Integer
+    'A204.FontFamily = New FontFamily("Segoe UI")
+    'AAA = 3 : AEAA()
+    'aa = NAE.GetString("A003") : aa = aa.Replace(vbLf & vbLf, "")
+    'aa = aa.Replace(vbLf, "") : ad = aa.Split("#")
+    'AIAB() : AIAM(0) : AIAP(0) : AIAJ(ad(0))
+    'ac = ab + ad(0).Length + 1 : AIAM(ab) : AIAN(ac) : AIAF(Colors.White)
+    'For i = 0 To 18 Step 2
+    '  AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(i + 1))
+    '  ac = ab + ad(i + 1).Length + 1 : AIAM(ab) : AIAN(ac) ' 1-20
+    '  AIAE(Colors.Blue) : ab = ac : AIAJ(vbLf & vbLf & ad(i + 2))
+    '  ac = ab + ad(i + 2).Length + 2 : AIAM(ab) : AIAN(ac)
+    'Next
+    'AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(21))
+    'ac = ab + ad(21).Length + 1 : AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue) ' 21
   End Sub
   Private Sub ACAD()
-    Dim aa, ad() As String : Dim ab, ac As Integer : AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(5)
-    aa = NAE.GetString("S004") : aa = aa.Replace(vbLf & vbLf, "") : aa = aa.Replace(vbLf, "")
-    ad = aa.Split("#") : AIAJ(ad(0)) : ac = ab + ad(0).Length : AIAM(ab) : AIAN(ac) : AIAF(Colors.White)
-    AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(1)) : ac = ab + ad(1).Length + 1 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.DeepPink) : ab = ac : AIAJ(vbLf & ad(2)) : ac = ab + ad(2).Length + 1 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.Blue) : ab = ac : AIAJ(vbLf & vbLf & ad(3)) : ac = ab + ad(3).Length + 2 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(4)) : ac = ab + ad(4).Length + 1 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.DeepPink) : ab = ac : AIAJ(vbLf & ad(5)) : ac = ab + ad(5).Length + 2 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.Blue) : ab = ac : AIAJ(vbLf & vbLf & ad(6)) : ac = ab + ad(6).Length + 2 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(7)) : ac = ab + ad(7).Length + 1 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.DeepPink) : ab = ac : AIAJ(vbLf & ad(8)) : ac = ab + ad(8).Length + 2 : AIAM(ab) : AIAN(ac)
-    AIAE(Colors.Blue) : A204.FontFamily = New FontFamily("Calibri")
+    'Dim aa, ad() As String : Dim ab, ac As Integer : AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(5)
+    'aa = NAE.GetString("A004") : aa = aa.Replace(vbLf & vbLf, "") : aa = aa.Replace(vbLf, "")
+    'ad = aa.Split("#") : AIAJ(ad(0)) : ac = ab + ad(0).Length : AIAM(ab) : AIAN(ac) : AIAF(Colors.White)
+    'AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(1)) : ac = ab + ad(1).Length + 1 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.DeepPink) : ab = ac : AIAJ(vbLf & ad(2)) : ac = ab + ad(2).Length + 1 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.Blue) : ab = ac : AIAJ(vbLf & vbLf & ad(3)) : ac = ab + ad(3).Length + 2 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(4)) : ac = ab + ad(4).Length + 1 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.DeepPink) : ab = ac : AIAJ(vbLf & ad(5)) : ac = ab + ad(5).Length + 2 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.Blue) : ab = ac : AIAJ(vbLf & vbLf & ad(6)) : ac = ab + ad(6).Length + 2 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.Gray) : ab = ac : AIAJ(vbLf & ad(7)) : ac = ab + ad(7).Length + 1 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.DeepPink) : ab = ac : AIAJ(vbLf & ad(8)) : ac = ab + ad(8).Length + 2 : AIAM(ab) : AIAN(ac)
+    'AIAE(Colors.Blue) : A204.FontFamily = New FontFamily("Calibri")
   End Sub
   Private Sub ACAE()
-    Dim aa As String : Dim ab, ac As Integer
-    A204.FontFamily = New FontFamily("Consolas")
-    AAA = 3 : AEAA() : AIAB()
-    AIAM(0) : AIAP(0) : aa = NAA.GetString("S006")
-    AIAJ("     " & aa & "     " & vbLf & vbLf & vbLf)
-    ac = ab + aa.Length + 13 : AIAM(ab) : AIAN(ac)
-    AIAF(Colors.AliceBlue) : AIAE(Colors.Gray) : aa = ""
-    For i = 1 To 87 Step 1
-      If i > 9 Then aa &= NAH.GetString("B0" & i.ToString()) &
-        " = " & NAB.GetString("A0" & i.ToString()) & vbLf
-      If i < 10 Then aa &= NAH.GetString("B00" & i.ToString()) &
-        " = " & NAB.GetString("A00" & i.ToString()) & vbLf
-    Next
-    ab = ac : AIAJ(aa) : ac = ab + aa.Length + 87 : AIAM(ab)
-    AIAN(ac) : AIAE(Colors.Blue) : AIAF(Colors.White) : AIAP(10)
+    'Dim aa As String : Dim ab, ac As Integer
+    'A204.FontFamily = New FontFamily("Consolas")
+    'AAA = 3 : AEAA() : AIAB()
+    'AIAM(0) : AIAP(0) : aa = NAD.GetString("A006")
+    'AIAJ("     " & aa & "     " & vbLf & vbLf & vbLf)
+    'ac = ab + aa.Length + 13 : AIAM(ab) : AIAN(ac)
+    'AIAF(Colors.AliceBlue) : AIAE(Colors.Gray) : aa = ""
+    'For i = 1 To 87 Step 1
+    '  If i > 9 Then aa &= NAC.GetString("B0" & i.ToString()) &
+    '    " = " & NAD.GetString("C0" & i.ToString()) & vbLf
+    '  If i < 10 Then aa &= NAC.GetString("B00" & i.ToString()) &
+    '    " = " & NAD.GetString("C00" & i.ToString()) & vbLf
+    'Next
+    'ab = ac : AIAJ(aa) : ac = ab + aa.Length + 87 : AIAM(ab)
+    'AIAN(ac) : AIAE(Colors.Blue) : AIAF(Colors.White) : AIAP(10)
   End Sub
   Private Sub ACAF()
-    Dim aa, ad() As String : Dim ab, ac As Integer
-    A204.FontFamily = New FontFamily("Calibri")
-    AIAB() : AIAM(0) : AIAP(5)
-    aa = NAE.GetString("S005") : aa = aa.Replace(vbLf & vbLf, "")
-    aa = aa.Replace(vbLf, "")
-    ad = aa.Split("#") : AIAJ("     " & ad(1) & "     (" &
-                              NAA.GetString("S100") & ")" & vbLf & vbLf)
-    ac = ab + ad(1).Length + 12 + NAA.GetString("S100").Length + 2
-    AIAM(ab) : AIAN(ac) : AIAF(Colors.AliceBlue) : AIAE(Colors.Gray)
-    ab = ac : aa = "c = n / V" & vbLf & "M = m / n"
-    AAA = 3 : AEAA() : AIAJ(aa) : ac = ab + aa.Length : AIAM(ab)
-    AIAN(ac) : AIAE(Colors.Blue) : AIAF(Colors.White)
+    'Dim aa, ad() As String : Dim ab, ac As Integer
+    'A204.FontFamily = New FontFamily("Calibri")
+    'AIAB() : AIAM(0) : AIAP(5)
+    'aa = NAE.GetString("A005") : aa = aa.Replace(vbLf & vbLf, "")
+    'aa = aa.Replace(vbLf, "")
+    'ad = aa.Split("#") : AIAJ("     " & ad(1) & "     (" &
+    '                          NAD.GetString("A200") & ")" & vbLf & vbLf)
+    'ac = ab + ad(1).Length + 12 + NAD.GetString("A200").Length + 2
+    'AIAM(ab) : AIAN(ac) : AIAF(Colors.AliceBlue) : AIAE(Colors.Gray)
+    'ab = ac : aa = "c = n / V" & vbLf & "M = m / n"
+    'AAA = 3 : AEAA() : AIAJ(aa) : ac = ab + aa.Length : AIAM(ab)
+    'AIAN(ac) : AIAE(Colors.Blue) : AIAF(Colors.White)
   End Sub
   Private Sub ACAG()
-    Dim aa, ad() As String : Dim ab, ac As Integer
-    A204.FontFamily = New FontFamily("Consolas")
-    AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(5)
-    aa = NAE.GetString("S005") : aa = aa.Replace(vbLf & vbLf, "")
-    aa = aa.Replace(vbLf, "") : ad = aa.Split("#")
-    AIAJ("     " & ad(2) & "     (" & NAA.GetString("S100") & ")" & vbLf & vbLf)
-    ac = ab + ad(2).Length + 12 + NAA.GetString("S100").Length + 2
-    AIAM(ab) : AIAN(ac) : AIAF(Colors.AliceBlue) : AIAE(Colors.Gray)
-    AIAJ(ad(4) & vbLf) : ab = ac : ac = ab + ad(4).Length + 1 : AIAM(ab)
-    AIAN(ac) : AIAF(Colors.White) : AIAE(Colors.LimeGreen)
-    aa = "a = Δv / Δt
-ΔEk = Ek2 - Ek1
-ΔEp = Ep2 - Ep1
-F = a m
-Ff = k Δs
-Frg = μg |Fn|
-Frh = μh |Fn|
-Frr = μr |Fn|
-P = W / Δt
-p = m v
-Δs = s2 - s1
-Δt = t2 - t1
-v = Δs / Δt
-Δv = v2 - v1
-Δv {v} = (v2 ^ 2 - v1 ^ 2)/2
-{v} = Δs / Δt
-{v} = (v1 + v2) / 2
-W = F Δs
-W = ΔEk
-W = -ΔEp"
-    AIAJ(aa & vbLf & vbLf) : ab = ac : ac = ab + aa.Length - 17
-    AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue)
-    AIAJ(ad(5) & vbLf) : ab = ac : ac = ab + ad(5).Length + 1
-    AIAM(ab) : AIAN(ac) : AIAE(Colors.Green)
-    aa = "F = ΣF"
-    AIAJ(aa & vbLf & vbLf) : ab = ac : ac = ab + aa.Length + 2
-    AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue)
-    AIAJ(ad(6) & vbLf) : ab = ac : ac = ab + ad(6).Length + 1
-    AIAM(ab) : AIAN(ac) : AIAE(Colors.Green)
-    aa = "A = Ax
-A = Ay
-A = Az
-A = Ax : cos(θ)
-A = Ay : sin(θ)
-A = Az : cos(θ)
-A = Ax : cos(θ) : sin(ϕ)
-A = Az : cos(θ) : cos(ϕ)
-A = √(Ax2 + Ay2)
-A = √(Ax2 + Az2)
-A = √(Ay2 + Az2)
-A = √(Ax2 + Ay2 + Az2)"
-    AIAJ(aa & vbLf) : ab = ac : ac = ab + aa.Length - 10
-    AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue)
+    '    Dim aa, ad() As String : Dim ab, ac As Integer
+    '    A204.FontFamily = New FontFamily("Consolas")
+    '    AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(5)
+    '    aa = NAE.GetString("A005") : aa = aa.Replace(vbLf & vbLf, "")
+    '    aa = aa.Replace(vbLf, "") : ad = aa.Split("#")
+    '    AIAJ("     " & ad(2) & "     (" & NAD.GetString("A200") & ")" & vbLf & vbLf)
+    '    ac = ab + ad(2).Length + 12 + NAD.GetString("A200").Length + 2
+    '    AIAM(ab) : AIAN(ac) : AIAF(Colors.AliceBlue) : AIAE(Colors.Gray)
+    '    AIAJ(ad(4) & vbLf) : ab = ac : ac = ab + ad(4).Length + 1 : AIAM(ab)
+    '    AIAN(ac) : AIAF(Colors.White) : AIAE(Colors.LimeGreen)
+    '    aa = "a = Δv / Δt
+    'ΔEk = Ek2 - Ek1
+    'ΔEp = Ep2 - Ep1
+    'F = a m
+    'Ff = k Δs
+    'Frg = μg |Fn|
+    'Frh = μh |Fn|
+    'Frr = μr |Fn|
+    'P = W / Δt
+    'p = m v
+    'Δs = s2 - s1
+    'Δt = t2 - t1
+    'v = Δs / Δt
+    'Δv = v2 - v1
+    'Δv {v} = (v2 ^ 2 - v1 ^ 2)/2
+    '{v} = Δs / Δt
+    '{v} = (v1 + v2) / 2
+    'W = F Δs
+    'W = ΔEk
+    'W = -ΔEp"
+    '    AIAJ(aa & vbLf & vbLf) : ab = ac : ac = ab + aa.Length - 17
+    '    AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue)
+    '    AIAJ(ad(5) & vbLf) : ab = ac : ac = ab + ad(5).Length + 1
+    '    AIAM(ab) : AIAN(ac) : AIAE(Colors.Green)
+    '    aa = "F = ΣF"
+    '    AIAJ(aa & vbLf & vbLf) : ab = ac : ac = ab + aa.Length + 2
+    '    AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue)
+    '    AIAJ(ad(6) & vbLf) : ab = ac : ac = ab + ad(6).Length + 1
+    '    AIAM(ab) : AIAN(ac) : AIAE(Colors.Green)
+    '    aa = "A = Ax
+    'A = Ay
+    'A = Az
+    'A = Ax : cos(θ)
+    'A = Ay : sin(θ)
+    'A = Az : cos(θ)
+    'A = Ax : cos(θ) : sin(ϕ)
+    'A = Az : cos(θ) : cos(ϕ)
+    'A = √(Ax2 + Ay2)
+    'A = √(Ax2 + Az2)
+    'A = √(Ay2 + Az2)
+    'A = √(Ax2 + Ay2 + Az2)"
+    '    AIAJ(aa & vbLf) : ab = ac : ac = ab + aa.Length - 10
+    '    AIAM(ab) : AIAN(ac) : AIAE(Colors.Blue)
   End Sub
   Private Sub ACAH()
-    Dim aa, ab(), ac() As String : Dim ad, ae, af() As Integer
-    A204.FontFamily = New FontFamily("Consolas")
-    AIAB() : AIAM(0) : AIAP(5) : AAA = 3 : AEAA()
-    aa = NAE.GetString("S005") : aa = aa.Replace(vbLf & vbLf, "")
-    aa = aa.Replace(vbLf, "") : ab = aa.Split("#")
-    AIAJ("     " & ab(3) & "     (" & NAA.GetString("S100") & ")")
-    ae = ad + ab(3).Length + 10 + NAA.GetString("S100").Length + 2
-    AIAM(ad) : AIAN(ae) : AIAF(Colors.AliceBlue)
-    AIAE(Colors.Gray) : AIAJ(vbLf & vbLf) : ad = ae : ae = ad + 2
-    AIAM(ad) : AIAN(ae) : AIAF(Colors.White)
-    ac = New String() {
-            "a = a",
-            "a = b",
-            "e = 2,718281828",
-            "π = 3,141592654",
-            "(a) = a",
-            "a + (b +- c) = a + b +- c",
-            "a - (b +- c) = a - b -+ c",
-            "a · (b ·: c) = a · b ·: c",
-            "a : (b ·: c) = a : b :· c",
-            "|-a| = |a|",
-            "|a| = a    a ≥ 0",
-            "|a| = -a   a < 0",
-            "a +- 0 = a",
-            "a · 0 = 0",
-            "a ^ 0 = 1",
-            "a / 0 = ∞",
-            "a ·: 1 = a",
-            "a ^ 1 = a",
-            "a - a = 0",
-            "a / a = 1",
-            "a + -b = a - b",
-            "a - -b = a + b",
-            "-a ·: -b = a ·: b",
-            "a ·: -b = -a ·: b",
-            "cos(a) = b",
-            "sin(a) = b",
-            "tan(a) = b",
-            "cot(a) = b",
-            "acos(a) = b",
-            "asin(a) = b",
-            "atan(a) = b",
-            "acot(a) = b",
-            "ln(a) = b",
-            "ln(e) = 1",
-            "log(a ' b) = с",
-            "a! = a · (a - 1) · ... · 1    a < 170",
-            "a´ = 0",
-            "b + a = a + b",
-            "b · a = a · b",
-            "(a + b) · c = a · c + b · c",
-            "(a + b) : c = a : c + b : c",
-            "(a - b) · c = a · c - b · c",
-            "(a - b) : c = a : c - b : c",
-            "(a + b) · (c + d) = a c + a d + b c + b d",
-            "a + a = a · (1 + 1)",
-            "a · c + b · c = (a + b) · c",
-            "a ± b : c = (a c ± b) / c",
-            "a : b ± c = (a ± c b) / b",
-            "a : b ± c : b = (a ± c) / b",
-            "a : b ± c : d = (a d ± c b) / b : d",
-            "a · a = a ^ 2",
-            "a ^ b ^ c = a ^ (b · c)",
-            "a ^ b ·: a ^ c = a ^ (b ± c)",
-            "a ^ (b +- c) = a ^ b ·: a ^ c",
-            "a ^ b ^ c = a ^ (b · c)",
-            "(a ·: b) ^ c = a ^ c ·: b ^ c",
-            "a ^ b = c => a = √(c ' b)",
-            "a ^ (b ± c) = a ^ b ·: a ^ c",
-            "a ^ c ·: b ^ c = (a ·: b) ^ c",
-            "(a ·: b) ^ c = a ^ c ·: b ^ c",
-            "a ^ -b = 1 : a ^ b",
-            "a ^ b = 1 : a ^ -b",
-            "a ˄ (b ·: c) = a ˄ b ˄˅ c",
-            "√(a ·: b) = √(a) ·: √(b)",
-            "√(a) ·: √(b) = √(a ·: b)",
-            "√(a ·: b ' c) = √(a ' c) ·: √(b ' c)",
-            "√(a ' c) ·: √(b ' c) = √(a ·: b ' c)",
-            "√(a ' c) = a ^ (1 : c)",
-            "lim(a → ∞ ' b ^ a) = 0, |b| < 1",
-            "log(a ' b) = ln(b) : ln(a)",
-            "Ʃ(a = 1 ' b ' a) = b (b + 1) : 2",
-            "Ʃ(a = 1 ' b ' a ^ 2) = (2 b ^ 3 + 3 b ^ 2 + b) : 6",
-            "Ʃ(a = 1 ' b ' a ^ 3) = (b ^ 4 + 2 b ^ 3 + b ^ 2) : 4",
-            "Ʃ(a = 0 ' b ' c ^ a) = (1 - c ^ (b + 1)) : (1 - c)",
-            "∏(a = 1 ' b ' a) = b!",
-            "ʃ(a ' b ' c · d(c)) = (b ^ 2 - a ^ 2) : 2",
-            "a = b +- c => a -+ c = b",
-            "a = b ·: c => a :· c = b",
-            "a = b +· c => a -: b = c",
-            "a = b -: c => b -: a = c",
-            "a +- b = c => a = c -+ b",
-            "a ·: b = c => a = c :· b",
-            "a +· b = c => b = c -: a",
-            "a -: b = c => b = a -: c",
-            "-a = b => a = -b",
-            "a ^ 2 b + a c + d = 0 => a = (-c ± √ (c ^ 2 - 4 a d)) : 2 : b",
-            "a ^ b = e ^ (b · ln(a))",
-            "e ^ ln(a) = a",
-            "log(a ' b · c) = log(a ' b) + log(a ' c)",
-            "ln(a ·: b) = ln(a) +- ln(b)",
-            "ln(a ^ b) = b · ln(a)",
-            "ln(e ^ a) = a",
-            "..."}
-    af = New Integer() {
-            0, 0, 1, 1, 2, 2, 3, 3, 4, 8, 9, 11, 12, 15, 16, 17, 18, 19, 20, 23, 24, 31, 32, 34, 35, 35, 36, 36, 37,
-            38, 39, 43, 44, 45, 46, 49, 50, 62, 63, 67, 68, 68, 69, 69, 70, 73, 74, 74, 75, 75, 76, 84, 85, 85, 86, 92}
-    For i = 0 To af.Count - 2 Step 2 : aa = ""
-      For j = af(i) To af(i + 1) Step 1 : aa &= ac(j) & vbLf : Next
-      ad = ae
-      AIAJ(ab(i / 2 + 7) & vbLf) : ae = ad + ab(i / 2 + 7).Length + 1
-      AIAM(ad) : AIAN(ae) : ad = ae : AIAE(Colors.Magenta)
-      ae = ad + aa.Length + 1 : AIAJ(aa & vbLf) : AIAM(ad) : AIAN(ae)
-      AIAE(Colors.Blue)
-    Next
+    'Dim aa, ab(), ac() As String : Dim ad, ae, af() As Integer
+    'A204.FontFamily = New FontFamily("Consolas")
+    'AIAB() : AIAM(0) : AIAP(5) : AAA = 3 : AEAA()
+    'aa = NAE.GetString("A005") : aa = aa.Replace(vbLf & vbLf, "")
+    'aa = aa.Replace(vbLf, "") : ab = aa.Split("#")
+    'AIAJ("     " & ab(3) & "     (" & NAD.GetString("A200") & ")")
+    'ae = ad + ab(3).Length + 10 + NAD.GetString("A200").Length + 2
+    'AIAM(ad) : AIAN(ae) : AIAF(Colors.AliceBlue)
+    'AIAE(Colors.Gray) : AIAJ(vbLf & vbLf) : ad = ae : ae = ad + 2
+    'AIAM(ad) : AIAN(ae) : AIAF(Colors.White)
+    'ac = New String() {
+    '        "a = a",
+    '        "a = b",
+    '        "e = 2,718281828",
+    '        "π = 3,141592654",
+    '        "(a) = a",
+    '        "a + (b +- c) = a + b +- c",
+    '        "a - (b +- c) = a - b -+ c",
+    '        "a · (b ·: c) = a · b ·: c",
+    '        "a : (b ·: c) = a : b :· c",
+    '        "|-a| = |a|",
+    '        "|a| = a    a ≥ 0",
+    '        "|a| = -a   a < 0",
+    '        "a +- 0 = a",
+    '        "a · 0 = 0",
+    '        "a ^ 0 = 1",
+    '        "a / 0 = ∞",
+    '        "a ·: 1 = a",
+    '        "a ^ 1 = a",
+    '        "a - a = 0",
+    '        "a / a = 1",
+    '        "a + -b = a - b",
+    '        "a - -b = a + b",
+    '        "-a ·: -b = a ·: b",
+    '        "a ·: -b = -a ·: b",
+    '        "cos(a) = b",
+    '        "sin(a) = b",
+    '        "tan(a) = b",
+    '        "cot(a) = b",
+    '        "acos(a) = b",
+    '        "asin(a) = b",
+    '        "atan(a) = b",
+    '        "acot(a) = b",
+    '        "ln(a) = b",
+    '        "ln(e) = 1",
+    '        "log(a ' b) = с",
+    '        "a! = a · (a - 1) · ... · 1    a < 170",
+    '        "a´ = 0",
+    '        "b + a = a + b",
+    '        "b · a = a · b",
+    '        "(a + b) · c = a · c + b · c",
+    '        "(a + b) : c = a : c + b : c",
+    '        "(a - b) · c = a · c - b · c",
+    '        "(a - b) : c = a : c - b : c",
+    '        "(a + b) · (c + d) = a c + a d + b c + b d",
+    '        "a + a = a · (1 + 1)",
+    '        "a · c + b · c = (a + b) · c",
+    '        "a ± b : c = (a c ± b) / c",
+    '        "a : b ± c = (a ± c b) / b",
+    '        "a : b ± c : b = (a ± c) / b",
+    '        "a : b ± c : d = (a d ± c b) / b : d",
+    '        "a · a = a ^ 2",
+    '        "a ^ b ^ c = a ^ (b · c)",
+    '        "a ^ b ·: a ^ c = a ^ (b ± c)",
+    '        "a ^ (b +- c) = a ^ b ·: a ^ c",
+    '        "a ^ b ^ c = a ^ (b · c)",
+    '        "(a ·: b) ^ c = a ^ c ·: b ^ c",
+    '        "a ^ b = c => a = √(c ' b)",
+    '        "a ^ (b ± c) = a ^ b ·: a ^ c",
+    '        "a ^ c ·: b ^ c = (a ·: b) ^ c",
+    '        "(a ·: b) ^ c = a ^ c ·: b ^ c",
+    '        "a ^ -b = 1 : a ^ b",
+    '        "a ^ b = 1 : a ^ -b",
+    '        "a ˄ (b ·: c) = a ˄ b ˄˅ c",
+    '        "√(a ·: b) = √(a) ·: √(b)",
+    '        "√(a) ·: √(b) = √(a ·: b)",
+    '        "√(a ·: b ' c) = √(a ' c) ·: √(b ' c)",
+    '        "√(a ' c) ·: √(b ' c) = √(a ·: b ' c)",
+    '        "√(a ' c) = a ^ (1 : c)",
+    '        "lim(a → ∞ ' b ^ a) = 0, |b| < 1",
+    '        "log(a ' b) = ln(b) : ln(a)",
+    '        "Ʃ(a = 1 ' b ' a) = b (b + 1) : 2",
+    '        "Ʃ(a = 1 ' b ' a ^ 2) = (2 b ^ 3 + 3 b ^ 2 + b) : 6",
+    '        "Ʃ(a = 1 ' b ' a ^ 3) = (b ^ 4 + 2 b ^ 3 + b ^ 2) : 4",
+    '        "Ʃ(a = 0 ' b ' c ^ a) = (1 - c ^ (b + 1)) : (1 - c)",
+    '        "∏(a = 1 ' b ' a) = b!",
+    '        "ʃ(a ' b ' c · d(c)) = (b ^ 2 - a ^ 2) : 2",
+    '        "a = b +- c => a -+ c = b",
+    '        "a = b ·: c => a :· c = b",
+    '        "a = b +· c => a -: b = c",
+    '        "a = b -: c => b -: a = c",
+    '        "a +- b = c => a = c -+ b",
+    '        "a ·: b = c => a = c :· b",
+    '        "a +· b = c => b = c -: a",
+    '        "a -: b = c => b = a -: c",
+    '        "-a = b => a = -b",
+    '        "a ^ 2 b + a c + d = 0 => a = (-c ± √ (c ^ 2 - 4 a d)) : 2 : b",
+    '        "a ^ b = e ^ (b · ln(a))",
+    '        "e ^ ln(a) = a",
+    '        "log(a ' b · c) = log(a ' b) + log(a ' c)",
+    '        "ln(a ·: b) = ln(a) +- ln(b)",
+    '        "ln(a ^ b) = b · ln(a)",
+    '        "ln(e ^ a) = a",
+    '        "..."}
+    'af = New Integer() {
+    '        0, 0, 1, 1, 2, 2, 3, 3, 4, 8, 9, 11, 12, 15, 16, 17, 18, 19, 20, 23, 24, 31, 32, 34, 35, 35, 36, 36, 37,
+    '        38, 39, 43, 44, 45, 46, 49, 50, 62, 63, 67, 68, 68, 69, 69, 70, 73, 74, 74, 75, 75, 76, 84, 85, 85, 86, 92}
+    'For i = 0 To af.Count - 2 Step 2 : aa = ""
+    '  For j = af(i) To af(i + 1) Step 1 : aa &= ac(j) & vbLf : Next
+    '  ad = ae
+    '  AIAJ(ab(i / 2 + 7) & vbLf) : ae = ad + ab(i / 2 + 7).Length + 1
+    '  AIAM(ad) : AIAN(ae) : ad = ae : AIAE(Colors.Magenta)
+    '  ae = ad + aa.Length + 1 : AIAJ(aa & vbLf) : AIAM(ad) : AIAN(ae)
+    '  AIAE(Colors.Blue)
+    'Next
   End Sub
   Private Sub ACAI()
-    Dim aa, ad() As String : aa = NAE.GetString("S005")
-    A204.FontFamily = New FontFamily("Consolas")
-    AAA = 3 ' zuerst AAA dann AEAA
-    AEAA() : aa = aa.Replace(vbLf & vbLf, "")
-    aa = aa.Replace(vbLf, "") : ad = aa.Split("#") : AIAB()
-    AIAM(0) : AIAP(0) : aa = "     " & ad(35) & "     "
-    aa = aa.Substring(0, 25) : AIAJ(aa & vbLf & vbLf)
-    AIAM(0) : AIAN(27) : AIAF(Colors.AliceBlue)
-    AIAE(Colors.Gray) : aa = ad(36) & "                    "
-    aa = aa.Substring(0, 32) & ad(37)
-    AIAJ(aa & vbLf & vbLf) : AIAM(27) : AIAE(Colors.Blue) ' 43 + 27 = 70
-    aa = "" &
-        "a ^ b                           ab" & vbLf & vbLf &
-        "a ˟ √(b)                        a√b" & vbLf & vbLf &
-        "√(a ' b)                        b√a" & vbLf & vbLf &
-        "log(a ' b)                      logab" & vbLf & vbLf &
-        "lim(a ' b)                      limab" & vbLf & vbLf &
-        "Ʃ(a ' b ' c)                    Ʃab c" & vbLf & vbLf &
-        "∏(a ' b ' c)                    ∏ab c" & vbLf & vbLf &
-        "∫(a ' b ' x d(x))               a∫b x dx" ' 69 + 1 = 70
-    '32 Zeichen zwischen rechten Seite und Rand (+ 70 obere)
-    '70-102, 106-138, 143-175, 180-212, 219-251, 258-290, 297-329, 336-368
-    AIAJ(aa) : AHAA(215, 216, 254, 255, 291, 292, 330, 331, 368, 369)
-    AHAB(103, 104, 138, 139, 175, 176, 292, 293, 331, 332, 370, 371)
+    'Dim aa, ad() As String : aa = NAE.GetString("A005")
+    'A204.FontFamily = New FontFamily("Consolas")
+    'AAA = 3 ' zuerst AAA dann AEAA
+    'AEAA() : aa = aa.Replace(vbLf & vbLf, "")
+    'aa = aa.Replace(vbLf, "") : ad = aa.Split("#") : AIAB()
+    'AIAM(0) : AIAP(0) : aa = "     " & ad(35) & "     "
+    'aa = aa.Substring(0, 25) : AIAJ(aa & vbLf & vbLf)
+    'AIAM(0) : AIAN(27) : AIAF(Colors.AliceBlue)
+    'AIAE(Colors.Gray) : aa = ad(36) & "                    "
+    'aa = aa.Substring(0, 32) & ad(37)
+    'AIAJ(aa & vbLf & vbLf) : AIAM(27) : AIAE(Colors.Blue) ' 43 + 27 = 70
+    'aa = "" &
+    '    "a ^ b                           ab" & vbLf & vbLf &
+    '    "a ˟ √(b)                        a√b" & vbLf & vbLf &
+    '    "√(a ' b)                        b√a" & vbLf & vbLf &
+    '    "log(a ' b)                      logab" & vbLf & vbLf &
+    '    "lim(a ' b)                      limab" & vbLf & vbLf &
+    '    "Ʃ(a ' b ' c)                    Ʃab c" & vbLf & vbLf &
+    '    "∏(a ' b ' c)                    ∏ab c" & vbLf & vbLf &
+    '    "∫(a ' b ' x d(x))               a∫b x dx" ' 69 + 1 = 70
+    ''32 Zeichen zwischen rechten Seite und Rand (+ 70 obere)
+    ''70-102, 106-138, 143-175, 180-212, 219-251, 258-290, 297-329, 336-368
+    'AIAJ(aa) : AHAA(215, 216, 254, 255, 291, 292, 330, 331, 368, 369)
+    'AHAB(103, 104, 138, 139, 175, 176, 292, 293, 331, 332, 370, 371)
   End Sub
   Private Sub ACAJ()
     AAA = 4 : AEAA() : AFAC(A002, A015) : AFAD(A012, A013, A014)
@@ -1028,16 +999,12 @@ A = √(Ax2 + Ay2 + Az2)"
       AEAX() : If A201.Text = "" Then Exit Sub
       '2     Autosuggestboxsplit
       FAA = A201.Text.TrimEnd(" ").Split(" ")
-      '3     Aufgabe-Platz-Zeiger
-      If A201.Text = NAA.GetString("S021") Or A201.Text = NAA.GetString("S022") Or A201.Text = "" Then
-        A203.PlaceholderText = NAA.GetString("S026")
-      End If
       '4     Gleichung-Platz-Zeiger
       If A201.Text.Length > 1 Then
-        If A201.Text.Substring(0, 2) = NAA.GetString("S023") Or
-                    A201.Text.Substring(0, 2) = NAA.GetString("S024") Then
-          A203.PlaceholderText = NAA.GetString("S027")
-        End If
+        Select Case A201.Text.Substring(0, 2)
+          Case NAD.GetString("A101"), NAD.GetString("A102")
+            A203.PlaceholderText = NAD.GetString("A051")
+        End Select
       End If
       '5     Formelsuche
       If FAA.Count > 0 Then EAAA() : EAAB()
@@ -1060,7 +1027,7 @@ A = √(Ax2 + Ay2 + Az2)"
       End If
     Catch ex As Exception
       A204.Document.SetText(TextSetOptions.FormatRtf, "")
-      A204.Document.Selection.Text = NAA.GetString("S028") & " A1"
+      A204.Document.Selection.Text = NAD.GetString("A151") & " A1"
       'A204.Document.Selection.Text += ex.HelpLink & vbCrLf
       'A204.Document.Selection.Text += ex.Message & vbCrLf
       'A204.Document.Selection.Text += ex.Source & vbCrLf
@@ -1122,54 +1089,54 @@ A = √(Ax2 + Ay2 + Az2)"
       End If
       'Q-Tabelleseite
       If AAA = 4 Then
-        If A501.Children.Count = 0 Then : Dim aa As String
-          Dim ab As Button : AFAA(20, A501) : AFAB(11, A501)
-          A015.Margin = New Thickness(10 * BAA)
-          Grid.SetRow(A003, 16) : Grid.SetRowSpan(A003, 4)
-          Grid.SetRowSpan(A015, 15) : Grid.SetRow(A015, 1)
-          ' Buttons
-          For i = 1 To 150 Step 1 : Dim ac As New TextBlock
-            ab = New Button With {
-              .FontFamily = New FontFamily("Calibri Light"),
-              .Background = New SolidColorBrush(BBAA(i - 1)),
-              .VerticalAlignment = 3, .HorizontalAlignment = 3,
-              .Padding = New Thickness(0), .FontSize = 7.5 * BAA,
-              .Content = ac, .Margin = New Thickness(0.5 * BAA)}
-            ' Text-Unterschiede
-            Select Case i : Case > 0, < 8 : ac.Text = CStr(i)
-              Case > 7, < 15
-                ac.Text = NAC.GetString("B00" & CStr((i - 7)))
-              Case > 14, < 33
-                If i < 24 Then aa = "B00" Else aa = "B0"
-                ac.Text = CStr((i - 14)) & vbLf &
-                  NAF.GetString(aa & CStr((i - 14)))
-              Case > 32, < 151
-                Dim ad, ae As New Documents.Run : aa = "A00"
-                If i > 41 Then aa = "A0" : If i > 131 Then aa = "A"
-                ad.Text = NAF.GetString(aa & CStr((i - 32))) & vbLf
-                ac.Inlines.Add(ad) : ad.FontSize = 9 * BAA
-                ae.Text = vbLf & NAC.GetString(aa & CStr((i - 32)))
-                ac.Inlines.Add(ae) : ae.FontSize = 6 * BAA
-            End Select
-            ' Farbe-Unterschiede
-            Select Case BBAA(i - 1)
-              Case Colors.Gray, Colors.Olive, Colors.DarkViolet
-                ab.Foreground = New SolidColorBrush(Colors.White)
-            End Select
-            ' Fertigung der Erzeugung
-            A501.Children.Add(ab) : aa = "C00"
-            If i > 9 Then aa = "C0" : If i > 99 Then aa = "C"
-            Grid.SetRow(ab, CInt(NAF.GetString(aa & CStr(i))))
-            aa = "D00" : AddHandler ab.Click, AddressOf BAAD
-            If i > 9 Then aa = "D0" : If i > 99 Then aa = "D"
-            Grid.SetColumn(ab, CInt(NAF.GetString(aa & CStr(i))))
-          Next
-        End If
-        A501.Visibility = 0 : A502.Visibility = 1
-        A503.Visibility = 1
-        Grid.SetColumnSpan(A501.Children.Item(7), 2)
-        Grid.SetColumnSpan(A501.Children.Item(9), 5)
-        Grid.SetColumnSpan(A501.Children.Item(8), 11)
+        'If A501.Children.Count = 0 Then : Dim aa As String
+        '  Dim ab As Button : AFAA(20, A501) : AFAB(11, A501)
+        '  A015.Margin = New Thickness(10 * BAA)
+        '  Grid.SetRow(A003, 16) : Grid.SetRowSpan(A003, 4)
+        '  Grid.SetRowSpan(A015, 15) : Grid.SetRow(A015, 1)
+        '  ' Buttons
+        '  For i = 1 To 150 Step 1 : Dim ac As New TextBlock
+        '    ab = New Button With {
+        '      .FontFamily = New FontFamily("Calibri Light"),
+        '      .Background = New SolidColorBrush(BBAA(i - 1)),
+        '      .VerticalAlignment = 3, .HorizontalAlignment = 3,
+        '      .Padding = New Thickness(0), .FontSize = 7.5 * BAA,
+        '      .Content = ac, .Margin = New Thickness(0.5 * BAA)}
+        '    ' Text-Unterschiede
+        '    Select Case i : Case > 0, < 8 : ac.Text = CStr(i)
+        '      Case > 7, < 15
+        '        ac.Text = NAD.GetString("B20" & CStr((i - 7)))
+        '      Case > 14, < 33
+        '        If i < 24 Then aa = "B00" Else aa = "B0"
+        '        ac.Text = CStr((i - 14)) & vbLf &
+        '          NAA.GetString(aa & CStr((i - 14)))
+        '      Case > 32, < 151
+        '        Dim ad, ae As New Documents.Run : aa = "00"
+        '        If i > 41 Then aa = "0" : If i > 131 Then aa = ""
+        '        ad.Text = NAA.GetString("A" & aa & CStr((i - 32))) & vbLf
+        '        ac.Inlines.Add(ad) : ad.FontSize = 9 * BAA
+        '        ae.Text = vbLf & NAD.GetString("B" & aa & CStr((i - 32)))
+        '        ac.Inlines.Add(ae) : ae.FontSize = 6 * BAA
+        '    End Select
+        '    ' Farbe-Unterschiede
+        '    Select Case BBAA(i - 1)
+        '      Case Colors.Gray, Colors.Olive, Colors.DarkViolet
+        '        ab.Foreground = New SolidColorBrush(Colors.White)
+        '    End Select
+        '    ' Fertigung der Erzeugung
+        '    A501.Children.Add(ab) : aa = "C00"
+        '    If i > 9 Then aa = "C0" : If i > 99 Then aa = "C"
+        '    Grid.SetRow(ab, CInt(NAA.GetString(aa & CStr(i))))
+        '    aa = "D00" : AddHandler ab.Click, AddressOf BAAD
+        '    If i > 9 Then aa = "D0" : If i > 99 Then aa = "D"
+        '    Grid.SetColumn(ab, CInt(NAA.GetString(aa & CStr(i))))
+        '  Next
+        'End If
+        'A501.Visibility = 0 : A502.Visibility = 1
+        'A503.Visibility = 1
+        'Grid.SetColumnSpan(A501.Children.Item(7), 2)
+        'Grid.SetColumnSpan(A501.Children.Item(9), 5)
+        'Grid.SetColumnSpan(A501.Children.Item(8), 11)
       End If
       'Q-Elementseite
       If AAA = 5 Then
@@ -1233,29 +1200,29 @@ A = √(Ax2 + Ay2 + Az2)"
       'H-Tabelleseite
       If AAA = 4 Then
 
-        If A109.Content = "A1" Then : A109.Content = "A2"
-        Else : A109.Content = "A1" : End If : ABAI()
-        A501.Visibility = 1 : A502.Visibility = 1
-        A503.Visibility = 0
+        'If A109.Content = "A1" Then : A109.Content = "A2"
+        'Else : A109.Content = "A1" : End If : ABAI()
+        'A501.Visibility = 1 : A502.Visibility = 1
+        'A503.Visibility = 0
 
-        If A503.Items.Count = 0 Then : Dim aa As String
-          Grid.SetRow(A003, 16) : Grid.SetRowSpan(A003, 4)
-          Grid.SetRowSpan(A015, 15) : Grid.SetRow(A015, 1)
-          AddHandler A503.SelectionChanged, AddressOf BAAA
-          Grid.SetRow(A003, 16)
-          A015.Margin = New Thickness(10 * BAA)
-          For i = 1 To 118 Step 1 : Dim ab As TextBlock
-            ab = New TextBlock With {
-              .VerticalAlignment = 3,
-              .FontSize = 15 * BAA,
-              .HorizontalAlignment = 3,
-              .FontFamily = New FontFamily("Consolas")}
-            aa = "A00"
-            If i > 9 Then aa = "A0" : If i > 99 Then aa = "A"
-            A503.Items.Add(ab)
-            ab.Text = NAF.GetString(aa & CStr(i)) & "          "
-            ab.Text = ab.Text.Substring(0, 10) &
-              NAC.GetString(aa & CStr(i)) : Next : End If
+        'If A503.Items.Count = 0 Then : Dim aa As String
+        '  Grid.SetRow(A003, 16) : Grid.SetRowSpan(A003, 4)
+        '  Grid.SetRowSpan(A015, 15) : Grid.SetRow(A015, 1)
+        '  AddHandler A503.SelectionChanged, AddressOf BAAA
+        '  Grid.SetRow(A003, 16)
+        '  A015.Margin = New Thickness(10 * BAA)
+        '  For i = 1 To 118 Step 1 : Dim ab As TextBlock
+        '    ab = New TextBlock With {
+        '      .VerticalAlignment = 3,
+        '      .FontSize = 15 * BAA,
+        '      .HorizontalAlignment = 3,
+        '      .FontFamily = New FontFamily("Consolas")}
+        '    aa = "00"
+        '    If i > 9 Then aa = "0" : If i > 99 Then aa = ""
+        '    A503.Items.Add(ab)
+        '    ab.Text = NAA.GetString("A" & aa & CStr(i)) & "          "
+        '    ab.Text = ab.Text.Substring(0, 10) &
+        '      NAD.GetString("B" & aa & CStr(i)) : Next : End If
       End If
       'H-Elementseite
       If AAA = 5 Then
@@ -1269,15 +1236,8 @@ A = √(Ax2 + Ay2 + Az2)"
     A204.Document.Selection.ParagraphFormat.SpaceAfter = 0
     MAO.Clear() : MAP.Clear()
   End Sub
-  Private Sub AEAY()
-    'aaaaj(1) = False
-    'aaaaj(2) = False
-    'aaaaj(3) = False
-    'aaaaj(6) = False
-    'aaaaj(7) = False
-  End Sub
   Private Sub AEAZ(a As String)
-    AIAB() : AIAH(NAA.GetString("S028") & ": " & NAA.GetString(a))
+    AIAB() : AIAH(NAD.GetString("A151") & ": " & NAD.GetString(a))
   End Sub
 #End Region ' *****
 #Region "A-AF"
@@ -1482,8 +1442,8 @@ A = √(Ax2 + Ay2 + Az2)"
       ah.HorizontalContentAlignment = 3
       Grid.SetColumnSpan(ae, 2) : Exit Sub : End If
     ' Zuweisungen, Bedingungen
-    AddHandler ah.Click, AddressOf BAAB : aa = "A00"
-    If a > 9 Then aa = "A0" : If a > 99 Then aa = "A"
+    AddHandler ah.Click, AddressOf BAAB : aa = "00"
+    If a > 9 Then aa = "0" : If a > 99 Then aa = ""
     A503.SelectedIndex = -1 : ah.FontSize = 10 * BAA
     ah.Background = New SolidColorBrush(BBAA(a + 31))
     ' Positionen
@@ -1498,7 +1458,7 @@ A = √(Ax2 + Ay2 + Az2)"
       ab.Children.Add(ac) : ab.Children.Add(ad)
       ab.Children.Add(ae) : ab.Children.Add(af)
       ab.Children.Add(ag)
-      ae.Text = NAE.GetString("S006")
+      ae.Text = NAE.GetString("A006")
       Grid.SetRow(ac, 0) : Grid.SetColumn(ac, 0)
       Grid.SetRow(ad, 1) : Grid.SetColumn(ad, 0)
       Grid.SetRow(ae, 2) : Grid.SetColumn(ae, 0)
@@ -1513,10 +1473,10 @@ A = √(Ax2 + Ay2 + Az2)"
         ah.Foreground = New SolidColorBrush(Colors.Black)
     End Select
     ' Fertigung - Ende
-    AEAA() : ag.Text = NAG.GetString(aa & a)
-    A502.Visibility = 0 : A503.Visibility = 1
-    ac.Text = NAF.GetString(aa & a) & vbLf &
-      vbLf & NAC.GetString(aa & a)
+    'AEAA() : ag.Text = NAB.GetString("A" & aa & a)
+    'A502.Visibility = 0 : A503.Visibility = 1
+    'ac.Text = NAA.GetString("A" & aa & a) & vbLf &
+    '  vbLf & NAD.GetString("B" & aa & a)
   End Sub
 
   Private Sub BAAD(a As Button, b As RoutedEventArgs)
@@ -1729,8 +1689,8 @@ A = √(Ax2 + Ay2 + Az2)"
       Next
       '5     Werteprüfen
       For i = 0 To FAA.Count - 1 Step 1
-        If Double.TryParse(aaaab(i).Replace(NAA.GetString("S038"), NAA.GetString("S039")), 0) = True Then
-          aaaae(i) = True : aaaad(i) = Convert.ToDouble(aaaab(i).Replace(NAA.GetString("S038"), NAA.GetString("S039")))
+        If Double.TryParse(aaaab(i).Replace(NAD.GetString("A103"), NAD.GetString("A104")), 0) = True Then
+          aaaae(i) = True : aaaad(i) = Convert.ToDouble(aaaab(i).Replace(NAD.GetString("A103"), NAD.GetString("A104")))
         End If
       Next
       '6     s1 s2 Δs
@@ -1753,9 +1713,9 @@ A = √(Ax2 + Ay2 + Az2)"
         aabab.AAX(A003, "s2", BAA, 1120 - v4 * 860, 395, 20, 0, 2)
         aabaa.AAAA("x", A003, BAA, 535 - v4 * 360, 460, 700, 0, x1, x2, 1)
         aabaa.AACA("Δs", A003, BAA, 530 + v4 * 340, 425, 624, 0 + v4 * 180, 2)
-        aabaa.AAEB(NAD.GetString("S001"), A003, BAA, 730 - v4 * 240, 240, v4 * 2 - 1)
-        aabaa.AAEA(NAD.GetString("S002"), A003, BAA, 400 + v4 * 600, 300, 45 - v4 * 90)
-        aabaa.AAEA(NAD.GetString("S003"), A003, BAA, 1000 - v4 * 600, 300, 50 - v4 * 100)
+        aabaa.AAEB(NAD.GetString("D001"), A003, BAA, 730 - v4 * 240, 240, v4 * 2 - 1)
+        aabaa.AAEA(NAD.GetString("D002"), A003, BAA, 400 + v4 * 600, 300, 45 - v4 * 90)
+        aabaa.AAEA(NAD.GetString("D003"), A003, BAA, 1000 - v4 * 600, 300, 50 - v4 * 100)
       End If
       '7     t1 t2 Δt
       If CAH = "2" Then
@@ -1780,10 +1740,10 @@ A = √(Ax2 + Ay2 + Az2)"
         aabaa.AACA("Δt", A003, BAA, 520, 425, 323, 180, 2)
         aabaa.AAAA("t", A003, BAA, 1185, 460, 405, 0, x1, x2, 0)
         aabaa.AAAA("t", A003, BAA, 515, 460, 405, 180, x1, x2, 0)
-        aabaa.AAEA(NAD.GetString("S004"), A003, BAA, 650, 300, -45)
-        aabaa.AAEA(NAD.GetString("S004"), A003, BAA, 1050, 300, 45)
-        aabaa.AAEA(NAD.GetString("S005"), A003, BAA, 350, 300, -50)
-        aabaa.AAEA(NAD.GetString("S005"), A003, BAA, 1350, 300, 50)
+        aabaa.AAEA(NAD.GetString("D004"), A003, BAA, 650, 300, -45)
+        aabaa.AAEA(NAD.GetString("D004"), A003, BAA, 1050, 300, 45)
+        aabaa.AAEA(NAD.GetString("D005"), A003, BAA, 350, 300, -50)
+        aabaa.AAEA(NAD.GetString("D005"), A003, BAA, 1350, 300, 50)
       End If
       '8    v1 v2 Δv {v}
       If CAH = "3" Then
@@ -1847,7 +1807,7 @@ A = √(Ax2 + Ay2 + Az2)"
         'Bild 1
         aabaa.AACA("v1", A003, BAA, v5, 350, u1, 0 + v1 * 180, y1)
         aabaa.AACA("v2", A003, BAA, v5, 390, u2, 0 + v2 * 180, y2)
-        aabaa.AAEB(NAD.GetString("S001"), A003, BAA, 300, 150, v2 * 2 - 1)
+        aabaa.AAEB(NAD.GetString("D001"), A003, BAA, 300, 150, v2 * 2 - 1)
         aabaa.AACA("Δv", A003, BAA, v5 + u1 - 2 * u1 * v1, 430, u3, 0 + v3 * 180, y3)
         aabaa.AAAA("v1", A003, BAA, 100 + v4 * 600, 250, 30 + u1 / 8, 0 + v1 * 180, 0, 0, y1)
         aabaa.AAAA("v2", A003, BAA, 700 - v4 * 600, 250, 30 + u2 / 8, 0 + v2 * 180, 0, 0, y2)
@@ -2225,8 +2185,8 @@ A = √(Ax2 + Ay2 + Az2)"
   Private Sub DAAA()
     If A201.Text.Length > 1 Then
       Select Case A201.Text.Substring(0, 2)
-        Case NAA.GetString("S023") : _FD = A201.Text.Split(":") : CAB = _FD(1)
-        Case NAA.GetString("S024") : _FD = A201.Text.Split(":") : CAB = _FD(1)
+        Case NAD.GetString("A101") : _FD = A201.Text.Split(":") : CAB = _FD(1)
+        Case NAD.GetString("A102") : _FD = A201.Text.Split(":") : CAB = _FD(1)
       End Select : End If
     If A203.Document.Selection.StoryLength < 2 Then Exit Sub
     AIBA() : AIBB() : CAA = A203.Document.Selection.Text
@@ -2247,9 +2207,9 @@ A = √(Ax2 + Ay2 + Az2)"
     MAQ.Clear() : MAR.Clear()
     KAG.Clear() : MAQ.Add(0)
     _M = 0
-    _AA = NAA.GetString("S029")
-    _AB = NAA.GetString("S038")
-    _AC = NAA.GetString("S039")
+    _AA = NAD.GetString("A152")
+    _AB = NAD.GetString("A103")
+    _AC = NAD.GetString("A104")
     KAB.Add(_AA & "  : a = a")
     ' Symbolen   Reihenfolge !!!
     CAA = CAA.Replace("  ", " ")
@@ -2310,7 +2270,7 @@ A = √(Ax2 + Ay2 + Az2)"
       ' a b + a c = a (b + c)
       'Do : DBDB() : D_Z2() : Loop Until _I = 0
     Loop
-    A_E.Content = NAA.GetString("S005")
+    A_E.Content = NAD.GetString("A005")
     ABAE() ' !!!   Reihenfolge   !!!
   End Sub
   Private Sub DAAD()
@@ -2327,62 +2287,79 @@ A = √(Ax2 + Ay2 + Az2)"
       C1.Clear() : C2.Clear() : C3.Clear() : C4.Clear() : C5.Clear() : C6.Clear() : C7.Clear()
       '1.2     Funktionen
       If CAA.Substring(_B, 1) <> "-" Then
-        If _D > 1 Then
-          If CAA.Substring(_B, 1) = "(" Then _C += 1 : _E -= 2 : MAB.Add(1) : E_ = True
-          If CAA.Substring(_B, 1) = "{" Then _C += 1 : _E -= 2 : MAB.Add(1) : E_ = True
-          If CAA.Substring(_B, 1) = "ǀ" Then _C += 1 : _E -= 2 : MAB.Add(2) : E_ = True
-          If CAA.Substring(_B, 1) = "[" Then _C += 1 : _E -= 2 : MAB.Add(2) : E_ = True
-        End If
-        If _D > 2 Then
-          If CAA.Substring(_B, 2) = "√(" Then _C += 2 : _E -= 3 : MAB.Add(3) : F_ = True
-          If CAA.Substring(_B, 2) = "d(" Then _C += 2 : _E -= 3 : MAB.Add(4) : G_ = True
-          If CAA.Substring(_B, 2) = "ʃ(" Then _C += 2 : _E -= 3 : MAB.Add(5) : H_ = True
-          If CAA.Substring(_B, 2) = "Ʃ(" Then _C += 2 : _E -= 3 : MAB.Add(6) : I_ = True
-          If CAA.Substring(_B, 2) = "∏(" Then _C += 2 : _E -= 3 : MAB.Add(7) : J_ = True
-        End If
-        If _D > 4 Then
-          If CAA.Substring(_B, 3) = "ln(" Then _C += 3 : _E -= 4 : MAB.Add(8) : K_ = True
-          If CAA.Substring(_B, 4) = "log(" Then _C += 4 : _E -= 5 : MAB.Add(9) : K_ = True
-          If CAA.Substring(_B, 4) = "lim(" Then _C += 4 : _E -= 5 : MAB.Add(10) : L_ = True
-          If CAA.Substring(_B, 4) = "cos(" Then _C += 4 : _E -= 5 : MAB.Add(11) : M_ = True
-          If CAA.Substring(_B, 4) = "sin(" Then _C += 4 : _E -= 5 : MAB.Add(12) : M_ = True
-          If CAA.Substring(_B, 4) = "tan(" Then _C += 4 : _E -= 5 : MAB.Add(13) : M_ = True
-          If CAA.Substring(_B, 4) = "cot(" Then _C += 4 : _E -= 5 : MAB.Add(14) : M_ = True
-        End If
-        If _D > 6 Then
-          If CAA.Substring(_B, 5) = "acos(" Then _C += 5 : _E -= 6 : MAB.Add(15) : M_ = True
-          If CAA.Substring(_B, 5) = "asin(" Then _C += 5 : _E -= 6 : MAB.Add(16) : M_ = True
-          If CAA.Substring(_B, 5) = "atan(" Then _C += 5 : _E -= 6 : MAB.Add(17) : M_ = True
-          If CAA.Substring(_B, 5) = "acot(" Then _C += 5 : _E -= 6 : MAB.Add(18) : M_ = True
-        End If
+        ' Erstes ein Zeichen
+        If _D > 1 Then : Select Case CAA.Substring(_B, 1)
+            Case "(" : _C += 1 : _E -= 2 : MAB.Add(1)
+            Case "{" : _C += 1 : _E -= 2 : MAB.Add(1)
+            Case "ǀ" : _C += 1 : _E -= 2 : MAB.Add(2)
+            Case "[" : _C += 1 : _E -= 2 : MAB.Add(2)
+          End Select : End If
+        ' Erste zwei Zeichen
+        If _D > 2 Then : Select Case CAA.Substring(_B, 2)
+            Case "√(" : _C += 2 : _E -= 3 : MAB.Add(3)
+            Case "d(" : _C += 2 : _E -= 3 : MAB.Add(4)
+            Case "ʃ(" : _C += 2 : _E -= 3 : MAB.Add(5)
+            Case "Ʃ(" : _C += 2 : _E -= 3 : MAB.Add(6)
+            Case "∏(" : _C += 2 : _E -= 3 : MAB.Add(7)
+          End Select : End If
+        ' Erste drei Zeichen
+        If _D > 3 Then : Select Case CAA.Substring(_B, 3)
+            Case "ln(" : _C += 3 : _E -= 4 : MAB.Add(8)
+          End Select : End If
+        ' Erste vier Zeichen
+        If _D > 4 Then : Select Case CAA.Substring(_B, 2)
+            Case "log(" : _C += 4 : _E -= 5 : MAB.Add(9)
+            Case "lim(" : _C += 4 : _E -= 5 : MAB.Add(10)
+            Case "cos(" : _C += 4 : _E -= 5 : MAB.Add(11)
+            Case "sin(" : _C += 4 : _E -= 5 : MAB.Add(12)
+            Case "tan(" : _C += 4 : _E -= 5 : MAB.Add(13)
+            Case "cot(" : _C += 4 : _E -= 5 : MAB.Add(14)
+          End Select : End If
+        ' Erste fünf Zeichen
+        If _D > 5 Then : Select Case CAA.Substring(_B, 5)
+            Case "acos(" : _C += 5 : _E -= 6 : MAB.Add(15)
+            Case "asin(" : _C += 5 : _E -= 6 : MAB.Add(16)
+            Case "atan(" : _C += 5 : _E -= 6 : MAB.Add(17)
+            Case "acot(" : _C += 5 : _E -= 6 : MAB.Add(18)
+          End Select : End If
       Else
-        If _D > 2 Then
-          If CAA.Substring(_B, 2) = "-(" Then _C += 2 : _E -= 3 : MAB.Add(1) : E_ = True
-          If CAA.Substring(_B, 2) = "-{" Then _C += 2 : _E -= 3 : MAB.Add(1) : E_ = True
-          If CAA.Substring(_B, 2) = "-ǀ" Then _C += 2 : _E -= 3 : MAB.Add(2) : E_ = True
-          If CAA.Substring(_B, 2) = "-[" Then _C += 2 : _E -= 3 : MAB.Add(2) : E_ = True
-        End If
-        If _D > 4 Then
-          If CAA.Substring(_B, 3) = "-√(" Then _C += 3 : _E -= 4 : MAB.Add(3) : F_ = True
-          If CAA.Substring(_B, 3) = "-d(" Then _C += 3 : _E -= 4 : MAB.Add(4) : F_ = True
-          If CAA.Substring(_B, 3) = "-ʃ(" Then _C += 3 : _E -= 4 : MAB.Add(5) : H_ = True
-          If CAA.Substring(_B, 3) = "-Ʃ(" Then _C += 3 : _E -= 4 : MAB.Add(6) : I_ = True
-          If CAA.Substring(_B, 3) = "-∏(" Then _C += 3 : _E -= 4 : MAB.Add(7) : J_ = True
-          If CAA.Substring(_B, 4) = "-ln(" Then _C += 4 : _E -= 5 : MAB.Add(8) : K_ = True
-        End If
-        If _D > 6 Then
-          If CAA.Substring(_B, 5) = "-log(" Then _C += 5 : _E -= 6 : MAB.Add(9) : K_ = True
-          If CAA.Substring(_B, 5) = "-lim(" Then _C += 5 : _E -= 6 : MAB.Add(10) : L_ = True
-          If CAA.Substring(_B, 5) = "-cos(" Then _C += 5 : _E -= 6 : MAB.Add(11) : M_ = True
-          If CAA.Substring(_B, 5) = "-sin(" Then _C += 5 : _E -= 6 : MAB.Add(12) : M_ = True
-          If CAA.Substring(_B, 5) = "-tan(" Then _C += 5 : _E -= 6 : MAB.Add(13) : M_ = True
-          If CAA.Substring(_B, 5) = "-cot(" Then _C += 5 : _E -= 6 : MAB.Add(14) : M_ = True
-          If CAA.Substring(_B, 6) = "-acos(" Then _C += 6 : _E -= 7 : MAB.Add(15) : M_ = True
-          If CAA.Substring(_B, 6) = "-asin(" Then _C += 6 : _E -= 7 : MAB.Add(16) : M_ = True
-          If CAA.Substring(_B, 6) = "-atan(" Then _C += 6 : _E -= 7 : MAB.Add(17) : M_ = True
-          If CAA.Substring(_B, 6) = "-acot(" Then _C += 6 : _E -= 7 : MAB.Add(18) : M_ = True
-        End If
+        ' Erste zwei Zeichen
+        If _D > 2 Then : Select Case CAA.Substring(_B, 2)
+            Case "-(" : _C += 2 : _E -= 3 : MAB.Add(1)
+            Case "-{" : _C += 2 : _E -= 3 : MAB.Add(1)
+            Case "-ǀ" : _C += 2 : _E -= 3 : MAB.Add(2)
+            Case "-[" : _C += 2 : _E -= 3 : MAB.Add(2)
+          End Select : End If
+        ' Erste drei Zeichen
+        If _D > 3 Then : Select Case CAA.Substring(_B, 3)
+            Case "-√(" : _C += 3 : _E -= 4 : MAB.Add(3)
+            Case "-d(" : _C += 3 : _E -= 4 : MAB.Add(4)
+            Case "-ʃ(" : _C += 3 : _E -= 4 : MAB.Add(5)
+            Case "-Ʃ(" : _C += 3 : _E -= 4 : MAB.Add(6)
+            Case "-∏(" : _C += 3 : _E -= 4 : MAB.Add(7)
+          End Select : End If
+        ' Erste vier Zeichen
+        If _D > 4 Then : Select Case CAA.Substring(_B, 4)
+            Case "-ln(" : _C += 4 : _E -= 5 : MAB.Add(8)
+          End Select : End If
+        ' Erste fünf Zeichen
+        If _D > 5 Then : Select Case CAA.Substring(_B, 5)
+            Case "-log(" : _C += 5 : _E -= 6 : MAB.Add(9)
+            Case "-lim(" : _C += 5 : _E -= 6 : MAB.Add(10)
+            Case "-cos(" : _C += 5 : _E -= 6 : MAB.Add(11)
+            Case "-sin(" : _C += 5 : _E -= 6 : MAB.Add(12)
+            Case "-tan(" : _C += 5 : _E -= 6 : MAB.Add(13)
+            Case "-cot(" : _C += 5 : _E -= 6 : MAB.Add(14)
+          End Select : End If
+        ' Erste sechs Zeichen
+        If _D > 6 Then : Select Case CAA.Substring(_B, 6)
+            Case "-acos(" : _C += 6 : _E -= 7 : MAB.Add(15)
+            Case "-asin(" : _C += 6 : _E -= 7 : MAB.Add(16)
+            Case "-atan(" : _C += 6 : _E -= 7 : MAB.Add(17)
+            Case "-acot(" : _C += 6 : _E -= 7 : MAB.Add(18)
+          End Select : End If
       End If
+
       '1.3     Funktionsgültigkeit
       If _B < _C Then AAD = 1 : A_ = True
       '1.4     Öffnungsklammer
@@ -2487,7 +2464,7 @@ A = √(Ax2 + Ay2 + Az2)"
     If KAC.Count > 0 Then : Static aa, ab() As String : KAG.Add("DAAE")
       For i = 0 To KAC.Count - 1 Step 1 : KAA.Insert(_M + i + 1, KAC(i)) : ab = KAB(_M).Split(":")
         aa = ab(0).Remove(ab(0).Length - 1, 1) : aa &= "." & Convert.ToString(i + 1) & " : " & KAD(i)
-        If _M = 0 Then aa = aa.Replace(NAA.GetString("S029") & " .", NAA.GetString("S029") & " ")
+        If _M = 0 Then aa = aa.Replace(NAD.GetString("A152") & " .", NAD.GetString("A152") & " ")
         KAB.Insert(_M + i + 1, aa) : KAL.Add(vbLf & vbLf & aa) : KAL.AddRange(KAK.GetRange(0, MAR(i)))
         JAC.Add(Colors.Blue) : JAC.AddRange(JAB.GetRange(0, MAR(i))) : KAK.RemoveRange(0, MAR(i))
         JAB.RemoveRange(0, MAR(i)) : Next : End If : MAR.Clear() : KAC.Clear() : KAD.Clear()
@@ -2756,7 +2733,7 @@ A = √(Ax2 + Ay2 + Az2)"
             DAAF()
             'If B_ = True Then
 
-            '    DAAI(vbLf & KAH(0) & vbLf) : DAAJ(CAA & vbLf) : DAAK(NAA.GetString("S040"))
+            '    DAAI(vbLf & KAH(0) & vbLf) : DAAJ(CAA & vbLf) : DAAK(NAD.GetString("S040"))
 
             '    If IAB(1) <> 1 Then DAAI("√(a) = b") : DAAK(" => ") : DAAJ("a = b ^ 2" & vbLf)
 
@@ -2819,7 +2796,7 @@ A = √(Ax2 + Ay2 + Az2)"
 
           'If B_ = True Then
 
-          '    DAAI(vbLf & KAH(0) & vbLf) : DAAJ(CAA & vbLf) : DAAK(NAA.GetString("S040"))
+          '    DAAI(vbLf & KAH(0) & vbLf) : DAAJ(CAA & vbLf) : DAAK(NAD.GetString("S040"))
 
           '    DAAI(CAC.Substring(0, 6)) : DAAK(" => ") : DAAJ(CAC.Substring(10, 6) & vbLf) : Exit Sub
           'End If
@@ -2928,7 +2905,7 @@ A = √(Ax2 + Ay2 + Az2)"
 
               'DAAI(vbLf & CAA & vbLf)
 
-              'DAAJ(ao & vbLf) : DAAK(NAA.GetString("S040")) : DAAI("a ^ 2 b + a c + d = 0") : DAAK(" => ")
+              'DAAJ(ao & vbLf) : DAAK(NAD.GetString("S040")) : DAAI("a ^ 2 b + a c + d = 0") : DAAK(" => ")
 
               'DAAJ("a1 = (-c + √(c ^ 2 - 4 b d)) : 2 : b" & vbLf)
 
@@ -2955,7 +2932,7 @@ A = √(Ax2 + Ay2 + Az2)"
               KAG.Add("a ^ 2 b + a c + d = 0 => a = (-c ± √(c ^ 2 - 4 b d)) : 2 : b")
 
 
-              'DAAI(vbLf & CAA & vbLf) : DAAJ(ao & vbLf) : DAAK(NAA.GetString("S040"))
+              'DAAI(vbLf & CAA & vbLf) : DAAJ(ao & vbLf) : DAAK(NAD.GetString("S040"))
 
               'DAAI("a ^ 2 b + a c + d = 0") : DAAK(" => ") : DAAJ("a2 = (-c - √(c ^ 2 - 4 b d)) : 2 : b" & vbLf)
 
@@ -2994,7 +2971,7 @@ A = √(Ax2 + Ay2 + Az2)"
 
               'DAAI(vbLf & CAA & vbLf) : DAAJ(ao & vbLf)
 
-              'DAAK(NAA.GetString("S040")) : DAAI("a ^ 2 b + a c = 0") : DAAK(" => ")
+              'DAAK(NAD.GetString("S040")) : DAAI("a ^ 2 b + a c = 0") : DAAK(" => ")
 
               'DAAJ("a1 = 0" & vbLf)
 
@@ -3020,7 +2997,7 @@ A = √(Ax2 + Ay2 + Az2)"
               '
               'DAAI(vbLf & CAA & vbLf)
 
-              'DAAJ(ao & vbLf) : DAAK(NAA.GetString("S040")) : DAAI("a ^ 2 b + a c = 0")
+              'DAAJ(ao & vbLf) : DAAK(NAD.GetString("S040")) : DAAI("a ^ 2 b + a c = 0")
 
               'DAAK(" => ") : DAAJ("a2 = -c / b" & vbLf)
               '
@@ -3062,29 +3039,29 @@ A = √(Ax2 + Ay2 + Az2)"
     _F = -1 : Do : _F += 1 ' extrahierte Reihenfolge
       ' Rechnungen
       Select Case KAH(_F)
-        ' e = 2,72
+          ' e = 2,72
         Case "e" : DEWA({1001, 1, 1, 1, 3, 3, 3, 0})
-        ' π = 3,14
+          ' π = 3,14
         Case "π" : DEWA({1002, 2, 1, 1, 3, 3, 3, 0})
-        ' -e = 2,72
+          ' -e = 2,72
         Case "-e" : DEWA({1003, 3, 1, 1, 3, 3, 3, 0})
-        ' -π = 3,14
+          ' -π = 3,14
         Case "-π" : DEWA({1004, 4, 1, 1, 3, 3, 3, 0})
-        ' -0 = 0
+          ' -0 = 0
         Case "-0" : DEWA({1005, 5, 1, 1, 3, 3, 3, 0})
-        ' +∞ = ∞
+          ' +∞ = ∞
         Case "+∞" : DEWA({1006, 6, 1, 1, 3, 3, 3, 0})
-        ' ln(0) = -∞
+          ' ln(0) = -∞
         Case "ln(0)" : DEWA({1007, 7, 1, 1, 3, 3, 3, 0})
-        ' -ln(0) = ∞
+          ' -ln(0) = ∞
         Case "-ln(0)" : DEWA({1008, 6, 1, 1, 3, 3, 3, 0})
-        ' ln(e) = 1
+          ' ln(e) = 1
         Case "ln(e)" : DEWA({1009, 8, 1, 1, 3, 3, 3, 0})
-        ' -ln(e) = -1
+          ' -ln(e) = -1
         Case "-ln(e)" : DEWA({1010, 9, 1, 1, 3, 3, 3, 0})
-        ' log(0) = -∞
+          ' log(0) = -∞
         Case "log(0)" : DEWA({1011, 7, 1, 1, 3, 3, 3, 0})
-        ' -log(0) = ∞
+          ' -log(0) = ∞
         Case "-log(0)" : DEWA({1012, 6, 1, 1, 3, 3, 3, 0})
       End Select
       ' Exit Sub
@@ -3100,61 +3077,61 @@ A = √(Ax2 + Ay2 + Az2)"
       End If
       ' Rechnungen
       Select Case _AI : Case "" : Exit Select
-        ' a + -b = a - b
+          ' a + -b = a - b
         Case "+`3" : DEWA({1021, 11, 2, 2, 3, 8, 8, 0})
-        ' a - -b = a + b
+          ' a - -b = a + b
         Case "-`3" : DEWA({1022, 12, 2, 2, 3, 8, 8, 0})
-        ' a ± -b = a ∓ b
+          ' a ± -b = a ∓ b
         Case "±`3" : DEWA({1023, 13, 2, 2, 3, 8, 8, 0})
-        ' a ∓ -b = a ± b
+          ' a ∓ -b = a ± b
         Case "∓`3" : DEWA({1024, 14, 2, 2, 3, 8, 8, 0})
-        ' a + -b' = a - b'
+          ' a + -b' = a - b'
         Case "+`44" : DEWA({1025, 11, 2, 3, 3, 13, 13, 2})
-        ' a + -b'. = a - b'.
+          ' a + -b'. = a - b'.
         Case "+`54" : DEWA({1025, 11, 2, 4, 3, 13, 13, 2})
-        ' a - -b' = a + b'
+          ' a - -b' = a + b'
         Case "-`44" : DEWA({1026, 12, 2, 3, 3, 13, 13, 2})
-        ' a - -b'. = a + b'.
+          ' a - -b'. = a + b'.
         Case "-`54" : DEWA({1026, 12, 2, 4, 3, 13, 13, 2})
-        ' a ± -b' = a ∓ b'
+          ' a ± -b' = a ∓ b'
         Case "±`44" : DEWA({1027, 13, 2, 3, 3, 13, 13, 2})
-        ' a ± -b'. = a ∓ b'.
+          ' a ± -b'. = a ∓ b'.
         Case "±`54" : DEWA({1027, 13, 2, 4, 3, 13, 13, 2})
-        ' a ∓ -b' = a ± b'
+          ' a ∓ -b' = a ± b'
         Case "∓`44" : DEWA({1028, 14, 2, 3, 3, 13, 13, 2})
-        ' a ∓ -b'. = a ± b'.
+          ' a ∓ -b'. = a ± b'.
         Case "∓`54" : DEWA({1028, 14, 2, 4, 3, 13, 13, 2})
-        ' a · -b = -a · b
+          ' a · -b = -a · b
         Case "1`·`3" : DEWA({1031, 10, 3, 5, 3, 8, 6, 0})
-        ' a : -b = -a : b
+          ' a : -b = -a : b
         Case "1`:`3" : DEWA({1031, 10, 3, 5, 3, 8, 6, 0})
-        ' -a · -b = a · b
+          ' -a · -b = a · b
         Case "3`·`3" : DEWA({1032, 15, 4, 6, 4, 15, 1, 0})
-        ' -a : -b = a : b
+          ' -a : -b = a : b
         Case "3`:`3" : DEWA({1032, 15, 4, 6, 4, 15, 1, 0})
-        ' a' · -b = -a' · b
+          ' a' · -b = -a' · b
         Case "42`·`3" : DEWA({1033, 10, 3, 7, 3, 16, 14, 1})
-        ' a' : -b = -a' : b
+          ' a' : -b = -a' : b
         Case "42`:`3" : DEWA({1033, 10, 3, 7, 3, 16, 14, 1})
-        ' -a' · -b = a' · b
+          ' -a' · -b = a' · b
         Case "44`·`3" : DEWA({1034, 15, 4, 8, 4, 20, 7, 1})
-        ' -a' : -b = a' : b
+          ' -a' : -b = a' : b
         Case "44`:`3" : DEWA({1034, 15, 4, 8, 4, 20, 7, 1})
-        ' a · -b' = -a · b'
+          ' a · -b' = -a · b'
         Case "1`·`44" : DEWA({1035, 10, 3, 9, 3, 13, 9, 2})
-        ' a : -b' = -a : b'
+          ' a : -b' = -a : b'
         Case "1`:`44" : DEWA({1035, 10, 3, 9, 3, 13, 9, 2})
-        ' -a · -b' = a · b'
+          ' -a · -b' = a · b'
         Case "3`·`44" : DEWA({1036, 15, 4, 10, 4, 18, 5, 2})
-        ' -a : -b' = a : b'
+          ' -a : -b' = a : b'
         Case "3`:`44" : DEWA({1036, 15, 4, 10, 4, 18, 5, 2})
-        ' a' · -b' = -a' · b'
+          ' a' · -b' = -a' · b'
         Case "42`·`44" : DEWA({1037, 10, 3, 11, 3, 19, 17, 3})
-        ' a' : -b' = -a' : b'
+          ' a' : -b' = -a' : b'
         Case "42`:`44" : DEWA({1037, 10, 3, 11, 3, 19, 17, 3})
-          ' -a' · -b' = a' · b'
+            ' -a' · -b' = a' · b'
         Case "44`·`44" : DEWA({1038, 15, 4, 12, 4, 21, 12, 3})
-        ' -a' : -b' = a' : b'
+          ' -a' : -b' = a' : b'
         Case "44`:`44" : DEWA({1038, 15, 4, 12, 4, 21, 12, 3})
       End Select
       ' Exit Sub
@@ -3170,47 +3147,47 @@ A = √(Ax2 + Ay2 + Az2)"
               KAI(_G) & "`" & KAH(_G) : End If : End Select
       ' Rechnungen
       Select Case _AI : Case "", "☼" : Exit Select
-        ' 0 ^ 0 = ☼
+          ' 0 ^ 0 = ☼
         Case "`0`˄`0" : DEWA({1041, 15, 5, 13, 6, 3, 3, 0})
-        ' 0 : 0 = ☼
+          ' 0 : 0 = ☼
         Case "`0`:`0" : DEWA({1042, 15, 5, 13, 6, 3, 3, 0})
-        ' ☼ · 0 : 0 = ☼
+          ' ☼ · 0 : 0 = ☼
         Case "·`0`:`0" : DEWA({1043, 15, 6, 14, 6, 4, 4, 0})
-        ' ☼ : 0 · 0 = ☼
+          ' ☼ : 0 · 0 = ☼
         Case ":`0`·`0" : DEWA({1044, 18, 7, 15, 6, 4, 4, 0})
-        ' 0 · ∞ = ☼
+          ' 0 · ∞ = ☼
         Case "`0`·`∞" : DEWA({1045, 15, 5, 13, 6, 3, 3, 0})
-        ' ☼ · 0 · ∞ = ☼
+          ' ☼ · 0 · ∞ = ☼
         Case "·`0`·`∞" : DEWA({1046, 15, 6, 14, 6, 4, 4, 0})
-        ' 1 ^ ∞ = ☼
+          ' 1 ^ ∞ = ☼
         Case "`1`˄`∞" : DEWA({1047, 15, 5, 13, 6, 3, 3, 0})
-        ' 1 ^ -∞ = ☼
+          ' 1 ^ -∞ = ☼
         Case "`1`˄`-∞" : DEWA({1048, 19, 5, 13, 6, 3, 3, 0})
-        ' ∞ · 0 = ☼
+          ' ∞ · 0 = ☼
         Case "`∞`·`0" : DEWA({1049, 15, 5, 13, 6, 3, 3, 0})
-        ' -∞ · 0 = ☼
+          ' -∞ · 0 = ☼
         Case "`-∞`·`0" : DEWA({1050, 15, 5, 13, 6, 3, 3, 4})
-        ' a · ∞ · 0 = ☼
+          ' a · ∞ · 0 = ☼
         Case "·`∞`·`0" : DEWA({1051, 15, 6, 14, 6, 4, 4, 0})
-        ' ∞ ^ 0 = ☼
+          ' ∞ ^ 0 = ☼
         Case "`∞`˄`0" : DEWA({1052, 15, 5, 13, 6, 3, 3, 0})
-        ' -∞ ^ 0 = ☼
+          ' -∞ ^ 0 = ☼
         Case "`-∞`˄`0" : DEWA({1053, 15, 5, 13, 6, 3, 3, 0})
-        ' ∞ - ∞ = ☼
+          ' ∞ - ∞ = ☼
         Case "`∞`-`∞" : DEWA({1054, 15, 5, 13, 6, 3, 3, 0})
-        ' -∞ + ∞ = ☼
+          ' -∞ + ∞ = ☼
         Case "`-∞`+`∞" : DEWA({1055, 15, 5, 13, 6, 3, 3, 0})
-        ' a + ∞ - ∞ = ☼
+          ' a + ∞ - ∞ = ☼
         Case "+`∞`-`∞" : DEWA({1056, 15, 6, 14, 6, 4, 4, 0})
-        ' a - ∞ + ∞ = ☼
+          ' a - ∞ + ∞ = ☼
         Case "-`∞`+`∞" : DEWA({1057, 17, 7, 15, 6, 4, 4, 0})
-        ' ∞ : ∞ = ☼
+          ' ∞ : ∞ = ☼
         Case "`∞`:`∞" : DEWA({1058, 15, 5, 13, 6, 3, 3, 0})
-        ' -∞ : ∞ = -☼
+          ' -∞ : ∞ = -☼
         Case "`-∞`:`∞" : DEWA({1059, 16, 5, 13, 6, 3, 3, 0})
-        ' a · ∞ : ∞ = ☼
+          ' a · ∞ : ∞ = ☼
         Case "·`∞`:`∞" : DEWA({1060, 15, 6, 14, 6, 4, 4, 0})
-        ' a : ∞ · ∞ = ☼
+          ' a : ∞ · ∞ = ☼
         Case ":`∞`·`∞" : DEWA({1061, 18, 7, 15, 6, 4, 4, 0})
       End Select
       ' Exit Sub
@@ -3256,7 +3233,7 @@ A = √(Ax2 + Ay2 + Az2)"
         End If
         ' S e l e c t
         _AI &= CStr(MAB(_F)) : Select Case _AI
-          ' (a)
+            ' (a)
           Case "1" : If IAB(H1(3)) = 0 Then
               _AI &= "```"
               If IAA(_F) > 1 Then _AI &= DFAC(H1(3))
@@ -3283,33 +3260,33 @@ A = √(Ax2 + Ay2 + Az2)"
                 _AI &= DFAC(MAI(H1(3)))
               End If ' nicht umkehren bzw nicht ausklammern
             End If
-        ' |v| = b
+          ' |v| = b
           Case "2" : If IAA(H1(3)) > 1 Then _AI &= "`-"
-        ' |z| = b
+          ' |z| = b
           Case "1`2"
             _AI &= If(IAA(_F) > 1, "`-", "`+")
             ' |-z| = b
             If _BA < 0 Then _AI &= "`-"
-          ' √(a) = b
+            ' √(a) = b
           Case "1`3" : _AF = DFAA(H1(6) * Math.Sqrt(_BA))
-          ' If XAB < 0 Then 0 + XAB = Math.Sqrt(XAB)*i
-          ' √(a ' b) = c
+            ' If XAB < 0 Then 0 + XAB = Math.Sqrt(XAB)*i
+            ' √(a ' b) = c
           Case "1123" : _BA = Math.Pow(_BA, 1 / _BB)
             If _BA >= 0 And CStr(_BA) <> "NaN" Then
               _AF = DFAA(_BA) : _AI &= "*"
               If IAA(_F) > 1 Then _AF = "-" & _AF
               If _AF = "-0" Then : _AF = "0" : End If
             End If
-          '√(a ' 2) = √(a)
+            '√(a ' 2) = √(a)
           Case "123"
             If KAH(H1(6) + 1) = "2" Then _AI &= "*"
-          ' ln(a) = b
+            ' ln(a) = b
           Case "1`8" : _AF = DFAA(H1(6) * Math.Log(_BA))
-          ' If XAB<0 Then 0+XAB=Math.Log(Math.E^Math.PI)*i
-          ' log(a) = b
+            ' If XAB<0 Then 0+XAB=Math.Log(Math.E^Math.PI)*i
+            ' log(a) = b
           Case "1`9" : _AF = DFAA(H1(6) * Math.Log10(_BA))
-          ' If XAB<0 Then XAB=0+Math.Log(Math.E^Math.PI)*i
-          ' log(a ' b) = c
+            ' If XAB<0 Then XAB=0+Math.Log(Math.E^Math.PI)*i
+            ' log(a ' b) = c
           Case "1129"
             _BA = Math.Log(_BB) / Math.Log(_BA)
             If _BA >= 0 And CStr(_BA) <> "NaN" Then
@@ -3317,7 +3294,7 @@ A = √(Ax2 + Ay2 + Az2)"
               If IAA(_F) > 1 Then _AF = "-" & _AF
               If _AF = "-0" Then : _AF = "0" : End If
             End If
-          ' tan*(a) = b
+            ' tan*(a) = b
           Case "1`11" : _AF = DFAA(H1(6) * Math.Cos(_BB))
           Case "1`12" : _AF = DFAA(H1(6) * Math.Sin(_BB))
           Case "1`13" : _AF = DFAA(H1(6) * Math.Tan(_BB))
@@ -3330,107 +3307,107 @@ A = √(Ax2 + Ay2 + Az2)"
       End If
       ' Rechnungen
       Select Case _AI : Case "" : Exit Select
-        ' a! = b
+          ' a! = b
         Case "f-!´0" : DEWA({1071, 0, 1, 1, 3, 3, 3, 5})
-        ' a´ = 0
+          ' a´ = 0
         Case "f-´´0" : DEWA({1072, 5, 1, 1, 3, 2, 3, 9})
-        ' √(a) = b
+          ' √(a) = b
         Case "1`3" : DEWA({1081, 0, 1, 1, 3, 11, 2, 8})
-        ' ln(a) = b
+          ' ln(a) = b
         Case "1`8" : DEWA({1082, 0, 1, 1, 3, 11, 2, 8})
-        ' log(a) = b
+          ' log(a) = b
         Case "1`9" : DEWA({1083, 0, 1, 1, 3, 11, 2, 8})
-        ' cos(a) = b
+          ' cos(a) = b
         Case "1`11" : DEWA({1091, 0, 1, 1, 3, 11, 2, 8})
-        ' sin(a) = b
+          ' sin(a) = b
         Case "1`12" : DEWA({1092, 0, 1, 1, 3, 11, 2, 8})
-        ' tan(a) = b
+          ' tan(a) = b
         Case "1`13" : DEWA({1093, 0, 1, 1, 3, 11, 2, 8})
-        ' cot(a) = b
+          ' cot(a) = b
         Case "1`14" : DEWA({1094, 0, 1, 1, 3, 11, 2, 8})
-        ' acos(a) = b
+          ' acos(a) = b
         Case "1`15" : DEWA({1095, 0, 1, 1, 3, 11, 2, 8})
-        ' asin(a) = b
+          ' asin(a) = b
         Case "1`16" : DEWA({1096, 0, 1, 1, 3, 11, 2, 8})
-        ' atan(a) = b
+          ' atan(a) = b
         Case "1`17" : DEWA({1097, 0, 1, 1, 3, 11, 2, 8})
-        ' acot(a) = b
+          ' acot(a) = b
         Case "1`18" : DEWA({1098, 0, 1, 1, 3, 11, 2, 8})
-        ' √(a ' 2) = √(a)
+          ' √(a ' 2) = √(a)
         Case "123*" : DEWA({1101, 0, 22, 50, 2, 8, 1, 0})
-        ' √(a ' b) = c
+          ' √(a ' b) = c
         Case "1123*" : DEWA({1102, 0, 1, 1, 3, 3, 3, 11})
-        ' log(a ' b) = c
+          ' log(a ' b) = c
         Case "1129*" : DEWA({1103, 0, 1, 1, 3, 3, 3, 11})
-        ' (a) = a
+          ' (a) = a
         Case "1```" : DEWA({1111, 0, 16, 30, 4, 10, 1, 0})
-        ' (a o b) = a o b
+          ' (a o b) = a o b
         Case "`n`u`" : DEWA({1111, 0, 16, 30, 4, 10, 1, 0})
-        ' -(a) = -a
+          ' -(a) = -a
         Case "1```1" : DEWA({1112, 0, 17, 31, 4, 10, 6, 0})
-        ' -(a o b) = -a o b
+          ' -(a o b) = -a o b
         Case "`n`u`1" : DEWA({1112, 0, 17, 31, 4, 10, 6, 0})
-        ' -(-a) = a
+          ' -(-a) = a
         Case "1```3" : DEWA({1113, 0, 18, 32, 4, 10, 1, 0})
-        ' -(-a o b) = a o b
+          ' -(-a o b) = a o b
         Case "`n`u`3" : DEWA({1113, 0, 18, 32, 4, 10, 1, 0})
-        ' -(a') = -a'
+          ' -(a') = -a'
         Case "`n`u`42" : DEWA({1114, 0, 17, 33, 4, 22, 9, 1})
-        ' -(a'.) = -a'.
+          ' -(a'.) = -a'.
         Case "`n`u`52" : DEWA({1114, 0, 17, 34, 4, 22, 9, 1})
-        ' -(-a') = a'
+          ' -(-a') = a'
         Case "`n`u`44" : DEWA({1115, 0, 18, 35, 4, 22, 5, 1})
-        ' -(-a'.) = a'.
+          ' -(-a'.) = a'.
         Case "`n`u`54" : DEWA({1115, 0, 18, 36, 4, 22, 5, 1})
-        ' -(a'.) = -(a').
+          ' -(a'.) = -(a').
         Case "`n`u`12" : DEWA({1116, 0, 19, 37, 3, 4, 8, 0})
-        ' -(-a'.) = -(-a').
+          ' -(-a'.) = -(-a').
         Case "`n`u`14" : DEWA({1116, 0, 19, 37, 3, 4, 8, 0})
-        ' -(a'.) = -(a').
+          ' -(a'.) = -(a').
         Case "`n`u`32" : DEWA({1116, 0, 19, 37, 3, 4, 8, 0})
-        ' -(-a'.) = -(-a').
+          ' -(-a'.) = -(-a').
         Case "`n`u`34" : DEWA({1116, 0, 19, 37, 3, 4, 8, 0})
-        ' a - (b +- c) = a - b -+ c
+          ' a - (b +- c) = a - b -+ c
         Case "oou-" : DEWA({1121, 0, 16, 38, 100, 23, 8, 0})
-        ' a : (b ·: c) = a : b :· c
+          ' a : (b ·: c) = a : b :· c
         Case "oou:" : DEWA({1122, 0, 16, 38, 100, 23, 8, 0})
-        ' -(a +- b) = -a -+ b
+          ' -(a +- b) = -a -+ b
         Case "vou1" : DEWA({1123, 0, 17, 39, 100, 24, 15, 0})
-        ' -(-a +- b) = a -+ b
+          ' -(-a +- b) = a -+ b
         Case "vou3" : DEWA({1124, 0, 18, 40, 100, 24, 8, 0})
-        ' -(a ^ b +- c) = -(a ^ b) -+ c
+          ' -(a ^ b +- c) = -(a ^ b) -+ c
         Case "vou2" : DEWA({1125, 0, 19, 41, 100, 25, 8, 0})
-        ' -(-a ^ b +- c) = -(-a ^ b) -+ c
+          ' -(-a ^ b +- c) = -(-a ^ b) -+ c
         Case "vou4" : DEWA({1125, 0, 19, 41, 100, 25, 8, 0})
-        ' -(a ^ 2 +- b) = -(a ^ 2) -+ b
+          ' -(a ^ 2 +- b) = -(a ^ 2) -+ b
         Case "vou22" : DEWA({1125, 0, 19, 41, 100, 25, 8, 0})
-        ' -(-a ^ 2 +- b) = -(-a ^ 2) -+ b
+          ' -(-a ^ 2 +- b) = -(-a ^ 2) -+ b
         Case "vou24" : DEWA({1125, 0, 19, 41, 100, 25, 8, 0})
-        ' -(a ^ b · c +- d) = -(a ^ b) · c -+ d
+          ' -(a ^ b · c +- d) = -(a ^ b) · c -+ d
         Case "vou12" : DEWA({1126, 0, 20, 42, 100, 25, 26, 0})
-        ' -(-a ^ b · c +- d) = -(-a ^ b) · c -+ d
+          ' -(-a ^ b · c +- d) = -(-a ^ b) · c -+ d
         Case "vou14" : DEWA({1126, 0, 20, 42, 100, 25, 26, 0})
-        ' -(a ^ 2 · b +- c) = -(a ^ 2) · b -+ c
+          ' -(a ^ 2 · b +- c) = -(a ^ 2) · b -+ c
         Case "vou32" : DEWA({1126, 0, 20, 42, 100, 25, 26, 0})
-        ' -(-a ^ 2 · b +- c) = -(-a ^ 2) · b -+ c
+          ' -(-a ^ 2 · b +- c) = -(-a ^ 2) · b -+ c
         Case "vou34" : DEWA({1126, 0, 20, 42, 100, 25, 26, 0})
-        ' -(a ^ 3 +- b) = -a ^ 3 -+ b
+          ' -(a ^ 3 +- b) = -a ^ 3 -+ b
         Case "vou42" : DEWA({1127, 0, 17, 43, 100, 28, 27, 1})
-        ' -(a ^ 3 · b +- c) = -a ^ 3 · b -+ c
+          ' -(a ^ 3 · b +- c) = -a ^ 3 · b -+ c
         Case "vou52" : DEWA({1127, 0, 17, 44, 100, 28, 27, 1})
-        ' -(-a ^ 3 +- b) = a ^ 3 -+ b
+          ' -(-a ^ 3 +- b) = a ^ 3 -+ b
         Case "vou44" : DEWA({1128, 0, 18, 45, 100, 28, 29, 1})
-        ' -(-a ^ 3 · b +- c) = a ^ 3 · b -+ c
+          ' -(-a ^ 3 · b +- c) = a ^ 3 · b -+ c
         Case "vou54" : DEWA({1128, 0, 18, 46, 100, 28, 29, 1})
-        ' ǀz| = z
+          ' ǀz| = z
         Case "1`2`+" : DEWA({1131, 0, 16, 30, 4, 10, 1, 10})
-        ' -ǀz| = -z
+          ' -ǀz| = -z
         Case "1`2`-" : DEWA({1132, 0, 17, 31, 4, 10, 6, 10})
-        ' ǀ-z| = -z, z < 0
+          ' ǀ-z| = -z, z < 0
         Case "1`2`+`-" : DEWA({1133, 0, 21, 48, 4, 10, 1, 10})
-        ' -ǀ-z| = -z, z < 0
+          ' -ǀ-z| = -z, z < 0
         Case "1`2`-`-" : DEWA({1134, 0, 21, 49, 4, 10, 6, 10})
-        ' ǀ-v| = ǀv|
+          ' ǀ-v| = ǀv|
         Case "2`-" : DEWA({1135, 0, 17, 47, 2, 8, 1, 0})
       End Select
       ' Exit Sub
@@ -3458,85 +3435,85 @@ A = √(Ax2 + Ay2 + Az2)"
       End If
       ' Rechnungen
       Select Case _AI : Case "" : Exit Select
-        ' a + 0 = a
+          ' a + 0 = a
         Case "+`0`" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a - 0 = a
+          ' a - 0 = a
         Case "-`0`" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a ± 0 = a
+          ' a ± 0 = a
         Case "±`0`" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a ∓ 0 = a
+          ' a ∓ 0 = a
         Case "∓`0`" : DEWA({1142, 0, 8, 16, 2, 4, 1, 0})
-        ' a · 0 = 0
+          ' a · 0 = 0
         Case "`·`0" : DEWA({1143, 5, 9, 17, 6, 6, 1, 7})
-        ' ☼ · a · 0 = ☼ · 0
+          ' ☼ · a · 0 = ☼ · 0
         Case "·`·`0" : DEWA({1144, 5, 9, 18, 6, 8, 1, 7})
-        ' a : 0 = ∞
+          ' a : 0 = ∞
         Case "`:`0" : DEWA({1145, 6, 10, 19, 6, 3, 3, 6})
-        ' ☼ · a : 0 = ☼ · ∞
+          ' ☼ · a : 0 = ☼ · ∞
         Case "·`:`0" : DEWA({1146, 6, 9, 20, 6, 4, 4, 6})
-        ' a ˄ 0 = 1
+          ' a ˄ 0 = 1
         Case "˄`0`" : DEWA({1147, 8, 10, 19, 6, 3, 3, 0})
-        ' a · 1 = a
+          ' a · 1 = a
         Case "·`1`" : DEWA({1148, 0, 8, 16, 2, 4, 1, 0})
-        ' a : 1 = a
+          ' a : 1 = a
         Case ":`1`" : DEWA({1148, 0, 8, 16, 2, 4, 1, 0})
-        ' a ˄ 1 = a
+          ' a ˄ 1 = a
         Case "˄`1`" : DEWA({1149, 0, 8, 16, 2, 4, 1, 0})
-        ' 0 + a = a
+          ' 0 + a = a
         Case "`0`+" : DEWA({1150, 20, 5, 21, 6, 6, 1, 0})
-        ' 0 · a = 0
+          ' 0 · a = 0
         Case "`0`·" : DEWA({1151, 0, 11, 22, 2, 4, 1, 0})
-        ' 0 : a = 0
+          ' 0 : a = 0
         Case "`0`:" : DEWA({1151, 0, 11, 22, 2, 4, 1, 0})
-        ' 1 · a = a
+          ' 1 · a = a
         Case "`1`·" : DEWA({1152, 20, 0, 5, 21, 6, 6, 1, 0})
-        ' ☼ · 0 · a = ☼ · 0
+          ' ☼ · 0 · a = ☼ · 0
         Case "·`0`·" : DEWA({1153, 0, 11, 23, 2, 4, 1, 7})
-        ' ☼ · 0 : a = ☼ · 0
+          ' ☼ · 0 : a = ☼ · 0
         Case "·`0`:" : DEWA({1153, 0, 11, 23, 2, 4, 1, 7})
-        '' ☼ : a · 0 = ☼ · 0
-        'Case ":`·`0" : DEWA({1114, 5, 9, 6, 8, 1, 7})
-        ' 0 - a = -a
+          '' ☼ : a · 0 = ☼ · 0
+          'Case ":`·`0" : DEWA({1114, 5, 9, 6, 8, 1, 7})
+          ' 0 - a = -a
         Case "`0`-`1" : DEWA({1161, 10, 12, 24, 3, 6, 6, 0})
-        ' 0 - a' = -(a')
+          ' 0 - a' = -(a')
         Case "`0`-`2" : DEWA({1162, 22, 13, 25, 5, 6, 10, 0})
-        ' 0 - a'. = -(a').
+          ' 0 - a'. = -(a').
         Case "`0`-`12" : DEWA({1162, 22, 14, 26, 5, 6, 10, 0})
-        ' 0 - -a' = -(-a')
+          ' 0 - -a' = -(-a')
         Case "`0`-`4" : DEWA({1163, 22, 13, 25, 5, 6, 10, 0})
-        ' 0 - -a'. = -(-a').
+          ' 0 - -a'. = -(-a').
         Case "`0`-`14" : DEWA({1163, 22, 14, 26, 5, 6, 10, 0})
-        ' 0 - a' = -(a')
+          ' 0 - a' = -(a')
         Case "`0`-`22" : DEWA({1163, 22, 13, 25, 5, 6, 10, 0})
-        ' 0 - a'. = -(a').
+          ' 0 - a'. = -(a').
         Case "`0`-`32" : DEWA({1163, 22, 14, 26, 5, 6, 10, 0})
-        ' 0 - a' = -a'
+          ' 0 - a' = -a'
         Case "`0`-`42" : DEWA({1164, 10, 12, 27, 3, 9, 9, 1})
-        ' 0 - a'. = -a'.
+          ' 0 - a'. = -a'.
         Case "`0`-`52" : DEWA({1164, 10, 12, 28, 3, 9, 9, 1})
-        ' a' · -1 = -(a')
+          ' a' · -1 = -(a')
         Case "2`·`-1`" : DEWA({1165, 22, 15, 29, 5, 4, 10, 0})
-        ' a' : -1 = -(a')
+          ' a' : -1 = -(a')
         Case "2`:`-1`" : DEWA({1165, 22, 15, 29, 5, 4, 10, 0})
-        ' -a' · -1 = -(-a')
+          ' -a' · -1 = -(-a')
         Case "4`·`-1`" : DEWA({1165, 22, 15, 29, 5, 4, 10, 0})
-        ' -a' : -1 = -(-a')
+          ' -a' : -1 = -(-a')
         Case "4`:`-1`" : DEWA({1165, 22, 15, 29, 5, 4, 10, 0})
-        ' -1 · a = -a
+          ' -1 · a = -a
         Case "`-1`·`1" : DEWA({1166, 10, 12, 24, 3, 6, 6, 0})
-        ' -1 · a' = -(a')
+          ' -1 · a' = -(a')
         Case "`-1`·`2" : DEWA({1167, 22, 13, 25, 5, 6, 10, 0})
-        ' -1 · a'. = -(a').
+          ' -1 · a'. = -(a').
         Case "`-1`·`12" : DEWA({1167, 22, 14, 26, 5, 6, 10, 0})
-        ' -1 · a' = -(a')
+          ' -1 · a' = -(a')
         Case "`-1`·`22" : DEWA({1167, 22, 13, 25, 5, 6, 10, 0})
-        ' -1 · a'. = -(a').
+          ' -1 · a'. = -(a').
         Case "`-1`·`32" : DEWA({1167, 22, 14, 26, 5, 6, 10, 0})
-        ' -1 · -a' = -(-a')
+          ' -1 · -a' = -(-a')
         Case "`-1`·`4" : DEWA({1167, 22, 13, 25, 5, 6, 10, 0})
-        ' -1 · -a'. = -(-a').
+          ' -1 · -a'. = -(-a').
         Case "`-1`·`14" : DEWA({1168, 22, 14, 26, 5, 6, 10, 0})
-        ' -1 · a' = -a' ! -a'.
+          ' -1 · a' = -a' ! -a'.
         Case "`-1`·`42" : DEWA({1169, 10, 12, 27, 3, 9, 9, 1})
       End Select
       ' Exit Sub
@@ -3557,47 +3534,47 @@ A = √(Ax2 + Ay2 + Az2)"
         _BB = CDbl(KAH(_G)) : End If
       ' Rechnungen
       Select Case _AI
-        ' a + b = c
+          ' a + b = c
         Case "`+" : _AF = DFAA(_BA + _BB)
           DEWA({1171, 0, 6, 13, 6, 3, 3, 11})
-        ' a - b = c
+          ' a - b = c
         Case "`-" : _AF = DFAA(_BA - _BB)
           DEWA({1171, 0, 6, 13, 6, 3, 3, 11})
-        ' a + b + c = a + (b + c) = a + d
+          ' a + b + c = a + (b + c) = a + d
         Case "+`+" : _AF = DFAA(_BA + _BB)
           DEWA({1172, 0, 6, 14, 6, 4, 4, 11})
-        ' a + b - c = a + (b - c) = a + d
+          ' a + b - c = a + (b - c) = a + d
         Case "+`-" : _AF = DFAA(_BA - _BB)
           DEWA({1172, 0, 6, 14, 6, 4, 4, 11})
-        ' a - b + c = a - (b - c) = a - d
+          ' a - b + c = a - (b - c) = a - d
         Case "-`+" : _AF = DFAA(_BA - _BB)
           DEWA({1173, 0, 6, 14, 6, 4, 4, 11})
-        ' a - b - c = a - (b + c) = a - d
+          ' a - b - c = a - (b + c) = a - d
         Case "-`-" : _AF = DFAA(_BA + _BB)
           DEWA({1173, 0, 6, 14, 6, 4, 4, 11})
-        ' a · b = c
+          ' a · b = c
         Case "`·" : _AF = DFAA(_BA * _BB)
           DEWA({1174, 0, 6, 13, 6, 3, 3, 11})
-        ' a : b = c
+          ' a : b = c
         Case "`:" : _AF = DFAA(_BA / _BB)
           DEWA({1174, 0, 6, 13, 6, 3, 3, 11})
-        ' a · b · c = a · (b · c) = a · d
+          ' a · b · c = a · (b · c) = a · d
         Case "·`·" : _AF = DFAA(_BA * _BB)
           DEWA({1175, 0, 6, 14, 6, 4, 4, 11})
-        ' a · b : c = a · (b : c) = a · d
+          ' a · b : c = a · (b : c) = a · d
         Case "·`:" : _AF = DFAA(_BA / _BB)
           DEWA({1175, 0, 6, 14, 6, 4, 4, 11})
-        ' a : b · c = a : (b : c) = a : d
+          ' a : b · c = a : (b : c) = a : d
         Case ":`·" : _AF = DFAA(_BA / _BB)
           DEWA({1176, 0, 6, 14, 6, 4, 4, 11})
-        ' a : b : c = a : (b · c) = a : d
+          ' a : b : c = a : (b · c) = a : d
         Case ":`:" : _AF = DFAA(_BA * _BB)
           DEWA({1176, 0, 6, 14, 6, 4, 4, 11})
-        ' a ˄ b = c
+          ' a ˄ b = c
         Case "`˄"
           _AF = DFAA(Math.Pow(_BA, _BB))
           DEWA({1177, 0, 6, 13, 6, 3, 3, 11})
-        ' a ˅ b = c
+          ' a ˅ b = c
         Case "`˅"
           _AF = DFAA(Math.Pow(_BA, 1 / _BB))
           DEWA({1177, 0, 6, 13, 6, 3, 3, 11})
@@ -3624,68 +3601,68 @@ A = √(Ax2 + Ay2 + Az2)"
       Else : Continue Do : End If
       ' Rechnungen
       Select Case _AI : Case "" : Exit Select
-        ' a - a = 0
+          ' a - a = 0
         Case "`-" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a - b + b = a + 0
+          ' a - b + b = a + 0
         Case "-`+" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a + b - b = a + 0
+          ' a + b - b = a + 0
         Case "+`-" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : a = 1
+          ' a : a = 1
         Case "`:" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a · b : b = a · 1
+          ' a · b : b = a · 1
         Case "·`:" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : b · b = a · 1
+          ' a : b · b = a · 1
         Case ":`·" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
 
-        ' -a + a = 0
+          ' -a + a = 0
         Case "3-1" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a' + a' = 0
+          ' -a' + a' = 0
         Case "44-42" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a'. + a'. = 0
+          ' -a'. + a'. = 0
         Case "54-52" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
 
-        ' a : -a = -1
+          ' a : -a = -1
         Case "1:3" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a : a = -1
+          ' -a : a = -1
         Case "3:1" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
 
-        ' a · b : -b = a · -1
+          ' a · b : -b = a · -1
         Case "·1:3" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a · -b : b = a · -1
+          ' a · -b : b = a · -1
         Case "·3:1" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : b · -b = a · -1
+          ' a : b · -b = a · -1
         Case ":1·3" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : -b · b = a · -1
+          ' a : -b · b = a · -1
         Case ":3·1" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
 
-        ' a' : -a' = -1
+          ' a' : -a' = -1
         Case "42:44" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a' : a' = -1
+          ' -a' : a' = -1
         Case "44:42" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a · b' : -b' = a · -1
+          ' a · b' : -b' = a · -1
         Case "·42:44" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a · -b' : b' = a · -1
+          ' a · -b' : b' = a · -1
         Case "·44:42" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : b' · -b' = a · -1
+          ' a : b' · -b' = a · -1
         Case ":42·44" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : -b' · b' = a · -1
+          ' a : -b' · b' = a · -1
         Case ":44·42" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
 
-        ' a'. : -a'. = -1
+          ' a'. : -a'. = -1
         Case "52:54" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a'. : a'. = -1
+          ' -a'. : a'. = -1
         Case "54:52" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a · b'. : -b'. = a · -1
+          ' a · b'. : -b'. = a · -1
         Case "·52:54" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a · -b'. : b'. = a · -1
+          ' a · -b'. : b'. = a · -1
         Case "·54:52" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : b'. · -b'. = a · -1
+          ' a : b'. · -b'. = a · -1
         Case ":52·54" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' a : -b'. · b'. = a · -1
+          ' a : -b'. · b'. = a · -1
         Case ":54·52" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a ˄ G = a ˄ G
+          ' -a ˄ G = a ˄ G
         Case "24" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
-        ' -a ˄ G. = a ˄ G.
+          ' -a ˄ G. = a ˄ G.
         Case "34" : DEWA({1141, 0, 8, 16, 2, 4, 1, 0})
 
       End Select
@@ -5201,13 +5178,13 @@ A = √(Ax2 + Ay2 + Az2)"
 #End Region ' *****
 #Region "D-AD"
   Private Sub DCYY1()
-    KAJ.Add(vbLf & vbLf & NAA.GetString("S042"))
+    KAJ.Add(vbLf & vbLf & NAD.GetString("A154"))
     _FA = _AD.Split("´")
     KAJ.Add(vbCrLf & CAA.Substring(0, DFAB(_FA(1))))
     _J = 1 : _K = CInt(_FA(0)) - 2 : DCYY3()
   End Sub
   Private Sub DCYY2()
-    KAJ.Add(vbCrLf & vbLf & NAA.GetString("S043"))
+    KAJ.Add(vbCrLf & vbLf & NAD.GetString("A155"))
     _H = DFAB(_FA(CInt(_FA(0))))
     KAJ.Add(vbCrLf & CAA.Substring(0, _H))
     _J = CInt(_FA(0)) : _K = _FA.Count - 2
@@ -5283,7 +5260,7 @@ A = √(Ax2 + Ay2 + Az2)"
   Private Sub DEWA(a() As Integer)
     ' Formeln
     Select Case a(0)
-      ' Einziger Term
+        ' Einziger Term
       Case 1001 : _AH = "e` = `2,72"
       Case 1002 : _AH = "π` = `3,14"
       Case 1003 : _AH = "-e` = `-2,72"
@@ -5296,7 +5273,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1010 : _AH = "-ln(e)` = `-1"
       Case 1011 : _AH = "log(0)` = `-∞"
       Case 1012 : _AH = "-log(0)` = `∞"
-      ' Vorzeichen "-"
+        ' Vorzeichen "-"
       Case 1021 : _AH = "a` + -`b` = `a` - `b"
       Case 1022 : _AH = "a` - -`b` = `a` + `b"
       Case 1023 : _AH = "a` ± -`b` = `a` ∓ `b"
@@ -5305,7 +5282,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1026 : _AH = "a` - -`b ˄˅ `c` = `a` + `b ˄˅ `c"
       Case 1027 : _AH = "a` ± -`b ˄˅ `c` = `a` ± `b ˄˅ `c"
       Case 1028 : _AH = "a` ∓ -`b ˄˅ `c` = `a` ± `b ˄˅ `c"
-      ' ·:   ˄˅ = ◊
+        ' ·:   ˄˅ = ◊
       Case 1031 : _AH = "a ·: `-`b` = `-`a ·: b"
       Case 1032 : _AH = "-`a ·: `-`b` = `a ·: b"
       Case 1033 : _AH = "a ˄˅ `b` ·: `-`c` = `-`a ˄˅ `b` ·: c"
@@ -5314,7 +5291,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1036 : _AH = "-`a ·: `-`b ˄˅ `c` = `a ·: b ˄˅ `c"
       Case 1037 : _AH = "a ˄˅ `b` ·: `-`c ˄˅ `d` = `-`a ˄˅ `b` ·: c ˄˅ `d"
       Case 1038 : _AH = "-`a ˄˅ `b` ·: `-`c ˄˅ `d` = `a ˄˅ `b` ·: c ˄˅ `d"
-      ' Unbestimmte
+        ' Unbestimmte
       Case 1041 : _AH = "0 ^ 0` = `☼"
       Case 1042 : _AH = "0 : 0` = `☼"
       Case 1043 : _AH = "a · `0 : 0` = `a · `☼"
@@ -5336,7 +5313,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1059 : _AH = "-∞ : ∞` = `-☼"
       Case 1060 : _AH = "a · `∞ : ∞` = `a · `☼"
       Case 1061 : _AH = "a` : ∞ · ∞` = `a` · ☼"
-      ' Funktionszahlen
+        ' Funktionszahlen
       Case 1071 : _AH = "a!` = `a · (a - 1) · ... · 1"
       Case 1072 : _AH = "a´` = `0"
       Case 1081 : _AH = "√(`a`)` = `b"
@@ -5353,7 +5330,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1101 : _AH = "√(a` ' 2`)` = `√(a)"
       Case 1102 : _AH = "√(a ' b)` = `c"
       Case 1103 : _AH = "log(a ' b)` = `c"
-      ' Klammern
+        ' Klammern
       Case 1111 : _AH = "(`a`)` = `a"
       Case 1112 : _AH = "-(`a`)` = `-`a"
       Case 1113 : _AH = "-(-`a`)` = `a"
@@ -5368,13 +5345,13 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1126 : _AH = "-(a ^ b * c` +- `d`)` = `-(a ^ b`)` * c` -+ `d" : _AF = ")"
       Case 1127 : _AH = "-(`a` ^ b` +- `c`)` = `-`a` ^ b` -+ `c"
       Case 1128 : _AH = "-(-`a` ^ b` +- `c`)` = `a` ^ b` -+ `c"
-      ' Beträge
+        ' Beträge
       Case 1131 : _AH = "ǀ`a`|` = `a" ' a ≥ 0
       Case 1132 : _AH = "-ǀ`a`|` = `-`a" ' a ≥ 0
       Case 1133 : _AH = "ǀ-`a`|` = `a" ' a ≥ 0
       Case 1134 : _AH = "-ǀ-`a`|` = `-`a" ' a ≥ 0
       Case 1135 : _AH = "ǀ`-`a|` = `|a|"
-      ' Null und Eins
+        ' Null und Eins
       Case 1141 : _AH = "a` ± 0` = `a"
       Case 1142 : _AH = "a` ∓ 0` = `a"
       Case 1143 : _AH = "a · `0` = `0"
@@ -5388,7 +5365,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1151 : _AH = "0` ·: a` = `0"
       Case 1152 : _AH = "1 · `a` = `a"
       Case 1153 : _AH = "☼ · 0` ·: a` = `☼ · 0"
-        'Case 1114 : _AH = "☼` : a` · 0` = `☼ · 0"
+          'Case 1114 : _AH = "☼` : a` · 0` = `☼ · 0"
       Case 1161 : _AH = "0 - `a` = `-`a"
       Case 1162 : _AH = "0 - `a ˄˅ b` = `-(`a ˄˅ b`)" : _AG = ")"
       Case 1163 : _AH = "0 - `-a ˄˅ b` = `-(`-a ˄˅ b`)" : _AG = ")"
@@ -5398,7 +5375,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 1167 : _AH = "-1 · `a ˄˅ b` = `-(`a ˄˅ b`)" : _AG = ")"
       Case 1168 : _AH = "-1 · `-a ˄˅ b` = `-(`-a ˄˅ b`)" : _AG = ")"
       Case 1169 : _AH = "-1 · `a ˄˅ `b` = `-`a ˄˅ `b"
-      ' Zahlen
+        ' Zahlen
       Case 1171 : _AH = "a ± b` = `c"
       Case 1172 : _AH = "a + `b ± c` = `a + `(b ± c)"
       Case 1173 : _AH = "a - `b ± c` = `a - `(b ∓ c)"
@@ -5610,7 +5587,7 @@ A = √(Ax2 + Ay2 + Az2)"
         ' a - (b +- c) = a - b -+ c
         _FA = _AD.Split("´") : _FD = _AE.Split("´")
         _J = CInt(_FA(3))
-        KAJ.Add(vbLf & vbLf & NAA.GetString("S042"))
+        KAJ.Add(vbLf & vbLf & NAD.GetString("A154"))
         KAJ.Add(vbCrLf & CAA.Substring(0, H1(_J)))
         ' *********************************************
         ' Farben : Index-Abkürzung
@@ -5624,7 +5601,7 @@ A = √(Ax2 + Ay2 + Az2)"
           JAA.Add(_EC) : JAA.Add(_EB) : Next
         KAJ.Add(CAA.Substring(H1(32) - 1, 1))
         KAJ.Add(CAA.Substring(H1(32), H1(0) - H1(32)))
-        KAJ.Add(vbCrLf & vbLf & NAA.GetString("S043"))
+        KAJ.Add(vbCrLf & vbLf & NAD.GetString("A155"))
         KAJ.Add(vbCrLf & CAA.Substring(0, H1(_K)))
         ' *********************************************
         If _AF = ")" Then
@@ -5698,7 +5675,7 @@ A = √(Ax2 + Ay2 + Az2)"
           ' CB - Blue CC - Magenta CD - SkyBlue CE - Lime *
       End Select
       If i = 0 Then
-        KAJ.Add(vbCrLf & vbCrLf & NAA.GetString("S040") &
+        KAJ.Add(vbCrLf & vbCrLf & NAD.GetString("A152") &
                 vbCrLf) : _FA = _AH.Split("`")
         For j = 0 To _FA.Count - 1 Step 1 : KAJ.Add(_FA(j))
         Next
@@ -5706,7 +5683,7 @@ A = √(Ax2 + Ay2 + Az2)"
     Next
     ' Kommentarmeldung
     If a(7) > 0 Then
-      DEBD(vbCrLf & vbCrLf & NAA.GetString("S044") & vbCrLf)
+      DEBD(vbCrLf & vbCrLf & NAD.GetString("A156") & vbCrLf)
     End If
     ' Kommentare
     Select Case a(7) : Case 0 : Exit Select
@@ -5715,7 +5692,7 @@ A = √(Ax2 + Ay2 + Az2)"
       Case 3 : DEBE("b, d = 2 k + 1, k є Z")
       Case 4 : DEBE("-∞ · 0 = -0 · ∞ = 0 · ∞ = ☼")
       Case 5 : DEBE("a є Z, a < 171, a > -171 (" &
-                    NAA.GetString("S000") & ")")
+                    NAD.GetString("A000") & ")")
       Case 6 : DEBE("a ≠ 0")
       Case 7 : DEBE("a ≠ ∞")
       Case 8 : DEBE("a, b є R")
@@ -5787,50 +5764,50 @@ A = √(Ax2 + Ay2 + Az2)"
 #Region "D-AF"
   Private Sub DXBA()
     'Kommentar-Formel-Farbe: B-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBA(_FA(0)) : DEBD(_FA(1))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBA(_FA(0)) : DEBD(_FA(1))
   End Sub
   Private Sub DXAA()
     'Kommentar-Formel-Farbe: R-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBB(_FA(0)) : DEBD(_FA(1))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBB(_FA(0)) : DEBD(_FA(1))
   End Sub
   Private Sub DXAB()
     'Kommentar-Formel-Farbe: BR-X
-    DEBD(vbCrLf & NAA.GetString("S040"))
+    DEBD(vbCrLf & NAD.GetString("A152"))
     DEBA(_FA(0)) : DEBB(_FA(1)) : DEBD(_FA(2))
   End Sub
   Private Sub DXAC()
     'Kommentar-Formel-Farbe: RB-X
-    DEBD(vbCrLf & NAA.GetString("S040"))
+    DEBD(vbCrLf & NAD.GetString("A152"))
     DEBB(_FA(0)) : DEBA(_FA(1)) : DEBD(_FA(2))
   End Sub
   Private Sub DXAD()
     'Kommentar-Formel-Farbe: BRB-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBA(_FA(0))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBA(_FA(0))
     DEBB(_FA(1)) : DEBA(_FA(2)) : DEBD(_FA(3))
   End Sub
   Private Sub DXAE()
     'Kommentar-Formel-Farbe: RBR-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBB(_FA(0))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBB(_FA(0))
     DEBA(_FA(1)) : DEBB(_FA(2)) : DEBD(_FA(3))
   End Sub
   Private Sub DXAF()
     'Kommentar-Formel-Farbe: BRBR-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBA(_FA(0))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBA(_FA(0))
     DEBB(_FA(1)) : DEBA(_FA(2)) : DEBB(_FA(3)) : DEBD(_FA(4))
   End Sub
   Private Sub DXAG()
     'Kommentar-Formel-Farbe: RBRB-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBB(_FA(0))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBB(_FA(0))
     DEBA(_FA(1)) : DEBB(_FA(2)) : DEBA(_FA(3)) : DEBD(_FA(4))
   End Sub
   Private Sub DXAH()
     'Kommentar-Formel-Farbe: RBRBR-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBB(_FA(0))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBB(_FA(0))
     DEBA(_FA(1)) : DEBB(_FA(2)) : DEBA(_FA(3)) : DEBB(_FA(4)) : DEBD(_FA(5))
   End Sub
   Private Sub DXAI()
     'Kommentar-Formel-Farbe: BRBRBR-X
-    DEBD(vbCrLf & NAA.GetString("S040")) : DEBA(_FA(0)) : DEBB(_FA(1))
+    DEBD(vbCrLf & NAD.GetString("A152")) : DEBA(_FA(0)) : DEBB(_FA(1))
     DEBA(_FA(2)) : DEBB(_FA(3)) : DEBA(_FA(4)) : DEBB(_FA(5)) : DEBD(_FA(6))
   End Sub
   Private Sub DDAA(a As String)
@@ -5932,27 +5909,27 @@ A = √(Ax2 + Ay2 + Az2)"
 
   Private Sub DYAD()
     'Kommentar-Formel-Farbe: BRB-X
-    DEBD(vbCrLf & NAA.GetString("S040") & vbCrLf)
+    DEBD(vbCrLf & NAD.GetString("A152") & vbCrLf)
     DEBB(_FA(0)) : DEBC(_FA(1)) : DEBB(_FA(2)) : DEBD(_FA(3))
   End Sub
   Private Sub DYAD1()
     'Kommentar-Formel-Farbe: RBRB-X
-    DEBD(vbCrLf & NAA.GetString("S040") & vbCrLf) : DEBC(_FA(0))
+    DEBD(vbCrLf & NAD.GetString("A152") & vbCrLf) : DEBC(_FA(0))
     DEBB(_FA(1)) : DEBC(_FA(2)) : DEBB(_FA(3)) : DEBD(_FA(4))
   End Sub
   Private Sub DXAA1()
     'Kommentar-Formel-Farbe: R-X
-    DEBD(vbCrLf & NAA.GetString("S040") & vbCrLf)
+    DEBD(vbCrLf & NAD.GetString("A152") & vbCrLf)
     DEBC(_FA(0)) : DEBD(_FA(1))
   End Sub
   Private Sub DXAB1()
     'Kommentar-Formel-Farbe: BR-X
-    DEBD(vbCrLf & NAA.GetString("S040") & vbCrLf)
+    DEBD(vbCrLf & NAD.GetString("A152") & vbCrLf)
     DEBB(_FA(0)) : DEBC(_FA(1)) : DEBD(_FA(2))
   End Sub
   Private Sub DXAC1()
     'Kommentar-Formel-Farbe: RB-X
-    DEBD(vbCrLf & NAA.GetString("S040") & vbCrLf)
+    DEBD(vbCrLf & NAD.GetString("A152") & vbCrLf)
     DEBC(_FA(0)) : DEBB(_FA(1)) : DEBD(_FA(2))
   End Sub
 
@@ -6019,7 +5996,7 @@ A = √(Ax2 + Ay2 + Az2)"
     _FA = a.Split("`")
   End Sub
   Private Sub DECB(a As String)
-    DEBD(vbCrLf & NAA.GetString("S044") & vbCrLf)
+    DEBD(vbCrLf & NAD.GetString("A156") & vbCrLf)
     DEBB(a & " = 2 k + 1, k є N") ' ∈ ℕ
   End Sub
   Private Sub DEDA(a() As Integer)

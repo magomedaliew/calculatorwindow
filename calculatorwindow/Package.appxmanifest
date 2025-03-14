@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="calculatorwindow.App">
       <uap:VisualElements
-        DisplayName="calculatorwindow"
+        DisplayName="ms-resource:A000"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="calculatorwindow"

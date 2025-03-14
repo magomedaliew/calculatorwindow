@@ -8,7 +8,7 @@
     <OutputType>AppContainerExe</OutputType>
     <RootNamespace>calculatorwindow</RootNamespace>
     <AssemblyName>calculatorwindow</AssemblyName>
-    <DefaultLanguage>de-DE</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
@@ -217,13 +217,13 @@
     <PRIResource Include="Source\aa_AA\A_a_a_a_b.resw" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Source\de-DE\Source_ab.resw" />
+    <PRIResource Include="Source\de-DE\Source_aa.resw" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Source\en-US\Source_ab.resw" />
+    <PRIResource Include="Source\en-US\Source_aa.resw" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Source\ru-RU\Source_ab.resw" />
+    <PRIResource Include="Source\ru-RU\Source_aa.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
@@ -239,6 +239,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

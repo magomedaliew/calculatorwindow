@@ -117,4 +117,898 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A001" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="A002" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="A003" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="A004" xml:space="preserve">
+    <value>Ff</value>
+  </data>
+  <data name="A005" xml:space="preserve">
+    <value>|Fn|</value>
+  </data>
+  <data name="A006" xml:space="preserve">
+    <value>Frg</value>
+  </data>
+  <data name="A007" xml:space="preserve">
+    <value>Frh</value>
+  </data>
+  <data name="A008" xml:space="preserve">
+    <value>Frr</value>
+  </data>
+  <data name="A009" xml:space="preserve">
+    <value>Ft</value>
+  </data>
+  <data name="A010" xml:space="preserve">
+    <value>p</value>
+  </data>
+  <data name="A011" xml:space="preserve">
+    <value>s1</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>s2</value>
+  </data>
+  <data name="A013" xml:space="preserve">
+    <value>Δs</value>
+  </data>
+  <data name="A014" xml:space="preserve">
+    <value>Δt</value>
+  </data>
+  <data name="A015" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="A016" xml:space="preserve">
+    <value>v1</value>
+  </data>
+  <data name="A017" xml:space="preserve">
+    <value>v2</value>
+  </data>
+  <data name="A018" xml:space="preserve">
+    <value>Δv</value>
+  </data>
+  <data name="A019" xml:space="preserve">
+    <value>{v}</value>
+  </data>
+  <data name="B001" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="B002" xml:space="preserve">
+    <value>ax</value>
+  </data>
+  <data name="B003" xml:space="preserve">
+    <value>ay</value>
+  </data>
+  <data name="B004" xml:space="preserve">
+    <value>az</value>
+  </data>
+  <data name="B005" xml:space="preserve">
+    <value>c</value>
+  </data>
+  <data name="B006" xml:space="preserve">
+    <value>Ek1</value>
+  </data>
+  <data name="B007" xml:space="preserve">
+    <value>Ek2</value>
+  </data>
+  <data name="B008" xml:space="preserve">
+    <value>ΔEk</value>
+  </data>
+  <data name="B009" xml:space="preserve">
+    <value>Ep1</value>
+  </data>
+  <data name="B010" xml:space="preserve">
+    <value>Ep2</value>
+  </data>
+  <data name="B011" xml:space="preserve">
+    <value>ΔEp</value>
+  </data>
+  <data name="B012" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="B013" xml:space="preserve">
+    <value>Fx</value>
+  </data>
+  <data name="B014" xml:space="preserve">
+    <value>Fy</value>
+  </data>
+  <data name="B015" xml:space="preserve">
+    <value>Fz</value>
+  </data>
+  <data name="B016" xml:space="preserve">
+    <value>Ff</value>
+  </data>
+  <data name="B017" xml:space="preserve">
+    <value>Ffx</value>
+  </data>
+  <data name="B018" xml:space="preserve">
+    <value>Ffy</value>
+  </data>
+  <data name="B019" xml:space="preserve">
+    <value>Ffz</value>
+  </data>
+  <data name="B020" xml:space="preserve">
+    <value>|Fn|</value>
+  </data>
+  <data name="B021" xml:space="preserve">
+    <value>Frg</value>
+  </data>
+  <data name="B022" xml:space="preserve">
+    <value>Frgx</value>
+  </data>
+  <data name="B023" xml:space="preserve">
+    <value>Frgy</value>
+  </data>
+  <data name="B024" xml:space="preserve">
+    <value>Frgz</value>
+  </data>
+  <data name="B025" xml:space="preserve">
+    <value>Frh</value>
+  </data>
+  <data name="B026" xml:space="preserve">
+    <value>Frhx</value>
+  </data>
+  <data name="B027" xml:space="preserve">
+    <value>Frhy</value>
+  </data>
+  <data name="B028" xml:space="preserve">
+    <value>Frhz</value>
+  </data>
+  <data name="B029" xml:space="preserve">
+    <value>Frr</value>
+  </data>
+  <data name="B030" xml:space="preserve">
+    <value>Frrx</value>
+  </data>
+  <data name="B031" xml:space="preserve">
+    <value>Frry</value>
+  </data>
+  <data name="B032" xml:space="preserve">
+    <value>Frrz</value>
+  </data>
+  <data name="B033" xml:space="preserve">
+    <value>Ft</value>
+  </data>
+  <data name="B034" xml:space="preserve">
+    <value>Ftx</value>
+  </data>
+  <data name="B035" xml:space="preserve">
+    <value>Fty</value>
+  </data>
+  <data name="B036" xml:space="preserve">
+    <value>Ftz</value>
+  </data>
+  <data name="B037" xml:space="preserve">
+    <value>k</value>
+  </data>
+  <data name="B038" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="B039" xml:space="preserve">
+    <value>m</value>
+  </data>
+  <data name="B040" xml:space="preserve">
+    <value>μg</value>
+  </data>
+  <data name="B041" xml:space="preserve">
+    <value>μh</value>
+  </data>
+  <data name="B042" xml:space="preserve">
+    <value>μr</value>
+  </data>
+  <data name="B043" xml:space="preserve">
+    <value>n</value>
+  </data>
+  <data name="B044" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="B045" xml:space="preserve">
+    <value>p</value>
+  </data>
+  <data name="B046" xml:space="preserve">
+    <value>px</value>
+  </data>
+  <data name="B047" xml:space="preserve">
+    <value>py</value>
+  </data>
+  <data name="B048" xml:space="preserve">
+    <value>pz</value>
+  </data>
+  <data name="B049" xml:space="preserve">
+    <value>s1</value>
+  </data>
+  <data name="B050" xml:space="preserve">
+    <value>sx1</value>
+  </data>
+  <data name="B051" xml:space="preserve">
+    <value>sy1</value>
+  </data>
+  <data name="B052" xml:space="preserve">
+    <value>sz1</value>
+  </data>
+  <data name="B053" xml:space="preserve">
+    <value>s2</value>
+  </data>
+  <data name="B054" xml:space="preserve">
+    <value>sx2</value>
+  </data>
+  <data name="B055" xml:space="preserve">
+    <value>sy2</value>
+  </data>
+  <data name="B056" xml:space="preserve">
+    <value>sz2</value>
+  </data>
+  <data name="B057" xml:space="preserve">
+    <value>Δs</value>
+  </data>
+  <data name="B058" xml:space="preserve">
+    <value>Δsx</value>
+  </data>
+  <data name="B059" xml:space="preserve">
+    <value>Δsy</value>
+  </data>
+  <data name="B060" xml:space="preserve">
+    <value>Δsz</value>
+  </data>
+  <data name="B061" xml:space="preserve">
+    <value>t1</value>
+  </data>
+  <data name="B062" xml:space="preserve">
+    <value>t2</value>
+  </data>
+  <data name="B063" xml:space="preserve">
+    <value>Δt</value>
+  </data>
+  <data name="B064" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="B065" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="B066" xml:space="preserve">
+    <value>vx</value>
+  </data>
+  <data name="B067" xml:space="preserve">
+    <value>vy</value>
+  </data>
+  <data name="B068" xml:space="preserve">
+    <value>vz</value>
+  </data>
+  <data name="B069" xml:space="preserve">
+    <value>v1</value>
+  </data>
+  <data name="B070" xml:space="preserve">
+    <value>vx1</value>
+  </data>
+  <data name="B071" xml:space="preserve">
+    <value>vy1</value>
+  </data>
+  <data name="B072" xml:space="preserve">
+    <value>vz1</value>
+  </data>
+  <data name="B073" xml:space="preserve">
+    <value>v2</value>
+  </data>
+  <data name="B074" xml:space="preserve">
+    <value>vx2</value>
+  </data>
+  <data name="B075" xml:space="preserve">
+    <value>vx2</value>
+  </data>
+  <data name="B076" xml:space="preserve">
+    <value>vz2</value>
+  </data>
+  <data name="B077" xml:space="preserve">
+    <value>Δv</value>
+  </data>
+  <data name="B078" xml:space="preserve">
+    <value>Δvx</value>
+  </data>
+  <data name="B079" xml:space="preserve">
+    <value>Δvy</value>
+  </data>
+  <data name="B080" xml:space="preserve">
+    <value>Δvz</value>
+  </data>
+  <data name="B081" xml:space="preserve">
+    <value>{v}</value>
+  </data>
+  <data name="B082" xml:space="preserve">
+    <value>{vx}</value>
+  </data>
+  <data name="B083" xml:space="preserve">
+    <value>{vy}</value>
+  </data>
+  <data name="B084" xml:space="preserve">
+    <value>{vz}</value>
+  </data>
+  <data name="B085" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="B086" xml:space="preserve">
+    <value>θ</value>
+  </data>
+  <data name="B087" xml:space="preserve">
+    <value>ϕ</value>
+  </data>
+  <data name="C001" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="C002" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="C003" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="C004" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="C005" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C006" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C007" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C008" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C009" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C010" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C011" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C012" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="C013" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="C014" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="C015" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="C016" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="C017" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="C018" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="C019" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="C020" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="C021" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="C022" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="C023" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="C024" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="C025" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="C026" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="C027" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="C028" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="C029" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="C030" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="C031" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="C032" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="C033" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="C034" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="C035" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="C036" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="C037" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C038" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C039" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C040" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C041" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C042" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C043" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C044" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C045" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="C046" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="C047" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="C048" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="C049" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="C050" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="C051" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="C052" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="C053" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="C054" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="C055" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="C056" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="C057" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="C058" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="C059" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="C060" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="C061" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="C062" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="C063" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="C064" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C065" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="C066" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="C067" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="C068" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="C069" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="C070" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="C071" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="C072" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="C073" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="C074" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="C075" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="C076" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="C077" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="C078" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="C079" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="C080" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="C081" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="C082" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="C083" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="C084" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="C085" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="C086" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="C087" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="D001" xml:space="preserve">
+    <value>a = Δv : Δt   =&gt;   a = Δv : Δt</value>
+  </data>
+  <data name="D002" xml:space="preserve">
+    <value>a = Δv : Δt   =&gt;   Δv = a · Δt</value>
+  </data>
+  <data name="D003" xml:space="preserve">
+    <value>a = Δv : Δt   =&gt;   Δt = Δv : a</value>
+  </data>
+  <data name="D004" xml:space="preserve">
+    <value>c = n : V   =&gt;   c = n : V</value>
+  </data>
+  <data name="D005" xml:space="preserve">
+    <value>c = n : V   =&gt;   n = c · V</value>
+  </data>
+  <data name="D006" xml:space="preserve">
+    <value>c = n : V   =&gt;   V = n : c</value>
+  </data>
+  <data name="D007" xml:space="preserve">
+    <value>ΔEk = Ek2 - Ek1   =&gt;   ΔEk = Ek2 - Ek1</value>
+  </data>
+  <data name="D008" xml:space="preserve">
+    <value>ΔEk = Ek2 - Ek1   =&gt;   Ek1 = Ek2 - ΔEk</value>
+  </data>
+  <data name="D009" xml:space="preserve">
+    <value>ΔEk = Ek2 - Ek1   =&gt;   Ek2 = Ek1 + ΔEk</value>
+  </data>
+  <data name="D010" xml:space="preserve">
+    <value>ΔEp = Ep2 - Ep1   =&gt;   ΔEp = Ep2 - Ep1</value>
+  </data>
+  <data name="D011" xml:space="preserve">
+    <value>ΔEp = Ep2 - Ep1   =&gt;   Ep1 = Ep2 - ΔEp</value>
+  </data>
+  <data name="D012" xml:space="preserve">
+    <value>ΔEp = Ep2 - Ep1   =&gt;   Ep2 = Ep1 + ΔEp</value>
+  </data>
+  <data name="D013" xml:space="preserve">
+    <value>F = a m   =&gt;   F = a · m</value>
+  </data>
+  <data name="D014" xml:space="preserve">
+    <value>F = a m   =&gt;   a = F : m</value>
+  </data>
+  <data name="D015" xml:space="preserve">
+    <value>F = a m   =&gt;   m = F : a</value>
+  </data>
+  <data name="D016" xml:space="preserve">
+    <value>F = -k Δs   =&gt;   F = -k · Δs</value>
+  </data>
+  <data name="D017" xml:space="preserve">
+    <value>F = -k Δs   =&gt;   k = -F : Δs</value>
+  </data>
+  <data name="D018" xml:space="preserve">
+    <value>F = -k Δs   =&gt;   Δs = -F : k</value>
+  </data>
+  <data name="D019" xml:space="preserve">
+    <value>F = √(-k W)   =&gt;   F = √(-k · W) *</value>
+  </data>
+  <data name="D020" xml:space="preserve">
+    <value>F = √(-k W)   =&gt;   k = -(F ^ 2) : W *</value>
+  </data>
+  <data name="D021" xml:space="preserve">
+    <value>F = √(-k W)   =&gt;   W = -(F ^ 2) : k *</value>
+  </data>
+  <data name="D022" xml:space="preserve">
+    <value>F = |Fn| μg   =&gt;   F = |Fn| μg *</value>
+  </data>
+  <data name="D023" xml:space="preserve">
+    <value>F = |Fn| μg   =&gt;   |Fn| = F : μg *</value>
+  </data>
+  <data name="D024" xml:space="preserve">
+    <value>F = |Fn| μg   =&gt;   μg = F : |Fn| *</value>
+  </data>
+  <data name="D025" xml:space="preserve">
+    <value>F = |Fn| μh   =&gt;   F = |Fn| μh *</value>
+  </data>
+  <data name="D026" xml:space="preserve">
+    <value>F = |Fn| μh   =&gt;   |Fn| = F : μh *</value>
+  </data>
+  <data name="D027" xml:space="preserve">
+    <value>F = |Fn| μh   =&gt;   μh = F : |Fn| *</value>
+  </data>
+  <data name="D028" xml:space="preserve">
+    <value>F = |Fn| μr   =&gt;   F = |Fn| μr *</value>
+  </data>
+  <data name="D029" xml:space="preserve">
+    <value>F = |Fn| μr   =&gt;   |Fn| = F : μr *</value>
+  </data>
+  <data name="D030" xml:space="preserve">
+    <value>F = |Fn| μr   =&gt;   μr = F : |Fn| *</value>
+  </data>
+  <data name="D031" xml:space="preserve">
+    <value>M = m : n   =&gt;   M = m : n</value>
+  </data>
+  <data name="D032" xml:space="preserve">
+    <value>M = m : n   =&gt;   m = M · n</value>
+  </data>
+  <data name="D033" xml:space="preserve">
+    <value>M = m : n   =&gt;   n = m : M</value>
+  </data>
+  <data name="D034" xml:space="preserve">
+    <value>P = W : Δt   =&gt;   P = W : Δt</value>
+  </data>
+  <data name="D035" xml:space="preserve">
+    <value>P = W : Δt   =&gt;   Δt = W : P</value>
+  </data>
+  <data name="D036" xml:space="preserve">
+    <value>P = W : Δt   =&gt;   W = P · Δt</value>
+  </data>
+  <data name="D037" xml:space="preserve">
+    <value>P = F {v}   =&gt;   P = F · {v} *</value>
+  </data>
+  <data name="D038" xml:space="preserve">
+    <value>P = F {v}   =&gt;   F = P : {v} *</value>
+  </data>
+  <data name="D039" xml:space="preserve">
+    <value>P = F {v}   =&gt;   {v} = P : F *</value>
+  </data>
+  <data name="D040" xml:space="preserve">
+    <value>p = m v   =&gt;   p = m · v</value>
+  </data>
+  <data name="D041" xml:space="preserve">
+    <value>p = m v   =&gt;   m = p : v</value>
+  </data>
+  <data name="D042" xml:space="preserve">
+    <value>p = m v   =&gt;   v = p : m</value>
+  </data>
+  <data name="D043" xml:space="preserve">
+    <value>Δs = s2 - s1   =&gt;   Δs = s2 - s1</value>
+  </data>
+  <data name="D044" xml:space="preserve">
+    <value>Δs = s2 - s1   =&gt;   s1 = s2 - Δs</value>
+  </data>
+  <data name="D045" xml:space="preserve">
+    <value>Δs = s2 - s1   =&gt;   s2 = s1 + Δs</value>
+  </data>
+  <data name="D046" xml:space="preserve">
+    <value>Δs = √(-W : k)   =&gt;   Δs = √(-W : k) *</value>
+  </data>
+  <data name="D047" xml:space="preserve">
+    <value>Δs = √(-W : k)   =&gt;   k = -W : Δs ^ 2 *</value>
+  </data>
+  <data name="D048" xml:space="preserve">
+    <value>Δs = √(-W : k)   =&gt;   W = -k · (Δs ^ 2) *</value>
+  </data>
+  <data name="D049" xml:space="preserve">
+    <value>Δt = t2 - t1   =&gt;   Δt = t2 - t1</value>
+  </data>
+  <data name="D050" xml:space="preserve">
+    <value>Δt = t2 - t1   =&gt;   t1 = t2 - Δt</value>
+  </data>
+  <data name="D051" xml:space="preserve">
+    <value>Δt = t2 - t1   =&gt;   t2 = t1 + Δt</value>
+  </data>
+  <data name="D052" xml:space="preserve">
+    <value>v = Δs : Δt   =&gt;   v = Δs : Δt</value>
+  </data>
+  <data name="D053" xml:space="preserve">
+    <value>v = Δs : Δt   =&gt;   Δs = v · Δt</value>
+  </data>
+  <data name="D054" xml:space="preserve">
+    <value>v = Δs : Δt   =&gt;   Δt = Δs : v</value>
+  </data>
+  <data name="D055" xml:space="preserve">
+    <value>Δv = v2 - v1   =&gt;   Δv = v2 - v1</value>
+  </data>
+  <data name="D056" xml:space="preserve">
+    <value>Δv = v2 - v1   =&gt;   v1 = v2 - Δv</value>
+  </data>
+  <data name="D057" xml:space="preserve">
+    <value>Δv = v2 - v1   =&gt;   v2 = v1 + Δv</value>
+  </data>
+  <data name="D058" xml:space="preserve">
+    <value>Δv = 2 (v2 - {v})   =&gt;   Δv = 2 · (v2 - {v}) *</value>
+  </data>
+  <data name="D059" xml:space="preserve">
+    <value>Δv = 2 (v2 - {v})   =&gt;   v2 = Δv : 2 + {v} *</value>
+  </data>
+  <data name="D060" xml:space="preserve">
+    <value>Δv = 2 (v2 - {v})   =&gt;   {v} = v2 - Δv : 2 *</value>
+  </data>
+  <data name="D061" xml:space="preserve">
+    <value>Δv = 2 ({v} - v1)   =&gt;   Δv = 2 · ({v} - v1) *</value>
+  </data>
+  <data name="D062" xml:space="preserve">
+    <value>Δv = 2 ({v} - v1)   =&gt;   v1 = {v} - Δv : 2 *</value>
+  </data>
+  <data name="D063" xml:space="preserve">
+    <value>Δv = 2 ({v} - v1)   =&gt;   {v} = v1 + Δv : 2 *</value>
+  </data>
+  <data name="D064" xml:space="preserve">
+    <value>Δv {v} = (v2 ^ 2 - v1 ^ 2) : 2 *</value>
+  </data>
+  <data name="D065" xml:space="preserve">
+    <value>{v} = (v1 + v2) : 2   =&gt;   {v} = (v1 + v2) : 2</value>
+  </data>
+  <data name="D066" xml:space="preserve">
+    <value>{v} = (v1 + v2) : 2   =&gt;   v1 = 2 · {v} - v2</value>
+  </data>
+  <data name="D067" xml:space="preserve">
+    <value>{v} = (v1 + v2) : 2   =&gt;   v2 = 2 · {v} - v1</value>
+  </data>
+  <data name="D068" xml:space="preserve">
+    <value>{v} = Δs : Δt   =&gt;   {v} = Δs : Δt</value>
+  </data>
+  <data name="D069" xml:space="preserve">
+    <value>{v} = Δs : Δt   =&gt;   Δs = Δt · {v}</value>
+  </data>
+  <data name="D070" xml:space="preserve">
+    <value>{v} = Δs : Δt   =&gt;   Δt = Δs : {v}</value>
+  </data>
+  <data name="D071" xml:space="preserve">
+    <value>W = F Δs   =&gt;   W = F · Δs</value>
+  </data>
+  <data name="D072" xml:space="preserve">
+    <value>W = F Δs   =&gt;   F = W : Δs</value>
+  </data>
+  <data name="D073" xml:space="preserve">
+    <value>W = F Δs   =&gt;   Δs = W : F</value>
+  </data>
+  <data name="D074" xml:space="preserve">
+    <value>W = ΔEk   =&gt;   W = ΔEk</value>
+  </data>
+  <data name="D075" xml:space="preserve">
+    <value>W = ΔEk   =&gt;   ΔEk = W</value>
+  </data>
+  <data name="D076" xml:space="preserve">
+    <value>W = -ΔEp   =&gt;   W = -ΔEp</value>
+  </data>
+  <data name="D077" xml:space="preserve">
+    <value>W = -ΔEp   =&gt;   ΔEp = -W</value>
+  </data>
+  <data name="D078" xml:space="preserve">
+    <value>W = m Δv {v}   =&gt;   W = m · Δv · {v} *</value>
+  </data>
+  <data name="D079" xml:space="preserve">
+    <value>W = m Δv {v}   =&gt;   m = W : Δv : {v} *</value>
+  </data>
+  <data name="D080" xml:space="preserve">
+    <value>W = m Δv {v}   =&gt;   Δv = W : m : {v} *</value>
+  </data>
+  <data name="D081" xml:space="preserve">
+    <value>W = m Δv {v}   =&gt;   {v} = W : m : Δv *</value>
+  </data>
+  <data name="D082" xml:space="preserve">
+    <value>W = m Δv (v1 + Δv : 2)   =&gt;   W = m · Δv · (v1 + Δv : 2) *</value>
+  </data>
+  <data name="D083" xml:space="preserve">
+    <value>W = m Δv (v1 + Δv : 2)   =&gt;   m = W : Δv : (v1 + Δv : 2) *</value>
+  </data>
+  <data name="D084" xml:space="preserve">
+    <value>W = m Δv (v1 + Δv : 2)   =&gt;   v1 = W : m : Δv - Δv : 2 *</value>
+  </data>
+  <data name="D085" xml:space="preserve">
+    <value>W = m Δv (v1 + Δv : 2)   =&gt;   Δv = -v1 ± √(v1 ^ 2 + 2 · W : m) *</value>
+  </data>
+  <data name="D086" xml:space="preserve">
+    <value>W = m Δv (v2 - Δv : 2)   =&gt;   W = m · Δv (v2 - Δv : 2)   *</value>
+  </data>
+  <data name="D087" xml:space="preserve">
+    <value>W = m Δv (v2 - Δv : 2)   =&gt;   m = W : Δv : (v2 - Δv : 2) *</value>
+  </data>
+  <data name="D088" xml:space="preserve">
+    <value>W = m Δv (v2 - Δv : 2)   =&gt;   v2 = W : m : Δv + Δv : 2 *</value>
+  </data>
+  <data name="D089" xml:space="preserve">
+    <value>W = m Δv (v2 - Δv : 2)   =&gt;   Δv = v2 ± √(v2 ^ 2 - 2 · W : m) *</value>
+  </data>
+  <data name="D090" xml:space="preserve">
+    <value>W = m (v2 ^ 2 - v1 ^ 2) : 2   =&gt;   W = m (v2 ^ 2 - v1 ^ 2) : 2 *</value>
+  </data>
+  <data name="D091" xml:space="preserve">
+    <value>W = m (v2 ^ 2 - v1 ^ 2) : 2   =&gt;   m = 2 W : (v2 ^ 2 - v1 ^ 2) *</value>
+  </data>
+  <data name="D092" xml:space="preserve">
+    <value>W = m (v2 ^ 2 - v1 ^ 2) : 2   =&gt;   v1 = √(v2 ^ 2 - 2 W : m) *</value>
+  </data>
+  <data name="D093" xml:space="preserve">
+    <value>W = m (v2 ^ 2 - v1 ^ 2) : 2   =&gt;   v2 = √(v1 ^ 2 + 2 W : m) *</value>
+  </data>
+  <data name="D094" xml:space="preserve">
+    <value>W = |Fn| μg Δs   =&gt;   W = |Fn| μg Δs *</value>
+  </data>
+  <data name="D095" xml:space="preserve">
+    <value>W = |Fn| μg Δs   =&gt;   |Fn| = W : μg : Δs *</value>
+  </data>
+  <data name="D096" xml:space="preserve">
+    <value>W = |Fn| μg Δs   =&gt;   μg = W : |Fn| : Δs *</value>
+  </data>
+  <data name="D097" xml:space="preserve">
+    <value>W = |Fn| μg Δs   =&gt;   Δs = W : |Fn| : μg *</value>
+  </data>
+  <data name="D098" xml:space="preserve">
+    <value>W = |Fn| μh Δs   =&gt;   W = |Fn| μh Δs *</value>
+  </data>
+  <data name="D099" xml:space="preserve">
+    <value>W = |Fn| μh Δs   =&gt;   |Fn| = W : μh : Δs *</value>
+  </data>
+  <data name="D100" xml:space="preserve">
+    <value>W = |Fn| μh Δs   =&gt;   μh = W : |Fn| : Δs *</value>
+  </data>
+  <data name="D101" xml:space="preserve">
+    <value>W = |Fn| μh Δs   =&gt;   Δs = W : |Fn| : μh *</value>
+  </data>
+  <data name="D102" xml:space="preserve">
+    <value>W = |Fn| μr Δs   =&gt;   W = |Fn| μr Δs *</value>
+  </data>
+  <data name="D103" xml:space="preserve">
+    <value>W = |Fn| μr Δs   =&gt;   |Fn| = W : μr : Δs *</value>
+  </data>
+  <data name="D104" xml:space="preserve">
+    <value>W = |Fn| μr Δs   =&gt;   μr = W : |Fn| : Δs *</value>
+  </data>
+  <data name="D105" xml:space="preserve">
+    <value>W = |Fn| μr Δs   =&gt;   Δs = W : |Fn| : μr *</value>
+  </data>
 </root>

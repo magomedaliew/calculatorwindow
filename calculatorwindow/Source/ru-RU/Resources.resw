@@ -187,21 +187,15 @@
     <value>подробнее</value>
   </data>
   <data name="A101" xml:space="preserve">
-    <value>в:</value>
-  </data>
-  <data name="A102" xml:space="preserve">
-    <value>w:</value>
-  </data>
-  <data name="A103" xml:space="preserve">
     <value>у:</value>
   </data>
-  <data name="A104" xml:space="preserve">
+  <data name="A102" xml:space="preserve">
     <value>u:</value>
   </data>
-  <data name="A105" xml:space="preserve">
+  <data name="A103" xml:space="preserve">
     <value>.</value>
   </data>
-  <data name="A106" xml:space="preserve">
+  <data name="A104" xml:space="preserve">
     <value>,</value>
   </data>
   <data name="A151" xml:space="preserve">
@@ -878,5 +872,110 @@
   </data>
   <data name="D005" xml:space="preserve">
     <value>после</value>
+  </data>
+  <data name="E001" xml:space="preserve">
+    <value>Химия</value>
+  </data>
+  <data name="E002" xml:space="preserve">
+    <value>Физика</value>
+  </data>
+  <data name="E003" xml:space="preserve">
+    <value>Математика</value>
+  </data>
+  <data name="E051" xml:space="preserve">
+    <value>Более обновлённые формулы</value>
+  </data>
+  <data name="E052" xml:space="preserve">
+    <value>Менее обновлённые формулы</value>
+  </data>
+  <data name="E053" xml:space="preserve">
+    <value>Векторы</value>
+  </data>
+  <data name="E101" xml:space="preserve">
+    <value>Не решённая формa</value>
+  </data>
+  <data name="E102" xml:space="preserve">
+    <value>2         Упрощенная форма</value>
+  </data>
+  <data name="E103" xml:space="preserve">
+    <value>2.1       Число е</value>
+  </data>
+  <data name="E104" xml:space="preserve">
+    <value>2.2       Число π</value>
+  </data>
+  <data name="E105" xml:space="preserve">
+    <value>2.3       Скобки</value>
+  </data>
+  <data name="E106" xml:space="preserve">
+    <value>2.4       Модуль</value>
+  </data>
+  <data name="E107" xml:space="preserve">
+    <value>2.5       Нуль</value>
+  </data>
+  <data name="E108" xml:space="preserve">
+    <value>2.6       Один</value>
+  </data>
+  <data name="E109" xml:space="preserve">
+    <value>2.7       Подобные</value>
+  </data>
+  <data name="E110" xml:space="preserve">
+    <value>2.8       Знаки плюс и минус</value>
+  </data>
+  <data name="E111" xml:space="preserve">
+    <value>2.9       Тригонометрия с числами</value>
+  </data>
+  <data name="E112" xml:space="preserve">
+    <value>2.10      Логарифм с числами</value>
+  </data>
+  <data name="E113" xml:space="preserve">
+    <value>2.11      Факториал</value>
+  </data>
+  <data name="E114" xml:space="preserve">
+    <value>2.12      Дифференцирование числа</value>
+  </data>
+  <data name="E115" xml:space="preserve">
+    <value>2.13      Коммутативная операция</value>
+  </data>
+  <data name="E116" xml:space="preserve">
+    <value>3         Дистрибутивность 1</value>
+  </data>
+  <data name="E117" xml:space="preserve">
+    <value>4         Дистрибутивность 2</value>
+  </data>
+  <data name="E118" xml:space="preserve">
+    <value>5         Дроби</value>
+  </data>
+  <data name="E119" xml:space="preserve">
+    <value>6         Степень</value>
+  </data>
+  <data name="E120" xml:space="preserve">
+    <value>7         Корень</value>
+  </data>
+  <data name="E121" xml:space="preserve">
+    <value>8         Предел последовательности</value>
+  </data>
+  <data name="E122" xml:space="preserve">
+    <value>9         Логарифм</value>
+  </data>
+  <data name="E123" xml:space="preserve">
+    <value>10        Алгебраическая сумма</value>
+  </data>
+  <data name="E124" xml:space="preserve">
+    <value>11        Произведение</value>
+  </data>
+  <data name="E125" xml:space="preserve">
+    <value>12        Интеграл</value>
+  </data>
+  <data name="E126" xml:space="preserve">
+    <value>13        Линейные уравнения</value>
+  </data>
+  <data name="E127" xml:space="preserve">
+    <value>14        Квадратное уравнение</value>
+  </data>
+  <data name="E201" xml:space="preserve">
+    <value>В этом калькуляторе</value>
+  </data>
+  <data name="E202" xml:space="preserve">
+    <value>MATHPRINT</value>
   </data>
 </root>
