@@ -148,7 +148,7 @@
     <value>калькулятор</value>
   </data>
   <data name="A012" xml:space="preserve">
-    <value>обновление</value>
+    <value>стили текста</value>
   </data>
   <data name="A013" xml:space="preserve">
     <value>применение</value>
@@ -169,15 +169,12 @@
     <value>м-формулы</value>
   </data>
   <data name="A019" xml:space="preserve">
-    <value>выражения</value>
-  </data>
-  <data name="A020" xml:space="preserve">
     <value>таблица елементов</value>
   </data>
-  <data name="A021" xml:space="preserve">
+  <data name="A020" xml:space="preserve">
     <value>задание</value>
   </data>
-  <data name="A022" xml:space="preserve">
+  <data name="A021" xml:space="preserve">
     <value>выражение</value>
   </data>
   <data name="A051" xml:space="preserve">
@@ -873,14 +870,17 @@
   <data name="D005" xml:space="preserve">
     <value>после</value>
   </data>
-  <data name="E001" xml:space="preserve">
+  <data name="E003" xml:space="preserve">
     <value>Химия</value>
   </data>
-  <data name="E002" xml:space="preserve">
+  <data name="E004" xml:space="preserve">
     <value>Физика</value>
   </data>
-  <data name="E003" xml:space="preserve">
+  <data name="E005" xml:space="preserve">
     <value>Математика</value>
+  </data>
+  <data name="E001" xml:space="preserve">
+    <value>Обновление</value>
   </data>
   <data name="E051" xml:space="preserve">
     <value>Более обновлённые формулы</value>
@@ -972,10 +972,13 @@
   <data name="E127" xml:space="preserve">
     <value>14        Квадратное уравнение</value>
   </data>
-  <data name="E201" xml:space="preserve">
-    <value>В этом калькуляторе</value>
-  </data>
   <data name="E202" xml:space="preserve">
+    <value>CLASSIC-Калькулятор°</value>
+  </data>
+  <data name="E201" xml:space="preserve">
     <value>MATHPRINT</value>
+  </data>
+  <data name="E002" xml:space="preserve">
+    <value>Формы выражений</value>
   </data>
 </root>

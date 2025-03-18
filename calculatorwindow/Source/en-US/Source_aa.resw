@@ -118,21 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="A001" xml:space="preserve">
-    <value>a</value>
+    <value>The calculator shows scientific formulas, calculations and solutions
+Content: Physics: ≈ 100 000 combined mechanical formulas of a body
+Content: Chemistry: 10 combined formulas
+Content: Mathematics: defined formulas are under attachment / m-formulas</value>
   </data>
   <data name="A002" xml:space="preserve">
-    <value>b</value>
+    <value>-      Design corrections
+-      Formula a ^ b · -1 = -(a ^ b) is updated
+-      Better performance when calculating physical formulas
+-      Comments when toggling the pink highlighted "results" button for the formulas like a * -b ^ 3</value>
   </data>
   <data name="A003" xml:space="preserve">
-    <value>a</value>
-  </data>
-  <data name="A004" xml:space="preserve">
-    <value>a</value>
-  </data>
-  <data name="A005" xml:space="preserve">
-    <value>a</value>
-  </data>
-  <data name="A006" xml:space="preserve">
-    <value>a</value>
+    <value>Relative atomic mass in u:
+Electronegativity:
+Electron configuration:
+Melting temperature in °C:
+Boiling temperature in °C:
+Oxidations states:
+Normal potential (reduction potential)
+E0 in V with oxidation states (n):</value>
   </data>
 </root>

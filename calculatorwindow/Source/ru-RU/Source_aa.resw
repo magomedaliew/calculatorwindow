@@ -118,21 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="A001" xml:space="preserve">
-    <value>a</value>
+    <value>Калькулятор показывает формулы и решения примеров и задач
+Содержание: Физика: ≈ 100 000 комбинированных формул одного тела
+Содержание: Химия: 10 комбинированных формул
+Содержание: Математика: определённые формулы показаны в Приложении / М-Формулы</value>
   </data>
   <data name="A002" xml:space="preserve">
-    <value>g</value>
+    <value>-      Исправления дизайна
+-      Формула a ^ b · -1 = -(a ^ b) обновлена
+-      Лучшая производительность при решении физических формул
+-      Комментарии при переключении розовой пометки "решения" для формул как a * -b ^ 3</value>
   </data>
   <data name="A003" xml:space="preserve">
-    <value>a</value>
-  </data>
-  <data name="A004" xml:space="preserve">
-    <value>a</value>
-  </data>
-  <data name="A005" xml:space="preserve">
-    <value>a</value>
-  </data>
-  <data name="A006" xml:space="preserve">
-    <value>a</value>
+    <value>Относительная атомная масса в u:
+Электроотрицательность:
+Електронная конфигурация:
+Температура плавления в °C:
+Температура кипения в °C:
+Числа окисления: 
+Нормальный потенциал (потенциал снижения)
+E0 в V с состоянием окисления (n):</value>
   </data>
 </root>

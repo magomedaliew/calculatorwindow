@@ -149,7 +149,7 @@
     <value>Rechner</value>
   </data>
   <data name="A012" xml:space="preserve">
-    <value>Upgrade</value>
+    <value>Textstile</value>
   </data>
   <data name="A013" xml:space="preserve">
     <value>Anwendung</value>
@@ -170,15 +170,12 @@
     <value>M-Formeln</value>
   </data>
   <data name="A019" xml:space="preserve">
-    <value>Ausdrucksformen</value>
-  </data>
-  <data name="A020" xml:space="preserve">
     <value>Periodentabelle</value>
   </data>
-  <data name="A021" xml:space="preserve">
+  <data name="A020" xml:space="preserve">
     <value>Aufgabe</value>
   </data>
-  <data name="A022" xml:space="preserve">
+  <data name="A021" xml:space="preserve">
     <value>Ausdruck</value>
   </data>
   <data name="A051" xml:space="preserve">
@@ -882,18 +879,22 @@
   <data name="D005" xml:space="preserve">
     <value>später</value>
   </data>
-  <data name="E001" xml:space="preserve">
+  <data name="E003" xml:space="preserve">
     <value>Chemie</value>
-    <comment>Titeln 1</comment>
   </data>
-  <data name="E002" xml:space="preserve">
+  <data name="E004" xml:space="preserve">
     <value>Physik</value>
   </data>
-  <data name="E003" xml:space="preserve">
+  <data name="E005" xml:space="preserve">
     <value>Mathematik</value>
+  </data>
+  <data name="E001" xml:space="preserve">
+    <value>Upgrade</value>
+    <comment>Titeln 1</comment>
   </data>
   <data name="E051" xml:space="preserve">
     <value>Mehr aktualisierte Formeln</value>
+    <comment>Titeln 2</comment>
   </data>
   <data name="E052" xml:space="preserve">
     <value>Weniger aktualisierte Formeln</value>
@@ -903,6 +904,7 @@
   </data>
   <data name="E101" xml:space="preserve">
     <value>1         Unveränderte Form</value>
+    <comment>Titeln 3</comment>
   </data>
   <data name="E102" xml:space="preserve">
     <value>2         Vereinfachte Form</value>
@@ -982,10 +984,15 @@
   <data name="E127" xml:space="preserve">
     <value>14        Quadratische Gleichung</value>
   </data>
-  <data name="E201" xml:space="preserve">
-    <value>In diesem Rechner</value>
-  </data>
   <data name="E202" xml:space="preserve">
+    <value>CLASSIC-Rechner°</value>
+  </data>
+  <data name="E201" xml:space="preserve">
     <value>MATHPRINT</value>
+    <comment>Titeln 4</comment>
+  </data>
+  <data name="E002" xml:space="preserve">
+    <value>Ausdrucksformen</value>
+    <comment>Titeln 1</comment>
   </data>
 </root>

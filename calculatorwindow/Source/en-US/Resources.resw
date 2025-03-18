@@ -148,7 +148,7 @@
     <value>calculator</value>
   </data>
   <data name="A012" xml:space="preserve">
-    <value>upgrade</value>
+    <value>text style</value>
   </data>
   <data name="A013" xml:space="preserve">
     <value>application</value>
@@ -169,15 +169,12 @@
     <value>m-formulas</value>
   </data>
   <data name="A019" xml:space="preserve">
-    <value>expressions</value>
-  </data>
-  <data name="A020" xml:space="preserve">
     <value>periodic table</value>
   </data>
-  <data name="A021" xml:space="preserve">
+  <data name="A020" xml:space="preserve">
     <value>assignment</value>
   </data>
-  <data name="A022" xml:space="preserve">
+  <data name="A021" xml:space="preserve">
     <value>expression</value>
   </data>
   <data name="A051" xml:space="preserve">
@@ -873,14 +870,17 @@
   <data name="D005" xml:space="preserve">
     <value>later</value>
   </data>
-  <data name="E001" xml:space="preserve">
+  <data name="E003" xml:space="preserve">
     <value>Chemistry</value>
   </data>
-  <data name="E002" xml:space="preserve">
+  <data name="E004" xml:space="preserve">
     <value>Physics</value>
   </data>
-  <data name="E003" xml:space="preserve">
+  <data name="E005" xml:space="preserve">
     <value>Mathematics</value>
+  </data>
+  <data name="E001" xml:space="preserve">
+    <value>Upgrade</value>
   </data>
   <data name="E051" xml:space="preserve">
     <value>More updated formulas</value>
@@ -972,10 +972,13 @@
   <data name="E127" xml:space="preserve">
     <value>14        Quadratic equation</value>
   </data>
-  <data name="E201" xml:space="preserve">
-    <value>In this calculator</value>
-  </data>
   <data name="E202" xml:space="preserve">
+    <value>CLASSIC-Calculator°</value>
+  </data>
+  <data name="E201" xml:space="preserve">
     <value>MATHPRINT</value>
+  </data>
+  <data name="E002" xml:space="preserve">
+    <value>Forms of expression</value>
   </data>
 </root>
