@@ -141,7 +141,7 @@ Public NotInheritable Class MainPage
         AA00.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 12 Step 1
         A100.ColumnDefinitions.Add(New ColumnDefinition) : Next
-      For i = 1 To 2 Step 1
+      For i = 1 To 3 Step 1
         B100.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 4 Step 1
         B100.ColumnDefinitions.Add(New ColumnDefinition) : Next
@@ -156,14 +156,12 @@ Public NotInheritable Class MainPage
       Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6)
       Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8)
       Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10)
-      Grid.SetRow(B101, 0) : Grid.SetRow(B102, 0)
-      Grid.SetRow(B103, 1) : Grid.SetRow(B104, 1)
-      Grid.SetRow(B105, 0) : Grid.SetRow(B106, 0)
-      Grid.SetRow(B107, 1) : Grid.SetRow(B108, 1)
+      Grid.SetRow(B101, 0) : Grid.SetRow(B105, 0)
+      Grid.SetRow(B103, 2) : Grid.SetRow(B104, 2)
+      Grid.SetRow(B107, 2) : Grid.SetRow(B108, 2)
       Grid.SetRow(B200, 2) : Grid.SetRow(B300, 2)
-      Grid.SetColumn(B101, 1) : Grid.SetColumn(B102, 2)
+      Grid.SetColumn(B102, 2) : Grid.SetColumn(B106, 2)
       Grid.SetColumn(B103, 1) : Grid.SetColumn(B104, 2)
-      Grid.SetColumn(B105, 1) : Grid.SetColumn(B106, 2)
       Grid.SetColumn(B107, 1) : Grid.SetColumn(B108, 2)
       Grid.SetRow(A_01, 3) : Grid.SetRow(C100, 4)
       _AA = "0´1´0´2´0´3´0´4´1´1´1´2´1´3´1´4´2´1´2´2´2´3"
@@ -227,10 +225,10 @@ Public NotInheritable Class MainPage
 
   End Sub
   Private Sub A_AI()
-
+    AEBA()
   End Sub
   Private Sub A_AJ()
-
+    AEBB()
   End Sub
 #End Region ' *****
 #Region "A-AB"
@@ -294,18 +292,21 @@ Public NotInheritable Class MainPage
     Select Case 100 * AAA + AAB
       Case = 101 ' Q-Start
 #Region ""
-        Grid.SetRow(A100, 0) : A_01.Visibility = 0
         A_01.Background = New SolidColorBrush(_EP)
-        A109.Visibility = 1 : A110.Visibility = 1 :: AEAB()
+        Grid.SetRow(A100, 0) : A_01.Visibility = 0
+        Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
+        Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
+        A109.Visibility = 1 : A110.Visibility = 1 : AEAB()
+        B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
         A100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
-        A100.ColumnDefinitions.Item(4).Width = New GridLength(1, 2)
         A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
         A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
         A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
+        A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(7, 2)
         B100.ColumnDefinitions.Item(2).Width = New GridLength(11, 2)
-        C100.ColumnDefinitions.Item(15).Width = New GridLength(9, 2)
         C100.ColumnDefinitions.Item(0).Width = New GridLength(0.6, 2)
+        C100.ColumnDefinitions.Item(15).Width = New GridLength(9, 2)
         For i = 5 To 14 Step 1
           C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2)
         Next
@@ -358,19 +359,20 @@ Public NotInheritable Class MainPage
       Case = 201 ' H-Start
 #Region ""
         Grid.SetRow(A100, 3) : A_01.Visibility = 1
+        Grid.SetRow(B102, 1) : Grid.SetRow(B106, 1)
+        Grid.SetColumn(B101, 2) : Grid.SetColumn(B105, 2)
         A109.Visibility = 0 : A110.Visibility = 0 : AEAB()
-        A100.ColumnDefinitions.Item(0).Width = New GridLength(0.1, 2)
-        'A100.ColumnDefinitions.Item(4).Width = New GridLength(1, 2)
-        'A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
-        'A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
-        'A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
+        B100.RowDefinitions.Item(1).Height = New GridLength(1, 2)
+        A100.ColumnDefinitions.Item(0).Width = New GridLength(0.2, 2)
+        A100.ColumnDefinitions.Item(11).Width = New GridLength(0.4, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
-        B100.ColumnDefinitions.Item(2).Width = New GridLength(118, 2)
-        C100.ColumnDefinitions.Item(15).Width = New GridLength(0.2, 2)
-        C100.ColumnDefinitions.Item(0).Width = New GridLength(0.2, 2)
-        'For i = 5 To 14 Step 1
-        '  C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2)
-        'Next
+        B100.ColumnDefinitions.Item(2).Width = New GridLength(14, 2)
+        C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
+        C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
+        C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
+        C100.ColumnDefinitions.Item(15).Width = New GridLength(0.3, 2)
+        A109.Content = If(A109.Content = "A1", "A2", "A1") : AEBA()
+        A110.Content = If(A110.Content = "B1", "B2", "B1") : AEBB()
 #End Region
       Case = 202 ' H-Anhang
 #Region ""
@@ -396,7 +398,41 @@ Public NotInheritable Class MainPage
     AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2)
     AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2)
     B100.RowDefinitions.Item(0).Height = New GridLength(1, 2)
-    B100.RowDefinitions.Item(1).Height = New GridLength(7, 2)
+    B100.RowDefinitions.Item(2).Height = New GridLength(7, 2)
+  End Sub
+  Private Sub AEBA()
+    If A109.Content = "A1" Then : A109.Content = "A2"
+      A100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
+      A100.ColumnDefinitions.Item(6).Width = New GridLength(0, 2)
+      A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
+    Else : A109.Content = "A1"
+      A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(7).Width = New GridLength(0, 2)
+      A100.ColumnDefinitions.Item(8).Width = New GridLength(0, 2)
+    End If
+  End Sub
+  Private Sub AEBB()
+    If A110.Content = "B1" Then : A110.Content = "B2"
+      C100.ColumnDefinitions.Item(6).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(7).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(8).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(9).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(11).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(12).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(13).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(14).Width = New GridLength(1, 2)
+    Else : A110.Content = "B1"
+      C100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(9).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(11).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(12).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(13).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(14).Width = New GridLength(0, 2)
+    End If
   End Sub
 
   'Private Sub AIAS()
