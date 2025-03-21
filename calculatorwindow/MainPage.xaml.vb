@@ -5,10 +5,17 @@ Imports Windows.ApplicationModel.Resources
 Public NotInheritable Class MainPage
   ' بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
   Inherits Page
-  ' * AAAA * AAAA * AAAA * AAAA *
-#Region "AAAA"
+  ' * ≡≡≡≡ * ≡≡≡≡ * ≡≡≡≡ * ≡≡≡≡ *
+#Region "≡≡≡≡"
 #Region "A-00"
   ' Deklaration
+  Dim AA As ApplicationDataContainer
+  Dim BA As Uri
+  Dim CA As Image : Dim DA As BitmapImage
+  Dim EA, EB As New GradientStop
+  Dim EC As New LinearGradientBrush
+  Dim ED As GradientStopCollection
+
   Dim AAA, AAB As Byte : Dim BAA As Double
 
   Dim NAA As New ResourceLoader("A_a_a_a_a")
@@ -28,10 +35,11 @@ Public NotInheritable Class MainPage
   Dim A_A, A_B, A_C, A_D, A_E, A_F, A_G, A_H As New ToolTip
 
   Dim A_01 As New Canvas
-
-
 #End Region ' *****
-#Region "A-A0"
+#End Region
+  ' * ○○○○ * ○○○○ * ○○○○ * ○○○○ *
+#Region "○○○○"
+#Region "AAA0"
   Private Sub A_A_() Handles AAA0.Loaded
     Try
       '1     Anweisungen
@@ -112,16 +120,15 @@ Public NotInheritable Class MainPage
       B104.PlaceholderText = NAD.GetString("A200")
       C126.Content = NAD.GetString("A104")
       '2     Load a setting that is local to the device
-      Dim aa As ApplicationDataContainer
-      aa = ApplicationData.Current.LocalSettings
+      AA = ApplicationData.Current.LocalSettings
       '3     Upgrade
-      If aa.Values("upgrade") <> "18.02.2022" Then
-        AFAA() : AFAB() : AFAD(5) : AFAE(Colors.White)
+      If AA.Values("upgrade") <> "18.02.2022" Then
+        ABAA() : ABAB() : ABAD(5) : ABAE(Colors.White)
         B104.FontFamily = New FontFamily("Segoe UI")
-        AFAH(NAD.GetString("E001") & vbCrLf)
-        AFAF(Colors.Lime) : AFAB()
-        AFAH(NAE.GetString("A002") & vbCrLf & vbCrLf)
-        AFAF(Colors.Black) : End If
+        ABAH(NAD.GetString("E001") & vbCrLf)
+        ABAF(Colors.Lime) : ABAB()
+        ABAH(NAE.GetString("A002") & vbCrLf & vbCrLf)
+        ABAF(Colors.Black) : End If
       '4     Titel
       Dim title = ApplicationView.GetForCurrentView().
         TitleBar : title.BackgroundColor = _EI
@@ -163,23 +170,24 @@ Public NotInheritable Class MainPage
       Grid.SetColumn(B102, 2) : Grid.SetColumn(B106, 2)
       Grid.SetColumn(B103, 1) : Grid.SetColumn(B104, 2)
       Grid.SetColumn(B107, 1) : Grid.SetColumn(B108, 2)
-      Grid.SetRow(A_01, 3) : Grid.SetRow(C100, 4)
+      Grid.SetRow(C100, 4) ' Grid.SetRow(A_01, 3)
       _AA = "0´1´0´2´0´3´0´4´1´1´1´2´1´3´1´4´2´1´2´2´2´3"
       _AA &= "´2´4´3´1´3´2´3´3´3´4´0´6´0´7´0´8´0´9´1´6´1"
       _AA &= "´7´1´8´1´9´2´6´2´7´2´8´2´9´3´6´3´7´3´8´3´9"
       _AA &= "´0´11´0´12´0´13´0´14´1´11´1´12´1´13´1´14´"
       _AA &= "2´11´2´12´2´13´2´14´3´11´3´12´3´13´3´14"
-      _FA = _AA.Split("´") : For i = 0 To 95 Step 2 : Grid.
+      _FA = _AA.Split("´")
+      For i = 0 To 95 Step 2 : Grid.
           SetRow(C100.Children.Item(i / 2), CInt(_FA(i)))
         Grid.SetColumn(C100.
           Children.Item(i / 2), CInt(_FA(i + 1))) : Next
       '7    C000 Buttons
       For i = 0 To 47 Step 1
-        AGAA(C100.Children.Item(i)).HorizontalAlignment = 3
-        AGAA(C100.Children.Item(i)).VerticalAlignment = 3
-        AGAA(C100.Children.
+        ACAA(C100.Children.Item(i)).HorizontalAlignment = 3
+        ACAA(C100.Children.Item(i)).VerticalAlignment = 3
+        ACAA(C100.Children.
              Item(i)).Background = New SolidColorBrush(_EI)
-        AGAA(C100.Children.Item(i)).
+        ACAA(C100.Children.Item(i)).
           Foreground = New SolidColorBrush(_EK) : Next
       '8    Alignment
       B101.VerticalAlignment = 3 : B101.HorizontalAlignment = 3
@@ -191,20 +199,20 @@ Public NotInheritable Class MainPage
     Try
       If AAA0.ActualWidth > 1.5 * AAA0.ActualHeight Then
         If AAA <> 1 Then : AAA = 1
-          BAA = AAA0.ActualHeight / 500 : End If : AEAA()
+          BAA = AAA0.ActualHeight / 500 : End If : AAAA()
       Else
         If AAA <> 2 Then : AAA = 2
-          BAA = AAA0.ActualHeight / 550 : End If : AEAA()
+          BAA = AAA0.ActualHeight / 550 : End If : AAAA()
       End If
     Catch ex As Exception : End Try ' AAA > 0 GAA = Nothing
   End Sub
 #End Region ' *****
-#Region "A-AA"
+#Region "A100"
   Private Sub A_AA()
-
+    AAB = 1 : AAAA()
   End Sub
   Private Sub A_AB()
-
+    AAB = 2 : AAAA()
   End Sub
   Private Sub A_AC()
 
@@ -225,14 +233,14 @@ Public NotInheritable Class MainPage
 
   End Sub
   Private Sub A_AI()
-    AEBA()
+    AABA()
   End Sub
   Private Sub A_AJ()
-    AEBB()
+    AABB()
   End Sub
 #End Region ' *****
-#Region "A-AB"
-  Private Sub A_BA(sender As AutoSuggestBox, e As AutoSuggestBoxTextChangedEventArgs)
+#Region "B100"
+  Private Sub B_AA(sender As AutoSuggestBox, e As AutoSuggestBoxTextChangedEventArgs)
     'Try
     '  Dim aaaab As New List(Of String)
     '  '1     Löschen alter Definitionen
@@ -275,19 +283,53 @@ Public NotInheritable Class MainPage
     'End Try
   End Sub
 #End Region ' *****
-#Region "A-AC"
-  Private Sub A_CA()
+#Region "B200"
+  Private Sub B_BA()
+    AAB = 3 : AAAA() : ABAA() : ABAI(0) : ABAD(5)
+    B104.FontFamily = New FontFamily("Segoe UI")
+    ABAE(Colors.White)
+    ' Rechner
+    ABAB() : ABAG(NAD.GetString("A000"))
+    ABAH(vbCrLf) : ABAF(Colors.Blue)
+    ABAB() : ABAG(NAE.GetString("A001"))
+    ABAH(vbCrLf & vbCrLf) : ABAF(Colors.Black)
+    ' Upgrade
+    ABAB() : ABAG(NAD.GetString("E001"))
+    ABAH(vbCrLf) : ABAF(Colors.Lime)
+    ABAB() : ABAG(NAE.GetString("A002"))
+    ABAH(vbCrLf & vbCrLf) : ABAF(Colors.Black)
+  End Sub
+  Private Sub B_BB()
+  End Sub
+  Private Sub B_BC()
+  End Sub
+  Private Sub B_BD()
+  End Sub
+  Private Sub B_BE()
+  End Sub
+  Private Sub B_BF()
+  End Sub
+  Private Sub B_BG()
+  End Sub
+  Private Sub B_BH()
+  End Sub
+  Private Sub B_BI()
+  End Sub
+  Private Sub B_BJ()
+  End Sub
+#End Region ' *****
+#Region "C100"
+  Private Sub C_AA()
 
   End Sub
 #End Region ' *****
-#Region "A-AD"
-  Private Sub A_DA()
-
-  End Sub
-
-#End Region ' *****
-#Region "A-AE"
-  Private Sub AEAA()
+#End Region
+  ' * □□□□ * □□□□ * □□□□ * □□□□ *
+#Region "□□□□"
+  ' * AAAA * AAAA * AAAA * AAAA *
+#Region "AAAA"
+#Region "A-AA"
+  Private Sub AAAA()
     ' Quer-Hoch-Formaten-Seiten
     Select Case 100 * AAA + AAB
       Case = 101 ' Q-Start
@@ -296,9 +338,9 @@ Public NotInheritable Class MainPage
         Grid.SetRow(A100, 0) : A_01.Visibility = 0
         Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
         Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
-        A109.Visibility = 1 : A110.Visibility = 1 : AEAB()
+        A109.Visibility = 1 : A110.Visibility = 1 : AAAB()
+        AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
         B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
-        A100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
         A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
         A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
         A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
@@ -313,18 +355,29 @@ Public NotInheritable Class MainPage
 #End Region
       Case = 102 ' Q-Anhang
 #Region ""
-                'Dim ccc As Object = "AAA0"
-        'C145.Content = ccc
-
-        'Dim iii As New Image : Dim biib As BitmapImage : biib = New BitmapImage
-        'Dim uuu As Uri : uuu = New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png")
-        'biib.UriSource = uuu : iii.Source = biib
-        'A401.Content = iii
-
+        Grid.SetRow(A100, 0) : AAAC()
+        AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
 #End Region
       Case = 103 ' Q-Listen
 #Region ""
-
+        'A_01.Background = New SolidColorBrush(_EP)
+        'Grid.SetRow(A100, 0) : A_01.Visibility = 0
+        'Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
+        'Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
+        'A109.Visibility = 1 : A110.Visibility = 1 : AAAB()
+        'AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
+        'B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
+        'A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
+        'A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
+        'A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
+        'A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
+        'B100.ColumnDefinitions.Item(1).Width = New GridLength(7, 2)
+        'B100.ColumnDefinitions.Item(2).Width = New GridLength(11, 2)
+        'C100.ColumnDefinitions.Item(0).Width = New GridLength(0.6, 2)
+        'C100.ColumnDefinitions.Item(15).Width = New GridLength(9, 2)
+        'For i = 5 To 14 Step 1
+        '  C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2)
+        'Next
 #End Region
       Case = 104 ' Q-Tabelle
 #Region ""
@@ -361,22 +414,22 @@ Public NotInheritable Class MainPage
         Grid.SetRow(A100, 3) : A_01.Visibility = 1
         Grid.SetRow(B102, 1) : Grid.SetRow(B106, 1)
         Grid.SetColumn(B101, 2) : Grid.SetColumn(B105, 2)
-        A109.Visibility = 0 : A110.Visibility = 0 : AEAB()
+        A109.Visibility = 0 : A110.Visibility = 0 : AAAB()
+        AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
         B100.RowDefinitions.Item(1).Height = New GridLength(1, 2)
-        A100.ColumnDefinitions.Item(0).Width = New GridLength(0.2, 2)
-        A100.ColumnDefinitions.Item(11).Width = New GridLength(0.4, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
         B100.ColumnDefinitions.Item(2).Width = New GridLength(14, 2)
         C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
         C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(15).Width = New GridLength(0.3, 2)
-        A109.Content = If(A109.Content = "A1", "A2", "A1") : AEBA()
-        A110.Content = If(A110.Content = "B1", "B2", "B1") : AEBB()
+        A109.Content = If(A109.Content = "A1", "A2", "A1") : AABA()
+        A110.Content = If(A110.Content = "B1", "B2", "B1") : AABB()
 #End Region
       Case = 202 ' H-Anhang
 #Region ""
-
+        Grid.SetRow(A100, 3) : AAAC()
+        AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
 #End Region
       Case = 203 ' H-Listen
 #Region ""
@@ -392,15 +445,102 @@ Public NotInheritable Class MainPage
 #End Region
     End Select
   End Sub
-  Private Sub AEAB()
-    A100.Background = New SolidColorBrush(_EP) : B100.
-      Visibility = 0 : B200.Visibility = 1 : B300.Visibility = 1
+  Private Sub AAAB()
+    ' Start Q und H Formate
+    A100.Background = New SolidColorBrush(_EP)
+    B100.Visibility = 0 : B200.Visibility = 1
+    B300.Visibility = 1 : C100.Visibility = 0
+    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2)
     AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2)
     AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2)
+    A100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
+    A100.ColumnDefinitions.Item(11).Width = New GridLength(0.3, 2)
     B100.RowDefinitions.Item(0).Height = New GridLength(1, 2)
     B100.RowDefinitions.Item(2).Height = New GridLength(7, 2)
+    Grid.SetRow(A_01, 3)
   End Sub
-  Private Sub AEBA()
+  Private Sub AAAC()
+    ' Anhang Q und H Formate
+    A_01.Visibility = 0 : B100.Visibility = 1
+    B200.Visibility = 0 : B300.Visibility = 1
+    C100.Visibility = 1 : Grid.SetRow(A_01, 4)
+    AA00.RowDefinitions.Item(1).Height = New GridLength(0, 2)
+    AA00.RowDefinitions.Item(2).Height = New GridLength(14, 2)
+    AA00.RowDefinitions.Item(4).Height = New GridLength(3, 2)
+    If B200.RowDefinitions.Count > 0 Then Exit Sub
+    For i = 1 To 12 Step 1
+      B200.ColumnDefinitions.Add(New ColumnDefinition)
+      B200.RowDefinitions.Add(New RowDefinition) : Next
+
+    Grid.SetRow(B201, 1) : Grid.SetColumn(B201, 1)
+    Grid.SetRow(B202, 3) : Grid.SetColumn(B202, 1)
+    Grid.SetRow(B203, 5) : Grid.SetColumn(B203, 1)
+    Grid.SetRow(B204, 7) : Grid.SetColumn(B204, 1)
+    Grid.SetRow(B205, 9) : Grid.SetColumn(B205, 1)
+    Grid.SetRow(B206, 1) : Grid.SetColumn(B206, 3)
+    Grid.SetRow(B207, 3) : Grid.SetColumn(B207, 3)
+    Grid.SetRow(B208, 5) : Grid.SetColumn(B208, 3)
+    Grid.SetRow(B209, 7) : Grid.SetColumn(B209, 3)
+    Grid.SetRow(B210, 9) : Grid.SetColumn(B210, 3)
+
+    B201.Background = New SolidColorBrush(Colors.Transparent)
+    B202.Background = New SolidColorBrush(Colors.Transparent)
+    B203.Background = New SolidColorBrush(Colors.Transparent)
+    B204.Background = New SolidColorBrush(Colors.Transparent)
+    B205.Background = New SolidColorBrush(Colors.Transparent)
+    B206.Background = New SolidColorBrush(Colors.Transparent)
+    B207.Background = New SolidColorBrush(Colors.Transparent)
+    B208.Background = New SolidColorBrush(Colors.Transparent)
+    B209.Background = New SolidColorBrush(Colors.Transparent)
+    B210.Background = New SolidColorBrush(Colors.Transparent)
+    ' Icons
+    EA.Color = _EO : EB.Color = _EI
+    ED = New GradientStopCollection From {EA, EB}
+    EC.GradientStops = ED : EC.StartPoint = New Point(0.5, 0)
+    EC.EndPoint = New Point(0.5, 1)
+    EA.Offset = 0 : EB.Offset = 1 : B200.Background = EC
+    ' Icon 1
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B201.Content = CA
+    ' Icon 2
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B202.Content = CA
+    ' Icon 3
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B203.Content = CA
+    ' Icon 4
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B204.Content = CA
+    ' Icon 5
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B205.Content = CA
+    ' Icon 6
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B206.Content = CA
+    ' Icon 7
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B207.Content = CA
+    ' Icon 8
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B208.Content = CA
+    ' Icon 9
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B209.Content = CA
+    ' Icon 10
+    CA = New Image : DA = New BitmapImage
+    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    DA.UriSource = BA : CA.Source = DA : B210.Content = CA
+  End Sub
+  Private Sub AABA()
     If A109.Content = "A1" Then : A109.Content = "A2"
       A100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
       A100.ColumnDefinitions.Item(6).Width = New GridLength(0, 2)
@@ -413,7 +553,7 @@ Public NotInheritable Class MainPage
       A100.ColumnDefinitions.Item(8).Width = New GridLength(0, 2)
     End If
   End Sub
-  Private Sub AEBB()
+  Private Sub AABB()
     If A110.Content = "B1" Then : A110.Content = "B2"
       C100.ColumnDefinitions.Item(6).Width = New GridLength(0, 2)
       C100.ColumnDefinitions.Item(7).Width = New GridLength(0, 2)
@@ -446,46 +586,46 @@ Public NotInheritable Class MainPage
   'End Sub
 
 #End Region ' *****
-#Region "A-AF"
-  Private Sub AFAA()
+#Region "A-AB"
+  Private Sub ABAA()
     B104.Document.SetText(TextSetOptions.FormatRtf, "")
   End Sub
-  Private Sub AFAB()
+  Private Sub ABAB()
     B104.Document.Selection.StartPosition = B104.Document.Selection.StoryLength
   End Sub
-  Private Sub AFAC()
+  Private Sub ABAC()
     B104.Document.Selection.EndPosition = B104.Document.Selection.StoryLength
   End Sub
-  Private Sub AFAD(a As Byte)
+  Private Sub ABAD(a As Byte)
     B104.Document.Selection.ParagraphFormat.SpaceAfter = a ' * BAA
   End Sub
-  Private Sub AFAE(a As Color)
+  Private Sub ABAE(a As Color)
     B104.Document.Selection.CharacterFormat.BackgroundColor = a
   End Sub
-  Private Sub AFAF(a As Color)
+  Private Sub ABAF(a As Color)
     B104.Document.Selection.CharacterFormat.ForegroundColor = a
   End Sub
-  Private Sub AFAG(a As String)
+  Private Sub ABAG(a As String)
     B104.Document.Selection.Text = a
   End Sub
-  Private Sub AFAH(a As String)
+  Private Sub ABAH(a As String)
     B104.Document.Selection.Text += a
   End Sub
-  Private Sub AFAI(a As Integer)
+  Private Sub ABAI(a As Integer)
     B104.Document.Selection.StartPosition = a
   End Sub
-  Private Sub AFAJ(a As Integer)
+  Private Sub ABAJ(a As Integer)
     B104.Document.Selection.EndPosition = a
   End Sub
-  Private Sub AFAK(a As FontStyle)
+  Private Sub ABAK(a As FontStyle)
     B104.Document.Selection.CharacterFormat.FontStyle = a
   End Sub
 #End Region ' *****
-#Region "A-AG"
-  Private Function AGAA(a As Button) As Button
+#Region "A-AC"
+  Private Function ACAA(a As Button) As Button
     Return a
   End Function
-#End Region
+#End Region ' *****
 #End Region
   ' * BBBB * BBBB * BBBB * BBBB *
 #Region "BBBB"
@@ -502,5 +642,6 @@ Public NotInheritable Class MainPage
   ' * EEEE * EEEE * EEEE * EEEE *
 #Region "EEEE"
 
+#End Region
 #End Region
 End Class
