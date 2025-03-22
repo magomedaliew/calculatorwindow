@@ -547,43 +547,43 @@ Public NotInheritable Class MainPage
     EA.Offset = 0 : EB.Offset = 1 : B200.Background = EC
     ' Icon 1
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_001.png")
     DA.UriSource = BA : CA.Source = DA : B201.Content = CA
     ' Icon 2
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_2.png")
+    BA = New Uri("ms-appx:///Assets/A_A_002.png")
     DA.UriSource = BA : CA.Source = DA : B202.Content = CA
     ' Icon 3
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_003.png")
     DA.UriSource = BA : CA.Source = DA : B203.Content = CA
     ' Icon 4
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_001.png")
     DA.UriSource = BA : CA.Source = DA : B204.Content = CA
     ' Icon 5
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_001.png")
     DA.UriSource = BA : CA.Source = DA : B205.Content = CA
     ' Icon 6
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_006.png")
     DA.UriSource = BA : CA.Source = DA : B206.Content = CA
     ' Icon 7
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_007.png")
     DA.UriSource = BA : CA.Source = DA : B207.Content = CA
     ' Icon 8
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_008.png")
     DA.UriSource = BA : CA.Source = DA : B208.Content = CA
     ' Icon 9
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_009.png")
     DA.UriSource = BA : CA.Source = DA : B209.Content = CA
     ' Icon 10
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/A_A_010.png")
     DA.UriSource = BA : CA.Source = DA : B210.Content = CA
   End Sub
   Private Sub AABA()

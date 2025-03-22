@@ -254,6 +254,7 @@ Public Class A_ab
   Public Sub AAX(a As Canvas, b As String, ParamArray c() As Double)
     Dim aaaaa As New Color
     Dim aaaac As New TextBlock
+
     Dim aaaad As New PlaneProjection
     Dim aaaae As New CompositeTransform
     aaaac.Text = b
