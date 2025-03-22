@@ -334,6 +334,12 @@ Public NotInheritable Class MainPage
     Select Case 100 * AAA + AAB
       Case = 101 ' Q-Start
 #Region ""
+        ' => Design
+        B105.Visibility = 1
+        B106.Visibility = 1
+        B107.Visibility = 1
+        B108.Visibility = 1
+
         A_01.Background = New SolidColorBrush(_EP)
         Grid.SetRow(A100, 0) : A_01.Visibility = 0
         Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
@@ -411,6 +417,12 @@ Public NotInheritable Class MainPage
 #End Region
       Case = 201 ' H-Start
 #Region ""
+        ' => Design
+        B105.Visibility = 0
+        B106.Visibility = 0
+        B107.Visibility = 0
+        B108.Visibility = 0
+
         Grid.SetRow(A100, 3) : A_01.Visibility = 1
         Grid.SetRow(B102, 1) : Grid.SetRow(B106, 1)
         Grid.SetColumn(B101, 2) : Grid.SetColumn(B105, 2)
@@ -483,6 +495,39 @@ Public NotInheritable Class MainPage
     Grid.SetRow(B209, 7) : Grid.SetColumn(B209, 3)
     Grid.SetRow(B210, 9) : Grid.SetColumn(B210, 3)
 
+    B201.CornerRadius = New CornerRadius(5)
+    B202.CornerRadius = New CornerRadius(5)
+    B203.CornerRadius = New CornerRadius(5)
+    B204.CornerRadius = New CornerRadius(5)
+    B205.CornerRadius = New CornerRadius(5)
+    B206.CornerRadius = New CornerRadius(5)
+    B207.CornerRadius = New CornerRadius(5)
+    B208.CornerRadius = New CornerRadius(5)
+    B209.CornerRadius = New CornerRadius(5)
+    B210.CornerRadius = New CornerRadius(5)
+
+    B201.BorderThickness = New Thickness(1)
+    B202.BorderThickness = New Thickness(1)
+    B203.BorderThickness = New Thickness(1)
+    B204.BorderThickness = New Thickness(1)
+    B205.BorderThickness = New Thickness(1)
+    B206.BorderThickness = New Thickness(1)
+    B207.BorderThickness = New Thickness(1)
+    B208.BorderThickness = New Thickness(1)
+    B209.BorderThickness = New Thickness(1)
+    B210.BorderThickness = New Thickness(1)
+
+    B201.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B202.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B203.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B204.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B205.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B206.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B207.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B208.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B209.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B210.BorderBrush = New SolidColorBrush(Colors.Blue)
+
     B201.Background = New SolidColorBrush(Colors.Transparent)
     B202.Background = New SolidColorBrush(Colors.Transparent)
     B203.Background = New SolidColorBrush(Colors.Transparent)
@@ -493,6 +538,7 @@ Public NotInheritable Class MainPage
     B208.Background = New SolidColorBrush(Colors.Transparent)
     B209.Background = New SolidColorBrush(Colors.Transparent)
     B210.Background = New SolidColorBrush(Colors.Transparent)
+
     ' Icons
     EA.Color = _EO : EB.Color = _EI
     ED = New GradientStopCollection From {EA, EB}
@@ -505,7 +551,7 @@ Public NotInheritable Class MainPage
     DA.UriSource = BA : CA.Source = DA : B201.Content = CA
     ' Icon 2
     CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/Icon_1.png")
+    BA = New Uri("ms-appx:///Assets/Icon_2.png")
     DA.UriSource = BA : CA.Source = DA : B202.Content = CA
     ' Icon 3
     CA = New Image : DA = New BitmapImage
