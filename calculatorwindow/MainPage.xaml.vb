@@ -10,13 +10,8 @@ Public NotInheritable Class MainPage
 #Region "A-00"
   ' Deklaration
   Dim AA As ApplicationDataContainer
-  Dim BA As Uri
-  Dim CA As Image : Dim DA As BitmapImage
-  Dim EA, EB As New GradientStop
-  Dim EC As New LinearGradientBrush
-  Dim ED As GradientStopCollection
 
-  Dim AAA, AAB As Byte : Dim BAA As Double
+  Dim AAA, AAB, AAC, AAD As Byte : Dim BAA As Double
 
   Dim NAA As New ResourceLoader("A_a_a_a_a")
   Dim NAB As New ResourceLoader("A_a_a_a_b")
@@ -190,6 +185,16 @@ Public NotInheritable Class MainPage
         ACAA(C100.Children.Item(i)).
           Foreground = New SolidColorBrush(_EK) : Next
       '8    Alignment
+      A101.VerticalAlignment = 3 : A101.HorizontalAlignment = 3
+      A102.VerticalAlignment = 3 : A102.HorizontalAlignment = 3
+      A103.VerticalAlignment = 3 : A103.HorizontalAlignment = 3
+      A104.VerticalAlignment = 3 : A104.HorizontalAlignment = 3
+      A105.VerticalAlignment = 3 : A105.HorizontalAlignment = 3
+      A106.VerticalAlignment = 3 : A106.HorizontalAlignment = 3
+      A107.VerticalAlignment = 3 : A107.HorizontalAlignment = 3
+      A108.VerticalAlignment = 3 : A108.HorizontalAlignment = 3
+      A109.VerticalAlignment = 3 : A109.HorizontalAlignment = 3
+      A110.VerticalAlignment = 3 : A110.HorizontalAlignment = 3
       B101.VerticalAlignment = 3 : B101.HorizontalAlignment = 3
       B102.VerticalAlignment = 3 : B102.HorizontalAlignment = 3
       '9    Ende
@@ -233,10 +238,10 @@ Public NotInheritable Class MainPage
 
   End Sub
   Private Sub A_AI()
-    AABA()
+    AACA()
   End Sub
   Private Sub A_AJ()
-    AABB()
+    AACB()
   End Sub
 #End Region ' *****
 #Region "B100"
@@ -334,59 +339,39 @@ Public NotInheritable Class MainPage
     Select Case 100 * AAA + AAB
       Case = 101 ' Q-Start
 #Region ""
-        ' => Design
-        B105.Visibility = 1
-        B106.Visibility = 1
-        B107.Visibility = 1
-        B108.Visibility = 1
-
-        A_01.Background = New SolidColorBrush(_EP)
-        Grid.SetRow(A100, 0) : A_01.Visibility = 0
+        ' H-S => Q-S : Q-A° => Q-S
+        AAAB() : A_01.Background = New SolidColorBrush(_EP)
+        AABA() : Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
         Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
-        Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
-        A109.Visibility = 1 : A110.Visibility = 1 : AAAB()
         AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
         B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
-        A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
-        A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
-        A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
-        A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(7, 2)
         B100.ColumnDefinitions.Item(2).Width = New GridLength(11, 2)
-        C100.ColumnDefinitions.Item(0).Width = New GridLength(0.6, 2)
+        C100.ColumnDefinitions.Item(0).Width = New GridLength(1, 2)
         C100.ColumnDefinitions.Item(15).Width = New GridLength(9, 2)
-        For i = 5 To 14 Step 1
-          C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2)
-        Next
+        For i = 5 To 14 Step 1 : C100.ColumnDefinitions.Item(i).
+            Width = New GridLength(1, 2) : Next
 #End Region
       Case = 102 ' Q-Anhang
 #Region ""
-        Grid.SetRow(A100, 0) : AAAC()
+        ' H-A => Q-A : Q-A° => Q-A
+        AAAB() : AABB() : A_01.Background = New SolidColorBrush(_EP)
         AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
 #End Region
       Case = 103 ' Q-Listen
 #Region ""
-        'A_01.Background = New SolidColorBrush(_EP)
-        'Grid.SetRow(A100, 0) : A_01.Visibility = 0
-        'Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
-        'Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
-        'A109.Visibility = 1 : A110.Visibility = 1 : AAAB()
-        'AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
-        'B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
-        'A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
-        'A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
-        'A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
-        'A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
-        'B100.ColumnDefinitions.Item(1).Width = New GridLength(7, 2)
-        'B100.ColumnDefinitions.Item(2).Width = New GridLength(11, 2)
-        'C100.ColumnDefinitions.Item(0).Width = New GridLength(0.6, 2)
-        'C100.ColumnDefinitions.Item(15).Width = New GridLength(9, 2)
-        'For i = 5 To 14 Step 1
-        '  C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2)
-        'Next
+        ' Q-A => Q-L,   H-L => Q-L
+        AAAB() : AABC() : Grid.SetRow(A100, 0) ' H-S=>H-A=>H-L=>Q-L
+        AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
+        B100.ColumnDefinitions.Item(2).Width = New GridLength(18, 2)
 #End Region
-      Case = 104 ' Q-Tabelle
+      Case = 104 ' Q-Beispiele
 #Region ""
+        AAAB()
+#End Region
+      Case = 105 ' Q-Tabelle
+#Region ""
+        AAAB()
 
         '_AA = "0´0´0´0´1´1´1´1´1´1´1´1´1´1´1´1´1´1´1´1´1´"
         '_AA &= "1´1´2´2´2´3´3´3´3´3´3´3´3´3´4´4´4´4´4´4´4´"
@@ -411,22 +396,17 @@ Public NotInheritable Class MainPage
         '  SetColumn(C100.Children.Item(i), CInt(_FA(i))) : Next
 
 #End Region
-      Case = 105 ' Q-Elemente
+      Case = 106 ' Q-Elemente
 #Region ""
+        AAAB()
 
 #End Region
       Case = 201 ' H-Start
 #Region ""
-        ' => Design
-        B105.Visibility = 0
-        B106.Visibility = 0
-        B107.Visibility = 0
-        B108.Visibility = 0
-
-        Grid.SetRow(A100, 3) : A_01.Visibility = 1
-        Grid.SetRow(B102, 1) : Grid.SetRow(B106, 1)
-        Grid.SetColumn(B101, 2) : Grid.SetColumn(B105, 2)
-        A109.Visibility = 0 : A110.Visibility = 0 : AAAB()
+        ' Q-S => H-S : H-A° => H-S
+        AAAB() : Grid.SetColumn(B101, 2) : Grid.SetRow(B102, 1)
+        AABA() : Grid.SetColumn(B105, 2) : Grid.SetRow(B106, 1)
+        A_01.Visibility = 1
         AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
         B100.RowDefinitions.Item(1).Height = New GridLength(1, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
@@ -435,44 +415,66 @@ Public NotInheritable Class MainPage
         C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(15).Width = New GridLength(0.3, 2)
-        A109.Content = If(A109.Content = "A1", "A2", "A1") : AABA()
-        A110.Content = If(A110.Content = "B1", "B2", "B1") : AABB()
+        A109.Content = If(A109.Content = "A1", "A2", "A1") : AACA()
+        A110.Content = If(A110.Content = "B1", "B2", "B1") : AACB()
 #End Region
       Case = 202 ' H-Anhang
 #Region ""
-        Grid.SetRow(A100, 3) : AAAC()
+        ' Q-A => H-A : H-A° => H-A
+        AAAB() : AABB()
         AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
 #End Region
       Case = 203 ' H-Listen
 #Region ""
-
+        ' Q-A => Q-L,   H-L => Q-L
+        AAAB() : AABC() : Grid.SetRow(A100, 3)
+        AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+        B100.ColumnDefinitions.Item(2).Width = New GridLength(14, 2)
+        A109.Content = If(A109.Content = "A1", "A2", "A1") : AACA()
+        A110.Content = If(A110.Content = "B1", "B2", "B1") : AACB()
 #End Region
-      Case = 204 ' H-Tabelle
+      Case = 205 ' H-Beispiele
 #Region ""
-
+        AAAB()
 #End Region
-      Case = 205 ' H-Elemente
+      Case = 205 ' H-Tabelle
 #Region ""
-
+        AAAB()
+#End Region
+      Case = 206 ' H-Elemente
+#Region ""
+        AAAB()
 #End Region
     End Select
   End Sub
   Private Sub AAAB()
-    ' Start Q und H Formate
-    A100.Background = New SolidColorBrush(_EP)
+    ' A°:Q-H: Alle Q oder H
+    If AAA = 1 Then : A_01.Visibility = 0 : Grid.SetRow(A100, 0)
+      A109.Visibility = 1 : A110.Visibility = 1
+      A100.ColumnDefinitions.Item(0).Width = New GridLength(0, 2)
+      A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(11).Width = New GridLength(3, 2)
+    Else : A109.Visibility = 0
+      A100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
+      A100.ColumnDefinitions.Item(11).Width = New GridLength(0.3, 2)
+      A110.Visibility = 0 : Grid.SetRow(A100, 3) : End If
+  End Sub
+  Private Sub AABA()
+    ' S:Q-H: Start: Q und H
     B100.Visibility = 0 : B200.Visibility = 1
     B300.Visibility = 1 : C100.Visibility = 0
+    Grid.SetRow(A_01, 3)
     AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2)
     AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2)
     AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2)
-    A100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
-    A100.ColumnDefinitions.Item(11).Width = New GridLength(0.3, 2)
     B100.RowDefinitions.Item(0).Height = New GridLength(1, 2)
     B100.RowDefinitions.Item(2).Height = New GridLength(7, 2)
-    Grid.SetRow(A_01, 3)
   End Sub
-  Private Sub AAAC()
-    ' Anhang Q und H Formate
+  Private Sub AABB()
+    ' A:Q-H: Anhang: Q und H
     A_01.Visibility = 0 : B100.Visibility = 1
     B200.Visibility = 0 : B300.Visibility = 1
     C100.Visibility = 1 : Grid.SetRow(A_01, 4)
@@ -538,87 +540,62 @@ Public NotInheritable Class MainPage
     B208.Background = New SolidColorBrush(Colors.Transparent)
     B209.Background = New SolidColorBrush(Colors.Transparent)
     B210.Background = New SolidColorBrush(Colors.Transparent)
-
-    ' Icons
-    EA.Color = _EO : EB.Color = _EI
-    ED = New GradientStopCollection From {EA, EB}
-    EC.GradientStops = ED : EC.StartPoint = New Point(0.5, 0)
-    EC.EndPoint = New Point(0.5, 1)
-    EA.Offset = 0 : EB.Offset = 1 : B200.Background = EC
-    ' Icon 1
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_001.png")
-    DA.UriSource = BA : CA.Source = DA : B201.Content = CA
-    ' Icon 2
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_002.png")
-    DA.UriSource = BA : CA.Source = DA : B202.Content = CA
-    ' Icon 3
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_003.png")
-    DA.UriSource = BA : CA.Source = DA : B203.Content = CA
-    ' Icon 4
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_001.png")
-    DA.UriSource = BA : CA.Source = DA : B204.Content = CA
-    ' Icon 5
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_001.png")
-    DA.UriSource = BA : CA.Source = DA : B205.Content = CA
-    ' Icon 6
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_006.png")
-    DA.UriSource = BA : CA.Source = DA : B206.Content = CA
-    ' Icon 7
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_007.png")
-    DA.UriSource = BA : CA.Source = DA : B207.Content = CA
-    ' Icon 8
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_008.png")
-    DA.UriSource = BA : CA.Source = DA : B208.Content = CA
-    ' Icon 9
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_009.png")
-    DA.UriSource = BA : CA.Source = DA : B209.Content = CA
-    ' Icon 10
-    CA = New Image : DA = New BitmapImage
-    BA = New Uri("ms-appx:///Assets/A_A_010.png")
-    DA.UriSource = BA : CA.Source = DA : B210.Content = CA
+    ' Anhang - Background
+    B200.Background = New LinearGradientBrush With {
+      .StartPoint = New Point(0.5, 0),
+      .EndPoint = New Point(0.5, 1),
+      .GradientStops = New GradientStopCollection From
+      {New GradientStop With {.Color = _EO, .Offset = 0},
+      New GradientStop With {.Color = _EI, .Offset = 1}}}
+    ' Icons 1-9
+    For i = 0 To 8 Step 1 : ACAA(B200.Children.Item(i)).
+        Content =
+        New Image With {.Source = New BitmapImage With
+        {.UriSource = New Uri("ms-appx:///Assets/A_A_00" &
+        CStr(i + 1) & ".png")}} : Next
+    ' Icon 10-99
+    B210.Content = New Image With {.Source = New BitmapImage With
+      {.UriSource = New Uri("ms-appx:///Assets/A_A_010.png")}}
   End Sub
-  Private Sub AABA()
+  Private Sub AABC()
+    B100.Visibility = 0 : B200.Visibility = 1
+    B103.Visibility = 1 : B104.Visibility = 0
+    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2)
+    B100.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+    B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
+    B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
+  End Sub
+  Private Sub AACA()
     If A109.Content = "A1" Then : A109.Content = "A2"
-      A100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
-      A100.ColumnDefinitions.Item(6).Width = New GridLength(0, 2)
-      A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
-      A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
-    Else : A109.Content = "A1"
-      A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
-      A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
-      A100.ColumnDefinitions.Item(7).Width = New GridLength(0, 2)
-      A100.ColumnDefinitions.Item(8).Width = New GridLength(0, 2)
-    End If
+      AAC = 0 : AAD = 1
+    Else : A109.Content = "A1" : AAC = 1 : AAD = 0 : End If
+    A100.ColumnDefinitions.Item(5).Width = New GridLength(AAC, 2)
+    A100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
+    A100.ColumnDefinitions.Item(7).Width = New GridLength(AAD, 2)
+    A100.ColumnDefinitions.Item(8).Width = New GridLength(AAD, 2)
   End Sub
-  Private Sub AABB()
+  Private Sub AACB()
     If A110.Content = "B1" Then : A110.Content = "B2"
-      C100.ColumnDefinitions.Item(6).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(7).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(8).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(9).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(11).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(12).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(13).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(14).Width = New GridLength(1, 2)
-    Else : A110.Content = "B1"
-      C100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(9).Width = New GridLength(1, 2)
-      C100.ColumnDefinitions.Item(11).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(12).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(13).Width = New GridLength(0, 2)
-      C100.ColumnDefinitions.Item(14).Width = New GridLength(0, 2)
-    End If
+      AAC = 0 : AAD = 1
+    Else : A110.Content = "B1" : AAC = 1 : AAD = 0 : End If
+    C100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(7).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(8).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(9).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(11).Width = New GridLength(AAD, 2)
+    C100.ColumnDefinitions.Item(12).Width = New GridLength(AAD, 2)
+    C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
+    C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
+  End Sub
+  Private Sub AAXA()
+    ' Design
+    A100.Background = New SolidColorBrush(_EP)
+
+    B105.Visibility = 1
+    B106.Visibility = 1
+    B107.Visibility = 1
+    B108.Visibility = 1
+
   End Sub
 
   'Private Sub AIAS()
@@ -630,7 +607,6 @@ Public NotInheritable Class MainPage
   '    Case Colors.Pink : AIAC(Colors.Black)
   '    Case Else : AIAC(Colors.Black) : End Select
   'End Sub
-
 #End Region ' *****
 #Region "A-AB"
   Private Sub ABAA()
