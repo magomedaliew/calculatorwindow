@@ -1,7 +1,8 @@
-﻿Imports Windows.UI
-Imports Windows.UI.Text
-Imports Windows.Storage
+﻿Imports Windows.Storage
 Imports Windows.ApplicationModel.Resources
+Imports Windows.UI : Imports Windows.UI.Text
+Imports Windows.UI.Xaml.Controls
+
 Public NotInheritable Class MainPage
   ' بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
   Inherits Page
@@ -9,25 +10,16 @@ Public NotInheritable Class MainPage
 #Region "≡≡≡≡"
 #Region "A-00"
   ' Deklaration
-  Dim AA As ApplicationDataContainer
 
   Dim AAA, AAB, AAC, AAD As Byte : Dim BAA As Double
 
-  Dim NAA As New ResourceLoader("A_a_a_a_a")
-  Dim NAB As New ResourceLoader("A_a_a_a_b")
+  Dim NAA As New ResourceLoader("A_a_a_a_a") : Dim NAB As New ResourceLoader("A_a_a_a_b")
   Dim NAC As New ResourceLoader("A_b_a_a_a")
-  Dim NAD As New ResourceLoader("Resources")
-  Dim NAE As New ResourceLoader("Source_aa")
+  Dim NAD As New ResourceLoader("Resources") : Dim NAE As New ResourceLoader("Source_aa")
 
   Dim _AA As String
 
   Dim _FA() As String
-
-  Dim _EA, _EB, _EC, _ED, _EE, _EF, _EG, _EH As New Color
-  Dim _EI, _EJ, _EK, _EL, _EM, _EN, _EO, _EP As New Color
-  Dim _EQ, _ER, _ES, _ET As New Color
-
-  Dim A_A, A_B, A_C, A_D, A_E, A_F, A_G, A_H As New ToolTip
 
   Dim A_01 As New Canvas
 #End Region ' *****
@@ -37,179 +29,92 @@ Public NotInheritable Class MainPage
 #Region "AAA0"
   Private Sub A_A_() Handles AAA0.Loaded
     Try
-      '1     Anweisungen
-      B103.IsSpellCheckEnabled = False
-      B104.IsSpellCheckEnabled = False
-      A_A.Content = NAD.GetString("A001")
-      A_B.Content = NAD.GetString("A002")
-      A_C.Content = NAD.GetString("A003")
-      A_D.Content = NAD.GetString("A004")
-      A_E.Content = NAD.GetString("A005")
-      A_F.Content = NAD.GetString("A006")
-      A_G.Content = NAD.GetString("A007")
-      A_H.Content = NAD.GetString("A008")
-      ToolTipService.SetToolTip(A101, A_A)
-      ToolTipService.SetToolTip(A102, A_B)
-      ToolTipService.SetToolTip(A103, A_C)
-      ToolTipService.SetToolTip(A104, A_D)
-      ToolTipService.SetToolTip(A105, A_E)
-      ToolTipService.SetToolTip(A106, A_F)
-      ToolTipService.SetToolTip(A107, A_G)
-      ToolTipService.SetToolTip(A108, A_H)
-      A_A.Placement = PlacementMode.Bottom
-      A_B.Placement = PlacementMode.Bottom
-      A_C.Placement = PlacementMode.Bottom
-      A_D.Placement = PlacementMode.Bottom
-      A_E.Placement = PlacementMode.Bottom
-      A_F.Placement = PlacementMode.Bottom
-      A_G.Placement = PlacementMode.Bottom
-      A_H.Placement = PlacementMode.Bottom
-      _EA = Color.FromArgb(255, 0, 255, 120)
-      _EB = Color.FromArgb(170, 170, 170, 170)
-      _EC = Colors.Olive : _ED = Colors.Orange
-      _EE = Colors.Gray : _EF = Colors.LightGray
-      _EG = Colors.Pink : _EH = Colors.LightPink
-      _EI = Colors.White : _EJ = Colors.WhiteSmoke
-      _EK = Colors.Blue : _EL = Colors.DeepSkyBlue
-      _EM = Colors.Gold : _EN = Colors.GreenYellow
-      _EO = Colors.SkyBlue : _EP = Colors.AliceBlue
-      _EQ = Colors.Violet : _ER = Colors.DarkViolet
-      _ES = Colors.Magenta : _ET = Colors.MistyRose
+      ' Loaded
+      B103.IsSpellCheckEnabled = False : B104.IsSpellCheckEnabled = False
+
+      A101.Foreground = New SolidColorBrush(Colors.Blue) : A102.Foreground = New SolidColorBrush(Colors.Blue)
+      A103.Foreground = New SolidColorBrush(Colors.Blue) : A104.Foreground = New SolidColorBrush(Colors.Blue)
+      A105.Foreground = New SolidColorBrush(Colors.Blue) : A106.Foreground = New SolidColorBrush(Colors.Blue)
+      A107.Foreground = New SolidColorBrush(Colors.Blue) : A108.Foreground = New SolidColorBrush(Colors.Blue)
+      A109.Foreground = New SolidColorBrush(Colors.Blue) : A110.Foreground = New SolidColorBrush(Colors.Blue)
+
+      A101.VerticalAlignment = 3 : A101.HorizontalAlignment = 3 : A102.VerticalAlignment = 3 : A102.HorizontalAlignment = 3
+      A103.VerticalAlignment = 3 : A103.HorizontalAlignment = 3 : A104.VerticalAlignment = 3 : A104.HorizontalAlignment = 3
+      A105.VerticalAlignment = 3 : A105.HorizontalAlignment = 3 : A106.VerticalAlignment = 3 : A106.HorizontalAlignment = 3
+      A107.VerticalAlignment = 3 : A107.HorizontalAlignment = 3 : A108.VerticalAlignment = 3 : A108.HorizontalAlignment = 3
+      A109.VerticalAlignment = 3 : A109.HorizontalAlignment = 3 : A110.VerticalAlignment = 3 : A110.HorizontalAlignment = 3
+      B101.VerticalAlignment = 3 : B101.HorizontalAlignment = 3 : B102.VerticalAlignment = 3 : B102.HorizontalAlignment = 3
+
+      ToolTipService.SetToolTip(A101, New ToolTip With {.Content = NAD.GetString("A001"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A102, New ToolTip With {.Content = NAD.GetString("A002"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A103, New ToolTip With {.Content = NAD.GetString("A003"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A104, New ToolTip With {.Content = NAD.GetString("A004"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A105, New ToolTip With {.Content = NAD.GetString("A005"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A106, New ToolTip With {.Content = NAD.GetString("A006"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A107, New ToolTip With {.Content = NAD.GetString("A007"), .Placement = PlacementMode.Bottom})
+      ToolTipService.SetToolTip(A108, New ToolTip With {.Content = NAD.GetString("A008"), .Placement = PlacementMode.Bottom})
+
       A109.Content = "A1" : A110.Content = "B1"
-      C101.Content = "1" : C102.Content = "2"
-      C103.Content = "3" : C104.Content = "4"
-      C105.Content = "5" : C106.Content = "6"
-      C107.Content = "7" : C108.Content = "8"
-      C109.Content = "9" : C110.Content = "0"
-      C111.Content = "e" : C112.Content = "π"
-      C113.Content = "[" : C114.Content = "ǀ"
-      C115.Content = "|" : C116.Content = "]"
-      C117.Content = "+" : C118.Content = "*"
-      C119.Content = "^" : C120.Content = "∞"
-      C121.Content = "–" : C122.Content = ":"
-      C123.Content = "√" : C124.Content = "Δ"
-      C125.Content = "-"
-      C127.Content = "´" : C128.Content = "°"
-      C129.Content = "(" : C130.Content = ")"
-      C131.Content = "!" : C132.Content = "→"
-      C133.Content = "θ" : C134.Content = "Ʃ"
-      C135.Content = "∏" : C136.Content = "ʃ"
-      C137.Content = "ϕ" : C138.Content = "ln"
-      C139.Content = "lim" : C140.Content = "log"
-      C141.Content = "cos" : C142.Content = "sin"
-      C143.Content = "tan" : C144.Content = "cot"
-      C145.Content = "acos" : C146.Content = "asin"
-      C147.Content = "atan" : C148.Content = "acot"
-      A101.Foreground = New SolidColorBrush(_EK)
-      A102.Foreground = New SolidColorBrush(_EK)
-      A103.Foreground = New SolidColorBrush(_EK)
-      A104.Foreground = New SolidColorBrush(_EK)
-      A105.Foreground = New SolidColorBrush(_EK)
-      A106.Foreground = New SolidColorBrush(_EK)
-      A107.Foreground = New SolidColorBrush(_EK)
-      A108.Foreground = New SolidColorBrush(_EK)
-      A109.Foreground = New SolidColorBrush(_EK)
-      A110.Foreground = New SolidColorBrush(_EK)
-      B101.PlaceholderText = NAD.GetString("A021")
-      B103.PlaceholderText = NAD.GetString("A021")
-      B104.PlaceholderText = NAD.GetString("A200")
-      C126.Content = NAD.GetString("A104")
-      '2     Load a setting that is local to the device
-      AA = ApplicationData.Current.LocalSettings
-      '3     Upgrade
-      If AA.Values("upgrade") <> "18.02.2022" Then
-        ABAA() : ABAB() : ABAD(5) : ABAE(Colors.White)
+      C101.Content = "1" : C102.Content = "2" : C103.Content = "3" : C104.Content = "4" : C105.Content = "5"
+      C106.Content = "6" : C107.Content = "7" : C108.Content = "8" : C109.Content = "9" : C110.Content = "0"
+      C111.Content = "e" : C112.Content = "π" : C113.Content = "[" : C114.Content = "ǀ" : C115.Content = "|"
+      C116.Content = "]" : C117.Content = "+" : C118.Content = "*" : C119.Content = "^" : C120.Content = "∞"
+      C121.Content = "–" : C122.Content = ":" : C123.Content = "√" : C124.Content = "Δ" : C125.Content = "-"
+      C127.Content = "´" : C128.Content = "°" : C129.Content = "(" : C130.Content = ")" : C131.Content = "!"
+      C132.Content = "→" : C133.Content = "θ" : C134.Content = "Ʃ" : C135.Content = "∏" : C136.Content = "ʃ"
+      C137.Content = "ϕ" : C138.Content = "ln" : C139.Content = "lim" : C140.Content = "log"
+      C141.Content = "cos" : C142.Content = "sin" : C143.Content = "tan" : C144.Content = "cot"
+      C145.Content = "acos" : C146.Content = "asin" : C147.Content = "atan" : C148.Content = "acot"
+
+      C126.Content = NAD.GetString("A254") : B101.PlaceholderText = NAD.GetString("A201")
+      B103.PlaceholderText = NAD.GetString("A202") : B104.PlaceholderText = NAD.GetString("A900")
+
+      If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
         B104.FontFamily = New FontFamily("Segoe UI")
-        ABAH(NAD.GetString("E001") & vbCrLf)
-        ABAF(Colors.Lime) : ABAB()
-        ABAH(NAE.GetString("A002") & vbCrLf & vbCrLf)
-        ABAF(Colors.Black) : End If
-      '4     Titel
-      Dim title = ApplicationView.GetForCurrentView().
-        TitleBar : title.BackgroundColor = _EI
-      title.ForegroundColor = Colors.Gray
-      title.ButtonBackgroundColor = Colors.White
-      title.ButtonForegroundColor = Colors.Gray
-      title.InactiveBackgroundColor = Colors.White
-      title.InactiveForegroundColor = Colors.Gray
-      title.ButtonHoverBackgroundColor = Colors.White
-      title.ButtonHoverForegroundColor = Colors.Pink
-      title.ButtonInactiveBackgroundColor = _EI
-      title.ButtonInactiveForegroundColor = Colors.Gray
-      title.ButtonPressedBackgroundColor = Colors.Gold
-      title.ButtonPressedForegroundColor = Colors.Pink
-      '5    GridDefinitionsAdd
-      For i = 1 To 5 Step 1
-        AA00.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 12 Step 1
-        A100.ColumnDefinitions.Add(New ColumnDefinition) : Next
-      For i = 1 To 3 Step 1
-        B100.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 4 Step 1
-        B100.ColumnDefinitions.Add(New ColumnDefinition) : Next
-      For i = 1 To 4 Step 1
-        C100.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 16 Step 1
-        C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
-      '6    GridDefinitionsSet
-      AA00.Children.Add(A_01) : Grid.SetRow(B100, 2)
-      Grid.SetColumn(A101, 1) : Grid.SetColumn(A102, 2)
-      Grid.SetColumn(A103, 3) : Grid.SetColumn(A104, 4)
-      Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6)
-      Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8)
-      Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10)
-      Grid.SetRow(B101, 0) : Grid.SetRow(B105, 0)
-      Grid.SetRow(B103, 2) : Grid.SetRow(B104, 2)
-      Grid.SetRow(B107, 2) : Grid.SetRow(B108, 2)
-      Grid.SetRow(B200, 2) : Grid.SetRow(B300, 2)
-      Grid.SetColumn(B102, 2) : Grid.SetColumn(B106, 2)
-      Grid.SetColumn(B103, 1) : Grid.SetColumn(B104, 2)
-      Grid.SetColumn(B107, 1) : Grid.SetColumn(B108, 2)
-      Grid.SetRow(C100, 4) ' Grid.SetRow(A_01, 3)
-      _AA = "0´1´0´2´0´3´0´4´1´1´1´2´1´3´1´4´2´1´2´2´2´3"
-      _AA &= "´2´4´3´1´3´2´3´3´3´4´0´6´0´7´0´8´0´9´1´6´1"
-      _AA &= "´7´1´8´1´9´2´6´2´7´2´8´2´9´3´6´3´7´3´8´3´9"
-      _AA &= "´0´11´0´12´0´13´0´14´1´11´1´12´1´13´1´14´"
-      _AA &= "2´11´2´12´2´13´2´14´3´11´3´12´3´13´3´14"
-      _FA = _AA.Split("´")
-      For i = 0 To 95 Step 2 : Grid.
-          SetRow(C100.Children.Item(i / 2), CInt(_FA(i)))
-        Grid.SetColumn(C100.
-          Children.Item(i / 2), CInt(_FA(i + 1))) : Next
-      '7    C000 Buttons
-      For i = 0 To 47 Step 1
-        ACAA(C100.Children.Item(i)).HorizontalAlignment = 3
-        ACAA(C100.Children.Item(i)).VerticalAlignment = 3
-        ACAA(C100.Children.
-             Item(i)).Background = New SolidColorBrush(_EI)
-        ACAA(C100.Children.Item(i)).
-          Foreground = New SolidColorBrush(_EK) : Next
-      '8    Alignment
-      A101.VerticalAlignment = 3 : A101.HorizontalAlignment = 3
-      A102.VerticalAlignment = 3 : A102.HorizontalAlignment = 3
-      A103.VerticalAlignment = 3 : A103.HorizontalAlignment = 3
-      A104.VerticalAlignment = 3 : A104.HorizontalAlignment = 3
-      A105.VerticalAlignment = 3 : A105.HorizontalAlignment = 3
-      A106.VerticalAlignment = 3 : A106.HorizontalAlignment = 3
-      A107.VerticalAlignment = 3 : A107.HorizontalAlignment = 3
-      A108.VerticalAlignment = 3 : A108.HorizontalAlignment = 3
-      A109.VerticalAlignment = 3 : A109.HorizontalAlignment = 3
-      A110.VerticalAlignment = 3 : A110.HorizontalAlignment = 3
-      B101.VerticalAlignment = 3 : B101.HorizontalAlignment = 3
-      B102.VerticalAlignment = 3 : B102.HorizontalAlignment = 3
-      '9    Ende
+        ABAA(5) : ABAB(Colors.White, Colors.Lime, NAD.GetString("E001") & vbCrLf)
+        ABAA(5) : ABAB(Colors.White, Colors.Black, NAE.GetString("A002")) : End If
+
+      Dim title = ApplicationView.GetForCurrentView().TitleBar
+      title.BackgroundColor = Colors.White : title.ForegroundColor = Colors.Gray
+      title.ButtonBackgroundColor = Colors.White : title.ButtonForegroundColor = Colors.Gray
+      title.InactiveBackgroundColor = Colors.White : title.InactiveForegroundColor = Colors.Gray
+      title.ButtonHoverBackgroundColor = Colors.White : title.ButtonHoverForegroundColor = Colors.Pink
+      title.ButtonInactiveBackgroundColor = Colors.White : title.ButtonInactiveForegroundColor = Colors.Gray
+      title.ButtonPressedBackgroundColor = Colors.Gold : title.ButtonPressedForegroundColor = Colors.Pink
+
+      For i = 1 To 5 Step 1 : AA00.RowDefinitions.Add(New RowDefinition) : Next
+      For i = 1 To 12 Step 1 : A100.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 3 Step 1 : B100.RowDefinitions.Add(New RowDefinition) : Next
+      For i = 1 To 4 Step 1 : B100.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 4 Step 1 : C100.RowDefinitions.Add(New RowDefinition) : Next
+      For i = 1 To 16 Step 1 : C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
+
+      AA00.Children.Add(A_01)
+      Grid.SetColumn(A101, 1) : Grid.SetColumn(A102, 2) : Grid.SetColumn(A103, 3) : Grid.SetColumn(A104, 4)
+      Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6) : Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8)
+      Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10) : Grid.SetColumn(B102, 2) : Grid.SetColumn(B106, 2)
+      Grid.SetColumn(B103, 1) : Grid.SetColumn(B104, 2) : Grid.SetColumn(B107, 1) : Grid.SetColumn(B108, 2)
+
+      Grid.SetRow(B100, 2) : Grid.SetRow(B101, 0) : Grid.SetRow(B105, 0) : Grid.SetRow(B103, 2) : Grid.SetRow(B104, 2)
+      Grid.SetRow(B107, 2) : Grid.SetRow(B108, 2) : Grid.SetRow(B200, 2) : Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4)
+
+      _FA = ("0´1´0´2´0´3´0´4´1´1´1´2´1´3´1´4´2´1´2´2´2´3´2´4´3´1´3´2´3´3´3´4´0´6´0´7´0´8´0´9´1´6´1´7´1´8´1´9´2´6´2´7´2´" &
+        "8´2´9´3´6´3´7´3´8´3´9´0´11´0´12´0´13´0´14´1´11´1´12´1´13´1´14´2´11´2´12´2´13´2´14´3´11´3´12´3´13´3´14").Split("´")
+
+      For i As Byte = 0 To 95 Step 2 : AAA = i / 2 : ACAA(C100.Children.Item(AAA)).VerticalAlignment = 3
+        ACAA(C100.Children.Item(AAA)).HorizontalAlignment = 3 : Grid.SetRow(C100.Children.Item(AAA), CInt(_FA(i)))
+        Grid.SetColumn(C100.Children.Item(AAA), CInt(_FA(i + 1))) : ACAA(C100.Children.Item(AAA)).Background =
+          New SolidColorBrush(Colors.White) : ACAA(C100.Children.Item(AAA)).Foreground = New SolidColorBrush(Colors.Blue)
+      Next
+
       AAB = 1 : A_B_() : Catch ex As Exception : End Try
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
-    Try
-      If AAA0.ActualWidth > 1.5 * AAA0.ActualHeight Then
-        If AAA <> 1 Then : AAA = 1
-          BAA = AAA0.ActualHeight / 500 : End If : AAAA()
-      Else
-        If AAA <> 2 Then : AAA = 2
-          BAA = AAA0.ActualHeight / 550 : End If : AAAA()
-      End If
-    Catch ex As Exception : End Try ' AAA > 0 GAA = Nothing
+    ' Size Changed
+    Try : If AAA0.ActualWidth > 1.5 * AAA0.ActualHeight Then
+        If AAA <> 1 Then : AAA = 1 : BAA = AAA0.ActualHeight / 500 : End If : AAAA() : Else
+        If AAA <> 2 Then : AAA = 2 : BAA = AAA0.ActualHeight / 550 : End If : AAAA() : End If
+    Catch ex As Exception : End Try
   End Sub
 #End Region ' *****
 #Region "A100"
@@ -220,22 +125,16 @@ Public NotInheritable Class MainPage
     AAB = 2 : AAAA()
   End Sub
   Private Sub A_AC()
-
   End Sub
   Private Sub A_AD()
-
   End Sub
   Private Sub A_AE()
-
   End Sub
   Private Sub A_AF()
-
   End Sub
   Private Sub A_AG()
-
   End Sub
   Private Sub A_AH()
-
   End Sub
   Private Sub A_AI()
     AACA()
@@ -290,21 +189,58 @@ Public NotInheritable Class MainPage
 #End Region ' *****
 #Region "B200"
   Private Sub B_BA()
-    AAB = 3 : AAAA() : ABAA() : ABAI(0) : ABAD(5)
-    B104.FontFamily = New FontFamily("Segoe UI")
-    ABAE(Colors.White)
+    ApplicationData.Current.LocalSettings.Values("upgrade") = "xxxx" : AAB = 3
+    AAAA() : ABAA(5) : B104.FontFamily = New FontFamily("Segoe UI")
     ' Rechner
-    ABAB() : ABAG(NAD.GetString("A000"))
-    ABAH(vbCrLf) : ABAF(Colors.Blue)
-    ABAB() : ABAG(NAE.GetString("A001"))
-    ABAH(vbCrLf & vbCrLf) : ABAF(Colors.Black)
+    ABAB(Colors.AliceBlue, Colors.Blue, NAD.GetString("A000") & vbLf)
+    ABAB(Colors.White, Colors.Black, vbLf & NAE.GetString("A001") & vbLf & vbLf)
     ' Upgrade
-    ABAB() : ABAG(NAD.GetString("E001"))
-    ABAH(vbCrLf) : ABAF(Colors.Lime)
-    ABAB() : ABAG(NAE.GetString("A002"))
-    ABAH(vbCrLf & vbCrLf) : ABAF(Colors.Black)
+    ABAB(Colors.AliceBlue, Colors.Lime, NAD.GetString("E001") & vbLf)
+    ABAB(Colors.White, Colors.Black, vbLf & NAE.GetString("A002"))
   End Sub
   Private Sub B_BB()
+
+    'AAA = 3 : AEAA() : AIAB() : AIAM(0) : AIAP(0)
+    'C004.FontFamily = New FontFamily("Consolas")
+    '' Style
+    'AIAZ() : AIAE(Colors.BlueViolet)
+    'AIAH(NAD.GetString("E002") & vbLf & vbLf & vbLf)
+    'AIAZ() : AIAE(Colors.Gray)
+    'AIAJ(NAD.GetString("E201") & "		")
+    'AIAJ(
+    '  NAD.GetString("E202") & vbLf & vbLf) : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("ab			a ^ b" & vbLf & vbLf)
+    'AIAM(_N + 1) : AIAN(_N + 2) : AHAA() : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("b√a			√(a ' b)" & vbLf & vbLf)
+    'AIAM(_N) : AIAN(_N + 1) : AHAA() : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("logab			log(a ' b)" & vbLf & vbLf)
+    'AIAM(_N + 3) : AIAN(_N + 4) : AHAB() : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("limab			lim(a ' b)" & vbLf & vbLf)
+    'AIAM(_N + 3) : AIAN(_N + 4) : AHAB() : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("Ʃab c			Ʃ(a ' b ' c)" & vbLf & vbLf)
+    'AIAM(_N + 1) : AIAN(_N + 2) : AHAB()
+    'AIAM(_N + 2) : AIAN(_N + 3) : AHAA() : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("∏ab c			∏(a ' b ' c)" & vbLf & vbLf)
+    'AIAM(_N + 1) : AIAN(_N + 2) : AHAB()
+    'AIAM(_N + 2) : AIAN(_N + 3) : AHAA() : AIAZ()
+    'AIAE(Colors.BlueViolet) : AIAF(Colors.AliceBlue)
+    '_N = C004.Document.Selection.StoryLength - 1
+    'AIAJ("a∫b x dx		∫(a ' b ' x d(x))")
+    'AIAM(_N) : AIAN(_N + 1) : AHAB() : AIAM(_N + 2)
+    'AIAN(_N + 3) : AHAA()
+
   End Sub
   Private Sub B_BC()
   End Sub
@@ -313,12 +249,173 @@ Public NotInheritable Class MainPage
   Private Sub B_BE()
   End Sub
   Private Sub B_BF()
+    AAB = 3 : AAAA() : ABAA(5) : B104.FontFamily = New FontFamily("Consolas")
+    ' Mathematik - Formeln
+    ABAB(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E003") & "   " & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E101") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a = a" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E102") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a = b" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a = b" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E103") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "e = 2,718281828" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E104") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "π = 3,141592654" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E105") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "(a) = a
+a + (b +- c) = a + b +- c
+a - (b +- c) = a - b -+ c
+a · (b ·: c) = a · b ·: c
+a : (b ·: c) = a : b :· c" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E106") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "|-a| = |a|
+|a| = a    a ≥ 0
+|a| = -a   a < 0" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E107") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a +- 0 = a
+a · 0 = 0
+a ^ 0 = 1
+a / 0 = ∞" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E108") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a ·: 1 = a
+a ^ 1 = a" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E109") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a - a = 0
+a / a = 1" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E110") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a + -b = a - b
+a - -b = a + b
+-a ·: -b = a ·: b
+a ·: -b = -a ·: b" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E111") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "cos(a) = b
+sin(a) = b
+tan(a) = b
+cot(a) = b
+acos(a) = b
+asin(a) = b
+atan(a) = b
+acot(a) = b" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E112") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "ln(a) = b
+ln(e) = 1
+log(a ' b) = с" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E113") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a! = a · (a - 1) · ... · 1    a < 170" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E114") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a´ = 0" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E115") & vbLf)
+    ABAB(Colors.White, Colors.Blue, "a´ = 0" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Gray, NAD.GetString("A900") & vbLf & "b + a = a + b
+b · a = a · b
+(a + b) · c = a · c + b · c
+(a + b) : c = a : c + b : c
+(a - b) · c = a · c - b · c
+(a - b) : c = a : c - b : c
+(a + b) · (c + d) = a c + a d + b c + b d
+a + a = a · (1 + 1)
+a · c + b · c = (a + b) · c
+a ± b : c = (a c ± b) / c
+a : b ± c = (a ± c b) / b
+a : b ± c : b = (a ± c) / b
+a : b ± c : d = (a d ± c b) / b : d
+a · a = a ^ 2
+a ^ b ^ c = a ^ (b · c)
+a ^ b ·: a ^ c = a ^ (b ± c)
+a ^ (b +- c) = a ^ b ·: a ^ c
+a ^ b ^ c = a ^ (b · c)
+(a ·: b) ^ c = a ^ c ·: b ^ c
+a ^ b = c => a = √(c ' b)
+a ^ (b ± c) = a ^ b ·: a ^ c
+a ^ c ·: b ^ c = (a ·: b) ^ c
+(a ·: b) ^ c = a ^ c ·: b ^ c
+a ^ -b = 1 : a ^ b
+a ^ b = 1 : a ^ -b
+a ˄ (b ·: c) = a ˄ b ˄˅ c
+√(a ·: b) = √(a) ·: √(b)
+√(a) ·: √(b) = √(a ·: b)
+√(a ·: b ' c) = √(a ' c) ·: √(b ' c)
+√(a ' c) ·: √(b ' c) = √(a ·: b ' c)
+√(a ' c) = a ^ (1 : c)
+lim(a → ∞ ' b ^ a) = 0, |b| < 1
+log(a ' b) = ln(b) : ln(a)
+Ʃ(a = 1 ' b ' a) = b (b + 1) : 2
+Ʃ(a = 1 ' b ' a ^ 2) = (2 b ^ 3 + 3 b ^ 2 + b) : 6
+Ʃ(a = 1 ' b ' a ^ 3) = (b ^ 4 + 2 b ^ 3 + b ^ 2) : 4
+Ʃ(a = 0 ' b ' c ^ a) = (1 - c ^ (b + 1)) : (1 - c)
+∏(a = 1 ' b ' a) = b!
+ʃ(a ' b ' c · d(c)) = (b ^ 2 - a ^ 2) : 2
+a = b +- c => a -+ c = b
+a = b ·: c => a :· c = b
+a = b +· c => a -: b = c
+a = b -: c => b -: a = c
+a +- b = c => a = c -+ b
+a ·: b = c => a = c :· b
+a +· b = c => b = c -: a
+a -: b = c => b = a -: c
+-a = b => a = -b
+a ^ 2 b + a c + d = 0 => a = (-c ± √ (c ^ 2 - 4 a d)) : 2 : b
+a ^ b = e ^ (b · ln(a))
+e ^ ln(a) = a
+log(a ' b · c) = log(a ' b) + log(a ' c)
+ln(a ·: b) = ln(a) +- ln(b)
+ln(a ^ b) = b · ln(a)
+ln(e ^ a) = a")
+    '_EA = Color.FromArgb(255, 0, 176, 80)
+    'B104.Document.Selection.CharacterFormat.Weight = 0
   End Sub
   Private Sub B_BG()
+    AAB = 3 : AAAA() : ABAA(5) : B104.FontFamily = New FontFamily("Consolas")
+    ' Chemie - Formeln
+    ABAB(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E004") & "   " & vbLf &
+         vbLf) : ABAB(Colors.White, Colors.Green, "c = n / V" & vbLf & "M = m / n")
   End Sub
   Private Sub B_BH()
+    AAB = 3 : AAAA() : ABAA(10) : B104.FontFamily = New FontFamily("Consolas")
+    ' Physik - Formeln
+    ABAB(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E005") & "   " & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("A109") & vbLf)
+    ABAB(Colors.White, Colors.DarkViolet, "a = Δv / Δt
+ΔEk = Ek2 - Ek1
+ΔEp = Ep2 - Ep1
+F = a m
+Ff = k Δs
+Frg = μg |Fn|
+Frh = μh |Fn|
+Frr = μr |Fn|
+P = W / Δt
+p = m v
+Δs = s2 - s1
+Δt = t2 - t1
+v = Δs / Δt
+Δv = v2 - v1
+Δv {v} = (v2 ^ 2 - v1 ^ 2)/2
+{v} = Δs / Δt
+{v} = (v1 + v2) / 2
+W = F Δs
+W = ΔEk
+W = -ΔEp" & vbLf & vbLf)
+    ABAB(Colors.White, Colors.Green, NAD.GetString("E051") & vbLf)
+    ABAB(Colors.White, Colors.DarkViolet, "A = Ax
+A = Ay
+A = Az
+A = Ax : cos(θ)
+A = Ay : sin(θ)
+A = Az : cos(θ)
+A = Ax : cos(θ) : sin(ϕ)
+A = Az : cos(θ) : cos(ϕ)
+A = √(Ax2 + Ay2)
+A = √(Ax2 + Az2)
+A = √(Ay2 + Az2)
+A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub B_BI()
+    AAB = 3 : AAAA() : ABAA(10) : B104.FontFamily = New FontFamily("Consolas")
+    ' Dimensionen
+    ABAB(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("A109") & "   " & vbLf & vbLf)
+    For i = 1 To 87 Step 1 : _AA = If(i < 10, "00", "0") & CStr(i)
+      ABAB(Colors.White, Colors.Blue, (NAC.GetString("B" & _AA) & "       ").Substring(0, 8))
+      ABAB(Colors.White, Colors.DeepSkyBlue, NAD.GetString("C" & _AA) & vbLf) : Next
   End Sub
   Private Sub B_BJ()
   End Sub
@@ -340,7 +437,7 @@ Public NotInheritable Class MainPage
       Case = 101 ' Q-Start
 #Region ""
         ' H-S => Q-S : Q-A° => Q-S
-        AAAB() : A_01.Background = New SolidColorBrush(_EP)
+        AAAB() : A_01.Background = New SolidColorBrush(Colors.AliceBlue)
         AABA() : Grid.SetColumn(B101, 1) : Grid.SetColumn(B105, 1)
         Grid.SetRow(B102, 0) : Grid.SetRow(B106, 0)
         AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
@@ -355,7 +452,8 @@ Public NotInheritable Class MainPage
       Case = 102 ' Q-Anhang
 #Region ""
         ' H-A => Q-A : Q-A° => Q-A
-        AAAB() : AABB() : A_01.Background = New SolidColorBrush(_EP)
+        AAAB() : AABB()
+        A_01.Background = New SolidColorBrush(Colors.AliceBlue)
         AA00.RowDefinitions.Item(0).Height = New GridLength(1, 2)
 #End Region
       Case = 103 ' Q-Listen
@@ -464,71 +562,54 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub AABA()
     ' S:Q-H: Start: Q und H
-    B100.Visibility = 0 : B200.Visibility = 1
-    B300.Visibility = 1 : C100.Visibility = 0
-    Grid.SetRow(A_01, 3)
-    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2)
-    AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2)
-    AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2)
-    B100.RowDefinitions.Item(0).Height = New GridLength(1, 2)
+    B100.Visibility = 0 : B200.Visibility = 1 : B300.Visibility = 1 : C100.Visibility = 0 : Grid.SetRow(A_01, 3)
+    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2) : AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2)
+    AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2) : B100.RowDefinitions.Item(0).Height = New GridLength(1, 2)
     B100.RowDefinitions.Item(2).Height = New GridLength(7, 2)
   End Sub
   Private Sub AABB()
     ' A:Q-H: Anhang: Q und H
-    A_01.Visibility = 0 : B100.Visibility = 1
-    B200.Visibility = 0 : B300.Visibility = 1
-    C100.Visibility = 1 : Grid.SetRow(A_01, 4)
-    AA00.RowDefinitions.Item(1).Height = New GridLength(0, 2)
-    AA00.RowDefinitions.Item(2).Height = New GridLength(14, 2)
-    AA00.RowDefinitions.Item(4).Height = New GridLength(3, 2)
-    If B200.RowDefinitions.Count > 0 Then Exit Sub
+    A_01.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 0 : B300.Visibility = 1 : C100.Visibility = 1
+    Grid.SetRow(A_01, 4)
+    AA00.RowDefinitions.Item(1).Height = New GridLength(0, 2) : AA00.RowDefinitions.Item(2).Height = New GridLength(14, 2)
+    AA00.RowDefinitions.Item(4).Height = New GridLength(3, 2) : If B200.RowDefinitions.Count > 0 Then Exit Sub
+
     For i = 1 To 12 Step 1
-      B200.ColumnDefinitions.Add(New ColumnDefinition)
-      B200.RowDefinitions.Add(New RowDefinition) : Next
+      B200.ColumnDefinitions.Add(New ColumnDefinition) : B200.RowDefinitions.Add(New RowDefinition) : Next
 
-    Grid.SetRow(B201, 1) : Grid.SetColumn(B201, 1)
-    Grid.SetRow(B202, 3) : Grid.SetColumn(B202, 1)
-    Grid.SetRow(B203, 5) : Grid.SetColumn(B203, 1)
-    Grid.SetRow(B204, 7) : Grid.SetColumn(B204, 1)
-    Grid.SetRow(B205, 9) : Grid.SetColumn(B205, 1)
-    Grid.SetRow(B206, 1) : Grid.SetColumn(B206, 3)
-    Grid.SetRow(B207, 3) : Grid.SetColumn(B207, 3)
-    Grid.SetRow(B208, 5) : Grid.SetColumn(B208, 3)
-    Grid.SetRow(B209, 7) : Grid.SetColumn(B209, 3)
-    Grid.SetRow(B210, 9) : Grid.SetColumn(B210, 3)
+    ToolTipService.SetToolTip(B201, New ToolTip With {.Content = NAD.GetString("A101"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B202, New ToolTip With {.Content = NAD.GetString("A102"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B203, New ToolTip With {.Content = NAD.GetString("A103"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B204, New ToolTip With {.Content = NAD.GetString("A104"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B205, New ToolTip With {.Content = NAD.GetString("A105"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B206, New ToolTip With {.Content = NAD.GetString("A106"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B207, New ToolTip With {.Content = NAD.GetString("A107"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B208, New ToolTip With {.Content = NAD.GetString("A108"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B209, New ToolTip With {.Content = NAD.GetString("A109"), .Placement = PlacementMode.Right})
+    ToolTipService.SetToolTip(B210, New ToolTip With {.Content = NAD.GetString("A110"), .Placement = PlacementMode.Right})
 
-    B201.CornerRadius = New CornerRadius(5)
-    B202.CornerRadius = New CornerRadius(5)
-    B203.CornerRadius = New CornerRadius(5)
-    B204.CornerRadius = New CornerRadius(5)
-    B205.CornerRadius = New CornerRadius(5)
-    B206.CornerRadius = New CornerRadius(5)
-    B207.CornerRadius = New CornerRadius(5)
-    B208.CornerRadius = New CornerRadius(5)
-    B209.CornerRadius = New CornerRadius(5)
-    B210.CornerRadius = New CornerRadius(5)
+    Grid.SetRow(B201, 1) : Grid.SetColumn(B201, 1) : Grid.SetRow(B202, 3) : Grid.SetColumn(B202, 1) : Grid.SetRow(B203, 5)
+    Grid.SetColumn(B203, 1) : Grid.SetRow(B204, 7) : Grid.SetColumn(B204, 1) : Grid.SetRow(B205, 9) : Grid.SetColumn(B205, 1)
+    Grid.SetRow(B206, 1) : Grid.SetColumn(B206, 3) : Grid.SetRow(B207, 3) : Grid.SetColumn(B207, 3) : Grid.SetRow(B208, 5)
+    Grid.SetColumn(B208, 3) : Grid.SetRow(B209, 7) : Grid.SetColumn(B209, 3) : Grid.SetRow(B210, 9) : Grid.SetColumn(B210, 3)
 
-    B201.BorderThickness = New Thickness(1)
-    B202.BorderThickness = New Thickness(1)
-    B203.BorderThickness = New Thickness(1)
-    B204.BorderThickness = New Thickness(1)
-    B205.BorderThickness = New Thickness(1)
-    B206.BorderThickness = New Thickness(1)
-    B207.BorderThickness = New Thickness(1)
-    B208.BorderThickness = New Thickness(1)
-    B209.BorderThickness = New Thickness(1)
-    B210.BorderThickness = New Thickness(1)
+    B201.CornerRadius = New CornerRadius(5) : B202.CornerRadius = New CornerRadius(5)
+    B203.CornerRadius = New CornerRadius(5) : B204.CornerRadius = New CornerRadius(5)
+    B205.CornerRadius = New CornerRadius(5) : B206.CornerRadius = New CornerRadius(5)
+    B207.CornerRadius = New CornerRadius(5) : B208.CornerRadius = New CornerRadius(5)
+    B209.CornerRadius = New CornerRadius(5) : B210.CornerRadius = New CornerRadius(5)
 
-    B201.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B202.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B203.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B204.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B205.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B206.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B207.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B208.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B209.BorderBrush = New SolidColorBrush(Colors.Blue)
-    B210.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B201.BorderThickness = New Thickness(1) : B202.BorderThickness = New Thickness(1)
+    B203.BorderThickness = New Thickness(1) : B204.BorderThickness = New Thickness(1)
+    B205.BorderThickness = New Thickness(1) : B206.BorderThickness = New Thickness(1)
+    B207.BorderThickness = New Thickness(1) : B208.BorderThickness = New Thickness(1)
+    B209.BorderThickness = New Thickness(1) : B210.BorderThickness = New Thickness(1)
+
+    B201.BorderBrush = New SolidColorBrush(Colors.Blue) : B202.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B203.BorderBrush = New SolidColorBrush(Colors.Blue) : B204.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B205.BorderBrush = New SolidColorBrush(Colors.Blue) : B206.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B207.BorderBrush = New SolidColorBrush(Colors.Blue) : B208.BorderBrush = New SolidColorBrush(Colors.Blue)
+    B209.BorderBrush = New SolidColorBrush(Colors.Blue) : B210.BorderBrush = New SolidColorBrush(Colors.Blue)
 
     B201.Background = New SolidColorBrush(Colors.Transparent)
     B202.Background = New SolidColorBrush(Colors.Transparent)
@@ -541,29 +622,20 @@ Public NotInheritable Class MainPage
     B209.Background = New SolidColorBrush(Colors.Transparent)
     B210.Background = New SolidColorBrush(Colors.Transparent)
     ' Anhang - Background
-    B200.Background = New LinearGradientBrush With {
-      .StartPoint = New Point(0.5, 0),
-      .EndPoint = New Point(0.5, 1),
-      .GradientStops = New GradientStopCollection From
-      {New GradientStop With {.Color = _EO, .Offset = 0},
-      New GradientStop With {.Color = _EI, .Offset = 1}}}
+    B200.Background = New LinearGradientBrush With {.StartPoint = New Point(0.5, 0), .EndPoint = New Point(0.5, 1),
+      .GradientStops = New GradientStopCollection From {New GradientStop With {.Color = Colors.SkyBlue, .Offset = 0},
+      New GradientStop With {.Color = Colors.White, .Offset = 1}}}
     ' Icons 1-9
-    For i = 0 To 8 Step 1 : ACAA(B200.Children.Item(i)).
-        Content =
-        New Image With {.Source = New BitmapImage With
-        {.UriSource = New Uri("ms-appx:///Assets/A_A_00" &
-        CStr(i + 1) & ".png")}} : Next
+    For i = 0 To 8 Step 1 : ACAA(B200.Children.Item(i)).Content = New Image With {.Source = New BitmapImage With
+        {.UriSource = New Uri("ms-appx:///Assets/A_A_00" & CStr(i + 1) & ".png")}} : Next
     ' Icon 10-99
-    B210.Content = New Image With {.Source = New BitmapImage With
-      {.UriSource = New Uri("ms-appx:///Assets/A_A_010.png")}}
+    B210.Content = New Image With {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_A_010.png")}}
   End Sub
   Private Sub AABC()
-    B100.Visibility = 0 : B200.Visibility = 1
-    B103.Visibility = 1 : B104.Visibility = 0
-    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2)
-    B100.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-    B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
-    B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
+    ' L:Q-H: Listen: Q und H
+    B100.Visibility = 0 : B200.Visibility = 1 : B103.Visibility = 1 : B104.Visibility = 0
+    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2) : B100.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+    B100.RowDefinitions.Item(1).Height = New GridLength(0, 2) : B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
   End Sub
   Private Sub AACA()
     If A109.Content = "A1" Then : A109.Content = "A2"
@@ -589,7 +661,7 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub AAXA()
     ' Design
-    A100.Background = New SolidColorBrush(_EP)
+    A100.Background = New SolidColorBrush(Colors.AliceBlue)
 
     B105.Visibility = 1
     B106.Visibility = 1
@@ -609,38 +681,13 @@ Public NotInheritable Class MainPage
   'End Sub
 #End Region ' *****
 #Region "A-AB"
-  Private Sub ABAA()
-    B104.Document.SetText(TextSetOptions.FormatRtf, "")
+  Private Sub ABAA(a As Byte)
+    B104.Document.SetText(TextSetOptions.FormatRtf, "") : B104.Document.Selection.ParagraphFormat.SpaceAfter = a ' * BAA
   End Sub
-  Private Sub ABAB()
-    B104.Document.Selection.StartPosition = B104.Document.Selection.StoryLength
-  End Sub
-  Private Sub ABAC()
-    B104.Document.Selection.EndPosition = B104.Document.Selection.StoryLength
-  End Sub
-  Private Sub ABAD(a As Byte)
-    B104.Document.Selection.ParagraphFormat.SpaceAfter = a ' * BAA
-  End Sub
-  Private Sub ABAE(a As Color)
+  Private Sub ABAB(a As Color, b As Color, c As String)
+    B104.Document.Selection.StartPosition = B104.Document.Selection.StoryLength - 1
     B104.Document.Selection.CharacterFormat.BackgroundColor = a
-  End Sub
-  Private Sub ABAF(a As Color)
-    B104.Document.Selection.CharacterFormat.ForegroundColor = a
-  End Sub
-  Private Sub ABAG(a As String)
-    B104.Document.Selection.Text = a
-  End Sub
-  Private Sub ABAH(a As String)
-    B104.Document.Selection.Text += a
-  End Sub
-  Private Sub ABAI(a As Integer)
-    B104.Document.Selection.StartPosition = a
-  End Sub
-  Private Sub ABAJ(a As Integer)
-    B104.Document.Selection.EndPosition = a
-  End Sub
-  Private Sub ABAK(a As FontStyle)
-    B104.Document.Selection.CharacterFormat.FontStyle = a
+    B104.Document.Selection.CharacterFormat.ForegroundColor = b : B104.Document.Selection.Text += c
   End Sub
 #End Region ' *****
 #Region "A-AC"

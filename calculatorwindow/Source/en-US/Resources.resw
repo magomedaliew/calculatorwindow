@@ -118,102 +118,96 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="A000" xml:space="preserve">
-    <value>calculator °</value>
+    <value>Calculator °</value>
   </data>
   <data name="A001" xml:space="preserve">
-    <value>start</value>
+    <value>Start</value>
   </data>
   <data name="A002" xml:space="preserve">
-    <value>attachment</value>
+    <value>Attachment</value>
   </data>
   <data name="A003" xml:space="preserve">
-    <value>calculate</value>
+    <value>Calculate</value>
   </data>
   <data name="A004" xml:space="preserve">
-    <value>clear</value>
+    <value>Clear</value>
   </data>
   <data name="A005" xml:space="preserve">
-    <value>results</value>
+    <value>Results</value>
   </data>
   <data name="A006" xml:space="preserve">
-    <value>dimensions</value>
+    <value>Dimensions</value>
   </data>
   <data name="A007" xml:space="preserve">
-    <value>source</value>
+    <value>Source</value>
   </data>
   <data name="A008" xml:space="preserve">
-    <value>depiction</value>
-  </data>
-  <data name="A011" xml:space="preserve">
-    <value>calculator</value>
-  </data>
-  <data name="A012" xml:space="preserve">
-    <value>text style</value>
-  </data>
-  <data name="A013" xml:space="preserve">
-    <value>application</value>
-  </data>
-  <data name="A014" xml:space="preserve">
-    <value>examples</value>
-  </data>
-  <data name="A015" xml:space="preserve">
-    <value>dimensions</value>
-  </data>
-  <data name="A016" xml:space="preserve">
-    <value>c-formulas</value>
-  </data>
-  <data name="A017" xml:space="preserve">
-    <value>p-formulas</value>
-  </data>
-  <data name="A018" xml:space="preserve">
-    <value>m-formulas</value>
-  </data>
-  <data name="A019" xml:space="preserve">
-    <value>periodic table</value>
-  </data>
-  <data name="A020" xml:space="preserve">
-    <value>assignment</value>
-  </data>
-  <data name="A021" xml:space="preserve">
-    <value>expression</value>
-  </data>
-  <data name="A051" xml:space="preserve">
-    <value>equation</value>
-  </data>
-  <data name="A052" xml:space="preserve">
-    <value>detailed</value>
+    <value>Depiction</value>
   </data>
   <data name="A101" xml:space="preserve">
-    <value>e:</value>
+    <value>Calculator</value>
   </data>
   <data name="A102" xml:space="preserve">
-    <value>e:</value>
+    <value>Text style</value>
   </data>
   <data name="A103" xml:space="preserve">
+    <value>Examples</value>
+  </data>
+  <data name="A109" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="A107" xml:space="preserve">
+    <value>Chemie-formulas</value>
+  </data>
+  <data name="A108" xml:space="preserve">
+    <value>Physics-formulas</value>
+  </data>
+  <data name="A106" xml:space="preserve">
+    <value>Mathematics-formulas</value>
+  </data>
+  <data name="A110" xml:space="preserve">
+    <value>Periodic table</value>
+  </data>
+  <data name="A202" xml:space="preserve">
+    <value>Expression</value>
+  </data>
+  <data name="A203" xml:space="preserve">
+    <value>Equation</value>
+  </data>
+  <data name="A009" xml:space="preserve">
+    <value>Detailed</value>
+  </data>
+  <data name="A251" xml:space="preserve">
+    <value>e:</value>
+  </data>
+  <data name="A252" xml:space="preserve">
+    <value>e:</value>
+  </data>
+  <data name="A253" xml:space="preserve">
     <value>,</value>
   </data>
-  <data name="A104" xml:space="preserve">
+  <data name="A254" xml:space="preserve">
     <value>.</value>
   </data>
-  <data name="A151" xml:space="preserve">
-    <value>e r r o r</value>
+  <data name="A301" xml:space="preserve">
+    <value>E r r o r</value>
   </data>
-  <data name="A152" xml:space="preserve">
-    <value>v e r s i o n</value>
+  <data name="A302" xml:space="preserve">
+    <value>V e r s i o n</value>
   </data>
-  <data name="A153" xml:space="preserve">
-    <value>f o r m u l a</value>
+  <data name="A303" xml:space="preserve">
+    <value>F o r m u l a</value>
   </data>
-  <data name="A154" xml:space="preserve">
-    <value>i n p u t</value>
+  <data name="A304" xml:space="preserve">
+    <value>I n p u t</value>
   </data>
-  <data name="A155" xml:space="preserve">
-    <value>o u t p u t</value>
+  <data name="A305" xml:space="preserve">
+    <value>O u t p u t</value>
   </data>
-  <data name="A156" xml:space="preserve">
-    <value>c o m m e n t</value>
+  <data name="A306" xml:space="preserve">
+    <value>C o m m e n t</value>
   </data>
-  <data name="A200" xml:space="preserve">
+  <data name="A900" xml:space="preserve">
     <value>In Progress</value>
   </data>
   <data name="B001" xml:space="preserve">
@@ -870,107 +864,101 @@
   <data name="D005" xml:space="preserve">
     <value>later</value>
   </data>
-  <data name="E003" xml:space="preserve">
+  <data name="E004" xml:space="preserve">
     <value>Chemistry</value>
   </data>
-  <data name="E004" xml:space="preserve">
+  <data name="E005" xml:space="preserve">
     <value>Physics</value>
   </data>
-  <data name="E005" xml:space="preserve">
+  <data name="E003" xml:space="preserve">
     <value>Mathematics</value>
   </data>
   <data name="E001" xml:space="preserve">
     <value>Upgrade</value>
   </data>
   <data name="E051" xml:space="preserve">
-    <value>More updated formulas</value>
-  </data>
-  <data name="E052" xml:space="preserve">
-    <value>Less updated formulas</value>
-  </data>
-  <data name="E053" xml:space="preserve">
     <value>Vectors</value>
   </data>
   <data name="E101" xml:space="preserve">
-    <value>1         Unmodified form</value>
+    <value>1  Unmodified form</value>
   </data>
   <data name="E102" xml:space="preserve">
-    <value>2         Simplified form</value>
+    <value>2  Simplified form</value>
   </data>
   <data name="E103" xml:space="preserve">
-    <value>2.1       The number е</value>
+    <value>2.1  The number е</value>
   </data>
   <data name="E104" xml:space="preserve">
-    <value>2.2       The number π</value>
+    <value>2.2  The number π</value>
   </data>
   <data name="E105" xml:space="preserve">
-    <value>2.3      Bracket</value>
+    <value>2.3  Bracket</value>
   </data>
   <data name="E106" xml:space="preserve">
-    <value>2.4      Modulus</value>
+    <value>2.4  Modulus</value>
   </data>
   <data name="E107" xml:space="preserve">
-    <value>2.5      Zero</value>
+    <value>2.5  Zero</value>
   </data>
   <data name="E108" xml:space="preserve">
-    <value>2.6      One</value>
+    <value>2.6  One</value>
   </data>
   <data name="E109" xml:space="preserve">
-    <value>2.7      Same variables</value>
+    <value>2.7  Same variables</value>
   </data>
   <data name="E110" xml:space="preserve">
-    <value>2.8      Sign</value>
+    <value>2.8  Sign</value>
   </data>
   <data name="E111" xml:space="preserve">
-    <value>2.9      Trigonometric numbers</value>
+    <value>2.9  Trigonometric with numbers</value>
   </data>
   <data name="E112" xml:space="preserve">
-    <value>2.10     Logarithms with numbers</value>
+    <value>2.10  Logarithms with numbers</value>
   </data>
   <data name="E113" xml:space="preserve">
-    <value>2.11      Factorial</value>
+    <value>2.11  Factorial</value>
   </data>
   <data name="E114" xml:space="preserve">
-    <value>2.12      Differentiation of a number</value>
+    <value>2.12  Differentiation of a number</value>
   </data>
   <data name="E115" xml:space="preserve">
-    <value>2.13      Order of variables</value>
+    <value>2.13  Order of variables</value>
   </data>
   <data name="E116" xml:space="preserve">
-    <value>3        Distribution 1</value>
+    <value>3  Distribution 1</value>
   </data>
   <data name="E117" xml:space="preserve">
-    <value>4         Distribution 2</value>
+    <value>4  Distribution 2</value>
   </data>
   <data name="E118" xml:space="preserve">
-    <value>5         Fraction</value>
+    <value>5  Fraction</value>
   </data>
   <data name="E119" xml:space="preserve">
-    <value>6         Exponentiation</value>
+    <value>6  Exponentiation</value>
   </data>
   <data name="E120" xml:space="preserve">
-    <value>7         Roots</value>
+    <value>7  Roots</value>
   </data>
   <data name="E121" xml:space="preserve">
-    <value>8         Limit</value>
+    <value>8  Limit</value>
   </data>
   <data name="E122" xml:space="preserve">
-    <value>9         Logarithms</value>
+    <value>9  Logarithms</value>
   </data>
   <data name="E123" xml:space="preserve">
-    <value>10        Summation</value>
+    <value>10  Summation</value>
   </data>
   <data name="E124" xml:space="preserve">
-    <value>11        Product</value>
+    <value>11  Product</value>
   </data>
   <data name="E125" xml:space="preserve">
-    <value>12        Integral</value>
+    <value>12  Integral</value>
   </data>
   <data name="E126" xml:space="preserve">
-    <value>13        Equation</value>
+    <value>13  Equation</value>
   </data>
   <data name="E127" xml:space="preserve">
-    <value>14        Quadratic equation</value>
+    <value>14  Quadratic equation</value>
   </data>
   <data name="E202" xml:space="preserve">
     <value>CLASSIC-Calculator°</value>
@@ -980,5 +968,14 @@
   </data>
   <data name="E002" xml:space="preserve">
     <value>Forms of expression</value>
+  </data>
+  <data name="A201" xml:space="preserve">
+    <value>Assignment</value>
+  </data>
+  <data name="A104" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="A105" xml:space="preserve">
+    <value>Error message</value>
   </data>
 </root>
