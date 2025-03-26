@@ -571,28 +571,6 @@
   <data name="B118" xml:space="preserve">
     <value>Oganesson</value>
   </data>
-  <data name="B201" xml:space="preserve">
-    <value>Hauptgruppen</value>
-    <comment>Elemente - Gruppen</comment>
-  </data>
-  <data name="B202" xml:space="preserve">
-    <value>Nebengruppen</value>
-  </data>
-  <data name="B203" xml:space="preserve">
-    <value>Hauptgruppen</value>
-  </data>
-  <data name="B204" xml:space="preserve">
-    <value>Edelgase</value>
-  </data>
-  <data name="B205" xml:space="preserve">
-    <value>Periode</value>
-  </data>
-  <data name="B206" xml:space="preserve">
-    <value>Lanthanoide</value>
-  </data>
-  <data name="B207" xml:space="preserve">
-    <value>Actinoide</value>
-  </data>
   <data name="C000" xml:space="preserve">
     <value>Definition</value>
     <comment>Physik</comment>

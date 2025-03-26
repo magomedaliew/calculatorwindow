@@ -118,1311 +118,472 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="A001" xml:space="preserve">
-    <value>1 H</value>
+    <value>Hauptgruppen</value>
+    <comment>Elemente - Gruppen</comment>
   </data>
   <data name="A002" xml:space="preserve">
-    <value>2 He</value>
+    <value>Nebengruppen</value>
   </data>
   <data name="A003" xml:space="preserve">
-    <value>3 Li</value>
+    <value>Hauptgruppen</value>
   </data>
   <data name="A004" xml:space="preserve">
-    <value>4 Be</value>
+    <value>Edelgase</value>
   </data>
   <data name="A005" xml:space="preserve">
-    <value>5 B</value>
+    <value>Periode</value>
   </data>
   <data name="A006" xml:space="preserve">
-    <value>6 C</value>
+    <value>Lanthanoide</value>
   </data>
   <data name="A007" xml:space="preserve">
-    <value>7 N</value>
+    <value>Actinoide</value>
   </data>
   <data name="A008" xml:space="preserve">
-    <value>8 O</value>
+    <value>1
+I A</value>
   </data>
   <data name="A009" xml:space="preserve">
-    <value>9 F</value>
+    <value>2
+II A</value>
   </data>
   <data name="A010" xml:space="preserve">
-    <value>10 Ne</value>
+    <value>3
+III B</value>
   </data>
   <data name="A011" xml:space="preserve">
-    <value>11 Na</value>
+    <value>4
+IV B</value>
   </data>
   <data name="A012" xml:space="preserve">
-    <value>12 Mg</value>
+    <value>5
+V B</value>
   </data>
   <data name="A013" xml:space="preserve">
-    <value>13 Al</value>
+    <value>6
+VI B</value>
   </data>
   <data name="A014" xml:space="preserve">
-    <value>14 Si</value>
+    <value>7
+VII B</value>
   </data>
   <data name="A015" xml:space="preserve">
-    <value>15 P</value>
+    <value>8
+VIII B</value>
   </data>
   <data name="A016" xml:space="preserve">
-    <value>16 S</value>
+    <value>9
+VIII B</value>
   </data>
   <data name="A017" xml:space="preserve">
-    <value>17 Cl</value>
+    <value>10
+VIII B</value>
   </data>
   <data name="A018" xml:space="preserve">
-    <value>18 Ar</value>
+    <value>11
+I B</value>
   </data>
   <data name="A019" xml:space="preserve">
-    <value>19 K</value>
+    <value>12
+II B</value>
   </data>
   <data name="A020" xml:space="preserve">
-    <value>20 Ca</value>
+    <value>13
+III A</value>
   </data>
   <data name="A021" xml:space="preserve">
-    <value>21 Sc</value>
+    <value>14
+IV A</value>
   </data>
   <data name="A022" xml:space="preserve">
-    <value>22 Ti</value>
+    <value>15
+V A</value>
   </data>
   <data name="A023" xml:space="preserve">
-    <value>23 V</value>
+    <value>16
+VI A</value>
   </data>
   <data name="A024" xml:space="preserve">
-    <value>24 Cr</value>
+    <value>17
+VII A</value>
   </data>
   <data name="A025" xml:space="preserve">
-    <value>25 Mn</value>
+    <value>18
+0</value>
   </data>
   <data name="A026" xml:space="preserve">
-    <value>26 Fe</value>
+    <value>1</value>
   </data>
   <data name="A027" xml:space="preserve">
-    <value>27 Co</value>
+    <value>2</value>
   </data>
   <data name="A028" xml:space="preserve">
-    <value>28 Ni</value>
+    <value>3</value>
   </data>
   <data name="A029" xml:space="preserve">
-    <value>29 Cu</value>
+    <value>4</value>
   </data>
   <data name="A030" xml:space="preserve">
-    <value>30 Zn</value>
+    <value>5</value>
   </data>
   <data name="A031" xml:space="preserve">
-    <value>31 Ga</value>
+    <value>6</value>
   </data>
   <data name="A032" xml:space="preserve">
-    <value>32 Ge</value>
-  </data>
-  <data name="A033" xml:space="preserve">
-    <value>33 As</value>
-  </data>
-  <data name="A034" xml:space="preserve">
-    <value>34 Se</value>
-  </data>
-  <data name="A035" xml:space="preserve">
-    <value>35 Br</value>
-  </data>
-  <data name="A036" xml:space="preserve">
-    <value>36 Kr</value>
-  </data>
-  <data name="A037" xml:space="preserve">
-    <value>37 Rb</value>
-  </data>
-  <data name="A038" xml:space="preserve">
-    <value>38 Sr</value>
-  </data>
-  <data name="A039" xml:space="preserve">
-    <value>39 Y</value>
-  </data>
-  <data name="A040" xml:space="preserve">
-    <value>40 Zr</value>
-  </data>
-  <data name="A041" xml:space="preserve">
-    <value>41 Nb</value>
-  </data>
-  <data name="A042" xml:space="preserve">
-    <value>42 Mo</value>
-  </data>
-  <data name="A043" xml:space="preserve">
-    <value>43 Tc</value>
-  </data>
-  <data name="A044" xml:space="preserve">
-    <value>44 Ru</value>
-  </data>
-  <data name="A045" xml:space="preserve">
-    <value>45 Rh</value>
-  </data>
-  <data name="A046" xml:space="preserve">
-    <value>46 Pd</value>
-  </data>
-  <data name="A047" xml:space="preserve">
-    <value>47 Ag</value>
-  </data>
-  <data name="A048" xml:space="preserve">
-    <value>48 Cd</value>
-  </data>
-  <data name="A049" xml:space="preserve">
-    <value>49 In</value>
-  </data>
-  <data name="A050" xml:space="preserve">
-    <value>50 Sn</value>
-  </data>
-  <data name="A051" xml:space="preserve">
-    <value>51 Sb</value>
-  </data>
-  <data name="A052" xml:space="preserve">
-    <value>52 Te</value>
-  </data>
-  <data name="A053" xml:space="preserve">
-    <value>53 I</value>
-  </data>
-  <data name="A054" xml:space="preserve">
-    <value>54 Xe</value>
-  </data>
-  <data name="A055" xml:space="preserve">
-    <value>55 Cs</value>
-  </data>
-  <data name="A056" xml:space="preserve">
-    <value>56 Ba</value>
-  </data>
-  <data name="A057" xml:space="preserve">
-    <value>57 La</value>
-  </data>
-  <data name="A058" xml:space="preserve">
-    <value>58 Ce</value>
-  </data>
-  <data name="A059" xml:space="preserve">
-    <value>59 Pr</value>
-  </data>
-  <data name="A060" xml:space="preserve">
-    <value>60 Nd</value>
-  </data>
-  <data name="A061" xml:space="preserve">
-    <value>61 Pm</value>
-  </data>
-  <data name="A062" xml:space="preserve">
-    <value>62 Sm</value>
-  </data>
-  <data name="A063" xml:space="preserve">
-    <value>63 Eu</value>
-  </data>
-  <data name="A064" xml:space="preserve">
-    <value>64 Gd</value>
-  </data>
-  <data name="A065" xml:space="preserve">
-    <value>65 Tb</value>
-  </data>
-  <data name="A066" xml:space="preserve">
-    <value>66 Dy</value>
-  </data>
-  <data name="A067" xml:space="preserve">
-    <value>67 Ho</value>
-  </data>
-  <data name="A068" xml:space="preserve">
-    <value>68 Er</value>
-  </data>
-  <data name="A069" xml:space="preserve">
-    <value>69 Tm</value>
-  </data>
-  <data name="A070" xml:space="preserve">
-    <value>70 Yb</value>
-  </data>
-  <data name="A071" xml:space="preserve">
-    <value>71 Lu</value>
-  </data>
-  <data name="A072" xml:space="preserve">
-    <value>72 Hf</value>
-  </data>
-  <data name="A073" xml:space="preserve">
-    <value>73 Ta</value>
-  </data>
-  <data name="A074" xml:space="preserve">
-    <value>74 W</value>
-  </data>
-  <data name="A075" xml:space="preserve">
-    <value>75 Re</value>
-  </data>
-  <data name="A076" xml:space="preserve">
-    <value>76 Os</value>
-  </data>
-  <data name="A077" xml:space="preserve">
-    <value>77 Ir</value>
-  </data>
-  <data name="A078" xml:space="preserve">
-    <value>78 Pt</value>
-  </data>
-  <data name="A079" xml:space="preserve">
-    <value>79 Au</value>
-  </data>
-  <data name="A080" xml:space="preserve">
-    <value>80 Hg</value>
-  </data>
-  <data name="A081" xml:space="preserve">
-    <value>81 Tl</value>
-  </data>
-  <data name="A082" xml:space="preserve">
-    <value>82 Pb</value>
-  </data>
-  <data name="A083" xml:space="preserve">
-    <value>83 Bi</value>
-  </data>
-  <data name="A084" xml:space="preserve">
-    <value>84 Po</value>
-  </data>
-  <data name="A085" xml:space="preserve">
-    <value>85 At</value>
-  </data>
-  <data name="A086" xml:space="preserve">
-    <value>86 Rn</value>
-  </data>
-  <data name="A087" xml:space="preserve">
-    <value>87 Fr</value>
-  </data>
-  <data name="A088" xml:space="preserve">
-    <value>88 Ra</value>
-  </data>
-  <data name="A089" xml:space="preserve">
-    <value>89 Ac</value>
-  </data>
-  <data name="A090" xml:space="preserve">
-    <value>90 Th</value>
-  </data>
-  <data name="A091" xml:space="preserve">
-    <value>91 Pa</value>
-  </data>
-  <data name="A092" xml:space="preserve">
-    <value>92 U</value>
-  </data>
-  <data name="A093" xml:space="preserve">
-    <value>93 Np</value>
-  </data>
-  <data name="A094" xml:space="preserve">
-    <value>94 Pu</value>
-  </data>
-  <data name="A095" xml:space="preserve">
-    <value>95 Am</value>
-  </data>
-  <data name="A096" xml:space="preserve">
-    <value>96 Cm</value>
-  </data>
-  <data name="A097" xml:space="preserve">
-    <value>97 Bk</value>
-  </data>
-  <data name="A098" xml:space="preserve">
-    <value>98 Cf</value>
-  </data>
-  <data name="A099" xml:space="preserve">
-    <value>99 Es</value>
-  </data>
-  <data name="A100" xml:space="preserve">
-    <value>100 Fm</value>
-  </data>
-  <data name="A101" xml:space="preserve">
-    <value>101 Md</value>
-  </data>
-  <data name="A102" xml:space="preserve">
-    <value>102 No</value>
-  </data>
-  <data name="A103" xml:space="preserve">
-    <value>103 Lr</value>
-  </data>
-  <data name="A104" xml:space="preserve">
-    <value>104 Rf</value>
-  </data>
-  <data name="A105" xml:space="preserve">
-    <value>105 Db</value>
-  </data>
-  <data name="A106" xml:space="preserve">
-    <value>106 Sg</value>
-  </data>
-  <data name="A107" xml:space="preserve">
-    <value>107 Bh</value>
-  </data>
-  <data name="A108" xml:space="preserve">
-    <value>108 Hs</value>
-  </data>
-  <data name="A109" xml:space="preserve">
-    <value>109 Mt</value>
-  </data>
-  <data name="A110" xml:space="preserve">
-    <value>110 Ds</value>
-  </data>
-  <data name="A111" xml:space="preserve">
-    <value>111 Rg</value>
-  </data>
-  <data name="A112" xml:space="preserve">
-    <value>112 Cn</value>
-  </data>
-  <data name="A113" xml:space="preserve">
-    <value>113 Nh</value>
-  </data>
-  <data name="A114" xml:space="preserve">
-    <value>114 Fl</value>
-  </data>
-  <data name="A115" xml:space="preserve">
-    <value>115 Mc</value>
-  </data>
-  <data name="A116" xml:space="preserve">
-    <value>116 Lv</value>
-  </data>
-  <data name="A117" xml:space="preserve">
-    <value>117 Ts</value>
-  </data>
-  <data name="A118" xml:space="preserve">
-    <value>118 Og</value>
+    <value>7</value>
   </data>
   <data name="B001" xml:space="preserve">
-    <value>I A</value>
+    <value>1 H</value>
   </data>
   <data name="B002" xml:space="preserve">
-    <value>II A</value>
+    <value>2 He</value>
   </data>
   <data name="B003" xml:space="preserve">
-    <value>III B</value>
+    <value>3 Li</value>
   </data>
   <data name="B004" xml:space="preserve">
-    <value>IV B</value>
+    <value>4 Be</value>
   </data>
   <data name="B005" xml:space="preserve">
-    <value>V B</value>
+    <value>5 B</value>
   </data>
   <data name="B006" xml:space="preserve">
-    <value>VI B</value>
+    <value>6 C</value>
   </data>
   <data name="B007" xml:space="preserve">
-    <value>VII B</value>
+    <value>7 N</value>
   </data>
   <data name="B008" xml:space="preserve">
-    <value>VIII B</value>
+    <value>8 O</value>
   </data>
   <data name="B009" xml:space="preserve">
-    <value>VIII B</value>
+    <value>9 F</value>
   </data>
   <data name="B010" xml:space="preserve">
-    <value>VIII B</value>
+    <value>10 Ne</value>
   </data>
   <data name="B011" xml:space="preserve">
-    <value>I B</value>
+    <value>11 Na</value>
   </data>
   <data name="B012" xml:space="preserve">
-    <value>II B</value>
+    <value>12 Mg</value>
   </data>
   <data name="B013" xml:space="preserve">
-    <value>III A</value>
+    <value>13 Al</value>
   </data>
   <data name="B014" xml:space="preserve">
-    <value>IV A</value>
+    <value>14 Si</value>
   </data>
   <data name="B015" xml:space="preserve">
-    <value>V A</value>
+    <value>15 P</value>
   </data>
   <data name="B016" xml:space="preserve">
-    <value>VI A</value>
+    <value>16 S</value>
   </data>
   <data name="B017" xml:space="preserve">
-    <value>VII A</value>
+    <value>17 Cl</value>
   </data>
   <data name="B018" xml:space="preserve">
-    <value>0</value>
+    <value>18 Ar</value>
   </data>
-  <data name="C001" xml:space="preserve">
-    <value>2</value>
+  <data name="B019" xml:space="preserve">
+    <value>19 K</value>
   </data>
-  <data name="C002" xml:space="preserve">
-    <value>3</value>
+  <data name="B020" xml:space="preserve">
+    <value>20 Ca</value>
   </data>
-  <data name="C003" xml:space="preserve">
-    <value>4</value>
+  <data name="B021" xml:space="preserve">
+    <value>21 Sc</value>
   </data>
-  <data name="C004" xml:space="preserve">
-    <value>5</value>
+  <data name="B022" xml:space="preserve">
+    <value>22 Ti</value>
   </data>
-  <data name="C005" xml:space="preserve">
-    <value>6</value>
+  <data name="B023" xml:space="preserve">
+    <value>23 V</value>
   </data>
-  <data name="C006" xml:space="preserve">
-    <value>7</value>
+  <data name="B024" xml:space="preserve">
+    <value>24 Cr</value>
   </data>
-  <data name="C007" xml:space="preserve">
-    <value>8</value>
+  <data name="B025" xml:space="preserve">
+    <value>25 Mn</value>
   </data>
-  <data name="C008" xml:space="preserve">
-    <value>0</value>
+  <data name="B026" xml:space="preserve">
+    <value>26 Fe</value>
   </data>
-  <data name="C009" xml:space="preserve">
-    <value>0</value>
+  <data name="B027" xml:space="preserve">
+    <value>27 Co</value>
   </data>
-  <data name="C010" xml:space="preserve">
-    <value>0</value>
+  <data name="B028" xml:space="preserve">
+    <value>28 Ni</value>
   </data>
-  <data name="C011" xml:space="preserve">
-    <value>0</value>
+  <data name="B029" xml:space="preserve">
+    <value>29 Cu</value>
   </data>
-  <data name="C012" xml:space="preserve">
-    <value>1</value>
+  <data name="B030" xml:space="preserve">
+    <value>30 Zn</value>
   </data>
-  <data name="C013" xml:space="preserve">
-    <value>9</value>
+  <data name="B031" xml:space="preserve">
+    <value>31 Ga</value>
   </data>
-  <data name="C014" xml:space="preserve">
-    <value>10</value>
+  <data name="B032" xml:space="preserve">
+    <value>32 Ge</value>
   </data>
-  <data name="C015" xml:space="preserve">
-    <value>1</value>
+  <data name="B033" xml:space="preserve">
+    <value>33 As</value>
   </data>
-  <data name="C016" xml:space="preserve">
-    <value>1</value>
+  <data name="B034" xml:space="preserve">
+    <value>34 Se</value>
   </data>
-  <data name="C017" xml:space="preserve">
-    <value>1</value>
+  <data name="B035" xml:space="preserve">
+    <value>35 Br</value>
   </data>
-  <data name="C018" xml:space="preserve">
-    <value>1</value>
+  <data name="B036" xml:space="preserve">
+    <value>36 Kr</value>
   </data>
-  <data name="C019" xml:space="preserve">
-    <value>1</value>
+  <data name="B037" xml:space="preserve">
+    <value>37 Rb</value>
   </data>
-  <data name="C020" xml:space="preserve">
-    <value>1</value>
+  <data name="B038" xml:space="preserve">
+    <value>38 Sr</value>
   </data>
-  <data name="C021" xml:space="preserve">
-    <value>1</value>
+  <data name="B039" xml:space="preserve">
+    <value>39 Y</value>
   </data>
-  <data name="C022" xml:space="preserve">
-    <value>1</value>
+  <data name="B040" xml:space="preserve">
+    <value>40 Zr</value>
   </data>
-  <data name="C023" xml:space="preserve">
-    <value>1</value>
+  <data name="B041" xml:space="preserve">
+    <value>41 Nb</value>
   </data>
-  <data name="C024" xml:space="preserve">
-    <value>1</value>
+  <data name="B042" xml:space="preserve">
+    <value>42 Mo</value>
   </data>
-  <data name="C025" xml:space="preserve">
-    <value>1</value>
+  <data name="B043" xml:space="preserve">
+    <value>43 Tc</value>
   </data>
-  <data name="C026" xml:space="preserve">
-    <value>1</value>
+  <data name="B044" xml:space="preserve">
+    <value>44 Ru</value>
   </data>
-  <data name="C027" xml:space="preserve">
-    <value>1</value>
+  <data name="B045" xml:space="preserve">
+    <value>45 Rh</value>
   </data>
-  <data name="C028" xml:space="preserve">
-    <value>1</value>
+  <data name="B046" xml:space="preserve">
+    <value>46 Pd</value>
   </data>
-  <data name="C029" xml:space="preserve">
-    <value>1</value>
+  <data name="B047" xml:space="preserve">
+    <value>47 Ag</value>
   </data>
-  <data name="C030" xml:space="preserve">
-    <value>1</value>
+  <data name="B048" xml:space="preserve">
+    <value>48 Cd</value>
   </data>
-  <data name="C031" xml:space="preserve">
-    <value>1</value>
+  <data name="B049" xml:space="preserve">
+    <value>49 In</value>
   </data>
-  <data name="C032" xml:space="preserve">
-    <value>1</value>
+  <data name="B050" xml:space="preserve">
+    <value>50 Sn</value>
   </data>
-  <data name="C033" xml:space="preserve">
-    <value>2</value>
+  <data name="B051" xml:space="preserve">
+    <value>51 Sb</value>
   </data>
-  <data name="C034" xml:space="preserve">
-    <value>2</value>
+  <data name="B052" xml:space="preserve">
+    <value>52 Te</value>
   </data>
-  <data name="C035" xml:space="preserve">
-    <value>3</value>
+  <data name="B053" xml:space="preserve">
+    <value>53 I</value>
   </data>
-  <data name="C036" xml:space="preserve">
-    <value>3</value>
+  <data name="B054" xml:space="preserve">
+    <value>54 Xe</value>
   </data>
-  <data name="C037" xml:space="preserve">
-    <value>3</value>
+  <data name="B055" xml:space="preserve">
+    <value>55 Cs</value>
   </data>
-  <data name="C038" xml:space="preserve">
-    <value>3</value>
+  <data name="B056" xml:space="preserve">
+    <value>56 Ba</value>
   </data>
-  <data name="C039" xml:space="preserve">
-    <value>3</value>
+  <data name="B057" xml:space="preserve">
+    <value>57 La</value>
   </data>
-  <data name="C040" xml:space="preserve">
-    <value>3</value>
+  <data name="B058" xml:space="preserve">
+    <value>58 Ce</value>
   </data>
-  <data name="C041" xml:space="preserve">
-    <value>3</value>
+  <data name="B059" xml:space="preserve">
+    <value>59 Pr</value>
   </data>
-  <data name="C042" xml:space="preserve">
-    <value>3</value>
+  <data name="B060" xml:space="preserve">
+    <value>60 Nd</value>
   </data>
-  <data name="C043" xml:space="preserve">
-    <value>4</value>
+  <data name="B061" xml:space="preserve">
+    <value>61 Pm</value>
   </data>
-  <data name="C044" xml:space="preserve">
-    <value>4</value>
+  <data name="B062" xml:space="preserve">
+    <value>62 Sm</value>
   </data>
-  <data name="C045" xml:space="preserve">
-    <value>4</value>
+  <data name="B063" xml:space="preserve">
+    <value>63 Eu</value>
   </data>
-  <data name="C046" xml:space="preserve">
-    <value>4</value>
+  <data name="B064" xml:space="preserve">
+    <value>64 Gd</value>
   </data>
-  <data name="C047" xml:space="preserve">
-    <value>4</value>
+  <data name="B065" xml:space="preserve">
+    <value>65 Tb</value>
   </data>
-  <data name="C048" xml:space="preserve">
-    <value>4</value>
+  <data name="B066" xml:space="preserve">
+    <value>66 Dy</value>
   </data>
-  <data name="C049" xml:space="preserve">
-    <value>4</value>
+  <data name="B067" xml:space="preserve">
+    <value>67 Ho</value>
   </data>
-  <data name="C050" xml:space="preserve">
-    <value>4</value>
+  <data name="B068" xml:space="preserve">
+    <value>68 Er</value>
   </data>
-  <data name="C051" xml:space="preserve">
-    <value>5</value>
+  <data name="B069" xml:space="preserve">
+    <value>69 Tm</value>
   </data>
-  <data name="C052" xml:space="preserve">
-    <value>5</value>
+  <data name="B070" xml:space="preserve">
+    <value>70 Yb</value>
   </data>
-  <data name="C053" xml:space="preserve">
-    <value>5</value>
+  <data name="B071" xml:space="preserve">
+    <value>71 Lu</value>
   </data>
-  <data name="C054" xml:space="preserve">
-    <value>5</value>
+  <data name="B072" xml:space="preserve">
+    <value>72 Hf</value>
   </data>
-  <data name="C055" xml:space="preserve">
-    <value>5</value>
+  <data name="B073" xml:space="preserve">
+    <value>73 Ta</value>
   </data>
-  <data name="C056" xml:space="preserve">
-    <value>5</value>
+  <data name="B074" xml:space="preserve">
+    <value>74 W</value>
   </data>
-  <data name="C057" xml:space="preserve">
-    <value>5</value>
+  <data name="B075" xml:space="preserve">
+    <value>75 Re</value>
   </data>
-  <data name="C058" xml:space="preserve">
-    <value>5</value>
+  <data name="B076" xml:space="preserve">
+    <value>76 Os</value>
   </data>
-  <data name="C059" xml:space="preserve">
-    <value>5</value>
+  <data name="B077" xml:space="preserve">
+    <value>77 Ir</value>
   </data>
-  <data name="C060" xml:space="preserve">
-    <value>5</value>
+  <data name="B078" xml:space="preserve">
+    <value>78 Pt</value>
   </data>
-  <data name="C061" xml:space="preserve">
-    <value>5</value>
+  <data name="B079" xml:space="preserve">
+    <value>79 Au</value>
   </data>
-  <data name="C062" xml:space="preserve">
-    <value>5</value>
+  <data name="B080" xml:space="preserve">
+    <value>80 Hg</value>
   </data>
-  <data name="C063" xml:space="preserve">
-    <value>5</value>
+  <data name="B081" xml:space="preserve">
+    <value>81 Tl</value>
   </data>
-  <data name="C064" xml:space="preserve">
-    <value>5</value>
+  <data name="B082" xml:space="preserve">
+    <value>82 Pb</value>
   </data>
-  <data name="C065" xml:space="preserve">
-    <value>5</value>
+  <data name="B083" xml:space="preserve">
+    <value>83 Bi</value>
   </data>
-  <data name="C066" xml:space="preserve">
-    <value>5</value>
+  <data name="B084" xml:space="preserve">
+    <value>84 Po</value>
   </data>
-  <data name="C067" xml:space="preserve">
-    <value>5</value>
+  <data name="B085" xml:space="preserve">
+    <value>85 At</value>
   </data>
-  <data name="C068" xml:space="preserve">
-    <value>5</value>
+  <data name="B086" xml:space="preserve">
+    <value>86 Rn</value>
   </data>
-  <data name="C069" xml:space="preserve">
-    <value>6</value>
+  <data name="B087" xml:space="preserve">
+    <value>87 Fr</value>
   </data>
-  <data name="C070" xml:space="preserve">
-    <value>6</value>
+  <data name="B088" xml:space="preserve">
+    <value>88 Ra</value>
   </data>
-  <data name="C071" xml:space="preserve">
-    <value>6</value>
+  <data name="B089" xml:space="preserve">
+    <value>89 Ac</value>
   </data>
-  <data name="C072" xml:space="preserve">
-    <value>6</value>
+  <data name="B090" xml:space="preserve">
+    <value>90 Th</value>
   </data>
-  <data name="C073" xml:space="preserve">
-    <value>6</value>
+  <data name="B091" xml:space="preserve">
+    <value>91 Pa</value>
   </data>
-  <data name="C074" xml:space="preserve">
-    <value>6</value>
+  <data name="B092" xml:space="preserve">
+    <value>92 U</value>
   </data>
-  <data name="C075" xml:space="preserve">
-    <value>6</value>
+  <data name="B093" xml:space="preserve">
+    <value>93 Np</value>
   </data>
-  <data name="C076" xml:space="preserve">
-    <value>6</value>
+  <data name="B094" xml:space="preserve">
+    <value>94 Pu</value>
   </data>
-  <data name="C077" xml:space="preserve">
-    <value>6</value>
+  <data name="B095" xml:space="preserve">
+    <value>95 Am</value>
   </data>
-  <data name="C078" xml:space="preserve">
-    <value>6</value>
+  <data name="B096" xml:space="preserve">
+    <value>96 Cm</value>
   </data>
-  <data name="C079" xml:space="preserve">
-    <value>6</value>
+  <data name="B097" xml:space="preserve">
+    <value>97 Bk</value>
   </data>
-  <data name="C080" xml:space="preserve">
-    <value>6</value>
+  <data name="B098" xml:space="preserve">
+    <value>98 Cf</value>
   </data>
-  <data name="C081" xml:space="preserve">
-    <value>6</value>
+  <data name="B099" xml:space="preserve">
+    <value>99 Es</value>
   </data>
-  <data name="C082" xml:space="preserve">
-    <value>6</value>
+  <data name="B100" xml:space="preserve">
+    <value>100 Fm</value>
   </data>
-  <data name="C083" xml:space="preserve">
-    <value>6</value>
+  <data name="B101" xml:space="preserve">
+    <value>101 Md</value>
   </data>
-  <data name="C084" xml:space="preserve">
-    <value>6</value>
+  <data name="B102" xml:space="preserve">
+    <value>102 No</value>
   </data>
-  <data name="C085" xml:space="preserve">
-    <value>6</value>
+  <data name="B103" xml:space="preserve">
+    <value>103 Lr</value>
   </data>
-  <data name="C086" xml:space="preserve">
-    <value>6</value>
+  <data name="B104" xml:space="preserve">
+    <value>104 Rf</value>
   </data>
-  <data name="C087" xml:space="preserve">
-    <value>7</value>
+  <data name="B105" xml:space="preserve">
+    <value>105 Db</value>
   </data>
-  <data name="C088" xml:space="preserve">
-    <value>7</value>
+  <data name="B106" xml:space="preserve">
+    <value>106 Sg</value>
   </data>
-  <data name="C089" xml:space="preserve">
-    <value>7</value>
+  <data name="B107" xml:space="preserve">
+    <value>107 Bh</value>
   </data>
-  <data name="C090" xml:space="preserve">
-    <value>9</value>
+  <data name="B108" xml:space="preserve">
+    <value>108 Hs</value>
   </data>
-  <data name="C091" xml:space="preserve">
-    <value>9</value>
+  <data name="B109" xml:space="preserve">
+    <value>109 Mt</value>
   </data>
-  <data name="C092" xml:space="preserve">
-    <value>9</value>
+  <data name="B110" xml:space="preserve">
+    <value>110 Ds</value>
   </data>
-  <data name="C093" xml:space="preserve">
-    <value>9</value>
+  <data name="B111" xml:space="preserve">
+    <value>111 Rg</value>
   </data>
-  <data name="C094" xml:space="preserve">
-    <value>9</value>
+  <data name="B112" xml:space="preserve">
+    <value>112 Cn</value>
   </data>
-  <data name="C095" xml:space="preserve">
-    <value>9</value>
+  <data name="B113" xml:space="preserve">
+    <value>113 Nh</value>
   </data>
-  <data name="C096" xml:space="preserve">
-    <value>9</value>
+  <data name="B114" xml:space="preserve">
+    <value>114 Fl</value>
   </data>
-  <data name="C097" xml:space="preserve">
-    <value>9</value>
+  <data name="B115" xml:space="preserve">
+    <value>115 Mc</value>
   </data>
-  <data name="C098" xml:space="preserve">
-    <value>9</value>
+  <data name="B116" xml:space="preserve">
+    <value>116 Lv</value>
   </data>
-  <data name="C099" xml:space="preserve">
-    <value>9</value>
+  <data name="B117" xml:space="preserve">
+    <value>117 Ts</value>
   </data>
-  <data name="C100" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="C101" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="C102" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="C103" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="C104" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C105" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C106" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C107" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C108" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C109" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C110" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C111" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C112" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C113" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C114" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C115" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C116" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C117" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C118" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="C119" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C120" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C121" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C122" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C123" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C124" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C125" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C126" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C127" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C128" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C129" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C130" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C131" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C132" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C133" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C134" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C135" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="C136" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C137" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C138" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C139" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C140" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C141" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C142" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C143" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C144" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C145" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C146" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C147" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C148" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C149" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="C150" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D001" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D002" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D003" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D004" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D005" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D006" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D007" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D008" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D009" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="D010" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D011" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D012" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="D013" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="D014" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="D015" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D016" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D017" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="D018" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D019" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D020" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D021" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D022" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D023" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D024" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D025" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D026" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D027" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D028" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D029" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D030" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D031" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D032" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D033" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D034" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D035" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D036" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D037" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D038" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D039" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D040" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D041" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D042" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D043" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D044" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D045" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D046" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D047" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D048" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D049" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D050" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D051" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D052" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D053" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="D054" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D055" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D056" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D057" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D058" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D059" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D060" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D061" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D062" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D063" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D064" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D065" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D066" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D067" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D068" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D069" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D070" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D071" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="D072" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D073" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D074" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D075" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D076" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D077" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D078" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D079" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D080" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D081" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D082" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D083" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D084" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D085" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D086" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D087" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D088" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D089" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="D090" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D091" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D092" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D093" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D094" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D095" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D096" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D097" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D098" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D099" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D100" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D101" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D102" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D103" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D104" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D105" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D106" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D107" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D108" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D109" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D110" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D111" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D112" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D113" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D114" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D115" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D116" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D117" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D118" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="D119" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="D120" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="D121" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="D122" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D123" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D124" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D125" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D126" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D127" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D128" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D129" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D130" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D131" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D132" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D133" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D134" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D135" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D136" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="D137" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="D138" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="D139" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="D140" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="D141" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="D142" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="D143" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="D144" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="D145" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="D146" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="D147" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="D148" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="D149" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="D150" xml:space="preserve">
-    <value>19</value>
+  <data name="B118" xml:space="preserve">
+    <value>118 Og</value>
   </data>
 </root>

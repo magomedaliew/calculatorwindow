@@ -564,27 +564,6 @@
   <data name="B118" xml:space="preserve">
     <value>Oganesson</value>
   </data>
-  <data name="B201" xml:space="preserve">
-    <value>Main group</value>
-  </data>
-  <data name="B202" xml:space="preserve">
-    <value>Subgroup</value>
-  </data>
-  <data name="B203" xml:space="preserve">
-    <value>Main group</value>
-  </data>
-  <data name="B204" xml:space="preserve">
-    <value>Noble gases</value>
-  </data>
-  <data name="B205" xml:space="preserve">
-    <value>Period</value>
-  </data>
-  <data name="B206" xml:space="preserve">
-    <value>Lanthanide</value>
-  </data>
-  <data name="B207" xml:space="preserve">
-    <value>Actinide</value>
-  </data>
   <data name="C000" xml:space="preserve">
     <value>definition</value>
   </data>

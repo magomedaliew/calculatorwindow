@@ -65,7 +65,6 @@
    <Button Name="B210" Click="B_BJ"/>
   </Grid>
   <Grid Name="B300">
-   <ListView Name="B301"/>
   </Grid>
   <Grid Name="C100">
    <Button Name="C101" Click="C_AA"/>

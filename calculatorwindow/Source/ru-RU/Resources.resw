@@ -564,27 +564,6 @@
   <data name="B118" xml:space="preserve">
     <value>Оганесон</value>
   </data>
-  <data name="B201" xml:space="preserve">
-    <value>Главные группы</value>
-  </data>
-  <data name="B202" xml:space="preserve">
-    <value>Побочные группы</value>
-  </data>
-  <data name="B203" xml:space="preserve">
-    <value>Главные группы</value>
-  </data>
-  <data name="B204" xml:space="preserve">
-    <value>Газы</value>
-  </data>
-  <data name="B205" xml:space="preserve">
-    <value>Периоды</value>
-  </data>
-  <data name="B206" xml:space="preserve">
-    <value>Лантаноиды</value>
-  </data>
-  <data name="B207" xml:space="preserve">
-    <value>Актиноиды</value>
-  </data>
   <data name="C000" xml:space="preserve">
     <value>определение</value>
   </data>
