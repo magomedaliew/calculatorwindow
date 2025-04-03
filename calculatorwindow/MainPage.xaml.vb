@@ -1,8 +1,8 @@
 ﻿Imports Windows.Storage
+Imports Windows.Networking.Connectivity
+Imports Windows.ApplicationModel.Email
 Imports Windows.ApplicationModel.Resources
 Imports Windows.UI : Imports Windows.UI.Text
-Imports Windows.UI.Xaml.Controls
-Imports Windows.UI.Xaml.Documents
 Public NotInheritable Class MainPage
   ' بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
   Inherits Page
@@ -18,13 +18,14 @@ Public NotInheritable Class MainPage
   Dim NAC As New ResourceLoader("A_b_a_a_a")
   Dim NAD As New ResourceLoader("Resources") : Dim NAE As New ResourceLoader("Source_aa")
 
-  Dim _AA As String
+  Dim _AA, _AB As String
 
   Dim _FA() As String
 
   Dim A_01 As New Canvas
   Dim B_01 As New Button
   Dim C_01 As New ListView
+  Dim D_01, D_02 As TextBlock
 #End Region ' *****
 #End Region
   ' * ○○○○ * ○○○○ * ○○○○ * ○○○○ *
@@ -33,7 +34,7 @@ Public NotInheritable Class MainPage
   Private Sub A_A_() Handles AAA0.Loaded
     Try
       ' Loaded
-      B103.IsSpellCheckEnabled = False : B104.IsSpellCheckEnabled = False
+      B103.IsSpellCheckEnabled = False : B104.IsSpellCheckEnabled = False : D_01 = New TextBlock : D_02 = New TextBlock
 
       A101.Foreground = New SolidColorBrush(Colors.Blue) : A102.Foreground = New SolidColorBrush(Colors.Blue)
       A103.Foreground = New SolidColorBrush(Colors.Blue) : A104.Foreground = New SolidColorBrush(Colors.Blue)
@@ -106,10 +107,10 @@ Public NotInheritable Class MainPage
       _FA = ("0´1´0´2´0´3´0´4´1´1´1´2´1´3´1´4´2´1´2´2´2´3´2´4´3´1´3´2´3´3´3´4´0´6´0´7´0´8´0´9´1´6´1´7´1´8´1´9´2´6´2´7´2´" &
         "8´2´9´3´6´3´7´3´8´3´9´0´11´0´12´0´13´0´14´1´11´1´12´1´13´1´14´2´11´2´12´2´13´2´14´3´11´3´12´3´13´3´14").Split("´")
 
-      For i As Byte = 0 To 95 Step 2 : AAA = i / 2 : ACAA(C100.Children.Item(AAA)).VerticalAlignment = 3
-        ACAA(C100.Children.Item(AAA)).HorizontalAlignment = 3 : Grid.SetRow(C100.Children.Item(AAA), CInt(_FA(i)))
-        Grid.SetColumn(C100.Children.Item(AAA), CInt(_FA(i + 1))) : ACAA(C100.Children.Item(AAA)).Background =
-          New SolidColorBrush(Colors.White) : ACAA(C100.Children.Item(AAA)).Foreground = New SolidColorBrush(Colors.Blue)
+      For i As Byte = 0 To 95 Step 2 : AAA = i / 2 : ACAD(C100.Children.Item(AAA)).VerticalAlignment = 3
+        ACAD(C100.Children.Item(AAA)).HorizontalAlignment = 3 : Grid.SetRow(C100.Children.Item(AAA), CInt(_FA(i)))
+        Grid.SetColumn(C100.Children.Item(AAA), CInt(_FA(i + 1))) : ACAD(C100.Children.Item(AAA)).Background =
+          New SolidColorBrush(Colors.White) : ACAD(C100.Children.Item(AAA)).Foreground = New SolidColorBrush(Colors.Blue)
       Next
 
       AAB = 1 : A_B_() : Catch ex As Exception : End Try
@@ -224,6 +225,7 @@ Public NotInheritable Class MainPage
   Private Sub B_BD()
   End Sub
   Private Sub B_BE()
+    Try : ADAA() : Catch ex As Exception : End Try
   End Sub
   Private Sub B_BF()
     AAB = 3 : AAAA() : ABAC(5) : B104.FontFamily = New FontFamily("Consolas")
@@ -417,13 +419,11 @@ A = √(Ax2 + Ay2 + Az2)")
         ' H-S => Q-S : Q-A° => Q-S
         AAAB() : Grid.SetColumn(B101, 1) : Grid.SetRow(B102, 0)
         AABA() : Grid.SetColumn(B105, 1) : Grid.SetRow(B106, 0)
-        A_01.Background = New SolidColorBrush(Colors.AliceBlue)
         B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(7, 2)
         B100.ColumnDefinitions.Item(2).Width = New GridLength(11, 2)
         C100.ColumnDefinitions.Item(0).Width = New GridLength(0.5, 2)
         C100.ColumnDefinitions.Item(15).Width = New GridLength(9.5, 2)
-
         For i = 5 To 14 Step 1 : C100.ColumnDefinitions.Item(i).
             Width = New GridLength(1, 2) : Next
 #End Region
@@ -435,8 +435,7 @@ A = √(Ax2 + Ay2 + Az2)")
       Case = 103 ' Q-Listen
 #Region ""
         ' Q-A => Q-L,   H-L => Q-L
-        AAAB() : AABC() : Grid.SetRow(A100, 0) ' H-S=>H-A=>H-L=>Q-L
-        B100.ColumnDefinitions.Item(2).Width = New GridLength(18, 2)
+        AAAB() : AABC() : B100.ColumnDefinitions.Item(2).Width = New GridLength(18, 2)
 #End Region
       Case = 104 ' Q-Beispiele
 #Region ""
@@ -445,20 +444,18 @@ A = √(Ax2 + Ay2 + Az2)")
       Case = 105 ' Q-Tabelle
 #Region ""
         ' H-T => Q-T,   Q-A => Q-T,   Q-E => Q-T
-        AAAB() : B200.Visibility = 1 : B300.Visibility = 0 : C_01.Visibility = 1 : If B300.Children.Count < 2 Then BAAA()
-        'A104.Icon = New SymbolIcon(Symbol.Page2) : A104.Foreground = New SolidColorBrush(Colors.Lime)
+        AAAB() : B200.Visibility = 1 : B300.Visibility = 0 : C_01.Visibility = 1 : If B300.Children.Count = 0 Then CAAA()
+        ' A104.Icon = New SymbolIcon(Symbol.Remove)
 #End Region
       Case = 106 ' Q-Elemente
 #Region ""
         AAAB()
-
 #End Region
       Case = 201 ' H-Start
 #Region ""
         ' Q-S => H-S : H-A° => H-S
         AAAB() : Grid.SetColumn(B101, 2) : Grid.SetRow(B102, 1)
         AABA() : Grid.SetColumn(B105, 2) : Grid.SetRow(B106, 1)
-        A_01.Visibility = 1
         AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
         B100.RowDefinitions.Item(1).Height = New GridLength(1, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
@@ -467,8 +464,8 @@ A = √(Ax2 + Ay2 + Az2)")
         C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(15).Width = New GridLength(0.3, 2)
-        'A109.Content = If(A109.Content = "A1", "A2", "A1") : AACA()
-        'A110.Content = If(A110.Content = "B1", "B2", "B1") : AACB()
+        A104.Foreground = New SolidColorBrush(Colors.Blue)
+        A_01.Visibility = 1  'A104.Icon = New SymbolIcon(Symbol.Delete)
 #End Region
       Case = 202 ' H-Anhang
 #Region ""
@@ -478,20 +475,17 @@ A = √(Ax2 + Ay2 + Az2)")
       Case = 203 ' H-Listen
 #Region ""
         ' Q-A => Q-L,   H-L => Q-L
-        AAAB() : AABC() : Grid.SetRow(A100, 3)
-        AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-        B100.ColumnDefinitions.Item(2).Width = New GridLength(14, 2)
-        'A109.Content = If(A109.Content = "A1", "A2", "A1") : AACA()
-        'A110.Content = If(A110.Content = "B1", "B2", "B1") : AACB()
+        AAAB() : AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+        AABC() : B100.ColumnDefinitions.Item(2).Width = New GridLength(14, 2)
 #End Region
       Case = 204 ' H-Beispiele
 #Region ""
         AAAB()
 #End Region
-      Case = 205 ' H-Tabelle
+      Case = 205 ' H-Tabelle*
 #Region ""
         ' Q-T => H-T,   H-A => H-T,   H-E => H-T
-        AAAB() : B200.Visibility = 1 : B300.Visibility = 0 : If B300.Children.Count < 2 Then BAAA()
+        AAAB() : B200.Visibility = 1 : B300.Visibility = 1 : C_01.Visibility = 0 : If C_01.Items.Count = 0 Then CAAB()
 #End Region
       Case = 206 ' H-Elemente
 #Region ""
@@ -519,17 +513,15 @@ A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub AABA()
     ' S:Q-H: Start: Q und H
-    B100.Visibility = 0 : B200.Visibility = 1 : B300.Visibility = 1 : C100.Visibility = 0 : C_01.Visibility = 1
-    AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2) : Grid.SetRow(A_01, 3)
+    B100.Visibility = 0 : B200.Visibility = 1 : B300.Visibility = 1 : B400.Visibility = 1 : C100.Visibility = 0
+    C_01.Visibility = 1 : AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2) : Grid.SetRow(A_01, 3)
     AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2) : AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2)
     B100.RowDefinitions.Item(0).Height = New GridLength(1, 2) : B100.RowDefinitions.Item(2).Height = New GridLength(7, 2)
   End Sub
   Private Sub AABB()
     ' A:Q-H: Anhang: Q und H
-    A_01.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 0 : B300.Visibility = 1 : C100.Visibility = 1
-
-    C_01.Visibility = 1 : Grid.SetRow(A_01, 4) : A_01.Background = New SolidColorBrush(Colors.AliceBlue)
-
+    A_01.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 0 : B300.Visibility = 1 : B400.Visibility = 1
+    C100.Visibility = 1 : C_01.Visibility = 1 : Grid.SetRow(A_01, 4)
     AA00.RowDefinitions.Item(1).Height = New GridLength(0, 2) : AA00.RowDefinitions.Item(2).Height = New GridLength(14, 2)
     AA00.RowDefinitions.Item(4).Height = New GridLength(3, 2) : If B200.RowDefinitions.Count > 0 Then Exit Sub
 
@@ -585,7 +577,7 @@ A = √(Ax2 + Ay2 + Az2)")
       .GradientStops = New GradientStopCollection From {New GradientStop With {.Color = Colors.SkyBlue, .Offset = 0},
       New GradientStop With {.Color = Colors.White, .Offset = 1}}}
     ' Icons 1-9
-    For i = 0 To 8 Step 1 : ACAA(B200.Children.Item(i)).Content = New Image With {.Source = New BitmapImage With
+    For i = 0 To 8 Step 1 : ACAD(B200.Children.Item(i)).Content = New Image With {.Source = New BitmapImage With
         {.UriSource = New Uri("ms-appx:///Assets/A_A_00" & CStr(i + 1) & ".png")}} : Next
     ' Icon 10-99
     B210.Content = New Image With {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_A_010.png")}}
@@ -609,17 +601,26 @@ A = √(Ax2 + Ay2 + Az2)")
     If A110.Content = "B1" Then : A110.Content = "B2" : AAC = 0
       AAD = 1
     Else : A110.Content = "B1" : AAC = 1 : AAD = 0 : End If
-    Select Case AAB : Case 1
-        C100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
-        C100.ColumnDefinitions.Item(7).Width = New GridLength(AAC, 2)
-        C100.ColumnDefinitions.Item(8).Width = New GridLength(AAC, 2)
-        C100.ColumnDefinitions.Item(9).Width = New GridLength(AAC, 2)
-        C100.ColumnDefinitions.Item(11).Width = New GridLength(AAD, 2)
-        C100.ColumnDefinitions.Item(12).Width = New GridLength(AAD, 2)
-        C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
-        C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
-      Case 5 : If AAD = 0 Then : B300.Visibility = AAD
-          C_01.Visibility = AAC : Else : BAAB() : End If : End Select
+    C100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(7).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(8).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(9).Width = New GridLength(AAC, 2)
+    C100.ColumnDefinitions.Item(11).Width = New GridLength(AAD, 2)
+    C100.ColumnDefinitions.Item(12).Width = New GridLength(AAD, 2)
+    C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
+    C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
+
+    'Select Case AAB : Case 1
+    '    C100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
+    '    C100.ColumnDefinitions.Item(7).Width = New GridLength(AAC, 2)
+    '    C100.ColumnDefinitions.Item(8).Width = New GridLength(AAC, 2)
+    '    C100.ColumnDefinitions.Item(9).Width = New GridLength(AAC, 2)
+    '    C100.ColumnDefinitions.Item(11).Width = New GridLength(AAD, 2)
+    '    C100.ColumnDefinitions.Item(12).Width = New GridLength(AAD, 2)
+    '    C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
+    '    C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
+    '  Case 5 : If AAD = 0 Then : B300.Visibility = AAD
+    '      C_01.Visibility = AAC : Else : BAAB() : End If : End Select
   End Sub
   Private Sub AAXA()
     ' Design
@@ -663,20 +664,56 @@ A = √(Ax2 + Ay2 + Az2)")
   End Sub
 #End Region ' *****
 #Region "A-AC"
-  Private Function ACAA(a As Button) As Button
+  Private Function ACAA() As Boolean
+    Dim aaaaa As ConnectionProfile = NetworkInformation.GetInternetConnectionProfile()
+    If aaaaa IsNot Nothing AndAlso aaaaa.GetNetworkConnectivityLevel() = 3 Then
+      Return True : Else : Return False : End If  ' Internet verfügbar If ja Else nicht
+  End Function
+  Private Function ACAB() As Color()
+    ACAB = New Color() {Colors.Gray, Colors.Gold, Colors.Olive, Colors.Violet, Colors.SkyBlue,
+          Colors.LightGray, Colors.LightPink, Colors.MistyRose, Colors.DarkViolet, Colors.GreenYellow}
+  End Function
+  Private Function ACAC() As Integer()
+    ACAC = New Integer() {9, 4, 7, 1, 2, 9, 9, 9, 9, 4, 7, 1, 0, 2, 9, 9, 9, 4, 7, 1, 6, 6, 6, 6, 6,
+      6, 6, 6, 6, 0, 0, 2, 2, 9, 9, 4, 7, 1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 2, 2, 9, 4, 7, 1,
+      3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 2, 4, 7,
+      1, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6, 6, 5, 5, 5, 0, 5, 5, 5, 5, 5, 5}
+  End Function
+  Private Function ACAD(a As Button) As Button
     Return a
   End Function
 #End Region ' *****
+#Region "A-AD"
+  Private Async Sub ADAA()
+    If ACAA() = True Then
+      Dim aaaaa As String : B103.Document.Selection.StartPosition = 0
+      B103.Document.Selection.EndPosition = _B103.Document.Selection.StoryLength
+
+      aaaaa = NAD.GetString("A201") & ":   " & B101.Text & vbCrLf &
+        NAD.GetString("A202") & ":   " & B103.Document.Selection.Text
+
+      Dim emailMessage As New EmailMessage With {.Body = aaaaa,
+      .Subject = NAD.GetString("A105")}
+      emailMessage.To.Add(New EmailRecipient("calculator_message_@outlook.com"))
+      Await EmailManager.ShowComposeNewEmailAsync(emailMessage)
+      'ABAD(Colors.AliceBlue, Colors.Blue, vbCrLf & "Internetverbindung besteht")
+    Else
+      ABAD(Colors.AliceBlue, Colors.Blue, vbCrLf & "Keine Internetverbindung")
+    End If
+  End Sub
+#End Region
 #End Region
   ' * BBBB * BBBB * BBBB * BBBB *
 #Region "BBBB"
-  Private Sub BAAA()
-    ' Perioden Tabelle der chemischen Elemente
-    Dim eaaaa As New Button : Dim eaaab As TextBlock : Dim eaaba(), eaabb(), eaabc() As String
-    Dim eaaca As New Documents.Run : Dim eaada() As Color
 
-    eaada = New Color() {Colors.Gray, Colors.Gold, Colors.Olive, Colors.Violet, Colors.SkyBlue,
-          Colors.LightGray, Colors.LightPink, Colors.MistyRose, Colors.DarkViolet, Colors.GreenYellow}
+#End Region
+  ' * CCCC * CCCC * CCCC * CCCC *
+#Region "CCCC"
+#Region "C-AA"
+  Private Sub CAAA()
+    ' Perioden Tabelle der chemischen Elemente
+    Dim eaaaa As New Button : Dim eaaab As TextBlock : Dim eaaba(), eaabb() As String
+    Dim eaaca As New Documents.Run
 
     For i = 1 To 12 Step 1 : B300.RowDefinitions.Add(New RowDefinition) : Next
     For i = 1 To 22 Step 1 : B300.ColumnDefinitions.Add(New ColumnDefinition) : Next
@@ -698,8 +735,8 @@ A = √(Ax2 + Ay2 + Az2)")
             .Margin = New Thickness(0.5 * BAA)} : B300.Children.Add(eaaaa)
       Grid.SetRow(eaaaa, CInt(eaaba(i - 1))) : Grid.SetColumn(eaaaa, CInt(eaabb(i - 1))) : Next
 
-    Grid.SetColumnSpan(ACAA(B300.Children.Item(1)), 2) : Grid.SetColumnSpan(ACAA(B300.Children.Item(2)), 11)
-    Grid.SetColumnSpan(ACAA(B300.Children.Item(3)), 5)
+    Grid.SetColumnSpan(ACAD(B300.Children.Item(0)), 2) : Grid.SetColumnSpan(ACAD(B300.Children.Item(1)), 11)
+    Grid.SetColumnSpan(ACAD(B300.Children.Item(2)), 5)
 
     eaaba = ("3´3´4´4´4´4´4´4´4´4´5´5´5´5´5´5´5´5´6´6´6´6´6´6´6´6´6´6´6´6´6´6´6´6´6´6´7´7´7´7´7´7´7´7´7´7" &
           "´7´7´7´7´7´7´7´7´8´8´8´10´10´10´10´10´10´10´10´10´10´10´10´10´10´8´8´8´8´8´8´8´8´8´8´8´8´8´8´8´9´9" &
@@ -708,50 +745,115 @@ A = √(Ax2 + Ay2 + Az2)")
           "9´20´2´3´4´6´7´8´9´10´11´12´13´14´15´16´17´18´19´20´2´3´4´6´7´8´9´10´11´12´13´14´15´16´17´18´19" &
           "´6´7´8´9´10´11´12´13´14´15´16´17´18´19´20´2´3´4´6´7´8´9´10´11´12´13´14´15´16´17´18´19´6´7´8´9´10´1" &
           "1´12´13´14´15´16´17´18´19´20").Split("´")
-    eaabc = ("9´4´7´1´2´9´9´9´9´4´7´1´0´2´9´9´9´4´7´1´6´6´6´6´6´6´6´6´6´0´0´2´2´9´9´4´7´1´6´6´6´6´6´6´6´6" &
-          "´6´0´0´0´2´2´9´4´7´1´3´3´3´3´3´3´3´3´3´3´3´3´3´3´3´6´6´6´6´6´6´6´6´0´0´0´0´0´2´4´7´1´8´8´8´8´8´8´8" &
-          "´8´8´8´8´8´8´8´8´6´6´6´6´6´5´5´5´0´5´5´5´5´5´5").Split("´")
+    'eaabc = ("9´4´7´1´2´9´9´9´9´4´7´1´0´2´9´9´9´4´7´1´6´6´6´6´6´6´6´6´6´0´0´2´2´9´9´4´7´1´6´6´6´6´6´6´6´6" &
+    '      "´6´0´0´0´2´2´9´4´7´1´3´3´3´3´3´3´3´3´3´3´3´3´3´3´3´6´6´6´6´6´6´6´6´0´0´0´0´0´2´4´7´1´8´8´8´8´8´8´8" &
+    '      "´8´8´8´8´8´8´8´8´6´6´6´6´6´5´5´5´0´5´5´5´5´5´5").Split("´")
 
     For i = 1 To 118 Step 1 : _AA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
       eaaab = New TextBlock With {.FontFamily = New FontFamily("Calibri Light")}
-      Select Case eaabc(i - 1) : Case "0", "2", "8"
+      Select Case ACAC(i - 1) : Case "0", "2", "8"
           eaaab.Foreground = New SolidColorBrush(Colors.White) : End Select
       eaaaa = New Button With {.Padding = New Thickness(0), .Content = eaaab,
             .VerticalAlignment = 3, .HorizontalAlignment = 3, .Margin = New Thickness(0.5 * BAA),
-            .Background = New SolidColorBrush(eaada(CInt(eaabc(i - 1))))} : B300.Children.Add(eaaaa)
+            .Background = New SolidColorBrush(ACAB(CInt(ACAC(i - 1))))} : B300.Children.Add(eaaaa)
       Grid.SetRow(eaaaa, CInt(eaaba(i - 1))) : Grid.SetColumn(eaaaa, CInt(eaabb(i - 1)))
       eaaca = New Documents.Run With {.Text = NAA.GetString(_AA) & vbLf, .FontSize = 9 * BAA}
       eaaab.Inlines.Add(eaaca)
       eaaca = New Documents.Run With {.Text = vbLf & NAD.GetString(_AA), .FontSize = 6 * BAA}
-      eaaab.Inlines.Add(eaaca) : AddHandler eaaaa.Click, AddressOf BAAC : Next
+      eaaab.Inlines.Add(eaaca) : AddHandler eaaaa.Click, AddressOf CABA : Next
   End Sub
-  Private Sub BAAB()
+  Private Sub CAAB()
     ' Liste der chemischen Elemente
-    B300.Visibility = 1 : C_01.Visibility = 0 : If C_01.Items.Count > 0 Then Exit Sub
-
     For i = 1 To 118 Step 1 : _AA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
-
       C_01.Items.Add(New TextBlock With {.FontFamily = New FontFamily("Consolas"),
         .FontSize = 15 * BAA, .VerticalAlignment = 3, .HorizontalAlignment = 3,
-        .Text = (NAA.GetString(_AA) & "          ").Substring(0, 10) & NAD.GetString(_AA)}) : Next
-
-    AA00.Children.Add(C_01) : Grid.SetRow(C_01, 2) : AddHandler C_01.SelectionChanged, AddressOf BAAC
-  End Sub
-  Private Sub BAAC()
-
+        .Text = (NAA.GetString(_AA) & "          ").Substring(0, 10) & NAD.GetString(_AA)})
+    Next : AA00.Children.
+      Add(C_01) : Grid.SetRow(C_01, 2) : AddHandler C_01.SelectionChanged, AddressOf CABB
   End Sub
 #End Region
-  ' * CCCC * CCCC * CCCC * CCCC *
-#Region "CCCC"
-  Private Sub CAAA()
-
+#Region "C-AB"
+  Private Sub CABA(a As Button, b As RoutedEventArgs)
+    ' Die Auswahl des chemischen Elements von der Tabelle
+    _AA = CStr(Grid.GetRow(a)) & "." & CStr(Grid.GetColumn(a))
+    Select Case _AA
+      Case "3.2" : _AA = "1" : Case "3.20" : _AA = "2" : Case "4.2" : _AA = "3" : Case "4.3" : _AA = "4"
+      Case "4.15" : _AA = "5" : Case "4.16" : _AA = "6" : Case "4.17" : _AA = "7" : Case "4.18" : _AA = "8"
+      Case "4.19" : _AA = "9" : Case "4.20" : _AA = "10" : Case "5.2" : _AA = "11" : Case "5.3" : _AA = "12"
+      Case "5.15" : _AA = "13" : Case "5.16" : _AA = "14" : Case "5.17" : _AA = "15" : Case "5.18" : _AA = "16"
+      Case "5.19" : _AA = "17" : Case "5.20" : _AA = "18" : Case "6.2" : _AA = "19" : Case "6.3" : _AA = "20"
+      Case "6.4" : _AA = "21" : Case "6.6" : _AA = "22" : Case "6.7" : _AA = "23" : Case "6.8" : _AA = "24"
+      Case "6.9" : _AA = "25" : Case "6.10" : _AA = "26" : Case "6.11" : _AA = "27" : Case "6.12" : _AA = "28"
+      Case "6.13" : _AA = "29" : Case "6.14" : _AA = "30" : Case "6.15" : _AA = "31" : Case "6.16" : _AA = "32"
+      Case "6.17" : _AA = "33" : Case "6.18" : _AA = "34" : Case "6.19" : _AA = "35" : Case "6.20" : _AA = "36"
+      Case "7.2" : _AA = "37" : Case "7.3" : _AA = "38" : Case "7.4" : _AA = "39" : Case "7.6" : _AA = "40"
+      Case "7.7" : _AA = "41" : Case "7.8" : _AA = "42" : Case "7.9" : _AA = "43" : Case "7.10" : _AA = "44"
+      Case "7.11" : _AA = "45" : Case "7.12" : _AA = "46" : Case "7.13" : _AA = "47" : Case "7.14" : _AA = "48"
+      Case "7.15" : _AA = "49" : Case "7.16" : _AA = "50" : Case "7.17" : _AA = "51" : Case "7.18" : _AA = "52"
+      Case "7.19" : _AA = "53" : Case "7.20" : _AA = "54" : Case "8.2" : _AA = "55" : Case "8.3" : _AA = "56"
+      Case "8.4" : _AA = "57" : Case "10.6" : _AA = "58" : Case "10.7" : _AA = "59" : Case "10.8" : _AA = "60"
+      Case "10.9" : _AA = "61" : Case "10.10" : _AA = "62" : Case "10.11" : _AA = "63" : Case "10.12" : _AA = "64"
+      Case "10.13" : _AA = "65" : Case "10.14" : _AA = "66" : Case "10.15" : _AA = "67" : Case "10.16" : _AA = "68"
+      Case "10.17" : _AA = "69" : Case "10.18" : _AA = "70" : Case "10.19" : _AA = "71" : Case "8.6" : _AA = "72"
+      Case "8.7" : _AA = "73" : Case "8.8" : _AA = "74" : Case "8.9" : _AA = "75" : Case "8.10" : _AA = "76"
+      Case "8.11" : _AA = "77" : Case "8.12" : _AA = "78" : Case "8.13" : _AA = "79" : Case "8.14" : _AA = "80"
+      Case "8.15" : _AA = "81" : Case "8.16" : _AA = "82" : Case "8.17" : _AA = "83" : Case "8.18" : _AA = "84"
+      Case "8.19" : _AA = "85" : Case "8.20" : _AA = "86" : Case "9.2" : _AA = "87" : Case "9.3" : _AA = "88"
+      Case "9.4" : _AA = "89" : Case "11.6" : _AA = "90" : Case "11.7" : _AA = "91" : Case "11.8" : _AA = "92"
+      Case "11.9" : _AA = "93" : Case "11.10" : _AA = "94" : Case "11.11" : _AA = "95" : Case "11.12" : _AA = "96"
+      Case "11.13" : _AA = "97" : Case "11.14" : _AA = "98" : Case "11.15" : _AA = "99" : Case "11.16" : _AA = "100"
+      Case "11.17" : _AA = "101" : Case "11.18" : _AA = "102" : Case "11.19" : _AA = "103" : Case "9.6" : _AA = "104"
+      Case "9.7" : _AA = "105" : Case "9.8" : _AA = "106" : Case "9.9" : _AA = "107" : Case "9.10" : _AA = "108"
+      Case "9.11" : _AA = "109" : Case "9.12" : _AA = "110" : Case "9.13" : _AA = "111" : Case "9.14" : _AA = "112"
+      Case "9.15" : _AA = "113" : Case "9.16" : _AA = "114" : Case "9.17" : _AA = "115" : Case "9.18" : _AA = "116"
+      Case "9.19" : _AA = "117" : Case "9.20" : _AA = "118" : Case Else : _AA = 0 : End Select : _AB = _AA : CABC()
   End Sub
-
-  Private Sub CBAA()
-
+  Private Sub CABB()
+    ' Die Auswahl des chemischen Elements von der Liste
+    _AA = CStr(C_01.SelectedIndex + 1) : CABC()
   End Sub
+  Private Sub CABC()
+    ' Das Laden des chemischen Elements
+    B401.Background = New SolidColorBrush(ACAB(CInt(ACAC(CInt(_AA) - 1)))) : B400.Visibility = 0
+    A_01.Background = B401.Background : Select Case ACAC(CInt(_AA) - 1) : Case 0, 2, 8
+        B401.Foreground = New SolidColorBrush(Colors.White) : End Select : B300.Visibility = 1
+    AAB = 6 : A100.Background = B401.Background
+    A101.Foreground = B401.Foreground : A102.Foreground = B401.Foreground : A103.Foreground =
+      B401.Foreground : A104.Foreground = B401.Foreground : A105.Foreground = B401.Foreground
+    A106.Foreground = B401.Foreground : A107.Foreground = B401.Foreground : A108.Foreground =
+      B401.Foreground : A109.Foreground = B401.Foreground : A110.Foreground = B401.Foreground
+    _AA = If(CByte(_AA) < 10, "00", If(CByte(_AA) < 100, "0", "")) & _AA : C_01.Visibility = 1
+    D_02.Text = NAB.GetString("A" & _AA) : D_01.Text = (NAA.GetString("B" & _AA) & "          ").
+      Substring(0, 10) & NAD.GetString("B" & _AA) : If B400.RowDefinitions.Count > 0 Then Exit Sub
 
+    Dim aaaaa As New Grid : Dim aaaab As TextBlock : Dim aaaac As New GridLength(7, 2)
+    B400.ColumnDefinitions.Add(New ColumnDefinition) : B400.RowDefinitions.Add(New RowDefinition)
+    B400.ColumnDefinitions.Add(New ColumnDefinition) : B400.RowDefinitions.Add(New RowDefinition)
+    B400.ColumnDefinitions.Add(New ColumnDefinition) : B400.RowDefinitions.Add(New RowDefinition)
+    aaaaa.ColumnDefinitions.Add(New ColumnDefinition) : aaaaa.RowDefinitions.Add(New RowDefinition)
+    aaaaa.ColumnDefinitions.Add(New ColumnDefinition) : aaaaa.RowDefinitions.Add(New RowDefinition)
+    aaaaa.ColumnDefinitions.Add(New ColumnDefinition) : aaaaa.RowDefinitions.Add(New RowDefinition)
 
+    B400.RowDefinitions.Item(1).Height = aaaac : B400.ColumnDefinitions.Item(1).Width = aaaac
+    aaaaa.RowDefinitions.Item(2).Height = aaaac : aaaaa.ColumnDefinitions.Item(0).Width = aaaac
+    aaaaa.ColumnDefinitions.Item(2).Width = New GridLength(2, 2) : D_01.FontSize = 10 * BAA
+    B401.Content = aaaaa
+    B401.VerticalAlignment = 3 : B401.HorizontalAlignment = 3 : D_02.FontSize = 10 * BAA
+
+    aaaaa.Children.Add(D_01) : Grid.SetRow(D_01, 0) : Grid.SetColumn(D_01, 0)
+    aaaaa.Children.Add(D_02) : Grid.SetRow(D_02, 2) : Grid.SetColumn(D_02, 2) : Grid.SetRow(B400, 2)
+    aaaab = New TextBlock With {.MinWidth = 50, .MinHeight = 20}
+    aaaaa.Children.Add(aaaab) : Grid.SetRow(aaaab, 1) : Grid.SetColumn(aaaab, 1) : Grid.SetColumn(B401, 1)
+    aaaab = New TextBlock With {.FontSize = 10 * BAA, .Text = NAE.GetString("A003")}
+    aaaaa.Children.Add(aaaab) : Grid.SetRow(aaaab, 2) : Grid.SetColumn(aaaab, 0) : Grid.SetRow(B401, 1)
+  End Sub
+  Private Sub CABD()
+    ' Die Abwahl des chemischen Elements
+    B400.Visibility = 1 : AAB = 5
+    If AAA = 1 Then : B300.Visibility = 0 : C_01.Visibility = 1 : If B300.Children.Count = 0 Then CAAA()
+    Else : B300.Visibility = 1 : C_01.Visibility = 0 : If C_01.Items.Count = 0 Then : CAAB() : End If : End If
+  End Sub
+#End Region
 #End Region
   ' * DDDD * DDDD * DDDD * DDDD *
 #Region "DDDD"
