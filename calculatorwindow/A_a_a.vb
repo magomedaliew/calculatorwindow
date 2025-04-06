@@ -1,7 +1,7 @@
 ﻿Imports Windows.UI
 Imports Windows.UI.Xaml.Shapes
 Imports Windows.ApplicationModel.Resources
-Public Class A_aa
+Public Class A_a_a
   Private ReadOnly XAA1 As New ResourceLoader("Resources1")
   'Imports Windows.UI
   'Imports Windows.UI.Xaml.Shapes
@@ -10,7 +10,7 @@ Public Class A_aa
     Dim aaaaa As Double
     Dim aaaab As Double
     Dim aaaac As New Canvas
-    Dim aaaad As New A_ab
+    Dim aaaad As New A_a_b
     Dim aaaaf As New CompositeTransform With {.CenterX = 0, .Rotation = c(4), .CenterY = c(0) * 5}
 
     b.Children.Add(aaaac)
@@ -50,7 +50,7 @@ Public Class A_aa
   Public Sub AAAB(a As String, b As Canvas, ParamArray c() As Double)
     'Achsen-2D-1
     Dim aa As New Canvas
-    Dim ab As New A_ab
+    Dim ab As New A_a_b
     Dim ac As New CompositeTransform
     Dim aaax, aaay, aaaz() As String
     Dim ad, ae, af, ag, ah, ai, aj As Double : Dim aaaaa, aaaab, ak(5) As Integer
@@ -96,7 +96,7 @@ Public Class A_aa
     'Achsen-3D-1
     Dim aa As New Canvas
     Dim ab As New Canvas
-    Dim ac As New A_ab
+    Dim ac As New A_a_b
     Dim ad As New CompositeTransform
     Dim aaaz() As String ' aaax, aaay,
     Dim af(5), ag(5), ah(5) As Double
@@ -192,7 +192,7 @@ Public Class A_aa
     'Dim aaaab As Double
     Dim aaaac As New Canvas
     Dim aaaad As New Canvas
-    Dim aaaae As New A_ab
+    Dim aaaae As New A_a_b
     Dim aaaaf As New CompositeTransform With {.CenterX = 0, .Rotation = -90, .CenterY = c(0) * 5}
 
     b.Children.Add(aaaac)
@@ -261,7 +261,7 @@ Public Class A_aa
     'Pfeil 1
     Dim aaaaa As Double
     Dim aaaab As New Canvas
-    Dim aaaac As New A_ab
+    Dim aaaac As New A_a_b
     Dim aaaad As New CompositeTransform
 
     b.Children.Add(aaaab)
@@ -281,7 +281,7 @@ Public Class A_aa
     'Pfeil 2
     Dim aaaaa As Double
     Dim aaaab As New Canvas
-    Dim aaaac As New A_ab
+    Dim aaaac As New A_a_b
     Dim aaaad As New CompositeTransform
 
     b.Children.Add(aaaab)
@@ -323,7 +323,7 @@ Public Class A_aa
     'Flagge
     Dim aaaaa As Integer
     Dim aaaab As Integer
-    Dim aaaac As New A_ab
+    Dim aaaac As New A_a_b
     If c(3) < 0 Then aaaaa = 10 Else aaaaa = 40
     aaaac.AAA(b, c(0), c(1), c(1), c(2), c(2) - 100, 3, 128, 128, 128)
     aaaac.AAC(b, c(0), 10, 10, c(1) - aaaaa + 10, c(2) - 90, 1, 255, 255, 255)
@@ -344,7 +344,7 @@ Public Class A_aa
     'Würfel
     Dim aaaaa As Integer
     Dim aaaab As Integer
-    Dim aaaac As New A_ab
+    Dim aaaac As New A_a_b
     If c(3) = 1 Then aaaaa = 80 : aaaab = 140
     aaaac.AAD(b, c(0), c(1) + 40, c(2) + 40, 100, 100, 0, 0, 255, 225, 50)
     aaaac.AAY(b, a, c(0), c(1) + 50, c(2) + 40, 80, 80, 20, 0, 0, 184, 134, 11)

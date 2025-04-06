@@ -1,6 +1,6 @@
 ﻿Imports Windows.UI
 Imports Windows.UI.Xaml.Shapes
-Public Class A_ab
+Public Class A_a_b
   Public Sub AAA(a As Canvas, ParamArray c() As Double)
     Dim aaaaa As New Line
     Dim aaaab As New Color

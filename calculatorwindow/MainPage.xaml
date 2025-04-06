@@ -43,14 +43,20 @@
    </AppBarButton>
   </Grid>
   <Grid Name="B100">
-   <AutoSuggestBox Name="B101" TextChanged="B_AA"/>
-   <TextBox Name="B102" Foreground="Magenta"/>
+   <TextBox Name="B101" Foreground="Gray" TextChanged="B_AA"/>
+   <TextBlock Name="B102" Foreground="Magenta"/>
    <RichEditBox Name="B103" FontFamily="Consolas"/>
    <RichEditBox Name="B104" FontFamily="Consolas"/>
    <Rectangle Name="B105" Stroke="White" StrokeThickness="3"/>
    <Rectangle Name="B106" Stroke="White" StrokeThickness="3"/>
    <Rectangle Name="B107" Stroke="White" StrokeThickness="3"/>
    <Rectangle Name="B108" Stroke="White" StrokeThickness="3"/>
+   <ScrollViewer Name="B109" Grid.Column="1" Grid.Row="2">
+    <Canvas Name="B111"/>
+   </ScrollViewer>
+   <ScrollViewer Name="B110" Grid.Column="2" Grid.Row="2">
+    <Canvas Name="B112"/>
+   </ScrollViewer>
   </Grid>
   <Grid Name="B200">
    <Button Name="B201" Click="B_BA"/>
@@ -86,15 +92,15 @@
    <Button Name="C114" Click="C_AA"/>
    <Button Name="C115" Click="C_AA"/>
    <Button Name="C116" Click="C_AA"/>
-   <Button Name="C117" Click="C_AA"/>
-   <Button Name="C118" Click="C_AA"/>
-   <Button Name="C119" Click="C_AA"/>
+   <Button Name="C117" Click="C_AC"/>
+   <Button Name="C118" Click="C_AC"/>
+   <Button Name="C119" Click="C_AC"/>
    <Button Name="C120" Click="C_AA"/>
-   <Button Name="C121" Click="C_AA"/>
-   <Button Name="C122" Click="C_AA"/>
-   <Button Name="C123" Click="C_AA"/>
+   <Button Name="C121" Click="C_AC"/>
+   <Button Name="C122" Click="C_AC"/>
+   <Button Name="C123" Click="C_AE"/>
    <Button Name="C124" Click="C_AA"/>
-   <Button Name="C125" Click="C_AA"/>
+   <Button Name="C125" Click="C_AB"/>
    <Button Name="C126" Click="C_AA"/>
    <Button Name="C127" Click="C_AA"/>
    <Button Name="C128" Click="C_AA"/>
@@ -103,21 +109,21 @@
    <Button Name="C131" Click="C_AA"/>
    <Button Name="C132" Click="C_AA"/>
    <Button Name="C133" Click="C_AA"/>
-   <Button Name="C134" Click="C_AA"/>
-   <Button Name="C135" Click="C_AA"/>
+   <Button Name="C134" Click="C_AF"/>
+   <Button Name="C135" Click="C_AF"/>
    <Button Name="C136" Click="C_AA"/>
    <Button Name="C137" Click="C_AA"/>
-   <Button Name="C138" Click="C_AA"/>
-   <Button Name="C139" Click="C_AA"/>
-   <Button Name="C140" Click="C_AA"/>
-   <Button Name="C141" Click="C_AA"/>
-   <Button Name="C142" Click="C_AA"/>
-   <Button Name="C143" Click="C_AA"/>
-   <Button Name="C144" Click="C_AA"/>
-   <Button Name="C145" Click="C_AA"/>
-   <Button Name="C146" Click="C_AA"/>
-   <Button Name="C147" Click="C_AA"/>
-   <Button Name="C148" Click="C_AA"/>
+   <Button Name="C138" Click="C_AD"/>
+   <Button Name="C139" Click="C_AE"/>
+   <Button Name="C140" Click="C_AE"/>
+   <Button Name="C141" Click="C_AD"/>
+   <Button Name="C142" Click="C_AD"/>
+   <Button Name="C143" Click="C_AD"/>
+   <Button Name="C144" Click="C_AD"/>
+   <Button Name="C145" Click="C_AD"/>
+   <Button Name="C146" Click="C_AD"/>
+   <Button Name="C147" Click="C_AD"/>
+   <Button Name="C148" Click="C_AD"/>
   </Grid>
  </Grid>
 </Page>

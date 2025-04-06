@@ -130,8 +130,8 @@
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="A_aa.vb" />
-    <Compile Include="A_ab.vb" />
+    <Compile Include="A_a_a.vb" />
+    <Compile Include="A_a_b.vb" />
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -153,7 +153,6 @@
     <Content Include="Assets\A_A_002.png" />
     <Content Include="Assets\A_A_003.png" />
     <Content Include="Assets\A_A_009.png" />
-    <Content Include="B_aa.xml" />
     <Content Include="My Project\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
