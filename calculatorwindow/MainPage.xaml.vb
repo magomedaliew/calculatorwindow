@@ -1,4 +1,7 @@
 ﻿Imports Windows.Storage
+Imports Windows.UI.Xaml
+Imports Windows.UI.Xaml.Shapes
+Imports Windows.UI.Xaml.Controls
 Imports Windows.Networking.Connectivity
 Imports Windows.ApplicationModel.Email
 Imports Windows.ApplicationModel.Resources
@@ -10,7 +13,8 @@ Public NotInheritable Class MainPage
 #Region "≡≡≡≡"
 #Region "A-00"
   ' Deklaration
-  Dim _N, _M As Integer
+  Dim _N, _M, _O As Integer
+  Dim A_ As DispatcherTimer
 
   Dim _AA, _AB, _AC As String
 
@@ -22,12 +26,13 @@ Public NotInheritable Class MainPage
   Dim NAC As New ResourceLoader("A_b_a_a_a")
   Dim NAD As New ResourceLoader("Resources") : Dim NAE As New ResourceLoader("Source_aa")
 
-  Dim SAA As New List(Of Object)
+  'Dim SAA As New List(Of String)
 
   Dim A_01 As New Canvas
   Dim B_01 As New Button
   Dim C_01 As New ListView
   Dim D_01, D_02 As TextBlock
+  Dim E_01 As New Line
 #End Region ' *****
 #End Region
   ' * ○○○○ * ○○○○ * ○○○○ * ○○○○ *
@@ -79,8 +84,8 @@ Public NotInheritable Class MainPage
 
       If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
         B104.FontFamily = New FontFamily("Segoe UI")
-        ABAD(5) : ABAE(Colors.White, Colors.Lime, NAD.GetString("E001") & vbCrLf)
-        ABAD(5) : ABAE(Colors.White, Colors.Black, NAE.GetString("A002")) : End If
+        ABAF(5) : ABAH(Colors.White, Colors.Lime, NAD.GetString("E001") & vbCrLf)
+        ABAF(5) : ABAH(Colors.White, Colors.Black, NAE.GetString("A002")) : End If
 
       Dim title = ApplicationView.GetForCurrentView().TitleBar
       title.BackgroundColor = Colors.White : title.ForegroundColor = Colors.Gray
@@ -116,8 +121,11 @@ Public NotInheritable Class MainPage
       Next
 
       AddHandler B101.GotFocus, AddressOf ABAC : AddHandler B103.GotFocus, AddressOf ABAC
+      AddHandler B111.Tapped, AddressOf ABAE
 
-      AAB = 1 : B101.Focus(3) : AAXA() : A_B_() : Catch ex As Exception : End Try
+      A_ = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(700)} : AddHandler A_.Tick, AddressOf A_C_
+
+      B111.Children.Add(E_01) : AAB = 1 : B101.Focus(3) : AAXA() : A_B_() : Catch ex As Exception : End Try
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
     ' Size Changed
@@ -125,6 +133,9 @@ Public NotInheritable Class MainPage
         If AAA <> 1 Then : AAA = 1 : BAA = AAA0.ActualHeight / 500 : End If : AAAA() : Else
         If AAA <> 2 Then : AAA = 2 : BAA = AAA0.ActualHeight / 550 : End If : AAAA() : End If
     Catch ex As Exception : End Try
+  End Sub
+  Private Sub A_C_() ' sender As Object, e As Object
+    Select Case E_01.Visibility : Case 0 : E_01.Visibility = 1 : Case 1 : E_01.Visibility = 0 : End Select
   End Sub
 #End Region ' *****
 #Region "A100"
@@ -200,28 +211,28 @@ Public NotInheritable Class MainPage
 #Region "B200"
   Private Sub B_BA()
     ApplicationData.Current.LocalSettings.Values("upgrade") = "xxxx" : AAB = 3
-    AAAA() : ABAD(5) : B104.FontFamily = New FontFamily("Segoe UI")
+    AAAA() : ABAF(5) : B104.FontFamily = New FontFamily("Segoe UI")
     ' Rechner
-    ABAE(Colors.AliceBlue, Colors.Blue, NAD.GetString("A000") & vbLf)
-    ABAE(Colors.White, Colors.Black, vbLf & NAE.GetString("A001") & vbLf & vbLf)
+    ABAH(Colors.AliceBlue, Colors.Blue, NAD.GetString("A000") & vbLf)
+    ABAH(Colors.White, Colors.Black, vbLf & NAE.GetString("A001") & vbLf & vbLf)
     ' Upgrade
-    ABAE(Colors.AliceBlue, Colors.Lime, NAD.GetString("E001") & vbLf)
-    ABAE(Colors.White, Colors.Black, vbLf & NAE.GetString("A002"))
+    ABAH(Colors.AliceBlue, Colors.Lime, NAD.GetString("E001") & vbLf)
+    ABAH(Colors.White, Colors.Black, vbLf & NAE.GetString("A002"))
   End Sub
   Private Sub B_BB()
-    AAB = 3 : AAAA() : ABAD(0) : B104.FontFamily = New FontFamily("Consolas") : _AA = "				"
-    ABAE(Colors.AliceBlue, Colors.Blue, NAD.GetString("E002") & vbLf & vbLf & vbLf)
-    ABAE(Colors.AliceBlue, Colors.Blue, NAD.GetString("E201") & _AA & NAD.GetString("E202") & vbLf & vbLf)
+    AAB = 3 : AAAA() : ABAF(0) : B104.FontFamily = New FontFamily("Consolas") : _AA = "				"
+    ABAH(Colors.AliceBlue, Colors.Blue, NAD.GetString("E002") & vbLf & vbLf & vbLf)
+    ABAH(Colors.AliceBlue, Colors.Blue, NAD.GetString("E201") & _AA & NAD.GetString("E202") & vbLf & vbLf)
     _AA = "					"
-    _N = 14 : _M = 13 : ABAE(Colors.AliceBlue, Colors.Blue, "ab" & _AA & "a ^ b" & vbLf & vbLf) : ABAA()
-    _N = 19 : _M = 18 : ABAE(Colors.AliceBlue, Colors.Blue, "b√a" & _AA & "√(a ' b)" & vbLf & vbLf) : ABAA()
-    _N = 20 : _M = 19 : ABAE(Colors.AliceBlue, Colors.Blue, "logab" & _AA & "log(a ' b)" & vbLf & vbLf) : ABAB()
-    _N = 20 : _M = 19 : ABAE(Colors.AliceBlue, Colors.Blue, "limab" & _AA & "lim(a ' b)" & vbLf & vbLf) : ABAB()
-    _N = 24 : _M = 23 : ABAE(Colors.AliceBlue, Colors.Blue, "Ʃab c" & _AA & "Ʃ(a ' b ' c)" & vbLf & vbLf) : ABAB()
+    _N = 14 : _M = 13 : ABAH(Colors.AliceBlue, Colors.Blue, "ab" & _AA & "a ^ b" & vbLf & vbLf) : ABAA()
+    _N = 19 : _M = 18 : ABAH(Colors.AliceBlue, Colors.Blue, "b√a" & _AA & "√(a ' b)" & vbLf & vbLf) : ABAA()
+    _N = 20 : _M = 19 : ABAH(Colors.AliceBlue, Colors.Blue, "logab" & _AA & "log(a ' b)" & vbLf & vbLf) : ABAB()
+    _N = 20 : _M = 19 : ABAH(Colors.AliceBlue, Colors.Blue, "limab" & _AA & "lim(a ' b)" & vbLf & vbLf) : ABAB()
+    _N = 24 : _M = 23 : ABAH(Colors.AliceBlue, Colors.Blue, "Ʃab c" & _AA & "Ʃ(a ' b ' c)" & vbLf & vbLf) : ABAB()
     _N = 23 : _M = 24 : ABAA()
-    _N = 24 : _M = 23 : ABAE(Colors.AliceBlue, Colors.Blue, "∏ab c" & _AA & "∏(a ' b ' c)" & vbLf & vbLf) : ABAB()
+    _N = 24 : _M = 23 : ABAH(Colors.AliceBlue, Colors.Blue, "∏ab c" & _AA & "∏(a ' b ' c)" & vbLf & vbLf) : ABAB()
     _N = 33 : _M = 32 : ABAA() : _AA = "				"
-    _N = 30 : _M = 29 : ABAE(Colors.AliceBlue, Colors.Blue, "a∫b x dx" & _AA & "∫(a ' b ' x d(x))") : ABAB()
+    _N = 30 : _M = 29 : ABAH(Colors.AliceBlue, Colors.Blue, "a∫b x dx" & _AA & "∫(a ' b ' x d(x))") : ABAB()
     _N = 28 : _M = 27 : ABAA()
   End Sub
   Private Sub B_BC()
@@ -232,46 +243,46 @@ Public NotInheritable Class MainPage
     Try : ADAA() : Catch ex As Exception : End Try
   End Sub
   Private Sub B_BF()
-    AAB = 3 : AAAA() : ABAD(5) : B104.FontFamily = New FontFamily("Consolas")
+    AAB = 3 : AAAA() : ABAF(5) : B104.FontFamily = New FontFamily("Consolas")
     ' Mathematik - Formeln
-    ABAE(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E003") & "   " & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E101") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a = a" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E102") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a = b" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a = b" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E103") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "e = 2,718281828" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E104") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "π = 3,141592654" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E105") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "(a) = a
+    ABAH(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E003") & "   " & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E101") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a = a" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E102") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a = b" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a = b" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E103") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "e = 2,718281828" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E104") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "π = 3,141592654" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E105") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "(a) = a
 a + (b +- c) = a + b +- c
 a - (b +- c) = a - b -+ c
 a · (b ·: c) = a · b ·: c
 a : (b ·: c) = a : b :· c" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E106") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "|-a| = |a|
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E106") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "|-a| = |a|
 |a| = a    a ≥ 0
 |a| = -a   a < 0" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E107") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a +- 0 = a
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E107") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a +- 0 = a
 a · 0 = 0
 a ^ 0 = 1
 a / 0 = ∞" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E108") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a ·: 1 = a
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E108") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a ·: 1 = a
 a ^ 1 = a" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E109") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a - a = 0
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E109") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a - a = 0
 a / a = 1" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E110") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a + -b = a - b
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E110") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a + -b = a - b
 a - -b = a + b
 -a ·: -b = a ·: b
 a ·: -b = -a ·: b" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E111") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "cos(a) = b
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E111") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "cos(a) = b
 sin(a) = b
 tan(a) = b
 cot(a) = b
@@ -279,17 +290,17 @@ acos(a) = b
 asin(a) = b
 atan(a) = b
 acot(a) = b" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E112") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "ln(a) = b
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E112") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "ln(a) = b
 ln(e) = 1
 log(a ' b) = с" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E113") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a! = a · (a - 1) · ... · 1    a < 170" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E114") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a´ = 0" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E115") & vbLf)
-    ABAE(Colors.White, Colors.Blue, "a´ = 0" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Gray, NAD.GetString("A900") & vbLf & "b + a = a + b
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E113") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a! = a · (a - 1) · ... · 1    a < 170" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E114") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a´ = 0" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E115") & vbLf)
+    ABAH(Colors.White, Colors.Blue, "a´ = 0" & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Gray, NAD.GetString("A900") & vbLf & "b + a = a + b
 b · a = a · b
 (a + b) · c = a · c + b · c
 (a + b) : c = a : c + b : c
@@ -348,17 +359,17 @@ ln(e ^ a) = a")
     'B104.Document.Selection.CharacterFormat.Weight = 0
   End Sub
   Private Sub B_BG()
-    AAB = 3 : AAAA() : ABAD(5) : B104.FontFamily = New FontFamily("Consolas")
+    AAB = 3 : AAAA() : ABAF(5) : B104.FontFamily = New FontFamily("Consolas")
     ' Chemie - Formeln
-    ABAE(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E004") & "   " & vbLf &
-         vbLf) : ABAE(Colors.White, Colors.Green, "c = n / V" & vbLf & "M = m / n")
+    ABAH(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E004") & "   " & vbLf &
+         vbLf) : ABAH(Colors.White, Colors.Green, "c = n / V" & vbLf & "M = m / n")
   End Sub
   Private Sub B_BH()
-    AAB = 3 : AAAA() : ABAD(10) : B104.FontFamily = New FontFamily("Consolas")
+    AAB = 3 : AAAA() : ABAF(10) : B104.FontFamily = New FontFamily("Consolas")
     ' Physik - Formeln
-    ABAE(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E005") & "   " & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("A109") & vbLf)
-    ABAE(Colors.White, Colors.DarkViolet, "a = Δv / Δt
+    ABAH(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("E005") & "   " & vbLf & vbLf)
+    ABAH(Colors.White, Colors.Green, NAD.GetString("A109") & vbLf)
+    ABAH(Colors.White, Colors.DarkViolet, "a = Δv / Δt
 ΔEk = Ek2 - Ek1
 ΔEp = Ep2 - Ep1
 F = a m
@@ -378,8 +389,8 @@ v = Δs / Δt
 W = F Δs
 W = ΔEk
 W = -ΔEp" & vbLf & vbLf)
-    ABAE(Colors.White, Colors.Green, NAD.GetString("E051") & vbLf)
-    ABAE(Colors.White, Colors.DarkViolet, "A = Ax
+    ABAH(Colors.White, Colors.Green, NAD.GetString("E051") & vbLf)
+    ABAH(Colors.White, Colors.DarkViolet, "A = Ax
 A = Ay
 A = Az
 A = Ax : cos(θ)
@@ -393,12 +404,12 @@ A = √(Ay2 + Az2)
 A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub B_BI()
-    AAB = 3 : AAAA() : ABAD(10) : B104.FontFamily = New FontFamily("Consolas")
+    AAB = 3 : AAAA() : ABAF(10) : B104.FontFamily = New FontFamily("Consolas")
     ' Dimensionen
-    ABAE(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("A109") & "   " & vbLf & vbLf)
+    ABAH(Colors.AliceBlue, Colors.Blue, "   " & NAD.GetString("A109") & "   " & vbLf & vbLf)
     For i = 1 To 87 Step 1 : _AA = If(i < 10, "00", "0") & CStr(i)
-      ABAE(Colors.White, Colors.Blue, (NAC.GetString("B" & _AA) & "       ").Substring(0, 8))
-      ABAE(Colors.White, Colors.DeepSkyBlue, NAD.GetString("C" & _AA) & vbLf) : Next
+      ABAH(Colors.White, Colors.Blue, (NAC.GetString("B" & _AA) & "       ").Substring(0, 8))
+      ABAH(Colors.White, Colors.DeepSkyBlue, NAD.GetString("C" & _AA) & vbLf) : Next
   End Sub
   Private Sub B_BJ()
     AAB = 5 : AAAA()
@@ -406,14 +417,8 @@ A = √(Ax2 + Ay2 + Az2)")
 #End Region ' *****
 #Region "C100"
   Private Sub C_AA(a As Button, b As RoutedEventArgs)
-    If _AC = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
-    If B104.Visibility = 0 Then
-      If _AC = "B103" Then B103.Document.Selection.Text += a.Content
-    Else
-      If _AC = "B111_" & CStr(SAA.Count - 1) Then
-        ACAF(SAA(SAA.Count - 1)).Text = ACAF(SAA(SAA.Count - 1)).Text.Insert(B101.SelectionStart, a.Content)
-      End If
-    End If
+    If _AC = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
+    Else : B103.Document.Selection.Text += a.Content : ABAG(a.Content) : End If
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
     If _AC = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, "-")
@@ -719,16 +724,10 @@ A = √(Ax2 + Ay2 + Az2)")
     ApplicationData.Current.LocalSettings.Values("textstyle") = "mathprint"
     Select Case ApplicationData.Current.LocalSettings.Values("textstyle")
       Case "classic" : B103.Visibility = 0
-        B104.Visibility = 0 : B109.Visibility = 1 : B110.Visibility = 1
-      Case "mathprint" : B103.Visibility = 1 : AAYA()
-        B104.Visibility = 1 : B109.Visibility = 0 : B110.Visibility = 0
+        B104.Visibility = 0 : B110.Visibility = 1 : B120.Visibility = 1
+      Case "mathprint" : B103.Visibility = 1
+        B104.Visibility = 1 : B110.Visibility = 0 : B120.Visibility = 0
     End Select
-  End Sub
-
-  Private Sub AAYA()
-    SAA.Add(New TextBox With {.Name = "B111_" & CStr(SAA.Count)})
-    AddHandler ACAF(SAA(SAA.Count - 1)).GotFocus, AddressOf ABAC
-    ACAF(SAA(SAA.Count - 1)).Focus(3) : B111.Children.Add(ACAF(SAA(SAA.Count - 1)))
   End Sub
 
   'Private Sub AIAS()
@@ -758,10 +757,26 @@ A = √(Ax2 + Ay2 + Az2)")
     If TypeOf FocusManager.GetFocusedElement() Is RichEditBox Then
       _AC = CType(FocusManager.GetFocusedElement(), RichEditBox).Name : End If
   End Sub
-  Private Sub ABAD(a As Byte)
+  Private Sub ABAD(a As Object, b As TappedRoutedEventArgs)
+    _M = b.GetPosition(a).X
+    _N = b.GetPosition(B111).X
+
+    '_O = B111.Children.IndexOf(b.OriginalSource) ' RoutedEventArgs
+  End Sub
+  Private Sub ABAE()
+    E_01.Stroke = New SolidColorBrush(Colors.Magenta) : A_.Start()
+    E_01.X1 = 20 : E_01.X2 = 20 : E_01.Y1 = 20 : E_01.Y2 = 150 : _AC = "B103"
+  End Sub
+  Private Sub ABAF(a As Byte)
     B104.Document.SetText(TextSetOptions.FormatRtf, "") : B104.Document.Selection.ParagraphFormat.SpaceAfter = a ' * BAA
   End Sub
-  Private Sub ABAE(a As Color, b As Color, c As String)
+  Private Sub ABAG(a As String)
+    'B103.Document.SetText(TextSetOptions.FormatRtf, a)
+    B111.Children.Insert(_O, New TextBlock With {.Text = a & " " & CStr(_N),
+                         .Margin = New Thickness(_O * 20, _O * 20, 0, 0)})
+    AddHandler ACAF(B111.Children(_O)).Tapped, AddressOf ABAD : _O += 1
+  End Sub
+  Private Sub ABAH(a As Color, b As Color, c As String)
     B104.Document.Selection.StartPosition = B104.Document.Selection.StoryLength
     B104.Document.Selection.CharacterFormat.BackgroundColor = a
     B104.Document.Selection.CharacterFormat.ForegroundColor = b : B104.Document.Selection.Text += c
@@ -790,7 +805,7 @@ A = √(Ax2 + Ay2 + Az2)")
   Private Function ACAE(a As Canvas) As Canvas
     Return a
   End Function
-  Private Function ACAF(a As TextBox) As TextBox
+  Private Function ACAF(a As TextBlock) As TextBlock
     Return a
   End Function
 #End Region ' *****
@@ -807,9 +822,9 @@ A = √(Ax2 + Ay2 + Az2)")
       .Subject = NAD.GetString("A105")}
       emailMessage.To.Add(New EmailRecipient("calculator_message_@outlook.com"))
       Await EmailManager.ShowComposeNewEmailAsync(emailMessage)
-      'ABAE(Colors.AliceBlue, Colors.Blue, vbCrLf & "Internetverbindung besteht")
+      'ABAH(Colors.AliceBlue, Colors.Blue, vbCrLf & "Internetverbindung besteht")
     Else
-      ABAE(Colors.AliceBlue, Colors.Blue, vbCrLf & "Keine Internetverbindung")
+      ABAH(Colors.AliceBlue, Colors.Blue, vbCrLf & "Keine Internetverbindung")
     End If
   End Sub
 #End Region

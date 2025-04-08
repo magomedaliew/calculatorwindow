@@ -51,11 +51,11 @@
    <Rectangle Name="B106" Stroke="White" StrokeThickness="3"/>
    <Rectangle Name="B107" Stroke="White" StrokeThickness="3"/>
    <Rectangle Name="B108" Stroke="White" StrokeThickness="3"/>
-   <ScrollViewer Name="B109" Grid.Column="1" Grid.Row="2">
-    <Canvas Name="B111"/>
+   <ScrollViewer Name="B110" Grid.Column="1" Grid.Row="2">
+    <Canvas Name="B111" Background="AntiqueWhite"/>
    </ScrollViewer>
-   <ScrollViewer Name="B110" Grid.Column="2" Grid.Row="2">
-    <Canvas Name="B112"/>
+   <ScrollViewer Name="B120" Grid.Column="2" Grid.Row="2">
+    <Canvas Name="B121"/>
    </ScrollViewer>
   </Grid>
   <Grid Name="B200">
