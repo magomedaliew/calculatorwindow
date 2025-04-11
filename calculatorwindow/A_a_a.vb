@@ -312,9 +312,9 @@ Public Class A_a_a
     'aaaad.Rotation = c(4) : aaaab.RenderTransform = aaaad
     'aaaab.Margin = New Thickness(c(0) * c(1), c(0) * c(2), 0, 0)
 
-    'aaaac.BAA(aaaab, c(0), 0, c(3), 30, 30, 2, c(5))
-    'aaaac.BAA(aaaab, c(0), c(3) - 9, c(3), 27, 30, 2, c(5))
-    'aaaac.BAA(aaaab, c(0), c(3) - 9, c(3), 33, 30, 2, c(5))
+    'aaaac.BBA(aaaab, c(0), 0, c(3), 30, 30, 2, c(5))
+    'aaaac.BBA(aaaab, c(0), c(3) - 9, c(3), 27, 30, 2, c(5))
+    'aaaac.BBA(aaaab, c(0), c(3) - 9, c(3), 33, 30, 2, c(5))
     'aaaac.CAB(aaaab, a, c(0), c(3) / 2, 0 + aaaaa * 35, 0, 0, 20, 0 + aaaaa * 180, c(5))
 
     'c(0) = relative Zahl, c(1) = Px, c(2) = Py, c(3) = Länge, c(4) = Winkel, c(5) = Farbe

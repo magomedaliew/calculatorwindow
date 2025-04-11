@@ -13,11 +13,12 @@ Public NotInheritable Class MainPage
 #Region "≡≡≡≡"
 #Region "A-01"
   ' Controlls
-  Dim AA_ As New Line
-  Dim BA_ As New Button
-  Dim CA_ As New Canvas
-  Dim DA_ As New ListView
-  Dim EA_, EB_ As TextBlock
+  Dim AA_ As New Line ' Text Kursor in B111
+  Dim BA_ As New Button ' Chemisches Element
+  Dim CA_ As New Canvas ' Border Canvas leer
+  Dim DA_ As New ListView ' Chemische Liste
+  Dim EA_, EB_ As TextBlock ' Periodentabelle
+  Dim FA_ As New RichEditBox ' Math - Classic
 #End Region
 #Region "A-02"
   ' Klassen
@@ -29,29 +30,34 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "A-10"
   ' Allgemein
-  Dim AAA, AAB, AAC, AAD, AAE, AAF, AAG As Byte
-  Dim ABA, ABB As String
+  Dim AAA As Byte ' Quer-Hochformat Nummer
+  Dim AAB As Byte ' Design Seiten Nummer
+  Dim AAC As Byte ' A Board Umschalte Zahl
+  Dim AAD As Byte ' B Board Umschalte Zahl
+  Dim AAE As Byte ' Farben Nummer für ACAB
+  Dim AAF As Byte ' Farben Nummer für ACAB
+  Dim AAG As Byte ' Farben Nummer für ACAB
+
+  Dim ABA As String ' Listen Text Substring
+  Dim ABB As String ' Focus Elementen Namen
+
   Dim ACA, ACB As Integer
   Dim ADA() As String
   Dim AEA As DispatcherTimer
-#End Region
-#Region "A-20"
   ' Mathematik
-  Dim BAA, BAB As Integer
-  Dim BBA, BBB, BBC As New List(Of Byte)
-  Dim BCA, BCB As New List(Of Integer)
-#End Region
-#Region "A-30"
+  Dim BAA As Boolean
+  Dim BBA As Integer ' x Position Kursor B111
+  Dim BBB As Integer ' y Position Kursor B111
+  Dim BBC As Integer ' x Position Kursor FA_
+  Dim BBD As Integer ' Text Länge alt von FA_
+  Dim BBE As Integer ' Text Länge neu von FA_
+
+  Dim BCA, BCB, BCC As New List(Of Byte)
+  Dim BDA, BDB As New List(Of Integer)
   ' Chemie
-  Dim _AB As String
-#End Region
-#Region "A-40"
-  ' Physik
-
-#End Region
-#Region "A-50"
-  ' Darstellung
-
+  Dim CAA As String
+  ' ΔΓΘΛΞΠΣΦΨΩͲ БЗЛУЧЪЬЭЯѰԱԲԳԴϞԵԶԷԸԹԻԺԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՎՐՑՒՔՖ
+  ' ႠႡႢႣႤႥႦႧႨႩႪႫႬႯႰႱႲႳႴႵႶႷႸႹႺႼႻႾႿჀჁჂჃჄჅ ჇꓕႮꓘꓛꓞꓤꓨꓩꓭꓯꓱꓶꓷ
 #End Region
 #End Region
   ' * ○○○○ * ○○○○ * ○○○○ * ○○○○ *
@@ -91,6 +97,11 @@ Public NotInheritable Class MainPage
       C141.Content = "cos" : C142.Content = "sin" : C143.Content = "tan" : C144.Content = "cot"
       C145.Content = "acos" : C146.Content = "asin" : C147.Content = "atan" : C148.Content = "acot"
 
+      C149.Content = "" : C150.Content = "˄" : C151.Content = "" : C152.Content = "⛭"
+      C153.Content = "<" : C154.Content = "⬜" : C155.Content = ">" : C156.Content = "⛯"
+      C157.Content = "" : C158.Content = "˅" : C159.Content = "" : C160.Content = ""
+      C161.Content = "" : C162.Content = "" : C163.Content = "" : C164.Content = ""
+
       C126.Content = A_D.GetString("A254") : B101.PlaceholderText = A_D.GetString("A201")
       B103.PlaceholderText = A_D.GetString("A202") : B104.PlaceholderText = A_D.GetString("A900")
 
@@ -119,32 +130,36 @@ Public NotInheritable Class MainPage
       For i = 1 To 3 Step 1 : B100.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 5 Step 1 : B100.ColumnDefinitions.Add(New ColumnDefinition) : Next
       For i = 1 To 4 Step 1 : C100.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 16 Step 1 : C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 21 Step 1 : C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
 
-      AA00.Children.Add(CA_)
       Grid.SetColumn(A101, 1) : Grid.SetColumn(A102, 2) : Grid.SetColumn(A103, 3) : Grid.SetColumn(A104, 4)
       Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6) : Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8)
       Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10) : Grid.SetColumn(B102, 3) : Grid.SetColumn(B103, 1)
       Grid.SetColumn(B104, 3) : Grid.SetColumn(B106, 3) : Grid.SetColumn(B107, 1) : Grid.SetColumn(B108, 3)
 
+      Grid.SetColumn(FA_, 3) : Grid.SetRow(FA_, 2) : AA00.Children.Add(CA_) : B100.Children.Add(FA_)
+
       Grid.SetRow(B100, 2) : Grid.SetRow(B101, 0) : Grid.SetRow(B105, 0) : Grid.SetRow(B103, 2) : Grid.SetRow(B104, 2)
       Grid.SetRow(B107, 2) : Grid.SetRow(B108, 2) : Grid.SetRow(B200, 2) : Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4)
 
-      ADA = ("0´1´0´2´0´3´0´4´1´1´1´2´1´3´1´4´2´1´2´2´2´3´2´4´3´1´3´2´3´3´3´4´0´6´0´7´0´8´0´9´1´6´1´7´1´8´1´9´2´6´2´7´2´" &
-        "8´2´9´3´6´3´7´3´8´3´9´0´11´0´12´0´13´0´14´1´11´1´12´1´13´1´14´2´11´2´12´2´13´2´14´3´11´3´12´3´13´3´14").Split("´")
-
-      For i As Byte = 0 To 95 Step 2 : AAA = i / 2 : ACAD(C100.Children.Item(AAA)).VerticalAlignment = 3
-        ACAD(C100.Children.Item(AAA)).HorizontalAlignment = 3 : Grid.SetRow(C100.Children.Item(AAA), CInt(ADA(i)))
-        Grid.SetColumn(C100.Children.Item(AAA), CInt(ADA(i + 1))) : ACAD(C100.Children.Item(AAA)).Background =
-          New SolidColorBrush(Colors.White) : ACAD(C100.Children.Item(AAA)).Foreground = New SolidColorBrush(Colors.Blue)
-      Next
+      AAA = 0 : Do ' AAA0 Size Changed => AAA
+        ACAD(C100.Children.Item(AAA)).Background = New SolidColorBrush(Colors.White)
+        ACAD(C100.Children.Item(AAA)).Foreground = New SolidColorBrush(Colors.Blue)
+        ACAD(C100.Children.Item(AAA)).VerticalAlignment = VerticalAlignment.Stretch
+        ACAD(C100.Children.Item(AAA)).HorizontalAlignment = VerticalAlignment.Stretch
+        AAB += 1
+        Grid.SetRow(C100.Children.Item(AAA), AAC) : Grid.SetColumn(C100.Children.Item(AAA), AAB)
+        AAA += 1
+        If AAB = 4 Or AAB = 9 Or AAB = 14 Or AAB = 19 Then : AAB = If(AAC = 3, AAB + 1, AAB - 4)
+          AAC += 1 : End If
+        If AAC = 4 Then : If AAB = 20 Then : Exit Do : Else : AAC = 0 : End If : End If : Loop
 
       AddHandler B101.GotFocus, AddressOf ABAC : AddHandler B103.GotFocus, AddressOf ABAC
-      AddHandler B111.Tapped, AddressOf ABAF
+      AddHandler B111.Tapped, AddressOf ABAF : AddHandler FA_.TextChanged, AddressOf BAAB
 
-      AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEA.Tick, AddressOf BAAB
+      AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEA.Tick, AddressOf BAAA
 
-      B111.Children.Add(AA_) : BAA = 1 : BAB = 1 : AAB = 1 : B101.Focus(3) : AAXA() : A_B_() : Catch ex As Exception : End Try
+      B111.Children.Add(AA_) : BBA = 1 : BBB = 1 : AAB = 1 : B101.Focus(3) : AAXA() : A_B_() : Catch ex As Exception : End Try
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
     ' Size Changed
@@ -156,7 +171,7 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "A100"
   Private Sub A_AA()
-    AAB = 1 : AAAA() : BXAA()
+    AAB = 1 : AAAA()
   End Sub
   Private Sub A_AB()
     AAB = 2 : AAAA()
@@ -434,7 +449,9 @@ A = √(Ax2 + Ay2 + Az2)")
 #Region "C100"
   Private Sub C_AA(a As Button, b As RoutedEventArgs)
     If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
-    Else : B103.Document.Selection.Text += a.Content : BXAB(a.Content) : End If
+    ElseIf ABB = "B111" Then ' : BAA = True : BXAA(a.Content)
+      FA_.Document.Selection.Text += a.Content ' : BAA = False
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content : End If
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
     If ABB = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, "-")
@@ -478,8 +495,9 @@ A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub C_AG(a As Button, b As RoutedEventArgs)
     If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
-    Else : B103.Document.Selection.Text += a.Content & "(''d())" : BXAC(a.Content) : End If
+    Else : B103.Document.Selection.Text += a.Content & "(''d())" : BXAG(a.Content) : End If
   End Sub
+
 #End Region
 #End Region
   ' * □□□□ * □□□□ * □□□□ * □□□□ *
@@ -500,8 +518,8 @@ A = √(Ax2 + Ay2 + Az2)")
         B100.ColumnDefinitions.Item(2).Width = New GridLength(2, 2)
         B100.ColumnDefinitions.Item(3).Width = New GridLength(9, 2)
         C100.ColumnDefinitions.Item(0).Width = New GridLength(0.5, 2)
-        C100.ColumnDefinitions.Item(15).Width = New GridLength(9.5, 2)
-        For i = 5 To 14 Step 1 : C100.ColumnDefinitions.Item(i).
+        C100.ColumnDefinitions.Item(20).Width = New GridLength(4.5, 2)
+        For i = 5 To 19 Step 1 : C100.ColumnDefinitions.Item(i).
             Width = New GridLength(1, 2) : Next
 #End Region
       Case = 102 ' Q-Anhang
@@ -541,7 +559,7 @@ A = √(Ax2 + Ay2 + Az2)")
         C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
         C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
-        C100.ColumnDefinitions.Item(15).Width = New GridLength(0.3, 2)
+        C100.ColumnDefinitions.Item(20).Width = New GridLength(0.3, 2)
         A104.Foreground = New SolidColorBrush(Colors.Blue)
         CA_.Visibility = 1  'A104.Icon = New SymbolIcon(Symbol.Delete)
 #End Region
@@ -715,7 +733,7 @@ A = √(Ax2 + Ay2 + Az2)")
     '    C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
     '    C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
     '  Case 5 : If AAD = 0 Then : B300.Visibility = AAD
-    '      DA_.Visibility = AAC : Else : BAAB() : End If : End Select
+    '      DA_.Visibility = AAC : Else : BAAA() : End If : End Select
   End Sub
   Private Sub AAXA()
     ' Design
@@ -735,10 +753,10 @@ A = √(Ax2 + Ay2 + Az2)")
     End Select
     ApplicationData.Current.LocalSettings.Values("textstyle") = "mathprint"
     Select Case ApplicationData.Current.LocalSettings.Values("textstyle")
-      Case "classic" : B103.Visibility = 0
-        B104.Visibility = 0 : B110.Visibility = 1 : B120.Visibility = 1
-      Case "mathprint" : B103.Visibility = 1
-        B104.Visibility = 1 : B110.Visibility = 0 : B120.Visibility = 0
+      Case "classic" : B103.Visibility = 0 : B104.Visibility = 0
+        B110.Visibility = 1 : B120.Visibility = 1 : FA_.Visibility = 1
+      Case "mathprint" : B103.Visibility = 1 : B104.Visibility = 1
+        B110.Visibility = 0 : B120.Visibility = 0 : FA_.Visibility = 0
     End Select
   End Sub
 
@@ -770,7 +788,7 @@ A = √(Ax2 + Ay2 + Az2)")
       ABB = CType(FocusManager.GetFocusedElement(), RichEditBox).Name : End If
   End Sub
   Private Sub ABAD(a As Byte)
-    B104.Document.SetText(TextSetOptions.FormatRtf, "") : B104.Document.Selection.ParagraphFormat.SpaceAfter = a ' * BAA
+    B104.Document.SetText(TextSetOptions.None, "") : B104.Document.Selection.ParagraphFormat.SpaceAfter = a ' * BBA
   End Sub
   Private Sub ABAE(a As Color, b As Color, c As String)
     B104.Document.Selection.StartPosition = B104.Document.Selection.StoryLength
@@ -779,10 +797,11 @@ A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub ABAF(a As Object, b As TappedRoutedEventArgs)
     If B111.Children.Count > 1 Then
-      BAA = Math.Ceiling(b.GetPosition(B111).X / 10) : If BAA > B111.Children.Count Then BAA = B111.Children.Count
-    End If 'ACA = Math.Floor(BAA) ' Abrunden
-    AEA.Start() : ABB = "B103" : AA_.X1 = BAA * 10 : AA_.X2 = BAA * 10 : AA_.Y1 = BAB * 10 : AA_.Y2 = BAB * 10 + 17
-    AA_.Stroke = New SolidColorBrush(Colors.Magenta)
+      BBA = Math.Ceiling(b.GetPosition(B111).X / 10) : If BBA > B111.Children.Count Then BBA = B111.Children.Count
+    End If 'Math.Floor - Abrunden,   Math.Ceiling - Aufrunden
+    AEA.Start() : ABB = "B111" : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+    FA_.Focus(3) : If FA_.Document.Selection.StoryLength > 1 Then : FA_.Document.Selection.StartPosition = BBA - 1
+      FA_.Document.Selection.EndPosition = BBA - 1 : End If : AA_.Stroke = New SolidColorBrush(Colors.Magenta)
   End Sub
 #End Region
 #Region "A-AC"
@@ -835,45 +854,54 @@ A = √(Ax2 + Ay2 + Az2)")
   ' * BBBB * BBBB * BBBB * BBBB *
 #Region "BBBB"
 #Region "B-AA"
-  Private Sub BAAB()
+  Private Sub BAAA()
     Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
+  End Sub
+  Private Sub BAAB()
+    BBC = FA_.Document.Selection.EndPosition
+    FA_.Document.Selection.StartPosition = 0
+    FA_.Document.Selection.EndPosition = FA_.Document.Selection.StoryLength - 1
+    BBE = FA_.Document.Selection.Text.Length
+    B102.Text = CStr(BBC) & "   " & CStr(BBE) & "   " & CStr(BBD) ' Test
+    Select Case BBE - BBD
+      Case < 0
+        For i = 0 To 0 Step 1
+
+        Next
+      Case > 0
+        For i = 1 To BBE - BBD Step 1
+          Select Case FA_.Document.Selection.Text.Substring(BBC - BBE + BBD, 1)
+            Case "∫"
+            Case Else : BXAA(FA_.Document.Selection.Text.Substring(BBC - BBE + BBD, 1))
+          End Select
+        Next
+    End Select
+    BBD = BBE : FA_.Document.Selection.EndPosition = BBC : FA_.Document.Selection.StartPosition = BBC
   End Sub
 #End Region
 #Region "B-AX"
-  Private Sub BXAA()
-    Dim aaaaa As New List(Of Object)
-    Dim aaaab As New Canvas
-
-    Dim aaaac As New TextBlock With {.Text = "∫"} ' − ∫
-    aaaab.Scale = New System.Numerics.Vector3(2.0, 9.0, 1.0) ' 5.0F, 5.0F, 1.0F
-    'Dim aaaac As New TextBlock With {.Text = "−"} ' − ∫
-    'aaaab.Scale = New System.Numerics.Vector3(9.0, 1.0, 1.0) ' 5.0F, 5.0F, 1.0F
-
-    B103.Visibility = 1
-    aaaab.Children.Add(aaaac)
-    B111.Children.Add(aaaab)
-  End Sub
-  Private Sub BXAB(a As String)
+  Private Sub BXAA(a As String)
     EA_ = New TextBlock With {.Text = a, .FontFamily = New FontFamily("Consolas"),
-      .Margin = New Thickness(BAA * 10, BAB * 10, 0, 0)} : B111.Children.Insert(BAA - 1, EA_)
-    BCA.Insert(BAA - 1, BAA * 10) : BCB.Insert(BAA - 1, BAB * 10) : BAA += 1
-    AA_.X1 = BAA * 10 : AA_.X2 = BAA * 10 : AA_.Y1 = BAB * 10 : AA_.Y2 = BAB * 10 + 17
-    If B111.Children.Count > BAA Then : For i = BAA - 1 To B111.Children.Count - 2 Step 1
-        ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BCB(i), 0, 0)
-        BCA(i) = i * 10 + 10 : Next : End If
+      .Margin = New Thickness(BBA * 10, BBB * 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
+    BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10) : BBA += 1
+    AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+    If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
+        ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BDB(i), 0, 0)
+        BDA(i) = i * 10 + 10 : Next : End If
   End Sub
-  Private Sub BXAC(a As String)
+  Private Sub BXAG(a As String)
+    ' □
     EA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
       .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
-      .Margin = New Thickness(BAA * 10, BAB * 10, 0, 0)} : B111.Children.Insert(BAA - 1, EA_)
-    BCA.Insert(BAA - 1, BAA * 10) : BCB.Insert(BAA - 1, BAB * 10) : BAA += 1
-    BAB += 2 : AA_.X1 = BAA * 10 : AA_.X2 = BAA * 10 : AA_.Y1 = BAB * 10 : AA_.Y2 = BAB * 10 + 17
-    If BAA > 2 Then : For i = 0 To BAA - 3 Step 1
-        ACAF(B111.Children(i)).Margin = New Thickness(BCA(i), BAB * 10, 0, 0) : BCB(i) = BAB * 10
+      .Margin = New Thickness(BBA * 10, BBB * 10 - 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
+    BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10 - 10) : BBA += 1
+    BBB += 1 : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+    If BBA > 2 Then : For i = 0 To BBA - 3 Step 1
+        ACAF(B111.Children(i)).Margin = New Thickness(BDA(i), BBB * 10, 0, 0) : BDB(i) = BBB * 10
       Next : End If
-    If B111.Children.Count > BAA Then : For i = BAA - 1 To B111.Children.Count - 2 Step 1
-        ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BAB * 10, 0, 0)
-        BCA(i) = i * 10 + 10 : BCB(i) = BAB * 10 : Next : End If
+    If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
+        ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BBB * 10, 0, 0)
+        BDA(i) = i * 10 + 10 : BDB(i) = BBB * 10 : Next : End If
   End Sub
 #End Region
 #Region "B-AY"
@@ -901,10 +929,10 @@ A = √(Ax2 + Ay2 + Az2)")
     eaabb = ("2´4´15´20´1´5´5´2´3´4´6´7´8´9´10´11´12´13´14´15´16´17´18´19´20´1´1´1´1´1´1´1").Split("´")
 
     For i = 1 To 32 Step 1 : ABA = If(i < 10, "00", "0")
-      eaaab = New TextBlock With {.FontSize = 12, .Text = A_A.GetString("A" & ABA & CStr(i))} '  * BAA
+      eaaab = New TextBlock With {.FontSize = 12, .Text = A_A.GetString("A" & ABA & CStr(i))} '  * BBA
       eaaaa = New Button With {.Padding = New Thickness(0), .Content = eaaab, .VerticalAlignment = 3,
             .HorizontalAlignment = 3, .Background = New SolidColorBrush(Colors.WhiteSmoke),
-            .Margin = New Thickness(0.5)} : B300.Children.Add(eaaaa) '  * BAA
+            .Margin = New Thickness(0.5)} : B300.Children.Add(eaaaa) '  * BBA
       Grid.SetRow(eaaaa, CInt(eaaba(i - 1))) : Grid.SetColumn(eaaaa, CInt(eaabb(i - 1))) : Next
 
     Grid.SetColumnSpan(ACAD(B300.Children.Item(0)), 2) : Grid.SetColumnSpan(ACAD(B300.Children.Item(1)), 11)
@@ -975,7 +1003,7 @@ A = √(Ax2 + Ay2 + Az2)")
       Case "9.7" : ABA = "105" : Case "9.8" : ABA = "106" : Case "9.9" : ABA = "107" : Case "9.10" : ABA = "108"
       Case "9.11" : ABA = "109" : Case "9.12" : ABA = "110" : Case "9.13" : ABA = "111" : Case "9.14" : ABA = "112"
       Case "9.15" : ABA = "113" : Case "9.16" : ABA = "114" : Case "9.17" : ABA = "115" : Case "9.18" : ABA = "116"
-      Case "9.19" : ABA = "117" : Case "9.20" : ABA = "118" : Case Else : ABA = 0 : End Select : _AB = ABA : CABC()
+      Case "9.19" : ABA = "117" : Case "9.20" : ABA = "118" : Case Else : ABA = 0 : End Select : CAA = ABA : CABC()
   End Sub
   Private Sub CABB()
     ' Die Auswahl des chemischen Elements von der Liste
