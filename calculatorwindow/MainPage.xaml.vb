@@ -54,6 +54,12 @@ Public NotInheritable Class MainPage
 
   Dim BCA, BCB, BCC As New List(Of Byte)
   Dim BDA, BDB As New List(Of Integer)
+
+  Dim BEA As String ' Text alt von FA_
+  Dim BEB As String ' Text neu von FA_
+  Dim BEC As String ' Substring von FA_
+  Dim BED As String ' Substring von FA_
+
   ' Chemie
   Dim CAA As String
   ' ΔΓΘΛΞΠΣΦΨΩͲ БЗЛУЧЪЬЭЯѰԱԲԳԴϞԵԶԷԸԹԻԺԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՎՐՑՒՔՖ
@@ -156,6 +162,7 @@ Public NotInheritable Class MainPage
 
       AddHandler B101.GotFocus, AddressOf ABAC : AddHandler B103.GotFocus, AddressOf ABAC
       AddHandler B111.Tapped, AddressOf ABAF : AddHandler FA_.TextChanged, AddressOf BAAB
+      AddHandler FA_.SelectionChanged, AddressOf BAAC
 
       AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEA.Tick, AddressOf BAAA
 
@@ -449,53 +456,38 @@ A = √(Ax2 + Ay2 + Az2)")
 #Region "C100"
   Private Sub C_AA(a As Button, b As RoutedEventArgs)
     If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
-    ElseIf ABB = "B111" Then ' : BAA = True : BXAA(a.Content)
-      FA_.Document.Selection.Text += a.Content ' : BAA = False
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content
     ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content : End If
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
-    If ABB = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, "-")
-    If B104.Visibility = 0 Then
-      If ABB = "B103" Then B103.Document.Selection.Text += "-"
-    Else
-
-    End If
+    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, "-")
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += "-"
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += "-" : End If
   End Sub
   Private Sub C_AC(a As Button, b As RoutedEventArgs)
-    If ABB = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, " " & a.Content & " ")
-    If B104.Visibility = 0 Then
-      If ABB = "B103" Then B103.Document.Selection.Text += " " & a.Content & " "
-    Else
-
-    End If
+    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, " " & a.Content & " ")
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += " " & a.Content & " "
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += " " & a.Content & " " : End If
   End Sub
   Private Sub C_AD(a As Button, b As RoutedEventArgs)
-    If ABB = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "()")
-    If B104.Visibility = 0 Then
-      If ABB = "B103" Then B103.Document.Selection.Text += a.Content & "()"
-    Else
-
-    End If
+    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "()")
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "()"
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "()" : End If
   End Sub
   Private Sub C_AE(a As Button, b As RoutedEventArgs)
-    If ABB = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(')")
-    If B104.Visibility = 0 Then
-      If ABB = "B103" Then B103.Document.Selection.Text += a.Content & "(')"
-    Else
-
-    End If
+    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(')")
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "(')"
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "(')" : End If
   End Sub
   Private Sub C_AF(a As Button, b As RoutedEventArgs)
-    If ABB = "B101" Then B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "('')")
-    If B104.Visibility = 0 Then
-      If ABB = "B103" Then B103.Document.Selection.Text += a.Content & "('')"
-    Else
-
-    End If
+    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "('')")
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "('')"
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "('')" : End If
   End Sub
   Private Sub C_AG(a As Button, b As RoutedEventArgs)
-    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
-    Else : B103.Document.Selection.Text += a.Content & "(''d())" : BXAG(a.Content) : End If
+    If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(''d())")
+    ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "(''d())"
+    ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "(''d())" : End If
   End Sub
 
 #End Region
@@ -796,12 +788,14 @@ A = √(Ax2 + Ay2 + Az2)")
     B104.Document.Selection.CharacterFormat.ForegroundColor = b : B104.Document.Selection.Text += c
   End Sub
   Private Sub ABAF(a As Object, b As TappedRoutedEventArgs)
-    If B111.Children.Count > 1 Then
-      BBA = Math.Ceiling(b.GetPosition(B111).X / 10) : If BBA > B111.Children.Count Then BBA = B111.Children.Count
-    End If 'Math.Floor - Abrunden,   Math.Ceiling - Aufrunden
-    AEA.Start() : ABB = "B111" : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    FA_.Focus(3) : If FA_.Document.Selection.StoryLength > 1 Then : FA_.Document.Selection.StartPosition = BBA - 1
-      FA_.Document.Selection.EndPosition = BBA - 1 : End If : AA_.Stroke = New SolidColorBrush(Colors.Magenta)
+    Try
+      If B111.Children.Count > 1 Then
+        BBA = Math.Ceiling(b.GetPosition(B111).X / 10) : If BBA > B111.Children.Count Then BBA = B111.Children.Count
+      End If 'Math.Floor - Abrunden,   Math.Ceiling - Aufrunden
+      AEA.Start() : ABB = "B111" : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+      FA_.Focus(3) : If FA_.Document.Selection.StoryLength > 1 Then : FA_.Document.Selection.StartPosition = BBA - 1
+        FA_.Document.Selection.EndPosition = BBA - 1 : End If : AA_.Stroke = New SolidColorBrush(Colors.Magenta)
+    Catch ex As Exception : FA_.Document.Selection.Text += "B111.Tapped" & vbCrLf & ex.Message : End Try
   End Sub
 #End Region
 #Region "A-AC"
@@ -858,38 +852,45 @@ A = √(Ax2 + Ay2 + Az2)")
     Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
   End Sub
   Private Sub BAAB()
-    BBC = FA_.Document.Selection.EndPosition
-    FA_.Document.Selection.StartPosition = 0
-    FA_.Document.Selection.EndPosition = FA_.Document.Selection.StoryLength - 1
-    BBE = FA_.Document.Selection.Text.Length
-    B102.Text = CStr(BBC) & "   " & CStr(BBE) & "   " & CStr(BBD) ' Test
-    Select Case BBE - BBD
-      Case < 0
-        For i = 0 To 0 Step 1
+    Try
+      BBC = FA_.Document.Selection.EndPosition : BAAF() : BEB = FA_.Document.Selection.Text : BBE = BEB.Length
+      B102.Text = CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Test
 
-        Next
-      Case > 0
-        For i = 1 To BBE - BBD Step 1
-          Select Case FA_.Document.Selection.Text.Substring(BBC - BBE + BBD, 1)
-            Case "∫"
-            Case Else : BXAA(FA_.Document.Selection.Text.Substring(BBC - BBE + BBD, 1))
-          End Select
-        Next
-    End Select
-    BBD = BBE : FA_.Document.Selection.EndPosition = BBC : FA_.Document.Selection.StartPosition = BBC
+      If BBE - BBD < 0 Then : For i = BBC + BBD - BBE - 1 To BBC Step -1 : B111.Children.RemoveAt(i)
+          For j = i To B111.Children.Count - 2 Step 1
+            ACAF(B111.Children(j)).Margin = New Thickness((j + 1) * 10, BBB * 10, 0, 0) : Next : Next : BAAE()
+      End If
+      If BBE - BBD > 0 Then : BEC = BEB.Substring(BBC - BBE + BBD, BBE - BBD)
+        For i = 0 To BEC.Length - 1 Step 1 : BED = BEC.Substring(i, 1) : BBA = BBC - BBE + BBD + i + 1 : BAAD()
+        Next : BAAE() : End If
+      BAAF()
+      BEA = BEB : BBD = BBE : FA_.Document.Selection.EndPosition = BBC : FA_.Document.Selection.StartPosition = BBC
+    Catch ex As Exception : B104.Visibility = 0 : B104.Document.Selection.Text = FA_.Document.Selection.Text
+      B104.Document.Selection.Text += vbCrLf & "FA_TextChanged: " & ex.Message : FA_.Visibility = 1 : End Try
   End Sub
-#End Region
-#Region "B-AX"
-  Private Sub BXAA(a As String)
-    EA_ = New TextBlock With {.Text = a, .FontFamily = New FontFamily("Consolas"),
+  Private Sub BAAC()
+    Try
+      BBA = FA_.Document.Selection.EndPosition + 1
+      AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+      BBA -= 1
+    Catch ex As Exception
+      FA_.Document.Selection.Text += "FA_.SelectionCanged" & vbCrLf & ex.Message : End Try
+  End Sub
+  Private Sub BAAD()
+    Try
+      EA_ = New TextBlock With {.Text = BED, .FontFamily = New FontFamily("Consolas"),
       .Margin = New Thickness(BBA * 10, BBB * 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
-    BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10) : BBA += 1
-    AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
-        ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BDB(i), 0, 0)
-        BDA(i) = i * 10 + 10 : Next : End If
+      BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10) : BBA += 1
+      AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+      If B111.Children.Count > BBA Then
+        For i = BBA - 1 To B111.Children.Count - 2 Step 1 : BDA(i) = i * 10 + 10
+          ACAF(B111.Children(i)).Margin = New Thickness(BDA(i), BDB(i), 0, 0) : Next : End If
+      FA_.Focus(3)
+    Catch ex As Exception
+      FA_.Document.Selection.Text += vbCrLf & "B111.ChildrenAdded: " & ex.Message & vbCrLf & ex.Source
+    End Try
   End Sub
-  Private Sub BXAG(a As String)
+  Private Sub BAAE()
     ' □
     EA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
       .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
@@ -902,9 +903,42 @@ A = √(Ax2 + Ay2 + Az2)")
     If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
         ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BBB * 10, 0, 0)
         BDA(i) = i * 10 + 10 : BDB(i) = BBB * 10 : Next : End If
+
+
+    'BEB = BEB.Replace("√)", "") : BEB = BEB.Replace("ln)", "")
+    'BEB = BEB.Replace("cos)", "") : BEB = BEB.Replace("sin)", "")
+    'BEB = BEB.Replace("tan)", "") : BEB = BEB.Replace("cot)", "")
+    'BEB = BEB.Replace("acos)", "") : BEB = BEB.Replace("asin)", "")
+    'BEB = BEB.Replace("atan)", "") : BEB = BEB.Replace("acot)", "")
+    'BEB = BEB.Replace("lim')", "") : BEB = BEB.Replace("log')", "")
+    'BEB = BEB.Replace("Ʃ'')", "") : BEB = BEB.Replace("∏'')", "")
+    'BEB = BEB.Replace("√')", "") : BEB = BEB.Replace("ʃ''d())", "")
+
+    'If BBD - BBE = 1 AndAlso BEA.Substring(BBC, 1) = ")" Then
+    '  BED = "√(" : BAAG() : BED = "cos(" : BAAG() : BED = "acos(" : BAAG() : BED = "√('" : BAAG()
+    '  BED = "(`" : BAAG() : BED = "sin(" : BAAG() : BED = "asin(" : BAAG() : BED = "ln(" : BAAG()
+    '  BED = "(´" : BAAG() : BED = "tan(" : BAAG() : BED = "atan(" : BAAG() : BED = "lim('" : BAAG()
+    '  BED = "('" : BAAG() : BED = "cot(" : BAAG() : BED = "acot(" : BAAG() : BED = "log('" : BAAG()
+    '  BED = "Ʃ(''" : BAAG() : BED = "∏(''" : BAAG() : BED = "ʃ(''d()" : BAAG() : End If
+
+    'If BBE <> BEB.Length Then
+    '  B102.Text = " " & CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Exit Sub ' Test
+    '  FA_.Document.Selection.Text = FA_.Document.Selection.Text.Remove(BBC - BED.Length, BED.Length)
+    'End If
+
   End Sub
+  Private Sub BAAF()
+    FA_.Document.Selection.StartPosition = 0
+    FA_.Document.Selection.EndPosition = FA_.Document.Selection.StoryLength - 1
+  End Sub
+  'Private Sub BAAG()
+  '  If BBC > BED.Length - 1 AndAlso BED = BEA.Substring(BBC - BED.Length, BED.Length) Then
+  '    BEB = BEB.Remove(BBC - BED.Length, BED.Length) : End If
+  'End Sub
 #End Region
-#Region "B-AY"
+#Region "B-AB"
+#End Region
+#Region "B-AC"
 #End Region
 #End Region
   ' * CCCC * CCCC * CCCC * CCCC *
