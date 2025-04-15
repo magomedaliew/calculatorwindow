@@ -51,14 +51,27 @@ Public NotInheritable Class MainPage
   Dim BBC As Integer ' x Position Kursor FA_
   Dim BBD As Integer ' Text Länge alt von FA_
   Dim BBE As Integer ' Text Länge neu von FA_
-
-  Dim BCA, BCB, BCC As New List(Of Byte)
-  Dim BDA, BDB As New List(Of Integer)
+  Dim BBF As Integer ' Schichte des Substrings
 
   Dim BEA As String ' Text alt von FA_
   Dim BEB As String ' Text neu von FA_
   Dim BEC As String ' Substring von FA_
   Dim BED As String ' Substring von FA_
+
+  Dim BCA, BCB, BCC As New List(Of Byte)
+  Dim BDA, BDB As New List(Of Integer)
+
+
+
+  Private IAB As New List(Of Byte) ' M:Ausgangsoperatorengruppe
+
+  Private ReadOnly KAH As New List(Of String) ' M:Term
+  Private ReadOnly KAI As New List(Of String) ' M:Operator
+
+  Private ReadOnly MAB As New List(Of Integer) ' M:Funktion
+  Private ReadOnly MAC As New List(Of Integer) ' M:Eingangsanfang
+  Private ReadOnly MAD As New List(Of Integer) ' M:Eingangslänge
+  Private ReadOnly MAJ As New List(Of Integer) ' M:Eingangsteil-Zahl
 
   ' Chemie
   Dim CAA As String
@@ -849,60 +862,138 @@ A = √(Ax2 + Ay2 + Az2)")
 #Region "BBBB"
 #Region "B-AA"
   Private Sub BAAA()
+    ' Kursorblinken
     Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
   End Sub
   Private Sub BAAB()
-    Try
+    Try ' FA_ Eingabe: TextChanged
       BBC = FA_.Document.Selection.EndPosition : BAAF() : BEB = FA_.Document.Selection.Text : BBE = BEB.Length
       B102.Text = CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Test
 
-      If BBE - BBD < 0 Then : For i = BBC + BBD - BBE - 1 To BBC Step -1 : B111.Children.RemoveAt(i)
-          For j = i To B111.Children.Count - 2 Step 1
-            ACAF(B111.Children(j)).Margin = New Thickness((j + 1) * 10, BBB * 10, 0, 0) : Next : Next : BAAE()
-      End If
-      If BBE - BBD > 0 Then : BEC = BEB.Substring(BBC - BBE + BBD, BBE - BBD)
-        For i = 0 To BEC.Length - 1 Step 1 : BED = BEC.Substring(i, 1) : BBA = BBC - BBE + BBD + i + 1 : BAAD()
-        Next : BAAE() : End If
-      BAAF()
+      BAAD()
+      'If BBE - BBD < 0 Then : For i = BBC + BBD - BBE - 1 To BBC Step -1 : B111.Children.RemoveAt(i)
+      '    For j = i To B111.Children.Count - 2 Step 1
+      '      ACAF(B111.Children(j)).Margin = New Thickness((j + 1) * 10, BBB * 10, 0, 0) : Next : Next : BAAD()
+      'End If
+      'If BBE - BBD > 0 Then : BEC = BEB.Substring(BBC - BBE + BBD, BBE - BBD)
+      '  For i = 0 To BEC.Length - 1 Step 1 : BED = BEC.Substring(i, 1) : BBA = BBC - BBE + BBD + i + 1 : BAAE()
+      '  Next : BAAD() : End If
+      'BAAF()
+
       BEA = BEB : BBD = BBE : FA_.Document.Selection.EndPosition = BBC : FA_.Document.Selection.StartPosition = BBC
     Catch ex As Exception : B104.Visibility = 0 : B104.Document.Selection.Text = FA_.Document.Selection.Text
       B104.Document.Selection.Text += vbCrLf & "FA_TextChanged: " & ex.Message : FA_.Visibility = 1 : End Try
   End Sub
   Private Sub BAAC()
-    Try
+    Try ' FA_: SelectionCanged
       BBA = FA_.Document.Selection.EndPosition + 1
       AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-      BBA -= 1
+      If BBA > 1 Then BBA -= 1
     Catch ex As Exception
       FA_.Document.Selection.Text += "FA_.SelectionCanged" & vbCrLf & ex.Message : End Try
   End Sub
   Private Sub BAAD()
-    Try
-      EA_ = New TextBlock With {.Text = BED, .FontFamily = New FontFamily("Consolas"),
-      .Margin = New Thickness(BBA * 10, BBB * 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
-      BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10) : BBA += 1
-      AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-      If B111.Children.Count > BBA Then
-        For i = BBA - 1 To B111.Children.Count - 2 Step 1 : BDA(i) = i * 10 + 10
-          ACAF(B111.Children(i)).Margin = New Thickness(BDA(i), BDB(i), 0, 0) : Next : End If
-      FA_.Focus(3)
-    Catch ex As Exception
-      FA_.Document.Selection.Text += vbCrLf & "B111.ChildrenAdded: " & ex.Message & vbCrLf & ex.Source
-    End Try
-  End Sub
-  Private Sub BAAE()
+    KAH.Clear() : KAI.Clear() : MAB.Clear() : MAC.Clear() : MAD.Clear()
+    KAH.Add(CAA) : KAI.Add("") : If BEC = "" Then Exit Sub
+
+    For i = 0 To BBE - 1 Step 1 : Select Case BEB.Substring(i, 1)
+        Case "(", "ǀ", "[", "{" : BBF += 1 : Case ")", "|", "]", "}" : BBF -= 1
+        Case "'", "`", "→", "=", "≠", "<", ">", "+", "-", "±", "∓", "·", ":",
+             "˄", "˅" : KAH.Add(CAA.Substring(0, 0)) : MAC.Add(i + 1)
+
+
+      End Select
+
+      If AAD = 0 Then
+        Select Case CAA.Substring(i, 2)
+          Case "' ", "´ " : KAI.Add(i) : End Select
+      End If
+    Next
+    '1.2     Funktionen
+    'If CAA.Substring(_B, 1) <> "-" Then
+    '  ' Erstes ein Zeichen
+    '  If _D > 1 Then : Select Case CAA.Substring(_B, 1)
+    '      Case "(" : _C += 1 : _E -= 2 : MAB.Add(1)
+    '    End Select : End If
+    '  ' Erste zwei Zeichen
+    '  If _D > 2 Then : Select Case CAA.Substring(_B, 2)
+    '      Case "√(" : _C += 2 : _E -= 3 : MAB.Add(3)
+    '      Case "d(" : _C += 2 : _E -= 3 : MAB.Add(4)
+    '      Case "ʃ(" : _C += 2 : _E -= 3 : MAB.Add(5)
+    '      Case "Ʃ(" : _C += 2 : _E -= 3 : MAB.Add(6)
+    '      Case "∏(" : _C += 2 : _E -= 3 : MAB.Add(7)
+    '    End Select : End If
+    '  ' Erste drei Zeichen
+    '  If _D > 3 Then : Select Case CAA.Substring(_B, 3)
+    '      Case "ln(" : _C += 3 : _E -= 4 : MAB.Add(8)
+    '    End Select : End If
+    '  ' Erste vier Zeichen
+    '  If _D > 4 Then : Select Case CAA.Substring(_B, 2)
+    '      Case "log(" : _C += 4 : _E -= 5 : MAB.Add(9)
+    '      Case "lim(" : _C += 4 : _E -= 5 : MAB.Add(10)
+    '      Case "cos(" : _C += 4 : _E -= 5 : MAB.Add(11)
+    '      Case "sin(" : _C += 4 : _E -= 5 : MAB.Add(12)
+    '      Case "tan(" : _C += 4 : _E -= 5 : MAB.Add(13)
+    '      Case "cot(" : _C += 4 : _E -= 5 : MAB.Add(14)
+    '    End Select : End If
+    '  ' Erste fünf Zeichen
+    '  If _D > 5 Then : Select Case CAA.Substring(_B, 5)
+    '      Case "acos(" : _C += 5 : _E -= 6 : MAB.Add(15)
+    '      Case "asin(" : _C += 5 : _E -= 6 : MAB.Add(16)
+    '      Case "atan(" : _C += 5 : _E -= 6 : MAB.Add(17)
+    '      Case "acot(" : _C += 5 : _E -= 6 : MAB.Add(18)
+    '    End Select : End If
+    'Else
+    '  ' Erste zwei Zeichen
+    '  If _D > 2 Then : Select Case CAA.Substring(_B, 2)
+    '      Case "-(" : _C += 2 : _E -= 3 : MAB.Add(1)
+    '      Case "-{" : _C += 2 : _E -= 3 : MAB.Add(1)
+    '      Case "-ǀ" : _C += 2 : _E -= 3 : MAB.Add(2)
+    '      Case "-[" : _C += 2 : _E -= 3 : MAB.Add(2)
+    '    End Select : End If
+    '  ' Erste drei Zeichen
+    '  If _D > 3 Then : Select Case CAA.Substring(_B, 3)
+    '      Case "-√(" : _C += 3 : _E -= 4 : MAB.Add(3)
+    '      Case "-d(" : _C += 3 : _E -= 4 : MAB.Add(4)
+    '      Case "-ʃ(" : _C += 3 : _E -= 4 : MAB.Add(5)
+    '      Case "-Ʃ(" : _C += 3 : _E -= 4 : MAB.Add(6)
+    '      Case "-∏(" : _C += 3 : _E -= 4 : MAB.Add(7)
+    '    End Select : End If
+    '  ' Erste vier Zeichen
+    '  If _D > 4 Then : Select Case CAA.Substring(_B, 4)
+    '      Case "-ln(" : _C += 4 : _E -= 5 : MAB.Add(8)
+    '    End Select : End If
+    '  ' Erste fünf Zeichen
+    '  If _D > 5 Then : Select Case CAA.Substring(_B, 5)
+    '      Case "-log(" : _C += 5 : _E -= 6 : MAB.Add(9)
+    '      Case "-lim(" : _C += 5 : _E -= 6 : MAB.Add(10)
+    '      Case "-cos(" : _C += 5 : _E -= 6 : MAB.Add(11)
+    '      Case "-sin(" : _C += 5 : _E -= 6 : MAB.Add(12)
+    '      Case "-tan(" : _C += 5 : _E -= 6 : MAB.Add(13)
+    '      Case "-cot(" : _C += 5 : _E -= 6 : MAB.Add(14)
+    '    End Select : End If
+    '  ' Erste sechs Zeichen
+    '  If _D > 6 Then : Select Case CAA.Substring(_B, 6)
+    '      Case "-acos(" : _C += 6 : _E -= 7 : MAB.Add(15)
+    '      Case "-asin(" : _C += 6 : _E -= 7 : MAB.Add(16)
+    '      Case "-atan(" : _C += 6 : _E -= 7 : MAB.Add(17)
+    '      Case "-acot(" : _C += 6 : _E -= 7 : MAB.Add(18)
+    '    End Select : End If
+    'End If
+
+
     ' □
-    EA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
-      .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
-      .Margin = New Thickness(BBA * 10, BBB * 10 - 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
-    BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10 - 10) : BBA += 1
-    BBB += 1 : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    If BBA > 2 Then : For i = 0 To BBA - 3 Step 1
-        ACAF(B111.Children(i)).Margin = New Thickness(BDA(i), BBB * 10, 0, 0) : BDB(i) = BBB * 10
-      Next : End If
-    If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
-        ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BBB * 10, 0, 0)
-        BDA(i) = i * 10 + 10 : BDB(i) = BBB * 10 : Next : End If
+    'EA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
+    '  .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
+    '  .Margin = New Thickness(BBA * 10, BBB * 10 - 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
+    'BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10 - 10) : BBA += 1
+    'BBB += 1 : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+    'If BBA > 2 Then : For i = 0 To BBA - 3 Step 1
+    '    ACAF(B111.Children(i)).Margin = New Thickness(BDA(i), BBB * 10, 0, 0) : BDB(i) = BBB * 10
+    '  Next : End If
+    'If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
+    '    ACAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BBB * 10, 0, 0)
+    '    BDA(i) = i * 10 + 10 : BDB(i) = BBB * 10 : Next : End If
 
 
     'BEB = BEB.Replace("√)", "") : BEB = BEB.Replace("ln)", "")
@@ -926,17 +1017,29 @@ A = √(Ax2 + Ay2 + Az2)")
     '  FA_.Document.Selection.Text = FA_.Document.Selection.Text.Remove(BBC - BED.Length, BED.Length)
     'End If
 
+
+  End Sub
+  Private Sub BAAE()
+    Try
+      EA_ = New TextBlock With {.Text = BED, .FontFamily = New FontFamily("Consolas"),
+      .Margin = New Thickness(BBA * 10, BBB * 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
+      BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10) : BBA += 1
+      AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+      If B111.Children.Count > BBA Then
+        For i = BBA - 1 To B111.Children.Count - 2 Step 1 : BDA(i) = i * 10 + 10
+          ACAF(B111.Children(i)).Margin = New Thickness(BDA(i), BDB(i), 0, 0) : Next : End If
+      FA_.Focus(3)
+    Catch ex As Exception
+      FA_.Document.Selection.Text += vbCrLf & "B111.ChildrenAdded: " & ex.Message & vbCrLf & ex.Source
+    End Try
   End Sub
   Private Sub BAAF()
     FA_.Document.Selection.StartPosition = 0
     FA_.Document.Selection.EndPosition = FA_.Document.Selection.StoryLength - 1
   End Sub
-  'Private Sub BAAG()
-  '  If BBC > BED.Length - 1 AndAlso BED = BEA.Substring(BBC - BED.Length, BED.Length) Then
-  '    BEB = BEB.Remove(BBC - BED.Length, BED.Length) : End If
-  'End Sub
 #End Region
 #Region "B-AB"
+
 #End Region
 #Region "B-AC"
 #End Region
