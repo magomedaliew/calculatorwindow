@@ -957,4 +957,16 @@
   <data name="A105" xml:space="preserve">
     <value>Error message</value>
   </data>
+  <data name="E253" xml:space="preserve">
+    <value>dark</value>
+  </data>
+  <data name="E254" xml:space="preserve">
+    <value>light</value>
+  </data>
+  <data name="E251" xml:space="preserve">
+    <value>outside</value>
+  </data>
+  <data name="E252" xml:space="preserve">
+    <value>inside</value>
+  </data>
 </root>

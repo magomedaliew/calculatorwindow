@@ -957,4 +957,16 @@
   <data name="A105" xml:space="preserve">
     <value>Сообщение об ошибке</value>
   </data>
+  <data name="E253" xml:space="preserve">
+    <value>тёмный</value>
+  </data>
+  <data name="E254" xml:space="preserve">
+    <value>светлый</value>
+  </data>
+  <data name="E251" xml:space="preserve">
+    <value>простор</value>
+  </data>
+  <data name="E252" xml:space="preserve">
+    <value>окно</value>
+  </data>
 </root>

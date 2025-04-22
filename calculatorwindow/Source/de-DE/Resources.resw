@@ -972,4 +972,17 @@
   <data name="A105" xml:space="preserve">
     <value>Fehlermeldung</value>
   </data>
+  <data name="E253" xml:space="preserve">
+    <value>dunkel</value>
+  </data>
+  <data name="E254" xml:space="preserve">
+    <value>hell</value>
+  </data>
+  <data name="E251" xml:space="preserve">
+    <value>außen</value>
+    <comment>Titeln 5</comment>
+  </data>
+  <data name="E252" xml:space="preserve">
+    <value>innen</value>
+  </data>
 </root>

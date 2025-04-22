@@ -3,5 +3,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:calculatorwindow">
+ <Application.Resources>
+  <!--Button-->
+  <Style TargetType="Button">
+   <Setter Property="VerticalAlignment" Value="3"/>
+   <Setter Property="HorizontalAlignment" Value="3"/>
+   <Setter Property="VerticalContentAlignment" Value="1"/>
+   <Setter Property="HorizontalContentAlignment" Value="1"/>
+   <Setter Property="BorderThickness" Value="1"/>
+   <Setter Property="CornerRadius" Value="3"/>
+  </Style>
+  <!--RichEditBox-->
+  <Style TargetType="RichEditBox">
+   <Setter Property="BorderThickness" Value="1"/>
+   <Setter Property="CornerRadius" Value="3"/>
+   <Setter Property="IsSpellCheckEnabled" Value="False"/>
+  </Style>
 
+ </Application.Resources>
 </Application>

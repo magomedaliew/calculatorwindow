@@ -1,4 +1,4 @@
-﻿<Page Name="AAA0"
+﻿ <Page Name="AAA0"
   mc:Ignorable="d"
   x:Class="calculatorwindow.MainPage"
   xmlns:local="using:calculatorwindow"
@@ -9,7 +9,7 @@
   DataContext="{ThemeResource ButtonPadding}"
   Background="White" RequestedTheme="Light">
 
- <Grid Name="AA00">
+  <Grid Name="AA00">
   <Grid Name="A100">
    <AppBarButton Name="A101" Click="A_AA">
     <FontIcon Glyph="&#xE80F;"/>
@@ -43,20 +43,36 @@
    </AppBarButton>
   </Grid>
   <Grid Name="B100">
+
+   <Canvas Name="Ξ101">
+    <TextBlock Name="Ξ102"/>
+   </Canvas>
+
+   <Canvas Name="Ξ103">
+    <TextBlock Name="Ξ104"/>
+   </Canvas>
+
+   <ScrollViewer Background="Blue" Margin="10, 10, 0, 0" Name="SCROVI">
+    <Grid Height="1500">
+    </Grid>
+   </ScrollViewer>
+   
    <TextBox Name="B101" Foreground="Gray" TextChanged="B_AA"/>
    <TextBlock Name="B102" Foreground="Magenta"/>
    <RichEditBox Name="B103" FontFamily="Consolas"/>
    <RichEditBox Name="B104" FontFamily="Consolas"/>
-   <Rectangle Name="B105" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B106" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B107" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B108" Stroke="White" StrokeThickness="3"/>
-   <ScrollViewer Name="B110" Grid.Column="1" Grid.Row="2">
+   
+   <ScrollViewer Name="B110">
     <Canvas Name="B111" Background="AntiqueWhite"/>
    </ScrollViewer>
-   <ScrollViewer Name="B120" Grid.Column="2" Grid.Row="2">
-    <Canvas Name="B121"/>
-   </ScrollViewer>
+   <ScrollViewer Name="B120"/>
+   
+   
+   <Rectangle Name="B191" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="B192" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="B193" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="B194" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="B195" Stroke="White" StrokeThickness="1"/>
   </Grid>
   <Grid Name="B200">
    <Button Name="B201" Click="B_BA"/>
@@ -71,76 +87,88 @@
    <Button Name="B210" Click="B_BJ"/>
   </Grid>
   <Grid Name="B300">
+   <!--PeriodenTabelle-->
   </Grid>
   <Grid Name="B400">
    <Button Name="B401" Click="CABD"/>
   </Grid>
+  <Grid Name="B500">
+   <Button Name="B501" Click="ACAA"/>
+   <Button Name="B502" Click="ACAB"/>
+   <Button Name="B503" Click="ACAC"/>
+   <Button Name="B504" Click="ACAD"/>
+   <Button Name="B505" Click="ACAE"/>
+   <ToggleSwitch Name="B511" Toggled="ACBA"/>
+   <ToggleSwitch Name="B512" Toggled="ACBB"/>
+   <ToggleSwitch Name="B513" Toggled="ACBC"/>
+   <!--<CheckBox Checked="AAAA"/>-->
+  </Grid>
   <Grid Name="C100">
-   <Button Name="C101" Click="C_AA"/>
-   <Button Name="C102" Click="C_AA"/>
-   <Button Name="C103" Click="C_AA"/>
-   <Button Name="C104" Click="C_AA"/>
-   <Button Name="C105" Click="C_AA"/>
-   <Button Name="C106" Click="C_AA"/>
-   <Button Name="C107" Click="C_AA"/>
-   <Button Name="C108" Click="C_AA"/>
-   <Button Name="C109" Click="C_AA"/>
-   <Button Name="C110" Click="C_AA"/>
-   <Button Name="C111" Click="C_AA"/>
-   <Button Name="C112" Click="C_AA"/>
-   <Button Name="C113" Click="C_AA"/>
-   <Button Name="C114" Click="C_AA"/>
-   <Button Name="C115" Click="C_AA"/>
-   <Button Name="C116" Click="C_AA"/>
-   <Button Name="C117" Click="C_AC"/>
-   <Button Name="C118" Click="C_AC"/>
-   <Button Name="C119" Click="C_AC"/>
-   <Button Name="C120" Click="C_AA"/>
-   <Button Name="C121" Click="C_AC"/>
-   <Button Name="C122" Click="C_AC"/>
-   <Button Name="C123" Click="C_AE"/>
-   <Button Name="C124" Click="C_AA"/>
-   <Button Name="C125" Click="C_AB"/>
+   <Button Name="C101" Click="C_AA" Content="1"/>
+   <Button Name="C102" Click="C_AA" Content="2"/>
+   <Button Name="C103" Click="C_AA" Content="3"/>
+   <Button Name="C104" Click="C_AA" Content="4"/>
+   <Button Name="C105" Click="C_AA" Content="5"/>
+   <Button Name="C106" Click="C_AA" Content="6"/>
+   <Button Name="C107" Click="C_AA" Content="7"/>
+   <Button Name="C108" Click="C_AA" Content="8"/>
+   <Button Name="C109" Click="C_AA" Content="9"/>
+   <Button Name="C110" Click="C_AA" Content="0"/>
+   <Button Name="C111" Click="C_AA" Content="e"/>
+   <Button Name="C112" Click="C_AA" Content="π"/>
+   <Button Name="C113" Click="C_AA" Content="["/>
+   <Button Name="C114" Click="C_AA" Content="ǀ"/>
+   <Button Name="C115" Click="C_AA" Content="|"/>
+   <Button Name="C116" Click="C_AA" Content="]"/>
+   <Button Name="C117" Click="C_AA" Content="+"/>
+   <Button Name="C118" Click="C_AA" Content="*"/>
+   <Button Name="C119" Click="C_AA" Content="˄"/>
+   <Button Name="C120" Click="C_AA" Content="∞"/>
+   <Button Name="C121" Click="C_AA" Content="–"/>
+   <Button Name="C122" Click="C_AA" Content=":"/>
+   <Button Name="C123" Click="C_AD" Content="˅"/>
+   <Button Name="C124" Click="C_AA" Content="Δ"/>
+   <Button Name="C125" Click="C_AB" Content="-"/>
    <Button Name="C126" Click="C_AA"/>
-   <Button Name="C127" Click="C_AA"/>
-   <Button Name="C128" Click="C_AA"/>
-   <Button Name="C129" Click="C_AA"/>
-   <Button Name="C130" Click="C_AA"/>
-   <Button Name="C131" Click="C_AA"/>
-   <Button Name="C132" Click="C_AA"/>
-   <Button Name="C133" Click="C_AA"/>
-   <Button Name="C134" Click="C_AF"/>
-   <Button Name="C135" Click="C_AF"/>
-   <Button Name="C136" Click="C_AG"/>
-   <Button Name="C137" Click="C_AA"/>
-   <Button Name="C138" Click="C_AD"/>
-   <Button Name="C139" Click="C_AE"/>
-   <Button Name="C140" Click="C_AE"/>
-   <Button Name="C141" Click="C_AD"/>
-   <Button Name="C142" Click="C_AD"/>
-   <Button Name="C143" Click="C_AD"/>
-   <Button Name="C144" Click="C_AD"/>
-   <Button Name="C145" Click="C_AD"/>
-   <Button Name="C146" Click="C_AD"/>
-   <Button Name="C147" Click="C_AD"/>
-   <Button Name="C148" Click="C_AD"/>
+   <Button Name="C127" Click="C_AA" Content="´"/>
+   <Button Name="C128" Click="C_AA" Content="°"/>
+   <Button Name="C129" Click="C_AA" Content="("/>
+   <Button Name="C130" Click="C_AA" Content=")"/>
+   <Button Name="C131" Click="C_AA" Content="!"/>
+   <Button Name="C132" Click="C_AA" Content="→"/>
+   <Button Name="C133" Click="C_AA" Content="√"/>
+   <Button Name="C134" Click="C_AE" Content="Ʃ"/>
+   <Button Name="C135" Click="C_AE" Content="∏"/>
+   <Button Name="C136" Click="C_AF" Content="ʃ"/>
+   <Button Name="C137" Click="C_AA" Content="√'"/>
+   <Button Name="C138" Click="C_AC" Content="ln"/>
+   <Button Name="C139" Click="C_AD" Content="lim"/>
+   <Button Name="C140" Click="C_AD" Content="log"/>
+   <Button Name="C141" Click="C_AC" Content="cos"/>
+   <Button Name="C142" Click="C_AC" Content="sin"/>
+   <Button Name="C143" Click="C_AC" Content="tan"/>
+   <Button Name="C144" Click="C_AC" Content="cot"/>
+   <Button Name="C145" Click="C_AC" Content="acos"/>
+   <Button Name="C146" Click="C_AC" Content="asin"/>
+   <Button Name="C147" Click="C_AC" Content="atan"/>
+   <Button Name="C148" Click="C_AC" Content="acot"/>
 
-   <Button Name="C149" Click="C_AD"/>
-   <Button Name="C150" Click="C_AD"/>
-   <Button Name="C151" Click="C_AA"/>
-   <Button Name="C152" Click="C_AA"/>
-   <Button Name="C153" Click="C_AA"/>
-   <Button Name="C154" Click="C_AF"/>
-   <Button Name="C155" Click="C_AF"/>
-   <Button Name="C156" Click="C_AG"/>
-   <Button Name="C157" Click="C_AA"/>
-   <Button Name="C158" Click="C_AD"/>
-   <Button Name="C159" Click="C_AE"/>
-   <Button Name="C160" Click="C_AE"/>
-   <Button Name="C161" Click="C_AD"/>
-   <Button Name="C162" Click="C_AD"/>
-   <Button Name="C163" Click="C_AD"/>
-   <Button Name="C164" Click="C_AD"/>
+   <Button Name="C149" Click="C_AC" Content=""/>
+   <Button Name="C150" Click="C_AC" Content="▲"/>
+   <Button Name="C151" Click="C_AA" Content=""/>
+   <Button Name="C152" Click="C_AA" Content="⛭"/>
+   <Button Name="C153" Click="C_AA" Content="◀"/>
+   <Button Name="C154" Click="C_AE" Content="⬜"/>
+   <Button Name="C155" Click="C_AE" Content="▶"/>
+   <Button Name="C156" Click="C_AF" Content="⛯"/>
+   <Button Name="C157" Click="C_AA" Content=""/>
+   <Button Name="C158" Click="C_AC" Content="▼"/>
+   <Button Name="C159" Click="C_AD" Content=""/>
+   <Button Name="C160" Click="C_AD" Content=""/>
+   <Button Name="C161" Click="C_AC" Content=""/>
+   <Button Name="C162" Click="C_AC" Content=""/>
+   <Button Name="C163" Click="C_AC" Content=""/>
+   <Button Name="C164" Click="C_AC" Content=""/>
   </Grid>
  </Grid>
 </Page>
