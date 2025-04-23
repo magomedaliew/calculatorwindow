@@ -13,12 +13,11 @@
    <Setter Property="BorderThickness" Value="1"/>
    <Setter Property="CornerRadius" Value="3"/>
   </Style>
-  <!--RichEditBox-->
-  <Style TargetType="RichEditBox">
-   <Setter Property="BorderThickness" Value="1"/>
-   <Setter Property="CornerRadius" Value="3"/>
-   <Setter Property="IsSpellCheckEnabled" Value="False"/>
+  <!--TextBlock-->
+  <Style TargetType="TextBlock">
+   <Setter Property="TextWrapping" Value="Wrap"/>
+   <Setter Property="IsTextSelectionEnabled" Value="True"/>
+   <Setter Property="SelectionHighlightColor" Value="SkyBlue"/>
   </Style>
-
  </Application.Resources>
 </Application>

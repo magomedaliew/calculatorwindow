@@ -43,36 +43,30 @@
    </AppBarButton>
   </Grid>
   <Grid Name="B100">
-
+  
    <Canvas Name="Ξ101">
-    <TextBlock Name="Ξ102"/>
+    <TextBlock Name="Հ101"/>
+    <TextBlock Name="Ϟ101"/>
    </Canvas>
 
-   <Canvas Name="Ξ103">
-    <TextBlock Name="Ξ104"/>
+   <Canvas Name="Ξ102">
+    <TextBlock Name="Հ102"/>
+    <TextBlock Name="Ϟ102"/>
    </Canvas>
 
-   <ScrollViewer Background="Blue" Margin="10, 10, 0, 0" Name="SCROVI">
-    <Grid Height="1500">
+   <ScrollViewer Name="Ξ103">
+    <Grid Name="Ϟ103">
+     <TextBlock Name="Հ103"/>
     </Grid>
    </ScrollViewer>
-   
-   <TextBox Name="B101" Foreground="Gray" TextChanged="B_AA"/>
-   <TextBlock Name="B102" Foreground="Magenta"/>
-   <RichEditBox Name="B103" FontFamily="Consolas"/>
-   <RichEditBox Name="B104" FontFamily="Consolas"/>
-   
-   <ScrollViewer Name="B110">
-    <Canvas Name="B111" Background="AntiqueWhite"/>
+
+   <ScrollViewer Name="Ξ104">
+    <Grid Name="Ϟ104">
+     <TextBlock Name="Հ104"/>
+    </Grid>
    </ScrollViewer>
-   <ScrollViewer Name="B120"/>
-   
-   
-   <Rectangle Name="B191" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B192" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B193" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B194" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B195" Stroke="White" StrokeThickness="1"/>
+
+   <Rectangle Name="Ξ105"/>
   </Grid>
   <Grid Name="B200">
    <Button Name="B201" Click="B_BA"/>
@@ -93,14 +87,15 @@
    <Button Name="B401" Click="CABD"/>
   </Grid>
   <Grid Name="B500">
-   <Button Name="B501" Click="ACAA"/>
-   <Button Name="B502" Click="ACAB"/>
-   <Button Name="B503" Click="ACAC"/>
-   <Button Name="B504" Click="ACAD"/>
-   <Button Name="B505" Click="ACAE"/>
-   <ToggleSwitch Name="B511" Toggled="ACBA"/>
-   <ToggleSwitch Name="B512" Toggled="ACBB"/>
-   <ToggleSwitch Name="B513" Toggled="ACBC"/>
+   <Button Name="B501" Click="ABAA"/>
+   <Button Name="B502" Click="ABAB"/>
+   <Button Name="B503" Click="ABAC"/>
+   <Button Name="B504" Click="ABAD"/>
+   <Button Name="B505" Click="ABAE"/>
+   <Button Name="B506" Click="ABAF"/>
+   <ToggleSwitch Name="B511" Toggled="ABBA"/>
+   <ToggleSwitch Name="B512" Toggled="ABBB"/>
+   <ToggleSwitch Name="B513" Toggled="ABBC"/>
    <!--<CheckBox Checked="AAAA"/>-->
   </Grid>
   <Grid Name="C100">
