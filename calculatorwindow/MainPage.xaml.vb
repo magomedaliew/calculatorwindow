@@ -15,12 +15,12 @@ Public NotInheritable Class MainPage
 #Region "≡≡≡≡"
 #Region "A-01"
   ' Controlls
-  Dim AA_ As New Line ' Text Kursor in B111
+  Dim AA_, AB_ As New Line ' Text Kursor in B111
   Dim BA_ As New Button ' Chemisches Element
   Dim CA_ As New Canvas ' Border Canvas leer
   Dim DA_ As New ListView ' Chemische Liste
-  Dim EA_, EB_ As TextBlock ' Periodentabelle
-  Dim FA_ As New RichEditBox ' Math - Classic
+  Dim EA_, EB_ As New TextBlock ' Periodentabelle
+  Dim FA_, FB_ As New TextBox ' Math - Classic
 #End Region
 #Region "A-02"
   ' Klassen
@@ -41,11 +41,10 @@ Public NotInheritable Class MainPage
   Dim AAG As Byte ' Farben Nummer für ADAB
 
   Dim ABA As String ' Listen Text Substring
-  Dim ABB As String ' Focus Elementen Namen
 
   Dim ACA, ACB As Integer
   Dim ADA() As String
-  Dim AEA As DispatcherTimer
+  Dim AEA, AEB As DispatcherTimer
   ' Mathematik
   Dim BAA As Boolean
   Dim BBA As Integer ' x Position Kursor B111
@@ -102,11 +101,17 @@ Public NotInheritable Class MainPage
       ToolTipService.SetToolTip(A107, New ToolTip With {.Content = A_D.GetString("A007"), .Placement = PlacementMode.Bottom})
       ToolTipService.SetToolTip(A108, New ToolTip With {.Content = A_D.GetString("A008"), .Placement = PlacementMode.Bottom})
 
-      A109.Content = "A1" : A110.Content = "B1" : Հ101.Text = A_D.GetString("A201") : Հ103.Text = A_D.GetString("A202")
-      C126.Content = A_D.GetString("A254") : Հ102.Text = "AAAAAAAAAAASSSSSSSSSSSSSSSS"
+      AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEA.Tick, AddressOf ACAC
+      AEB = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEB.Tick, AddressOf ACAD
+
+      A109.Content = "A1" : A110.Content = "B1" : Ϟ101.Text = A_D.GetString("A201") : Ϟ102.Text = A_D.GetString("A202")
+      C126.Content = A_D.GetString("A254") : AA00.Children.Add(CA_) : Ϟ101.Opacity = 0.5 : Ϟ102.Opacity = 0.5
+
+      AA00.Children.Add(FA_) : FA_.MaxHeight = 0 : FA_.MaxWidth = 0 : Ξ101.Children.Add(AA_) : AA_.StrokeThickness = 1
+      AA00.Children.Add(FB_) : FB_.MaxHeight = 0 : FB_.MaxWidth = 0 : Ξ102.Children.Add(AB_) : AB_.StrokeThickness = 1
 
       If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
-        Հ104.FontFamily = New FontFamily("Segoe UI") : Հ104.Text = A_D.GetString("A900")
+        Ϟ104.FontFamily = New FontFamily("Segoe UI") : Ϟ104.Text = A_D.GetString("A900")
 
         'ABAD(5) : ABAE(Colors.White, Colors.Lime, A_D.GetString("E001") & vbCrLf)
         'ABAD(5) : ABAE(Colors.White, Colors.Black, A_E.GetString("A002"))
@@ -127,34 +132,27 @@ Public NotInheritable Class MainPage
           AAC += 1 : End If
         If AAC = 4 Then : If AAB = 20 Then : Exit Do : Else : AAC = 0 : End If : End If : Loop
 
-      Grid.SetRow(B100, 2) : Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4) ' : Grid.SetRow(FA_, 2)
-      'B100.Children.Add(FA_)
-
-      Grid.SetRow(Ξ101, 0) : Grid.SetColumn(Ξ102, 3)
-      Grid.SetRow(Ξ103, 2) : Grid.SetColumn(Ξ103, 1) : Grid.SetRow(Ξ104, 2) : Grid.SetColumn(Ξ104, 3)
+      Grid.SetRow(B100, 2) : Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4) : Grid.SetRow(Հ101, 0)
+      Grid.SetRow(Հ102, 2) : Grid.SetRow(Հ104, 2) : Grid.SetRow(Ξ100, 0)
 
       Grid.SetColumn(A101, 1) : Grid.SetColumn(A102, 2) : Grid.SetColumn(A103, 3) : Grid.SetColumn(A104, 4)
       Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6) : Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8)
-      Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10) : Grid.SetColumn(FA_, 3) : AA00.Children.Add(CA_)
+      Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10) : Grid.SetColumn(Հ103, 3) : Grid.SetColumn(Հ102, 1)
+      Grid.SetColumn(Հ104, 3) : Grid.SetColumn(Ξ100, 1) : Grid.SetRowSpan(Ξ100, 3) : Grid.SetColumnSpan(Ξ100, 3)
 
-      Grid.SetRow(Ξ105, 0) : Grid.SetColumn(Ξ105, 1) : Grid.SetRowSpan(Ξ105, 3) : Grid.SetColumnSpan(Ξ105, 3)
+      AddHandler Հ101.Tapped, AddressOf ACAA : AddHandler Հ102.Tapped, AddressOf ACAB
+      AddHandler FA_.TextChanged, AddressOf ACBA : AddHandler FA_.SelectionChanged, AddressOf ACCA
+      AddHandler FB_.TextChanged, AddressOf ACBB : AddHandler FB_.SelectionChanged, AddressOf ACCB
 
-      AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
-
-      AddHandler Ξ101.GotFocus, AddressOf ABXC : AddHandler Ξ103.GotFocus, AddressOf ABXC
-      AddHandler Ϟ103.Tapped, AddressOf ABXF : AddHandler FA_.TextChanged, AddressOf BAAB
-      AddHandler FA_.SelectionChanged, AddressOf BAAC : AddHandler AEA.Tick, AddressOf BAAA
-
-      EA_ = New TextBlock : EB_ = New TextBlock : AADA() : AADB() : AADC() : AAB = 1 : BBA = 1
-
-      Ϟ103.Children.Add(AA_) : BBB = 1 : Ϟ101.Focus(3) : AADA() : A_B_() : Catch ex As Exception : End Try
+      FA_.Focus(3) : AAB = 1 : AADA() : AADB() : AADC() : A_B_() : Catch ex As Exception : Ϟ104.Text = ex.Message
+    End Try
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
     ' Size Changed
     Try : If AAA0.ActualWidth > 1.5 * AAA0.ActualHeight Then
         If AAA <> 1 Then : AAA = 1 : End If : AAAA() : Else
         If AAA <> 2 Then : AAA = 2 : End If : AAAA() : End If
-    Catch ex As Exception : End Try
+    Catch ex As Exception : Ϟ104.Text = ex.Message : End Try
   End Sub
 #End Region
 #Region "A100"
@@ -162,7 +160,7 @@ Public NotInheritable Class MainPage
     AAB = 1 : AAAA()
   End Sub
   Private Sub A_AB()
-    AAB = 2 : AAAA()
+    AAB = 2 : AAAA() : AEA.Stop() : AEB.Stop()
   End Sub
   Private Sub A_AC()
 
@@ -207,7 +205,7 @@ Public NotInheritable Class MainPage
     '  If B101.Text.Length > 1 Then
     '    Select Case B101.Text.Substring(0, 2)
     '      Case A_D.GetString("B001"), A_D.GetString("B002")
-    '        B103.PlaceholderText = A_D.GetString("A051")
+    '        Ϟ102.PlaceholderText = A_D.GetString("A051")
     '    End Select
     '  End If
     '  '5     Formelsuche
@@ -230,8 +228,8 @@ Public NotInheritable Class MainPage
     '    If aaaab.Count = 0 Then sender.ItemsSource = Nothing
     '  End If
     'Catch ex As Exception
-    '  B104.Document.SetText(TextSetOptions.FormatRtf, "")
-    '  B104.Document.Selection.Text = A_D.GetString("A151") & " A1"
+    '  Ϟ104.Document.SetText(TextSetOptions.FormatRtf, "")
+    '  Ϟ104.Document.Selection.Text = A_D.GetString("A151") & " A1"
     '  'B004.Document.Selection.Text += ex.HelpLink & vbCrLf
     '  'B004.Document.Selection.Text += ex.Message & vbCrLf
     '  'B004.Document.Selection.Text += ex.Source & vbCrLf
@@ -242,21 +240,21 @@ Public NotInheritable Class MainPage
 #Region "B200"
   Private Sub B_BA()
     ApplicationData.Current.LocalSettings.Values("upgrade") = "xxxx"
-    Հ104.FontFamily = New FontFamily("Segoe UI") : AAB = 3 : AAAA()
-    Հ104.Text = ""
-    Հ104.Inlines.Add(New Run With {.Text = A_D.GetString("A000") & vbLf,
+    Ϟ104.FontFamily = New FontFamily("Segoe UI") : AAB = 3 : AAAA()
+    Ϟ104.Text = ""
+    Ϟ104.Inlines.Add(New Run With {.Text = A_D.GetString("A000") & vbLf,
                      .Foreground = New SolidColorBrush(Colors.Blue)})
-    Հ104.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A001") &
+    Ϟ104.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A001") &
                      vbLf & vbLf,
                      .Foreground = New SolidColorBrush(Colors.Black)})
-    Հ104.Inlines.Add(New Run With {.Text = A_D.GetString("E001") & vbLf,
+    Ϟ104.Inlines.Add(New Run With {.Text = A_D.GetString("E001") & vbLf,
                      .Foreground = New SolidColorBrush(Colors.Lime)})
-    Հ104.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A002"),
+    Ϟ104.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A002"),
                      .Foreground = New SolidColorBrush(Colors.Black)})
   End Sub
   Private Sub B_BB()
 
-    'AAB = 3 : AAAA() : ABAD(0) : B104.FontFamily = New FontFamily("Consolas") : ABA = "				"
+    'AAB = 3 : AAAA() : ABAD(0) : Ϟ104.FontFamily = New FontFamily("Consolas") : ABA = "				"
     'ABAE(Colors.AliceBlue, Colors.Blue, A_D.GetString("E002") & vbLf & vbLf & vbLf)
     'ABAE(Colors.AliceBlue, Colors.Blue, A_D.GetString("E201") & ABA & A_D.GetString("E202") & vbLf & vbLf)
     'ABA = "					"
@@ -314,7 +312,7 @@ Public NotInheritable Class MainPage
     Try : AEAA() : Catch ex As Exception : End Try
   End Sub
   Private Sub B_BF()
-    '    AAB = 3 : AAAA() : ABAD(5) : B104.FontFamily = New FontFamily("Consolas")
+    '    AAB = 3 : AAAA() : ABAD(5) : Ϟ104.FontFamily = New FontFamily("Consolas")
     '    ' Mathematik - Formeln
     '    ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("E003") & "   " & vbLf & vbLf)
     '    ABAE(Colors.White, Colors.Green, A_D.GetString("E101") & vbLf)
@@ -427,16 +425,16 @@ Public NotInheritable Class MainPage
     'ln(a ^ b) = b · ln(a)
     'ln(e ^ a) = a")
     '_EA = Color.FromArgb(255, 0, 176, 80)
-    'B104.Document.Selection.CharacterFormat.Weight = 0
+    'Ϟ104.Document.Selection.CharacterFormat.Weight = 0
   End Sub
   Private Sub B_BG()
-    'AAB = 3 : AAAA() : ABAD(5) : B104.FontFamily = New FontFamily("Consolas")
+    'AAB = 3 : AAAA() : ABAD(5) : Ϟ104.FontFamily = New FontFamily("Consolas")
     '' Chemie - Formeln
     'ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("E004") & "   " & vbLf &
     '     vbLf) : ABAE(Colors.White, Colors.Green, "c = n / V" & vbLf & "M = m / n")
   End Sub
   Private Sub B_BH()
-    '    AAB = 3 : AAAA() : ABAD(10) : B104.FontFamily = New FontFamily("Consolas")
+    '    AAB = 3 : AAAA() : ABAD(10) : Ϟ104.FontFamily = New FontFamily("Consolas")
     '    ' Physik - Formeln
     '    ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("E005") & "   " & vbLf & vbLf)
     '    ABAE(Colors.White, Colors.Green, A_D.GetString("A109") & vbLf)
@@ -475,7 +473,7 @@ Public NotInheritable Class MainPage
     'A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub B_BI()
-    'AAB = 3 : AAAA() : ABAD(10) : B104.FontFamily = New FontFamily("Consolas")
+    'AAB = 3 : AAAA() : ABAD(10) : Ϟ104.FontFamily = New FontFamily("Consolas")
     '' Dimensionen
     'ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("A109") & "   " & vbLf & vbLf)
     'For i = 1 To 87 Step 1 : ABA = If(i < 10, "00", "0") & CStr(i)
@@ -490,32 +488,32 @@ Public NotInheritable Class MainPage
   Private Sub C_AA(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
     'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content
-    'ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content : End If
+    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content : End If
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, "‐")
     'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += "‐"
-    'ElseIf ABB = "B103" Then : B103.Document.Selection.Text += "‐" : End If
+    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += "‐" : End If
   End Sub
   Private Sub C_AC(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "()")
     'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "()"
-    'ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "()" : End If
+    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "()" : End If
   End Sub
   Private Sub C_AD(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(')")
     'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "(')"
-    'ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "(')" : End If
+    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "(')" : End If
   End Sub
   Private Sub C_AE(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "('')")
     'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "('')"
-    'ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "('')" : End If
+    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "('')" : End If
   End Sub
   Private Sub C_AF(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(''d())")
     'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "(''d())"
-    'ElseIf ABB = "B103" Then : B103.Document.Selection.Text += a.Content & "(''d())" : End If
+    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "(''d())" : End If
   End Sub
 #End Region
 #End Region
@@ -528,7 +526,7 @@ Public NotInheritable Class MainPage
       Case = 101 ' Q-Start
 #Region ""
         ' H-S => Q-S : Q-A° => Q-S
-        AAAB() : Grid.SetColumn(Ξ101, 1) : Grid.SetRow(Ξ102, 0)
+        AAAB() : Grid.SetColumn(Հ101, 1) : Grid.SetRow(Հ103, 0)
         AABA()
         B100.RowDefinitions.Item(1).Height = New GridLength(0, 2)
         B100.ColumnDefinitions.Item(1).Width = New GridLength(6, 2)
@@ -566,7 +564,7 @@ Public NotInheritable Class MainPage
       Case = 201 ' H-Start
 #Region ""
         ' Q-S => H-S : H-A° => H-S
-        AAAB() : Grid.SetColumn(Ξ101, 2) : Grid.SetRow(Ξ102, 1)
+        AAAB() : Grid.SetColumn(Հ101, 2) : Grid.SetRow(Հ103, 1)
         AABA() : CA_.Visibility = 1
         AA00.RowDefinitions.Item(0).Height = New GridLength(0, 2)
         B100.RowDefinitions.Item(1).Height = New GridLength(1, 2)
@@ -625,7 +623,7 @@ Public NotInheritable Class MainPage
   Private Sub AABA()
     ' S:Q-H: Start: Q und H
     B100.Visibility = 0 : B200.Visibility = 1 : B300.Visibility = 1 : B400.Visibility = 1 : C100.Visibility = 0
-    B500.Visibility = 1 : DA_.Visibility = 1 : Ξ101.Visibility = 0 : Ξ102.Visibility = 0 : Ξ103.Visibility = 0
+    B500.Visibility = 1 : DA_.Visibility = 1 : Հ101.Visibility = 0 : Հ103.Visibility = 0 : Հ102.Visibility = 0
     AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2) : Grid.SetRow(CA_, 3)
     AA00.RowDefinitions.Item(2).Height = New GridLength(12, 2) : AA00.RowDefinitions.Item(4).Height = New GridLength(6, 2)
     B100.RowDefinitions.Item(0).Height = New GridLength(1, 2) : B100.RowDefinitions.Item(2).Height = New GridLength(7, 2)
@@ -697,10 +695,10 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub AABC()
     ' L:Q-H: Listen: Q und H
-    B100.Visibility = 0 : B200.Visibility = 1 : Ξ103.Visibility = 1 : Ξ104.Visibility = 0 : DA_.Visibility = 1
+    B100.Visibility = 0 : B200.Visibility = 1 : Հ102.Visibility = 1 : Հ104.Visibility = 0 : DA_.Visibility = 1
     AA00.RowDefinitions.Item(1).Height = New GridLength(1, 2) : B100.RowDefinitions.Item(0).Height = New GridLength(0, 2)
     B100.RowDefinitions.Item(1).Height = New GridLength(0, 2) : B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
-    B100.ColumnDefinitions.Item(2).Width = New GridLength(0, 2) : Ξ101.Visibility = 1 : Ξ102.Visibility = 1
+    B100.ColumnDefinitions.Item(2).Width = New GridLength(0, 2) : Հ101.Visibility = 1 : Հ103.Visibility = 1
   End Sub
   Private Sub AACA()
     If A109.Content = "A1" Then : A109.Content = "A2" : AAC = 0
@@ -734,27 +732,21 @@ Public NotInheritable Class MainPage
     '    C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
     '    C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
     '  Case 5 : If AAD = 0 Then : B300.Visibility = AAD
-    '      DA_.Visibility = AAC : Else : BAAA() : End If : End Select
+    '      DA_.Visibility = AAC : Else : ACAC() : End If : End Select
   End Sub
   Private Sub AADA()
     ' Textstyle - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("textstyle")
       Case "."
-        FA_.Visibility = 0
       Case ""
-        FA_.Visibility = 1
     End Select
   End Sub
   Private Sub AADB()
     ' frameview - Bearbeitung '
     Select Case ApplicationData.Current.LocalSettings.Values("frameview")
-      Case "." : Ξ105.Visibility = 0
-      Case "" : Ξ105.Visibility = 1 : End Select
-    If AAE = 11 Then
-      Ξ105.Stroke = New SolidColorBrush(ADAB(AAF))
-    Else
-      Ξ105.Stroke = New SolidColorBrush(ADAB(AAE))
-    End If
+      Case "." : Ξ100.Visibility = 0
+      Case "" : Ξ100.Visibility = 1 : End Select
+    Ξ100.Stroke = New SolidColorBrush(ADAB(AAG))
   End Sub
   Private Sub AADC()
     ' Helligkeit - Bearbeitung
@@ -762,10 +754,10 @@ Public NotInheritable Class MainPage
       Case "."
         ApplicationData.Current.LocalSettings.Values("colors") = "1"
         AA00.Background = New SolidColorBrush(Colors.White)
-        Հ101.Foreground = New SolidColorBrush(Colors.Black)
-        Հ102.Foreground = New SolidColorBrush(Colors.Black)
-        Հ103.Foreground = New SolidColorBrush(Colors.Black)
-        Հ104.Foreground = New SolidColorBrush(Colors.Black)
+        Ϟ101.Foreground = New SolidColorBrush(Colors.Black)
+        Ϟ102.Foreground = New SolidColorBrush(Colors.Black)
+        Ϟ103.Foreground = New SolidColorBrush(Colors.Black)
+        Ϟ104.Foreground = New SolidColorBrush(Colors.Black)
         C100.Background = New SolidColorBrush(Colors.White)
         B501.Visibility = 0 : B502.Visibility = 0 : B503.Visibility = 0
         B504.Visibility = 0 : B505.Visibility = 0 : B506.Visibility = 0
@@ -773,10 +765,10 @@ Public NotInheritable Class MainPage
       Case ""
         ApplicationData.Current.LocalSettings.Values("colors") = ""
         AA00.Background = New SolidColorBrush(Colors.Blue)
-        Հ101.Foreground = New SolidColorBrush(Colors.White)
-        Հ102.Foreground = New SolidColorBrush(Colors.White)
-        Հ103.Foreground = New SolidColorBrush(Colors.White)
-        Հ104.Foreground = New SolidColorBrush(Colors.White)
+        Ϟ101.Foreground = New SolidColorBrush(Colors.White)
+        Ϟ102.Foreground = New SolidColorBrush(Colors.White)
+        Ϟ103.Foreground = New SolidColorBrush(Colors.White)
+        Ϟ104.Foreground = New SolidColorBrush(Colors.White)
         C100.Background = New SolidColorBrush(Colors.Blue)
         B501.Visibility = 1 : B502.Visibility = 1 : B503.Visibility = 1
         B504.Visibility = 1 : B505.Visibility = 1 : B506.Visibility = 1
@@ -798,6 +790,10 @@ Public NotInheritable Class MainPage
       Case "4" : AAE = 12 : AAF = 14 : AAG = 12 : Case "5" : AAE = 13 : AAF = 14 : AAG = 2
       Case "6" : AAE = 11 : AAF = 14 : AAG = 11 : End Select
 
+    AA_.Stroke = New SolidColorBrush(ADAB(AAG)) : AB_.Stroke = New SolidColorBrush(ADAB(AAG))
+
+    Ξ100.Stroke = New SolidColorBrush(ADAB(AAG))
+
     A100.Background = New SolidColorBrush(ADAB(AAE)) : CA_.Background = New SolidColorBrush(ADAB(AAE))
 
     For i = 0 To 9 Step 1 : ADAD(A100.Children.Item(i)).Foreground = New SolidColorBrush(ADAB(AAF))
@@ -815,7 +811,7 @@ Public NotInheritable Class MainPage
     B513.Background = New SolidColorBrush(ADAB(AAE)) : B513.Foreground = New SolidColorBrush(ADAB(AAF))
   End Sub
   'Private Sub AIAS()
-  '  Select Case B104.Document.Selection.
+  '  Select Case Ϟ104.Document.Selection.
   '    CharacterFormat.ForegroundColor
   '    Case Colors.Black : AIAC(Colors.Blue)
   '    Case Colors.Blue : AIAC(Colors.Green)
@@ -875,35 +871,91 @@ Public NotInheritable Class MainPage
   End Sub
 #End Region
 #Region "A-AC"
-  Private Sub ABXC()
-    If TypeOf FocusManager.GetFocusedElement() Is TextBox Then
-      ABB = CType(FocusManager.GetFocusedElement(), TextBox).Name : End If
-    If TypeOf FocusManager.GetFocusedElement() Is RichEditBox Then
-      ABB = CType(FocusManager.GetFocusedElement(), RichEditBox).Name : End If
+  Private Sub ACAA(a As Object, b As TappedRoutedEventArgs)
+    Try : AEB.Stop() : FA_.Focus(3) : AA_.StrokeThickness = If(BBA = 0 And Ξ100.Visibility = 0, 5, 1)
+      BBA = Math.Ceiling(b.GetPosition(Հ101).X / 10) : If BBA > FA_.Text.Length Then BBA = FA_.Text.Length
+      AA_.Visibility = 0 : AEA.Start() : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
+      AB_.Visibility = 1 : FA_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "ACAA: " & ex.Message : End Try
   End Sub
-  Private Sub ABXF(a As Object, b As TappedRoutedEventArgs)
-
-    'B100.Children.Add(sss)
-    'Grid.SetRow(sss, 2) : Grid.SetColumn(sss, 1) : B110.Visibility = 1
-
-
-    'Try
-    '  If B111.Children.Count > 1 Then
-    '    BBA = Math.Ceiling(b.GetPosition(B111).X / 10) : If BBA > B111.Children.Count Then BBA = B111.Children.Count
-    '  End If 'Math.Floor - Abrunden,   Math.Ceiling - Aufrunden
-    '  AEA.Start() : ABB = "B111" : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    '  FA_.Focus(3) : If FA_.Document.Selection.StoryLength > 1 Then : FA_.Document.Selection.StartPosition = BBA - 1
-    '    FA_.Document.Selection.EndPosition = BBA - 1 : End If : AA_.Stroke = New SolidColorBrush(Colors.Magenta)
-    'Catch ex As Exception : FA_.Document.Selection.Text += "B111.Tapped" & vbCrLf & ex.Message : End Try
+  Private Sub ACAB(a As Object, b As TappedRoutedEventArgs)
+    Try : AEA.Stop() : FB_.Focus(3)
+      BBA = Math.Ceiling(b.GetPosition(Հ102).X / 15) : If BBA >= Ξ102.Children.Count Then BBA = Ξ102.Children.Count - 2
+      AB_.Visibility = 0 : AEB.Start() : AB_.X1 = BBA * 15 : AB_.X2 = BBA * 15 : AB_.Y1 = BBB * 15 : AB_.Y2 = BBB * 15 + 15
+      AA_.Visibility = 1 : FA_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "ACAB: " & ex.Message : End Try
   End Sub
-
-  Private Sub BAAA()
-    ' Kursorblinken
+  Private Sub ACAC()
+    ' Kursor-1-Blinken
     Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
   End Sub
+  Private Sub ACAD()
+    ' Kursor-2-Blinken
+    Select Case AB_.Visibility : Case 0 : AB_.Visibility = 1 : Case 1 : AB_.Visibility = 0 : End Select
+  End Sub
+  Private Sub ACBA()
+    Try ' FA_ Eingabe: TextChanged
+      BBC = FA_.SelectionStart : BBE = FA_.Text.Length : If FA_.Text <> "" Then Ϟ101.Text = ""
 
+      If BBE - BBD < 0 Then ' wenn der Text kleiner geworden ist: ' a|bc)d
+
+        For i = BBC + BBD - BBE - 1 To BBC Step -1 : Ξ101.Children.RemoveAt(i) : Next
+
+        For i = BBC To Ξ101.Children.Count - 3 Step 1
+          ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next
+      End If
+
+      If BBE - BBD > 0 Then ' wenn der Text größer geworden ist: ' a(bc|d
+
+        For i = BBC + BBD - BBE To BBC - 1 Step 1
+          Ξ101.Children.Insert(i, New TextBlock With {.Text = FA_.Text.Substring(i, 1),
+                               .Foreground = New SolidColorBrush(ADAB(AAG))}) : Next
+
+        For i = BBC + BBD - BBE To Ξ101.Children.Count - 3 Step 1
+          ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next
+      End If
+      BBD = BBE : If FA_.Text = "" Then Ϟ101.Text = A_D.GetString("A201")
+    Catch ex As Exception : Ϟ104.Text = "ACBA: " & ex.Message : End Try
+  End Sub
+  Private Sub ACBB()
+    ' Ϟ102.Text = A_D.GetString("A202")
+
+    Try ' FA_ Eingabe: TextChanged
+      If FA_.Text = "" Then Ϟ101.Text = A_D.GetString("A201")
+      BBC = FA_.SelectionStart : BEB = FA_.SelectedText : BBE = BEB.Length
+      'B102.Text = CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Test
+      'BAAD()
+      'If BBE - BBD < 0 Then : For i = BBC + BBD - BBE - 1 To BBC Step -1 : B111.Children.RemoveAt(i)
+      '    For j = i To B111.Children.Count - 2 Step 1
+      '      ADAF(B111.Children(j)).Margin = New Thickness((j + 1) * 10, BBB * 10, 0, 0) : Next : Next : BAAD()
+      'End If
+      'If BBE - BBD > 0 Then : BEC = BEB.Substring(BBC - BBE + BBD, BBE - BBD)
+      '  For i = 0 To BEC.Length - 1 Step 1 : BED = BEC.Substring(i, 1) : BBA = BBC - BBE + BBD + i + 1 : BAAE()
+      '  Next : BAAD() : End If
+      'BAAF()
+
+      'BEA = BEB : BBD = BBE
+    Catch ex As Exception
+      'Ϟ104.Visibility = 0 : Ϟ104.Document.Selection.Text = FA_.Document.Selection.Text
+      'Ϟ104.Document.Selection.Text += vbCrLf & "FA_TextChanged: " & ex.Message : FA_.Visibility = 1
+    End Try
+
+  End Sub
+  Private Sub ACCA()
+    BBA = FA_.SelectionStart : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
+    AA_.StrokeThickness = If(BBA = 0 And Ξ100.Visibility = 0, 5, 1)
+  End Sub
+  Private Sub ACCB()
+    'Try ' FA_: SelectionCanged
+    '  BBA = FA_.Document.Selection.EndPosition + 1
+    '  AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+    '  If BBA > 1 Then BBA -= 1
+    'Catch ex As Exception
+    '  FA_.Document.Selection.Text += "FA_.SelectionCanged" & vbCrLf & ex.Message : End Try
+  End Sub
 #End Region
 #Region "A-AD"
+
+#End Region
+#Region "A-AE"
   Private Function ADAA() As Boolean
     Dim aaaaa As ConnectionProfile = NetworkInformation.GetInternetConnectionProfile()
     If aaaaa IsNot Nothing AndAlso aaaaa.GetNetworkConnectivityLevel() = 3 Then
@@ -930,14 +982,14 @@ Public NotInheritable Class MainPage
     Return a
   End Function
 #End Region
-#Region "A-AE"
+#Region "A-AF"
   Private Async Sub AEAA()
     If ADAA() = True Then
-      Dim aaaaa As String = "AA" ' : B103.Document.Selection.StartPosition = 0
-      'B103.Document.Selection.EndPosition = _B103.Document.Selection.StoryLength
+      Dim aaaaa As String = "AA" ' : Ϟ102.Document.Selection.StartPosition = 0
+      'Ϟ102.Document.Selection.EndPosition = _Ϟ102.Document.Selection.StoryLength
 
       'aaaaa = A_D.GetString("A201") & ":   " & B101.Text & vbCrLf &
-      '  A_D.GetString("A202") & ":   " & B103.Document.Selection.Text
+      '  A_D.GetString("A202") & ":   " & Ϟ102.Document.Selection.Text
 
       Dim emailMessage As New EmailMessage With {.Body = aaaaa,
       .Subject = A_D.GetString("A105")}
@@ -952,35 +1004,6 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "BBBB"
 #Region "B-AA"
-  Private Sub BAAB()
-    Try ' FA_ Eingabe: TextChanged
-      BBC = FA_.Document.Selection.EndPosition : BAAF() : BEB = FA_.Document.Selection.Text : BBE = BEB.Length
-      'B102.Text = CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Test
-
-      BAAD()
-      'If BBE - BBD < 0 Then : For i = BBC + BBD - BBE - 1 To BBC Step -1 : B111.Children.RemoveAt(i)
-      '    For j = i To B111.Children.Count - 2 Step 1
-      '      ADAF(B111.Children(j)).Margin = New Thickness((j + 1) * 10, BBB * 10, 0, 0) : Next : Next : BAAD()
-      'End If
-      'If BBE - BBD > 0 Then : BEC = BEB.Substring(BBC - BBE + BBD, BBE - BBD)
-      '  For i = 0 To BEC.Length - 1 Step 1 : BED = BEC.Substring(i, 1) : BBA = BBC - BBE + BBD + i + 1 : BAAE()
-      '  Next : BAAD() : End If
-      'BAAF()
-
-      BEA = BEB : BBD = BBE : FA_.Document.Selection.EndPosition = BBC : FA_.Document.Selection.StartPosition = BBC
-    Catch ex As Exception
-      'B104.Visibility = 0 : B104.Document.Selection.Text = FA_.Document.Selection.Text
-      'B104.Document.Selection.Text += vbCrLf & "FA_TextChanged: " & ex.Message : FA_.Visibility = 1
-    End Try
-  End Sub
-  Private Sub BAAC()
-    Try ' FA_: SelectionCanged
-      BBA = FA_.Document.Selection.EndPosition + 1
-      AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-      If BBA > 1 Then BBA -= 1
-    Catch ex As Exception
-      FA_.Document.Selection.Text += "FA_.SelectionCanged" & vbCrLf & ex.Message : End Try
-  End Sub
   Private Sub BAAD()
     KAH.Clear() : KAI.Clear() : MAA.Clear() : MAC.Clear() : MAD.Clear()
     KAI.Add("") : MAA.Add(0) : MAC.Add(0) : If BBE < 2 Then Exit Sub
@@ -1068,10 +1091,6 @@ Public NotInheritable Class MainPage
     'Catch ex As Exception
     '  FA_.Document.Selection.Text += vbCrLf & "B111.ChildrenAdded: " & ex.Message & vbCrLf & ex.Source
     'End Try
-  End Sub
-  Private Sub BAAF()
-    FA_.Document.Selection.StartPosition = 0
-    FA_.Document.Selection.EndPosition = FA_.Document.Selection.StoryLength - 1
   End Sub
 #End Region
 #Region "B-AB"

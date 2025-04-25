@@ -43,30 +43,27 @@
    </AppBarButton>
   </Grid>
   <Grid Name="B100">
-  
-   <Canvas Name="Ξ101">
-    <TextBlock Name="Հ101"/>
-    <TextBlock Name="Ϟ101"/>
-   </Canvas>
-
-   <Canvas Name="Ξ102">
-    <TextBlock Name="Հ102"/>
-    <TextBlock Name="Ϟ102"/>
-   </Canvas>
-
-   <ScrollViewer Name="Ξ103">
-    <Grid Name="Ϟ103">
-     <TextBlock Name="Հ103"/>
-    </Grid>
+   <Rectangle Name="Ξ100"/>
+   <ScrollViewer Name="Հ101">
+    <Canvas Name="Ξ101">
+     <TextBlock Name="Ϟ101"/>
+    </Canvas>
    </ScrollViewer>
-
-   <ScrollViewer Name="Ξ104">
-    <Grid Name="Ϟ104">
-     <TextBlock Name="Հ104"/>
-    </Grid>
+   <ScrollViewer Name="Հ102">
+    <Canvas Name="Ξ102">
+     <TextBlock Name="Ϟ102"/>
+    </Canvas>
    </ScrollViewer>
-
-   <Rectangle Name="Ξ105"/>
+   <ScrollViewer Name="Հ103">
+    <Canvas Name="Ξ103">
+     <TextBlock Name="Ϟ103"/>
+    </Canvas>
+   </ScrollViewer>
+   <ScrollViewer Name="Հ104">
+    <Canvas Name="Ξ104">
+     <TextBlock Name="Ϟ104"/>
+    </Canvas>
+   </ScrollViewer>
   </Grid>
   <Grid Name="B200">
    <Button Name="B201" Click="B_BA"/>

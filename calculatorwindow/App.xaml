@@ -16,8 +16,10 @@
   <!--TextBlock-->
   <Style TargetType="TextBlock">
    <Setter Property="TextWrapping" Value="Wrap"/>
-   <Setter Property="IsTextSelectionEnabled" Value="True"/>
-   <Setter Property="SelectionHighlightColor" Value="SkyBlue"/>
+   <Setter Property="FontFamily" Value="Consolas"/>
+
+   <!--<Setter Property="IsTextSelectionEnabled" Value="True"/>-->
+   <!--<Setter Property="SelectionHighlightColor" Value="SkyBlue"/>-->
   </Style>
  </Application.Resources>
 </Application>
