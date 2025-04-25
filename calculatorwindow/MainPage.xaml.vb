@@ -39,6 +39,7 @@ Public NotInheritable Class MainPage
   Dim AAE As Byte ' Farben Nummer für ADAB
   Dim AAF As Byte ' Farben Nummer für ADAB
   Dim AAG As Byte ' Farben Nummer für ADAB
+  Dim AAH As Byte ' Eingabe Umschalte Zahl
 
   Dim ABA As String ' Listen Text Substring
 
@@ -46,7 +47,8 @@ Public NotInheritable Class MainPage
   Dim ADA() As String
   Dim AEA, AEB As DispatcherTimer
   ' Mathematik
-  Dim BAA As Boolean
+  Dim BAA As Boolean ' Board Auswahl Wahrheit
+
   Dim BBA As Integer ' x Position Kursor B111
   Dim BBB As Integer ' y Position Kursor B111
   Dim BBC As Integer ' x Position Kursor FA_
@@ -82,7 +84,6 @@ Public NotInheritable Class MainPage
   ' ႠႡႢႣႤႥႦႧႨႩႪႫႬႯႰႱႲႳႴႵႶႷႸႹႺႼႻႾႿჀჁჂჃჄჅ ჇꓕႮꓘꓛꓞꓤꓨꓩꓭꓯꓱꓶꓷ
 #End Region
 #Region "A-11"
-  Dim title = ApplicationView.GetForCurrentView().TitleBar
 #End Region
 #End Region
 #Region "○○○○"
@@ -90,6 +91,7 @@ Public NotInheritable Class MainPage
   Private Sub A_A_() Handles AAA0.Loaded
     ' Loaded
     Try
+      Dim title = ApplicationView.GetForCurrentView().TitleBar
       title.ButtonPressedForegroundColor = Colors.Pink : title.ButtonHoverForegroundColor = Colors.Pink
 
       ToolTipService.SetToolTip(A101, New ToolTip With {.Content = A_D.GetString("A001"), .Placement = PlacementMode.Bottom})
@@ -105,10 +107,10 @@ Public NotInheritable Class MainPage
       AEB = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEB.Tick, AddressOf ACAD
 
       A109.Content = "A1" : A110.Content = "B1" : Ϟ101.Text = A_D.GetString("A201") : Ϟ102.Text = A_D.GetString("A202")
-      C126.Content = A_D.GetString("A254") : AA00.Children.Add(CA_) : Ϟ101.Opacity = 0.5 : Ϟ102.Opacity = 0.5
+      C126.Content = A_D.GetString("A254") : AA00.Children.Add(CA_) ' : Ϟ101.Opacity = 0.8 : Ϟ102.Opacity = 0.8
 
-      AA00.Children.Add(FA_) : FA_.MaxHeight = 0 : FA_.MaxWidth = 0 : Ξ101.Children.Add(AA_) : AA_.StrokeThickness = 1
-      AA00.Children.Add(FB_) : FB_.MaxHeight = 0 : FB_.MaxWidth = 0 : Ξ102.Children.Add(AB_) : AB_.StrokeThickness = 1
+      AA00.Children.Add(FA_) : FA_.MaxHeight = 0 : FA_.MaxWidth = 0 : Ξ101.Children.Add(AA_) : AA_.StrokeThickness = 2
+      AA00.Children.Add(FB_) : FB_.MaxHeight = 0 : FB_.MaxWidth = 0 : Ξ102.Children.Add(AB_) : AB_.StrokeThickness = 2
 
       If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
         Ϟ104.FontFamily = New FontFamily("Segoe UI") : Ϟ104.Text = A_D.GetString("A900")
@@ -144,7 +146,9 @@ Public NotInheritable Class MainPage
       AddHandler FA_.TextChanged, AddressOf ACBA : AddHandler FA_.SelectionChanged, AddressOf ACCA
       AddHandler FB_.TextChanged, AddressOf ACBB : AddHandler FB_.SelectionChanged, AddressOf ACCB
 
-      FA_.Focus(3) : AAB = 1 : AADA() : AADB() : AADC() : A_B_() : Catch ex As Exception : Ϟ104.Text = ex.Message
+      Ξ100.Margin = New Thickness(-10, -10, -10, 0) : AAB = 1 : AAH = 1
+
+      FA_.Focus(3) : AEA.Start() : AADA() : AADB() : AADC() : A_B_() : Catch ex As Exception : Ϟ104.Text = ex.Message
     End Try
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
@@ -486,9 +490,8 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "C100"
   Private Sub C_AA(a As Button, b As RoutedEventArgs)
-    'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content)
-    'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content
-    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content : End If
+    If AAH = 1 Then BBC = FA_.SelectionStart : BAA = True : FA_.Text = FA_.Text.Insert(BBC, a.Content)
+    If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content)
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
     'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, "‐")
@@ -776,6 +779,7 @@ Public NotInheritable Class MainPage
     End Select : AADE()
   End Sub
   Private Sub AADD()
+    Dim title = ApplicationView.GetForCurrentView().TitleBar
     title.BackgroundColor = ADAB(AAE) : title.ButtonInactiveForegroundColor = ADAB(AAF)
     title.ForegroundColor = ADAB(AAF) : title.ButtonInactiveBackgroundColor = ADAB(AAE)
     title.ButtonBackgroundColor = ADAB(AAE) : title.InactiveBackgroundColor = ADAB(AAE)
@@ -804,6 +808,10 @@ Public NotInheritable Class MainPage
 
     If AAE = 11 And AAG = 14 Then
       For i = 0 To 63 Step 1 : ADAD(C100.Children.Item(i)).Background = New SolidColorBrush(ADAB(AAE)) : Next
+    End If
+
+    If Ξ101.Children.Count > 2 Then : For i = 0 To Ξ101.Children.Count - 3 Step 1
+        ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(ADAB(AAG)) : Next
     End If
 
     B511.Background = New SolidColorBrush(ADAB(AAE)) : B511.Foreground = New SolidColorBrush(ADAB(AAF))
@@ -872,8 +880,8 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "A-AC"
   Private Sub ACAA(a As Object, b As TappedRoutedEventArgs)
-    Try : AEB.Stop() : FA_.Focus(3) : AA_.StrokeThickness = If(BBA = 0 And Ξ100.Visibility = 0, 5, 1)
-      BBA = Math.Ceiling(b.GetPosition(Հ101).X / 10) : If BBA > FA_.Text.Length Then BBA = FA_.Text.Length
+    Try : AEB.Stop() : FA_.Focus(3) : AAH = 1
+      BBA = Math.Ceiling((b.GetPosition(Հ101).X - 4) / 10) : If BBA > FA_.Text.Length Then BBA = FA_.Text.Length
       AA_.Visibility = 0 : AEA.Start() : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
       AB_.Visibility = 1 : FA_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "ACAA: " & ex.Message : End Try
   End Sub
@@ -893,23 +901,21 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub ACBA()
     Try ' FA_ Eingabe: TextChanged
-      BBC = FA_.SelectionStart : BBE = FA_.Text.Length : If FA_.Text <> "" Then Ϟ101.Text = ""
-
+      BBE = FA_.Text.Length : If FA_.Text <> "" Then Ϟ101.Text = "" ' ! Reihenfolge !
+      ' Eignung zur TextBox Eigenschaften
+      If BAA = True Then : FA_.Focus(3) : BBA = BBC + BBE - BBD
+        FA_.SelectionStart = BBA : BAA = False : End If
+      ' Zeichen Löschen oder Zufügen
       If BBE - BBD < 0 Then ' wenn der Text kleiner geworden ist: ' a|bc)d
-
-        For i = BBC + BBD - BBE - 1 To BBC Step -1 : Ξ101.Children.RemoveAt(i) : Next
-
-        For i = BBC To Ξ101.Children.Count - 3 Step 1
+        For i = BBA + BBD - BBE - 1 To BBA Step -1 : Ξ101.Children.RemoveAt(i) : Next
+        For i = BBA To Ξ101.Children.Count - 3 Step 1
           ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next
       End If
-
       If BBE - BBD > 0 Then ' wenn der Text größer geworden ist: ' a(bc|d
-
-        For i = BBC + BBD - BBE To BBC - 1 Step 1
+        For i = BBA + BBD - BBE To BBA - 1 Step 1
           Ξ101.Children.Insert(i, New TextBlock With {.Text = FA_.Text.Substring(i, 1),
                                .Foreground = New SolidColorBrush(ADAB(AAG))}) : Next
-
-        For i = BBC + BBD - BBE To Ξ101.Children.Count - 3 Step 1
+        For i = BBA + BBD - BBE To Ξ101.Children.Count - 3 Step 1
           ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next
       End If
       BBD = BBE : If FA_.Text = "" Then Ϟ101.Text = A_D.GetString("A201")
@@ -940,8 +946,17 @@ Public NotInheritable Class MainPage
 
   End Sub
   Private Sub ACCA()
-    BBA = FA_.SelectionStart : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
-    AA_.StrokeThickness = If(BBA = 0 And Ξ100.Visibility = 0, 5, 1)
+
+    FA_.MaxWidth = 500 : FA_.MaxHeight = 100
+
+    BBA = FA_.SelectionStart ' FA_ Eingabe: SelectionChanged
+    For i = 0 To Ξ101.Children.Count - 2 Step 1
+      ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(ADAB(AAG))
+    Next
+    For i = BBA To BBA + FA_.SelectionLength - 1 Step 1
+      ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
+    Next
+    AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
   End Sub
   Private Sub ACCB()
     'Try ' FA_: SelectionCanged
