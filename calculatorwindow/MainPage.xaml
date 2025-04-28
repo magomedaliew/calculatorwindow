@@ -1,4 +1,4 @@
-﻿<Page Name="AAA0"
+﻿<Page Name="AAAAA"
   mc:Ignorable="d"
   x:Class="calculatorwindow.MainPage"
   xmlns:local="using:calculatorwindow"
@@ -9,138 +9,322 @@
   DataContext="{ThemeResource ButtonPadding}"
   Background="White" RequestedTheme="Light">
 
- <Grid Name="AA00">
-  <Grid Name="A100">
-   <AppBarButton Name="A101" Click="A_AA">
+ <Grid Name="A000">
+  <Canvas Name="A001"/>
+  <Canvas Name="A002"/>
+  <Canvas Name="A003"/>
+
+  <Grid Name="B000">
+   <AppBarButton Name="B001" Click="ABAA">
     <FontIcon Glyph="&#xE80F;"/>
    </AppBarButton>
-   <AppBarButton Name="A102" Click="A_AB">
+   <AppBarButton Name="B002" Click="ABAB">
     <FontIcon Glyph="&#xE8A9;"/>
    </AppBarButton>
-   <AppBarButton Name="A103" Click="A_AC">
+   <AppBarButton Name="B003" Click="ABAC">
     <FontIcon Glyph="&#xE8EF;"/>
    </AppBarButton>
-   <AppBarButton Name="A104" Click="A_AD">
+   <AppBarButton Name="B004" Click="ABAD">
     <FontIcon Glyph="&#xE75C;"/>
    </AppBarButton>
-   <AppBarButton Name="A105" Click="A_AE">
+   <AppBarButton Name="B005" Click="ABAE">
     <FontIcon Glyph="&#xE8BC;"/>
    </AppBarButton>
-   <AppBarButton Name="A106" Click="A_AF">
+   <AppBarButton Name="B006" Click="ABAF">
     <FontIcon Glyph="&#xE8C4;"/>
    </AppBarButton>
-   <AppBarButton Name="A107" Click="A_AG">
+   <AppBarButton Name="B007" Click="ABAG">
     <FontIcon Glyph="&#xE781;"/>
    </AppBarButton>
-   <AppBarButton Name="A108" Click="A_AH">
+   <AppBarButton Name="B008" Click="ABAH">
     <FontIcon Glyph="&#xE8B9;"/>
    </AppBarButton>
-   <AppBarButton Name="A109" Click="A_AI">
+   <AppBarButton Name="B009" Click="ABAI">
     <FontIcon Glyph="&#xE80F;"/>
    </AppBarButton>
-   <AppBarButton Name="A110" Click="A_AJ">
+   <AppBarButton Name="B010" Click="ABAJ">
     <FontIcon Glyph="&#xE80F;"/>
    </AppBarButton>
-  </Grid>
-  <Grid Name="B100">
-   <TextBox Name="B101" Foreground="Gray" TextChanged="B_AA"/>
-   <TextBlock Name="B102" Foreground="Magenta"/>
-   <RichEditBox Name="B103" FontFamily="Consolas"/>
-   <RichEditBox Name="B104" FontFamily="Consolas"/>
-   <Rectangle Name="B105" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B106" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B107" Stroke="White" StrokeThickness="3"/>
-   <Rectangle Name="B108" Stroke="White" StrokeThickness="3"/>
-   <ScrollViewer Name="B110" Grid.Column="1" Grid.Row="2">
-    <Canvas Name="B111" Background="AntiqueWhite"/>
-   </ScrollViewer>
-   <ScrollViewer Name="B120" Grid.Column="2" Grid.Row="2">
-    <Canvas Name="B121"/>
-   </ScrollViewer>
-  </Grid>
-  <Grid Name="B200">
-   <Button Name="B201" Click="B_BA"/>
-   <Button Name="B202" Click="B_BB"/>
-   <Button Name="B203" Click="B_BC"/>
-   <Button Name="B204" Click="B_BD"/>
-   <Button Name="B205" Click="B_BE"/>
-   <Button Name="B206" Click="B_BF"/>
-   <Button Name="B207" Click="B_BG"/>
-   <Button Name="B208" Click="B_BH"/>
-   <Button Name="B209" Click="B_BI"/>
-   <Button Name="B210" Click="B_BJ"/>
-  </Grid>
-  <Grid Name="B300">
-  </Grid>
-  <Grid Name="B400">
-   <Button Name="B401" Click="CABD"/>
-  </Grid>
-  <Grid Name="C100">
-   <Button Name="C101" Click="C_AA"/>
-   <Button Name="C102" Click="C_AA"/>
-   <Button Name="C103" Click="C_AA"/>
-   <Button Name="C104" Click="C_AA"/>
-   <Button Name="C105" Click="C_AA"/>
-   <Button Name="C106" Click="C_AA"/>
-   <Button Name="C107" Click="C_AA"/>
-   <Button Name="C108" Click="C_AA"/>
-   <Button Name="C109" Click="C_AA"/>
-   <Button Name="C110" Click="C_AA"/>
-   <Button Name="C111" Click="C_AA"/>
-   <Button Name="C112" Click="C_AA"/>
-   <Button Name="C113" Click="C_AA"/>
-   <Button Name="C114" Click="C_AA"/>
-   <Button Name="C115" Click="C_AA"/>
-   <Button Name="C116" Click="C_AA"/>
-   <Button Name="C117" Click="C_AC"/>
-   <Button Name="C118" Click="C_AC"/>
-   <Button Name="C119" Click="C_AC"/>
-   <Button Name="C120" Click="C_AA"/>
-   <Button Name="C121" Click="C_AC"/>
-   <Button Name="C122" Click="C_AC"/>
-   <Button Name="C123" Click="C_AE"/>
-   <Button Name="C124" Click="C_AA"/>
-   <Button Name="C125" Click="C_AB"/>
-   <Button Name="C126" Click="C_AA"/>
-   <Button Name="C127" Click="C_AA"/>
-   <Button Name="C128" Click="C_AA"/>
-   <Button Name="C129" Click="C_AA"/>
-   <Button Name="C130" Click="C_AA"/>
-   <Button Name="C131" Click="C_AA"/>
-   <Button Name="C132" Click="C_AA"/>
-   <Button Name="C133" Click="C_AA"/>
-   <Button Name="C134" Click="C_AF"/>
-   <Button Name="C135" Click="C_AF"/>
-   <Button Name="C136" Click="C_AG"/>
-   <Button Name="C137" Click="C_AA"/>
-   <Button Name="C138" Click="C_AD"/>
-   <Button Name="C139" Click="C_AE"/>
-   <Button Name="C140" Click="C_AE"/>
-   <Button Name="C141" Click="C_AD"/>
-   <Button Name="C142" Click="C_AD"/>
-   <Button Name="C143" Click="C_AD"/>
-   <Button Name="C144" Click="C_AD"/>
-   <Button Name="C145" Click="C_AD"/>
-   <Button Name="C146" Click="C_AD"/>
-   <Button Name="C147" Click="C_AD"/>
-   <Button Name="C148" Click="C_AD"/>
 
-   <Button Name="C149" Click="C_AD"/>
-   <Button Name="C150" Click="C_AD"/>
-   <Button Name="C151" Click="C_AA"/>
-   <Button Name="C152" Click="C_AA"/>
-   <Button Name="C153" Click="C_AA"/>
-   <Button Name="C154" Click="C_AF"/>
-   <Button Name="C155" Click="C_AF"/>
-   <Button Name="C156" Click="C_AG"/>
-   <Button Name="C157" Click="C_AA"/>
-   <Button Name="C158" Click="C_AD"/>
-   <Button Name="C159" Click="C_AE"/>
-   <Button Name="C160" Click="C_AE"/>
-   <Button Name="C161" Click="C_AD"/>
-   <Button Name="C162" Click="C_AD"/>
-   <Button Name="C163" Click="C_AD"/>
-   <Button Name="C164" Click="C_AD"/>
+   <!--<AppBarButton Name="B001" Click="ABAA">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+   <AppBarButton Name="B002" Click="ABAB">
+    <FontIcon Glyph="&#xE8A9;"/>
+   </AppBarButton>
+   <AppBarButton Name="A103" Click="ABAC">
+    <FontIcon Glyph="&#xE8EF;"/>
+   </AppBarButton>
+   <AppBarButton Name="A104" Click="ABAD">
+    <FontIcon Glyph="&#xE75C;"/>
+   </AppBarButton>
+   <AppBarButton Name="A105" Click="ABAE">
+    <FontIcon Glyph="&#xE8BC;"/>
+   </AppBarButton>
+   <AppBarButton Name="A106" Click="ABAF">
+    <FontIcon Glyph="&#xE8C4;"/>
+   </AppBarButton>
+   <AppBarButton Name="A107" Click="ABAG">
+    <FontIcon Glyph="&#xE781;"/>
+   </AppBarButton>
+   <AppBarButton Name="A108" Click="ABAH">
+    <FontIcon Glyph="&#xE8B9;"/>
+   </AppBarButton>
+   <AppBarButton Name="A109" Click="ABAI">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>
+   <AppBarButton Name="A110" Click="ABAJ">
+    <FontIcon Glyph="&#xE80F;"/>
+   </AppBarButton>-->
+   <!--<AppBarButton Name="B011" Click="ABAJ">
+               <FontIcon Glyph="&#xE713;"/>
+           </AppBarButton>-->
+  </Grid>
+  <Grid Name="C000">
+   <AutoSuggestBox Name="C001" TextChanged="ADAA"/>
+   <TextBox Name="C002" Foreground="Magenta"/>
+   <RichEditBox Name="C003" FontFamily="Consolas"/>
+   <RichEditBox Name="C004" FontFamily="Consolas"/>
+   <Rectangle Name="C005" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="C006" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="C007" Stroke="White" StrokeThickness="3"/>
+   <Rectangle Name="C008" Stroke="White" StrokeThickness="3"/>
+  </Grid>
+  <Grid Name="D000">
+   <Button Name="D001" Click="ABBA"/>
+   <Button Name="D002" Click="ABBA"/>
+   <Button Name="D003" Click="ABBA"/>
+   <Button Name="D004" Click="ABBA"/>
+   <Button Name="D005" Click="ABBA"/>
+   <Button Name="D006" Click="ABBA"/>
+   <Button Name="D007" Click="ABBA"/>
+   <Button Name="D008" Click="ABBA"/>
+   <Button Name="D009" Click="ABBA"/>
+   <Button Name="D010" Click="ABBA"/>
+
+   <Button Name="D011" Click="ABBA"/>
+   <Button Name="D012" Click="ABBA"/>
+   <Button Name="D013" Click="ABBA"/>
+   <Button Name="D014" Click="ABBA"/>
+   <Button Name="D015" Click="ABBA"/>
+   <Button Name="D016" Click="ABBA"/>
+   <Button Name="D017" Click="ABBA"/>
+   <Button Name="D018" Click="ABBA"/>
+   <Button Name="D019" Click="ABBA"/>
+   <Button Name="D020" Click="ABBA"/>
+
+   <Button Name="D021" Click="ABBA"/>
+   <Button Name="D022" Click="ABBA"/>
+   <Button Name="D023" Click="ABBA"/>
+   <Button Name="D024" Click="ABBA"/>
+   <Button Name="D025" Click="ABBA"/>
+   <Button Name="D026" Click="ABBA"/>
+   <Button Name="D027" Click="ABBA"/>
+   <Button Name="D028" Click="ABBA"/>
+   <Button Name="D029" Click="ABBA"/>
+   <Button Name="D030" Click="ABBA"/>
+
+   <Button Name="D031" Click="ABBA"/>
+   <Button Name="D032" Click="ABBA"/>
+   <Button Name="D033" Click="ABBA"/>
+   <Button Name="D034" Click="ABBA"/>
+   <Button Name="D035" Click="ABBA"/>
+   <Button Name="D036" Click="ABBA"/>
+   <Button Name="D037" Click="ABBA"/>
+   <Button Name="D038" Click="ABBA"/>
+   <Button Name="D039" Click="ABBA"/>
+   <Button Name="D040" Click="ABBA"/>
+
+   <Button Name="D041" Click="ABBA"/>
+   <Button Name="D042" Click="ABBA"/>
+   <Button Name="D043" Click="ABBA"/>
+   <Button Name="D044" Click="ABBA"/>
+   <Button Name="D045" Click="ABBA"/>
+   <Button Name="D046" Click="ABBA"/>
+   <Button Name="D047" Click="ABBA"/>
+   <Button Name="D048" Click="ABBA"/>
+   <Button Name="D049" Click="ABBA"/>
+   <Button Name="D050" Click="ABBA"/>
+
+   <Button Name="D051" Click="ABBA"/>
+   <Button Name="D052" Click="ABBA"/>
+   <Button Name="D053" Click="ABBA"/>
+   <Button Name="D054" Click="ABBA"/>
+   <Button Name="D055" Click="ABBA"/>
+   <Button Name="D056" Click="ABBA"/>
+   <Button Name="D057" Click="ABBA"/>
+   <Button Name="D058" Click="ABBA"/>
+   <Button Name="D059" Click="ABBA"/>
+   <Button Name="D060" Click="ABBA"/>
+
+   <Button Name="D061" Click="ABBA"/>
+   <Button Name="D062" Click="ABBA"/>
+   <Button Name="D063" Click="ABBA"/>
+   <Button Name="D064" Click="ABBA"/>
+   <Button Name="D065" Click="ABBA"/>
+   <Button Name="D066" Click="ABBA"/>
+   <Button Name="D067" Click="ABBA"/>
+   <Button Name="D068" Click="ABBA"/>
+   <Button Name="D069" Click="ABBA"/>
+   <Button Name="D070" Click="ABBA"/>
+
+   <Button Name="D071" Click="ABBA"/>
+   <Button Name="D072" Click="ABBA"/>
+   <Button Name="D073" Click="ABBA"/>
+   <Button Name="D074" Click="ABBA"/>
+   <Button Name="D075" Click="ABBA"/>
+   <Button Name="D076" Click="ABBA"/>
+   <Button Name="D077" Click="ABBA"/>
+   <Button Name="D078" Click="ABBA"/>
+   <Button Name="D079" Click="ABBA"/>
+   <Button Name="D080" Click="ABBA"/>
+
+   <Button Name="D081" Click="ABBA"/>
+   <Button Name="D082" Click="ABBA"/>
+   <Button Name="D083" Click="ABBA"/>
+   <Button Name="D084" Click="ABBA"/>
+   <Button Name="D085" Click="ABBA"/>
+   <Button Name="D086" Click="ABBA"/>
+   <Button Name="D087" Click="ABBA"/>
+   <Button Name="D088" Click="ABBA"/>
+   <Button Name="D089" Click="ABBA"/>
+   <Button Name="D090" Click="ABBA"/>
+
+   <Button Name="D091" Click="ABBA"/>
+   <Button Name="D092" Click="ABBA"/>
+   <Button Name="D093" Click="ABBA"/>
+   <Button Name="D094" Click="ABBA"/>
+   <Button Name="D095" Click="ABBA"/>
+   <Button Name="D096" Click="ABBA"/>
+   <Button Name="D097" Click="ABBA"/>
+   <Button Name="D098" Click="ABBA"/>
+   <Button Name="D099" Click="ABBA"/>
+   <Button Name="D100" Click="ABBA"/>
+
+   <Button Name="D101" Click="ABBA"/>
+   <Button Name="D102" Click="ABBA"/>
+   <Button Name="D103" Click="ABBA"/>
+   <Button Name="D104" Click="ABBA"/>
+   <Button Name="D105" Click="ABBA"/>
+   <Button Name="D106" Click="ABBA"/>
+   <Button Name="D107" Click="ABBA"/>
+   <Button Name="D108" Click="ABBA"/>
+   <Button Name="D109" Click="ABBA"/>
+   <Button Name="D110" Click="ABBA"/>
+
+   <Button Name="D111" Click="ABBA"/>
+   <Button Name="D112" Click="ABBA"/>
+   <Button Name="D113" Click="ABBA"/>
+   <Button Name="D114" Click="ABBA"/>
+   <Button Name="D115" Click="ABBA"/>
+   <Button Name="D116" Click="ABBA"/>
+   <Button Name="D117" Click="ABBA"/>
+   <Button Name="D118" Click="ABBA"/>
+   <Button Name="D119" Click="ABBA"/>
+   <Button Name="D120" Click="ABBA"/>
+
+   <Button Name="D121" Click="ABBA"/>
+   <Button Name="D122" Click="ABBA"/>
+   <Button Name="D123" Click="ABBA"/>
+   <Button Name="D124" Click="ABBA"/>
+   <Button Name="D125" Click="ABBA"/>
+   <Button Name="D126" Click="ABBA"/>
+   <Button Name="D127" Click="ABBA"/>
+   <Button Name="D128" Click="ABBA"/>
+   <Button Name="D129" Click="ABBA"/>
+   <Button Name="D130" Click="ABBA"/>
+
+   <Button Name="D131" Click="ABBA"/>
+   <Button Name="D132" Click="ABBA"/>
+   <Button Name="D133" Click="ABBA"/>
+   <Button Name="D134" Click="ABBA"/>
+   <Button Name="D135" Click="ABBA"/>
+   <Button Name="D136" Click="ABBA"/>
+   <Button Name="D137" Click="ABBA"/>
+   <Button Name="D138" Click="ABBA"/>
+   <Button Name="D139" Click="ABBA"/>
+   <Button Name="D140" Click="ABBA"/>
+
+   <Button Name="D141" Click="ABBA"/>
+   <Button Name="D142" Click="ABBA"/>
+   <Button Name="D143" Click="ABBA"/>
+   <Button Name="D144" Click="ABBA"/>
+   <Button Name="D145" Click="ABBA"/>
+   <Button Name="D146" Click="ABBA"/>
+   <Button Name="D147" Click="ABBA"/>
+   <Button Name="D148" Click="ABBA"/>
+   <Button Name="D149" Click="ABBA"/>
+   <Button Name="D150" Click="ABBA"/>
+
+   <Button Name="A301" Click="ABOA"/>
+   <Button Name="A302" Click="ABOA"/>
+   <Button Name="A303" Click="ABOA"/>
+   <Button Name="A304" Click="ABOA"/>
+   <Button Name="A305" Click="ABOC"/>
+   <Button Name="A306" Click="ABOC"/>
+   <Button Name="A307" Click="ABOC"/>
+   <Button Name="A308" Click="ABOA"/>
+   <Button Name="A309" Click="ABOA"/>
+   <Button Name="A310" Click="ABOF"/>
+   <Button Name="A311" Click="ABOF"/>
+   <Button Name="A312" Click="ABOG"/>
+   <Button Name="A313" Click="ABOA"/>
+   <Button Name="A314" Click="ABOA"/>
+   <Button Name="A315" Click="ABOA"/>
+   <Button Name="A316" Click="ABOA"/>
+   <Button Name="A317" Click="ABOB"/>
+   <Button Name="A318" Click="ABOC"/>
+   <Button Name="A319" Click="ABOD"/>
+   <Button Name="A320" Click="ABOA"/>
+   <Button Name="A321" Click="ABOA"/>
+   <Button Name="A322" Click="ABOD"/>
+   <Button Name="A323" Click="ABOE"/>
+   <Button Name="A324" Click="ABOE"/>
+   <Button Name="A325" Click="ABOA"/>
+   <Button Name="A326" Click="ABOA"/>
+   <Button Name="A327" Click="ABOA"/>
+   <Button Name="A328" Click="ABOA"/>
+   <Button Name="A329" Click="ABOA"/>
+   <Button Name="A330" Click="ABOC"/>
+   <Button Name="A331" Click="ABOA"/>
+   <Button Name="A332" Click="ABOA"/>
+   <Button Name="A333" Click="ABOD"/>
+   <Button Name="A334" Click="ABOD"/>
+   <Button Name="A335" Click="ABOD"/>
+   <Button Name="A336" Click="ABOD"/>
+   <Button Name="A337" Click="ABOA"/>
+   <Button Name="A338" Click="ABOA"/>
+   <Button Name="A339" Click="ABOA"/>
+   <Button Name="A340" Click="ABOA"/>
+   <Button Name="A341" Click="ABOA"/>
+   <Button Name="A342" Click="ABOA"/>
+   <Button Name="A343" Click="ABOA"/>
+   <Button Name="A344" Click="ABOC"/>
+   <Button Name="A345" Click="ABOD"/>
+   <Button Name="A346" Click="ABOD"/>
+   <Button Name="A347" Click="ABOD"/>
+   <Button Name="A348" Click="ABOD"/>
+  </Grid>
+  <Grid Name="A014">
+   <Button Name="A401" Click="ACAA"/>
+   <HyperlinkButton Name="A402" Click="ACAB"/>
+   <HyperlinkButton Name="A403" Click="ACAC"/>
+   <HyperlinkButton Name="A404" Click="ACAD"/>
+   <HyperlinkButton Name="A405" Click="ACAE"/>
+   <HyperlinkButton Name="A406" Click="ACAF"/>
+   <HyperlinkButton Name="A407" Click="ACAG"/>
+   <HyperlinkButton Name="A408" Click="ACAH"/>
+   <HyperlinkButton Name="A409" Click="ACAI"/>
+   <HyperlinkButton Name="A410" Click="ACAJ"/>
+  </Grid>
+  <Grid Name="A015">
+   <Grid Name="A501"/>
+   <Grid Name="A502"/>
+   <ListView Name="A503"/>
+   <!--<Image Name="A209" 
+          Source="Assets/Images/BILD_A_1.PNG"
+                 (Images/(de-DE)/BILD_A_1)
+   />-->
   </Grid>
  </Grid>
 </Page>
