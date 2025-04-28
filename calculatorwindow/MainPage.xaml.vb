@@ -1,4 +1,8 @@
-﻿Imports Windows.Storage
+﻿#Region ""
+'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
+#End Region
+#Region ""
+Imports Windows.Storage
 Imports Windows.UI.Xaml
 Imports Windows.UI.Xaml.Shapes
 Imports Windows.UI.Xaml.Controls
@@ -7,9 +11,14 @@ Imports Windows.Networking.Connectivity
 Imports Windows.ApplicationModel.Email
 Imports Windows.ApplicationModel.Resources
 Imports Windows.UI : Imports Windows.UI.Text
-#Region "Calcultorwindow"
-'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
 #End Region
+#Region ""
+Public Class Ξ_A_A
+  Public AAA As New List(Of Integer)
+  Public AAB As New List(Of Integer)
+End Class
+#End Region
+#Region ""
 Public NotInheritable Class MainPage
   Inherits Page
 #Region "≡≡≡≡"
@@ -18,12 +27,13 @@ Public NotInheritable Class MainPage
   Dim AA_, AB_ As New Line ' Text Kursor in B111
   Dim BA_ As New Button ' Chemisches Element
   Dim CA_ As New Canvas ' Border Canvas leer
-  Dim DA_ As New ListView ' Chemische Liste
+  Dim DA_, DB_ As New ListView ' Chemische Liste
   Dim EA_, EB_ As New TextBlock ' Periodentabelle
   Dim FA_, FB_ As New TextBox ' Math - Classic
 #End Region
 #Region "A-02"
   ' Klassen
+  Dim Ξ_A As New Ξ_A_A
   Dim A_A As New ResourceLoader("A_a_a_a_a")
   Dim A_B As New ResourceLoader("A_a_a_a_b")
   Dim A_C As New ResourceLoader("A_b_a_a_a")
@@ -49,12 +59,13 @@ Public NotInheritable Class MainPage
   ' Mathematik
   Dim BAA As Boolean ' Board Auswahl Wahrheit
 
-  Dim BBA As Integer ' x Position Kursor B111
-  Dim BBB As Integer ' y Position Kursor B111
+  Dim BBA As Integer ' x Position Kursor FA_
+  Dim BBB As Integer ' y Position Kursor FA_
   Dim BBC As Integer ' x Position Kursor FA_
   Dim BBD As Integer ' Text Länge alt von FA_
   Dim BBE As Integer ' Text Länge neu von FA_
-  Dim BBF As Integer ' Schichte des Substrings
+  Dim BBF As Integer ' Text Länge alt von FB_
+  Dim BBG As Integer ' Schichte des Substrings
 
   Dim BEA As String ' Text alt von FA_
   Dim BEB As String ' Text neu von FA_
@@ -65,25 +76,71 @@ Public NotInheritable Class MainPage
   Dim BDA, BDB As New List(Of Integer)
 
 
+  ' ************************************************
+  Dim A_ As Boolean
+  Dim _A, _B, _C, _D, _E, _F, _G As Integer
+  Dim _H, _I, _J, _K, _L, _M, _N As Integer
+  Private ReadOnly C1 As New List(Of Integer)
+  Private ReadOnly C2 As New List(Of Integer)
+  Private ReadOnly C3 As New List(Of Integer)
+  Private ReadOnly C4 As New List(Of Integer)
+  Private ReadOnly C5 As New List(Of Integer)
+  Private ReadOnly C6 As New List(Of Integer)
+  Private C7 As New List(Of Integer)
 
-  Private IAB As New List(Of Byte) ' M:Ausgangsoperatorengruppe
+  Private CA As String ' M:Gefertigter Ausdruckstext
+  Private CB As String ' M:Gesuchte Variable
+  Private CC As String ' M:P:Kommentardefinitionsformel
+  Private CD As String ' M:P:C001 Kode für Bearbeitung
+  Private CE As String ' P:Kommentarumformungsformel
+  Private CF As String ' P:Dimensionstext
+  Private CG As String ' P:Formelnquellentext
+  Private CH As String ' M:P:Skizzeart
+  Private CI As String ' P:Letzte vom Benutzer gesuchte Dimension
 
-  Private ReadOnly KAH As New List(Of String) ' M:Term
-  Private ReadOnly KAI As New List(Of String) ' M:Operator
+  Dim IA As New List(Of Byte) ' M:Vorzeichen vor Eingangsteiles
+  Private IB As New List(Of Byte) ' M:Ausgangsoperatorengruppe
+  Private ReadOnly JA As New List(Of Color)
+  Private ReadOnly JB As New List(Of Color)
+  Private ReadOnly JC As New List(Of Color)
+  Private ReadOnly KA As New List(Of String) ' M:Von KC ausgewählte Ergebnisse
+  Private ReadOnly KB As New List(Of String) ' M:Kommentare für KA
+  Private KC As New List(Of String) ' M:Von KE ausgewählte Ergebnisse
+  Private ReadOnly KD As New List(Of String) ' M:Kommentare für KC
+  Private ReadOnly KE As New List(Of String) ' M:Alle mögliche Ergebnisse
+  Private ReadOnly KF As New List(Of String) ' M:Kommentare für KE
+  Private ReadOnly KG As New List(Of String) ' M:Jeder Schritt der Rechnung
+  Private ReadOnly KH As New List(Of String) ' M:Term
+  Private ReadOnly KI As New List(Of String) ' M:Operator
+  Private ReadOnly KJ As New List(Of String)
+  Private ReadOnly KK As New List(Of String)
+  Private ReadOnly KL As New List(Of String)
+  Private ReadOnly LA As New List(Of Boolean) ' M:Gesuchte Variable in Gleichung
 
-  Private ReadOnly MAA As New List(Of Integer) ' M:Liste von BBF
-  Private ReadOnly MAC As New List(Of Integer) ' M:Eingangsanfang
-  Private ReadOnly MAD As New List(Of Integer) ' M:Eingangslänge
+  Private ReadOnly MA As New List(Of Integer) ' M:Teilungsanfang
+  Private ReadOnly MB As New List(Of Integer) ' M:Funktion
+  Private ReadOnly MC As New List(Of Integer) ' M:Eingangsanfang
+  Private ReadOnly MD As New List(Of Integer) ' M:Eingangslänge
 
-  Dim sss As New TextBlock
+  Private ReadOnly ME_ As New List(Of Integer) ' M:Eingangsteilindex
+  Private ReadOnly MF_ As New List(Of Integer) ' M:Ausgangsanfang
+  Private ReadOnly MG_ As New List(Of Integer) ' M:Ausgangslänge
+  Private ReadOnly MH_ As New List(Of Integer) ' M:Ausgangsteilenanzahl
+  Private ReadOnly MI_ As New List(Of Integer) ' M:Ausgangsteilenanfangsindex
+  Private ReadOnly MJ_ As New List(Of Integer) ' M:Eingangsteil-Zahl
+  Private ReadOnly MM_ As New List(Of Integer) ' M:Gesuchte Variable in Gleichung
+  Private ReadOnly MN_ As New List(Of Integer) ' M:Formelrechnungsbedingungen
+  Private ReadOnly MO_ As New List(Of Integer) ' P:Von FAB ausgewählte Dimensionsgruppen
+  Private ReadOnly MP_ As New List(Of Integer) ' P:Von FAB ausgewählte Dimensionsindexe
+  Private ReadOnly MQ_ As New List(Of Integer)
+  Private ReadOnly MR_ As New List(Of Integer)
+  ' ************************************************
 
 
   ' Chemie
-  Dim CAA As String
+  Dim XXX As String
   ' ΔΓΘΛΞΠΣΦΨΩͲ БЗЛУЧЪЬЭЯѰԱԲԳԴϞԵԶԷԸԹԻԺԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՎՐՑՒՔՖ
   ' ႠႡႢႣႤႥႦႧႨႩႪႫႬႯႰႱႲႳႴႵႶႷႸႹႺႼႻႾႿჀჁჂჃჄჅ ჇꓕႮꓘꓛꓞꓤꓨꓩꓭꓯꓱꓶꓷ
-#End Region
-#Region "A-11"
 #End Region
 #End Region
 #Region "○○○○"
@@ -103,14 +160,11 @@ Public NotInheritable Class MainPage
       ToolTipService.SetToolTip(A107, New ToolTip With {.Content = A_D.GetString("A007"), .Placement = PlacementMode.Bottom})
       ToolTipService.SetToolTip(A108, New ToolTip With {.Content = A_D.GetString("A008"), .Placement = PlacementMode.Bottom})
 
-      AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEA.Tick, AddressOf ACAC
-      AEB = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEB.Tick, AddressOf ACAD
+      AEA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEA.Tick, AddressOf B_ϞA
+      AEB = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)} : AddHandler AEB.Tick, AddressOf B_ϞB
 
       A109.Content = "A1" : A110.Content = "B1" : Ϟ101.Text = A_D.GetString("A201") : Ϟ102.Text = A_D.GetString("A202")
       C126.Content = A_D.GetString("A254") : AA00.Children.Add(CA_) ' : Ϟ101.Opacity = 0.8 : Ϟ102.Opacity = 0.8
-
-      AA00.Children.Add(FA_) : FA_.MaxHeight = 0 : FA_.MaxWidth = 0 : Ξ101.Children.Add(AA_) : AA_.StrokeThickness = 2
-      AA00.Children.Add(FB_) : FB_.MaxHeight = 0 : FB_.MaxWidth = 0 : Ξ102.Children.Add(AB_) : AB_.StrokeThickness = 2
 
       If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
         Ϟ104.FontFamily = New FontFamily("Segoe UI") : Ϟ104.Text = A_D.GetString("A900")
@@ -134,19 +188,23 @@ Public NotInheritable Class MainPage
           AAC += 1 : End If
         If AAC = 4 Then : If AAB = 20 Then : Exit Do : Else : AAC = 0 : End If : End If : Loop
 
+      AA00.Children.Add(FA_) : FA_.MaxHeight = 0 : FA_.MaxWidth = 0 : Ξ101.Children.Add(AA_) : AA_.StrokeThickness = 2
+      AA00.Children.Add(FB_) : FB_.MaxHeight = 0 : FB_.MaxWidth = 0 : Ξ102.Children.Add(AB_) : AB_.StrokeThickness = 2
+      B100.Children.Add(DB_) : Grid.SetColumn(DB_, 1) : Grid.SetRowSpan(DB_, 3) : DB_.Margin = New Thickness(0, 30, 0, 0)
+
       Grid.SetRow(B100, 2) : Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4) : Grid.SetRow(Հ101, 0)
-      Grid.SetRow(Հ102, 2) : Grid.SetRow(Հ104, 2) : Grid.SetRow(Ξ100, 0)
+      Grid.SetRow(Հ102, 2) : Grid.SetRow(Հ104, 2) : Grid.SetRow(Ξ100, 0) : Grid.SetRow(DB_, 0)
 
       Grid.SetColumn(A101, 1) : Grid.SetColumn(A102, 2) : Grid.SetColumn(A103, 3) : Grid.SetColumn(A104, 4)
       Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6) : Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8)
       Grid.SetColumn(A109, 9) : Grid.SetColumn(A110, 10) : Grid.SetColumn(Հ103, 3) : Grid.SetColumn(Հ102, 1)
       Grid.SetColumn(Հ104, 3) : Grid.SetColumn(Ξ100, 1) : Grid.SetRowSpan(Ξ100, 3) : Grid.SetColumnSpan(Ξ100, 3)
 
-      AddHandler Հ101.Tapped, AddressOf ACAA : AddHandler Հ102.Tapped, AddressOf ACAB
-      AddHandler FA_.TextChanged, AddressOf ACBA : AddHandler FA_.SelectionChanged, AddressOf ACCA
-      AddHandler FB_.TextChanged, AddressOf ACBB : AddHandler FB_.SelectionChanged, AddressOf ACCB
+      AddHandler Հ101.Tapped, AddressOf B_ՀA : AddHandler Հ102.Tapped, AddressOf B_ՀB
+      AddHandler FA_.TextChanged, AddressOf B_ΔA : AddHandler FA_.SelectionChanged, AddressOf B_ΞA
+      AddHandler FB_.TextChanged, AddressOf B_ΔB : AddHandler FB_.SelectionChanged, AddressOf B_ΞB
 
-      Ξ100.Margin = New Thickness(-10, -10, -10, 0) : AAB = 1 : AAH = 1
+      Ξ100.Margin = New Thickness(-10, -10, -10, 0) : AAB = 1 : AAH = 1 : DB_.Visibility = 1
 
       FA_.Focus(3) : AEA.Start() : AADA() : AADB() : AADC() : A_B_() : Catch ex As Exception : Ϟ104.Text = ex.Message
     End Try
@@ -198,47 +256,181 @@ Public NotInheritable Class MainPage
   End Sub
 #End Region
 #Region "B100"
-  Private Sub B_AA() ' sender As AutoSuggestBox, e As AutoSuggestBoxTextChangedEventArgs
-    'Try
-    '  Dim aaaab As New List(Of String)
-    '  '1     Löschen alter Definitionen
-    '  AEAX() : If B101.Text = "" Then Exit Sub
-    '  '2     Autosuggestboxsplit
-    '  FAA = B101.Text.TrimEnd(" ").Split(" ")
-    '  '4     Gleichung-Platz-Zeiger
-    '  If B101.Text.Length > 1 Then
-    '    Select Case B101.Text.Substring(0, 2)
-    '      Case A_D.GetString("B001"), A_D.GetString("B002")
-    '        Ϟ102.PlaceholderText = A_D.GetString("A051")
-    '    End Select
-    '  End If
-    '  '5     Formelsuche
-    '  If FAA.Count > 0 Then EAAA() : EAAB()
-    '  '6     Filterung der Kods nach eingegebene Zeichen
-    '  If CAI <> "" Then
-    '    For i = 0 To FAC.Count - 5 Step 5
-    '      If FAC(i).Length >= B101.Text.Length Then
-    '        If B101.Text = FAC(i).Substring(0, B101.Text.Length) Then aaaab.Add(FAC(i))
-    '      End If
-    '    Next
-    '  End If
-    '  '7     Auswahl eines Vorschlags
-    '  If e.Reason = AutoSuggestionBoxTextChangeReason.UserInput Then
-    '    If aaaab.Count > 0 Then
-    '      sender.ItemsSource = aaaab
-    '      If B101.Text = aaaab(0) Then sender.ItemsSource = Nothing
-    '    End If
-    '    If B101.Text.Length = 0 Then sender.ItemsSource = Nothing
-    '    If aaaab.Count = 0 Then sender.ItemsSource = Nothing
-    '  End If
-    'Catch ex As Exception
-    '  Ϟ104.Document.SetText(TextSetOptions.FormatRtf, "")
-    '  Ϟ104.Document.Selection.Text = A_D.GetString("A151") & " A1"
-    '  'B004.Document.Selection.Text += ex.HelpLink & vbCrLf
-    '  'B004.Document.Selection.Text += ex.Message & vbCrLf
-    '  'B004.Document.Selection.Text += ex.Source & vbCrLf
-    '  'B004.Document.Selection.Text += ex.StackTrace & vbCrLf
-    'End Try
+  Private Sub B_ՀA(a As Object, b As TappedRoutedEventArgs)
+    Try : AEB.Stop() : FA_.Focus(3) : AAH = 1 : FA_.SelectionLength = 0
+      BBA = Math.Ceiling((b.GetPosition(Հ101).X - 4) / 10) : If BBA > FA_.Text.Length Then BBA = FA_.Text.Length
+      AA_.Visibility = 0 : AEA.Start() : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
+      AB_.Visibility = 1 : FA_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "B_ՀA: " & ex.Message : End Try
+  End Sub
+  Private Sub B_ϞA()
+    ' Kursor-1-Blinken
+    Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
+  End Sub
+  Private Sub B_ΔA()
+    Try ' FA_ Eingabe: TextChanged
+      BBE = FA_.Text.Length
+      ' Eignung zur TextBox Eigenschaften
+      If BAA = True Then FA_.Focus(3) : BBA = BBC + BBE - BBD : FA_.SelectionStart = BBA : BAA = False
+      ' wenn der Text kleiner geworden ist: ' a|bc)d
+      If BBE - BBD < 0 Then
+        For i = BBA + BBD - BBE - 1 To BBA Step -1 : Ξ101.Children.RemoveAt(i) : Next
+        For i = BBA To Ξ101.Children.Count - 3 Step 1 : ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0)
+        Next : End If
+      ' wenn der Text größer geworden ist: ' a(bc|d
+      If BBE - BBD > 0 Then
+        For i = BBA + BBD - BBE To BBA - 1 Step 1 : Ξ101.Children.Insert(i, New TextBlock With
+                               {.Text = FA_.Text.Substring(i, 1), .Foreground = New SolidColorBrush(ADAB(AAG))}) : Next
+        For i = BBA + BBD - BBE To Ξ101.Children.Count - 3 Step 1
+          ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next : End If
+
+      BBD = BBE : If FA_.Text = "" Then Ϟ101.Text = A_D.GetString("A201") : Exit Sub Else Ϟ101.Text = ""
+
+      'DB_.Items.Add(New TextBlock With {.Text = "AA", .Foreground = New SolidColorBrush(Colors.White)})
+      'DB_.Items.Add(New TextBlock With {.Text = "AA", .Foreground = New SolidColorBrush(Colors.White)})
+      'DB_.Items.Add(New TextBlock With {.Text = "AA", .Foreground = New SolidColorBrush(Colors.White)})
+
+      'Try
+      '  Dim aaaab As New List(Of String)
+      '  '1     Löschen alter Definitionen
+      '  AEAX() : If B101.Text = "" Then Exit Sub
+      '  '2     Autosuggestboxsplit
+      '  FAA = B101.Text.TrimEnd(" ").Split(" ")
+      '  '4     Gleichung-Platz-Zeiger
+      '  If B101.Text.Length > 1 Then
+      '    Select Case B101.Text.Substring(0, 2)
+      '      Case A_D.GetString("B001"), A_D.GetString("B002")
+      '        Ϟ102.PlaceholderText = A_D.GetString("A051")
+      '    End Select
+      '  End If
+      '  '5     Formelsuche
+      '  If FAA.Count > 0 Then EAAA() : EAAB()
+      '  '6     Filterung der Kods nach eingegebene Zeichen
+      '  If CI <> "" Then
+      '    For i = 0 To FAC.Count - 5 Step 5
+      '      If FAC(i).Length >= B101.Text.Length Then
+      '        If B101.Text = FAC(i).Substring(0, B101.Text.Length) Then aaaab.Add(FAC(i))
+      '      End If
+      '    Next
+      '  End If
+      '  '7     Auswahl eines Vorschlags
+      '  If e.Reason = AutoSuggestionBoxTextChangeReason.UserInput Then
+      '    If aaaab.Count > 0 Then
+      '      sender.ItemsSource = aaaab
+      '      If B101.Text = aaaab(0) Then sender.ItemsSource = Nothing
+      '    End If
+      '    If B101.Text.Length = 0 Then sender.ItemsSource = Nothing
+      '    If aaaab.Count = 0 Then sender.ItemsSource = Nothing
+      '  End If
+      'Catch ex As Exception
+      '  Ϟ104.Document.SetText(TextSetOptions.FormatRtf, "")
+      '  Ϟ104.Document.Selection.Text = A_D.GetString("A151") & " A1"
+      '  'B004.Document.Selection.Text += ex.HelpLink & vbCrLf
+      '  'B004.Document.Selection.Text += ex.Message & vbCrLf
+      '  'B004.Document.Selection.Text += ex.Source & vbCrLf
+      '  'B004.Document.Selection.Text += ex.StackTrace & vbCrLf
+      'End Try
+
+    Catch ex As Exception : Ϟ104.Text = "B_ΔA: " & ex.Message : End Try
+  End Sub
+  Private Sub B_ΞA()
+
+    FA_.MaxWidth = 500 : FA_.MaxHeight = 100
+
+    BBA = FA_.SelectionStart ' FA_ Eingabe: SelectionChanged
+    For i = 0 To Ξ101.Children.Count - 2 Step 1
+      ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(ADAB(AAG))
+    Next
+    For i = BBA To BBA + FA_.SelectionLength - 1 Step 1
+      ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
+    Next
+    If FA_.SelectionLength = 0 Then : AEA.Start() : AA_.Visibility = 0
+      AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
+    Else : AEA.Stop() : AA_.Visibility = 1 : End If
+  End Sub
+  Private Sub B_ՀB(a As Object, b As TappedRoutedEventArgs)
+    Try : AEA.Stop() : FB_.Focus(3) : AAH = 2 : FB_.SelectionLength = 0
+      BBA = Math.Ceiling((b.GetPosition(Հ102).X - 4) / 10) : If BBA > FB_.Text.Length Then BBA = FB_.Text.Length
+      AB_.Visibility = 0 : AEB.Start() : AB_.X1 = BBA * 10 : AB_.X2 = BBA * 10 : AB_.Y1 = 2 : AB_.Y2 = 15
+      AA_.Visibility = 1 : FB_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "B_ՀB: " & ex.Message : End Try
+  End Sub
+  Private Sub B_ϞB()
+    ' Kursor-2-Blinken
+    Select Case AB_.Visibility : Case 0 : AB_.Visibility = 1 : Case 1 : AB_.Visibility = 0 : End Select
+  End Sub
+  Private Sub B_ΔB()
+    Try ' FB_ Eingabe: TextChanged
+      BBE = FB_.Text.Length
+      ' Eignung zur TextBox Eigenschaften
+      If BAA = True Then FB_.Focus(3) : BBA = BBC + BBE - BBF : FB_.SelectionStart = BBA : BAA = False
+      ' CLASSIC
+      If ApplicationData.Current.LocalSettings.Values("textstyle") = "" Then
+        ' wenn der Text kleiner geworden ist: ' a|bc)d
+        If BBE - BBF < 0 Then
+          For i = BBA + BBF - BBE - 1 To BBA Step -1 : Ξ102.Children.RemoveAt(i) : Next
+          For i = BBA To Ξ102.Children.Count - 3 Step 1 : ADAF(Ξ102.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0)
+          Next : End If
+        ' wenn der Text größer geworden ist: ' a(bc|d
+        If BBE - BBF > 0 Then
+          For i = BBA + BBF - BBE To BBA - 1 Step 1 : Ξ102.Children.Insert(i, New TextBlock With
+                               {.Text = FB_.Text.Substring(i, 1), .Foreground = New SolidColorBrush(ADAB(AAG))}) : Next
+          For i = BBA + BBF - BBE To Ξ102.Children.Count - 3 Step 1
+            ADAF(Ξ102.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next : End If
+      End If
+      ' MATHPRINT
+      If ApplicationData.Current.LocalSettings.Values("textstyle") = "." Then
+        BAAA()
+
+      End If
+
+      BBF = BBE : If FB_.Text = "" Then Ϟ102.Text = A_D.GetString("A202") : Exit Sub Else Ϟ102.Text = ""
+
+      ' □
+      'EA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
+      '  .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
+      '  .Margin = New Thickness(BBA * 10, BBB * 10 - 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
+      'BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10 - 10) : BBA += 1
+      'BBB += 1 : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
+      'If BBA > 2 Then : For i = 0 To BBA - 3 Step 1
+      '    ADAF(B111.Children(i)).Margin = New Thickness(BDA(i), BBB * 10, 0, 0) : BDB(i) = BBB * 10
+      '  Next : End If
+      'If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
+      '    ADAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BBB * 10, 0, 0)
+      '    BDA(i) = i * 10 + 10 : BDB(i) = BBB * 10 : Next : End If
+
+
+      'BEB = BEB.Replace("√)", "") : BEB = BEB.Replace("ln)", "")
+      'BEB = BEB.Replace("cos)", "") : BEB = BEB.Replace("sin)", "")
+      'BEB = BEB.Replace("tan)", "") : BEB = BEB.Replace("cot)", "")
+      'BEB = BEB.Replace("acos)", "") : BEB = BEB.Replace("asin)", "")
+      'BEB = BEB.Replace("atan)", "") : BEB = BEB.Replace("acot)", "")
+      'BEB = BEB.Replace("lim')", "") : BEB = BEB.Replace("log')", "")
+      'BEB = BEB.Replace("Ʃ'')", "") : BEB = BEB.Replace("∏'')", "")
+      'BEB = BEB.Replace("√')", "") : BEB = BEB.Replace("ʃ''d())", "")
+
+      'If BBD - BBE = 1 AndAlso BEA.Substring(BBC, 1) = ")" Then
+      '  BED = "√(" : BAAG() : BED = "cos(" : BAAG() : BED = "acos(" : BAAG() : BED = "√('" : BAAG()
+      '  BED = "(`" : BAAG() : BED = "sin(" : BAAG() : BED = "asin(" : BAAG() : BED = "ln(" : BAAG()
+      '  BED = "(´" : BAAG() : BED = "tan(" : BAAG() : BED = "atan(" : BAAG() : BED = "lim('" : BAAG()
+      '  BED = "('" : BAAG() : BED = "cot(" : BAAG() : BED = "acot(" : BAAG() : BED = "log('" : BAAG()
+      '  BED = "Ʃ(''" : BAAG() : BED = "∏(''" : BAAG() : BED = "ʃ(''d()" : BAAG() : End If
+
+      'If BBE <> BEB.Length Then
+      '  B102.Text = " " & CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Exit Sub ' Test
+      '  FA_.Document.Selection.Text = FA_.Document.Selection.Text.Remove(BBC - BED.Length, BED.Length)
+      'End If
+
+
+    Catch ex As Exception : Ϟ104.Text = "B_ΔB: " & ex.Message : End Try
+  End Sub
+  Private Sub B_ΞB()
+    BBA = FB_.SelectionStart ' FB_ Eingabe: SelectionChanged
+    For i = 0 To Ξ102.Children.Count - 2 Step 1
+      ADAF(Ξ102.Children(i)).Foreground = New SolidColorBrush(ADAB(AAG)) : Next
+    For i = BBA To BBA + FB_.SelectionLength - 1 Step 1
+      ADAF(Ξ102.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue) : Next
+    If FB_.SelectionLength = 0 Then : AEB.Start() : AB_.Visibility = 0
+      AB_.X1 = BBA * 10 : AB_.X2 = BBA * 10 : AB_.Y1 = 2 : AB_.Y2 = 15
+    Else : AEB.Stop() : AB_.Visibility = 1 : End If
   End Sub
 #End Region
 #Region "B200"
@@ -276,7 +468,7 @@ Public NotInheritable Class MainPage
   Private Sub B_BC()
   End Sub
   Private Sub B_BD()
-    AAB = 7 : B500.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 1 : AADA()
+    AAB = 7 : B500.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 1 ' : AADA()
 
     If B500.RowDefinitions.Count > 0 Then : Exit Sub : End If : Grid.SetRow(B500, 2)
 
@@ -494,30 +686,37 @@ Public NotInheritable Class MainPage
     If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content)
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
-    'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, "‐")
-    'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += "‐"
-    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += "‐" : End If
+    If AAH = 1 Then BBC = FA_.SelectionStart : BAA = True : FA_.Text = FA_.Text.Insert(BBC, " " & a.Content & " ")
+    If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content)
   End Sub
   Private Sub C_AC(a As Button, b As RoutedEventArgs)
-    'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "()")
-    'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "()"
-    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "()" : End If
+    If AAH = 1 Then BBC = FA_.SelectionStart : BAA = True : FA_.Text = FA_.Text.Insert(BBC, a.Content & "()")
+    If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content & "()")
   End Sub
   Private Sub C_AD(a As Button, b As RoutedEventArgs)
-    'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(')")
-    'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "(')"
-    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "(')" : End If
+    If AAH = 1 Then BBC = FA_.SelectionStart : BAA = True : FA_.Text = FA_.Text.Insert(BBC, a.Content & "(')")
+    If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content & "(')")
   End Sub
   Private Sub C_AE(a As Button, b As RoutedEventArgs)
-    'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "('')")
-    'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "('')"
-    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "('')" : End If
+    If AAH = 1 Then BBC = FA_.SelectionStart : BAA = True : FA_.Text = FA_.Text.Insert(BBC, a.Content & "('')")
+    If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content & "('')")
   End Sub
   Private Sub C_AF(a As Button, b As RoutedEventArgs)
-    'If ABB = "B101" Then : B101.Text = B101.Text.Insert(B101.SelectionStart, a.Content & "(''d())")
-    'ElseIf ABB = "B111" Then : FA_.Document.Selection.Text += a.Content & "(''d())"
-    'ElseIf ABB = "Ϟ102" Then : Ϟ102.Document.Selection.Text += a.Content & "(''d())" : End If
+    If AAH = 1 Then BBC = FA_.SelectionStart : BAA = True : FA_.Text = FA_.Text.Insert(BBC, a.Content & "(''d())")
+    If AAH = 2 Then BBC = FB_.SelectionStart : BAA = True : FB_.Text = FB_.Text.Insert(BBC, a.Content & "(''d())")
   End Sub
+  Private Sub C_AG(a As Button, b As RoutedEventArgs)
+    Select Case a.Content
+      Case "⛭"
+      Case "⛯"
+      Case "⬜"
+      Case "▲"
+      Case "◀"
+      Case "▶"
+      Case "▼"
+    End Select
+  End Sub
+
 #End Region
 #End Region
 #Region "□□□□"
@@ -735,7 +934,7 @@ Public NotInheritable Class MainPage
     '    C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
     '    C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
     '  Case 5 : If AAD = 0 Then : B300.Visibility = AAD
-    '      DA_.Visibility = AAC : Else : ACAC() : End If : End Select
+    '      DA_.Visibility = AAC : Else : B_ϞA() : End If : End Select
   End Sub
   Private Sub AADA()
     ' Textstyle - Bearbeitung
@@ -755,7 +954,6 @@ Public NotInheritable Class MainPage
     ' Helligkeit - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("lightness")
       Case "."
-        ApplicationData.Current.LocalSettings.Values("colors") = "1"
         AA00.Background = New SolidColorBrush(Colors.White)
         Ϟ101.Foreground = New SolidColorBrush(Colors.Black)
         Ϟ102.Foreground = New SolidColorBrush(Colors.Black)
@@ -766,7 +964,6 @@ Public NotInheritable Class MainPage
         B504.Visibility = 0 : B505.Visibility = 0 : B506.Visibility = 0
         AAE = 14 : AAF = 0 : AAG = 1 : AADD()
       Case ""
-        ApplicationData.Current.LocalSettings.Values("colors") = ""
         AA00.Background = New SolidColorBrush(Colors.Blue)
         Ϟ101.Foreground = New SolidColorBrush(Colors.White)
         Ϟ102.Foreground = New SolidColorBrush(Colors.White)
@@ -776,6 +973,8 @@ Public NotInheritable Class MainPage
         B501.Visibility = 1 : B502.Visibility = 1 : B503.Visibility = 1
         B504.Visibility = 1 : B505.Visibility = 1 : B506.Visibility = 1
         AAE = 11 : AAF = 14 : AAG = 13 : AADD()
+        ' genau hier
+        ApplicationData.Current.LocalSettings.Values("colors") = ""
     End Select : AADE()
   End Sub
   Private Sub AADD()
@@ -873,104 +1072,14 @@ Public NotInheritable Class MainPage
     ' Helligkeit
     If B513.IsOn = True Then
       ApplicationData.Current.LocalSettings.Values("lightness") = "."
+      ' genau hier
+      ApplicationData.Current.LocalSettings.Values("colors") = "1"
     Else ' light ' dark_
       ApplicationData.Current.LocalSettings.Values("lightness") = ""
     End If : AADC()
   End Sub
 #End Region
 #Region "A-AC"
-  Private Sub ACAA(a As Object, b As TappedRoutedEventArgs)
-    Try : AEB.Stop() : FA_.Focus(3) : AAH = 1
-      BBA = Math.Ceiling((b.GetPosition(Հ101).X - 4) / 10) : If BBA > FA_.Text.Length Then BBA = FA_.Text.Length
-      AA_.Visibility = 0 : AEA.Start() : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
-      AB_.Visibility = 1 : FA_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "ACAA: " & ex.Message : End Try
-  End Sub
-  Private Sub ACAB(a As Object, b As TappedRoutedEventArgs)
-    Try : AEA.Stop() : FB_.Focus(3)
-      BBA = Math.Ceiling(b.GetPosition(Հ102).X / 15) : If BBA >= Ξ102.Children.Count Then BBA = Ξ102.Children.Count - 2
-      AB_.Visibility = 0 : AEB.Start() : AB_.X1 = BBA * 15 : AB_.X2 = BBA * 15 : AB_.Y1 = BBB * 15 : AB_.Y2 = BBB * 15 + 15
-      AA_.Visibility = 1 : FA_.SelectionStart = BBA : Catch ex As Exception : Ϟ104.Text = "ACAB: " & ex.Message : End Try
-  End Sub
-  Private Sub ACAC()
-    ' Kursor-1-Blinken
-    Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
-  End Sub
-  Private Sub ACAD()
-    ' Kursor-2-Blinken
-    Select Case AB_.Visibility : Case 0 : AB_.Visibility = 1 : Case 1 : AB_.Visibility = 0 : End Select
-  End Sub
-  Private Sub ACBA()
-    Try ' FA_ Eingabe: TextChanged
-      BBE = FA_.Text.Length : If FA_.Text <> "" Then Ϟ101.Text = "" ' ! Reihenfolge !
-      ' Eignung zur TextBox Eigenschaften
-      If BAA = True Then : FA_.Focus(3) : BBA = BBC + BBE - BBD
-        FA_.SelectionStart = BBA : BAA = False : End If
-      ' Zeichen Löschen oder Zufügen
-      If BBE - BBD < 0 Then ' wenn der Text kleiner geworden ist: ' a|bc)d
-        For i = BBA + BBD - BBE - 1 To BBA Step -1 : Ξ101.Children.RemoveAt(i) : Next
-        For i = BBA To Ξ101.Children.Count - 3 Step 1
-          ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next
-      End If
-      If BBE - BBD > 0 Then ' wenn der Text größer geworden ist: ' a(bc|d
-        For i = BBA + BBD - BBE To BBA - 1 Step 1
-          Ξ101.Children.Insert(i, New TextBlock With {.Text = FA_.Text.Substring(i, 1),
-                               .Foreground = New SolidColorBrush(ADAB(AAG))}) : Next
-        For i = BBA + BBD - BBE To Ξ101.Children.Count - 3 Step 1
-          ADAF(Ξ101.Children(i)).Margin = New Thickness(i * 10, 0, 0, 0) : Next
-      End If
-      BBD = BBE : If FA_.Text = "" Then Ϟ101.Text = A_D.GetString("A201")
-    Catch ex As Exception : Ϟ104.Text = "ACBA: " & ex.Message : End Try
-  End Sub
-  Private Sub ACBB()
-    ' Ϟ102.Text = A_D.GetString("A202")
-
-    Try ' FA_ Eingabe: TextChanged
-      If FA_.Text = "" Then Ϟ101.Text = A_D.GetString("A201")
-      BBC = FA_.SelectionStart : BEB = FA_.SelectedText : BBE = BEB.Length
-      'B102.Text = CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Test
-      'BAAD()
-      'If BBE - BBD < 0 Then : For i = BBC + BBD - BBE - 1 To BBC Step -1 : B111.Children.RemoveAt(i)
-      '    For j = i To B111.Children.Count - 2 Step 1
-      '      ADAF(B111.Children(j)).Margin = New Thickness((j + 1) * 10, BBB * 10, 0, 0) : Next : Next : BAAD()
-      'End If
-      'If BBE - BBD > 0 Then : BEC = BEB.Substring(BBC - BBE + BBD, BBE - BBD)
-      '  For i = 0 To BEC.Length - 1 Step 1 : BED = BEC.Substring(i, 1) : BBA = BBC - BBE + BBD + i + 1 : BAAE()
-      '  Next : BAAD() : End If
-      'BAAF()
-
-      'BEA = BEB : BBD = BBE
-    Catch ex As Exception
-      'Ϟ104.Visibility = 0 : Ϟ104.Document.Selection.Text = FA_.Document.Selection.Text
-      'Ϟ104.Document.Selection.Text += vbCrLf & "FA_TextChanged: " & ex.Message : FA_.Visibility = 1
-    End Try
-
-  End Sub
-  Private Sub ACCA()
-
-    FA_.MaxWidth = 500 : FA_.MaxHeight = 100
-
-    BBA = FA_.SelectionStart ' FA_ Eingabe: SelectionChanged
-    For i = 0 To Ξ101.Children.Count - 2 Step 1
-      ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(ADAB(AAG))
-    Next
-    For i = BBA To BBA + FA_.SelectionLength - 1 Step 1
-      ADAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
-    Next
-    AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
-  End Sub
-  Private Sub ACCB()
-    'Try ' FA_: SelectionCanged
-    '  BBA = FA_.Document.Selection.EndPosition + 1
-    '  AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    '  If BBA > 1 Then BBA -= 1
-    'Catch ex As Exception
-    '  FA_.Document.Selection.Text += "FA_.SelectionCanged" & vbCrLf & ex.Message : End Try
-  End Sub
-#End Region
-#Region "A-AD"
-
-#End Region
-#Region "A-AE"
   Private Function ADAA() As Boolean
     Dim aaaaa As ConnectionProfile = NetworkInformation.GetInternetConnectionProfile()
     If aaaaa IsNot Nothing AndAlso aaaaa.GetNetworkConnectivityLevel() = 3 Then
@@ -997,7 +1106,7 @@ Public NotInheritable Class MainPage
     Return a
   End Function
 #End Region
-#Region "A-AF"
+#Region "A-AD"
   Private Async Sub AEAA()
     If ADAA() = True Then
       Dim aaaaa As String = "AA" ' : Ϟ102.Document.Selection.StartPosition = 0
@@ -1019,97 +1128,275 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "BBBB"
 #Region "B-AA"
-  Private Sub BAAD()
-    KAH.Clear() : KAI.Clear() : MAA.Clear() : MAC.Clear() : MAD.Clear()
-    KAI.Add("") : MAA.Add(0) : MAC.Add(0) : If BBE < 2 Then Exit Sub
+  Private Sub BAAA()
+    ' Ausdruckseigenschaften - Variante 1
 
+    FB_.MaxWidth = 500 : FB_.MaxHeight = 100
+
+    KH.Clear() : KI.Clear() : MA.Clear() : MC.Clear() : MD.Clear()
+    KI.Add("") : MA.Add(0) : MC.Add(0) : If BBE = 0 Then Exit Sub
     For i = 0 To BBE - 1 Step 1
-      Select Case BEB.Substring(i, 1) ' - ‐ Operator und Vorzeichen
+      Select Case FB_.Text.Substring(i, 1) ' - ‐ Operator und Vorzeichen
         Case "(", "ǀ", "[", "{"
-          BBF += 1 : MAA.Add(BBF) : MAD.Add(i + 1 - MAC(MAC.Count - 1))
-          KAH.Add(BEB.Substring(MAC(MAC.Count - 1), MAD(MAD.Count - 1)))
-          KAI.Add("") : MAC.Add(i + 1)
+          BBG += 1 : MA.Add(BBG) : MD.Add(i + 1 - MC(MC.Count - 1))
+          KH.Add(FB_.Text.Substring(MC(MC.Count - 1), MD(MD.Count - 1)))
+          KI.Add("") : MC.Add(i + 1)
         Case ")", "|", "]", "}"
-          BBF -= 1 : MAA.Add(BBF) : MAD.Add(i - MAC(MAC.Count - 1))
-          KAI.Add("")
-          KAH.Add(BEB.Substring(MAC(MAC.Count - 1), MAD(MAD.Count - 1)))
-          MAC.Add(i)
+          BBG -= 1 : MA.Add(BBG) : MD.Add(i - MC(MC.Count - 1))
+          KI.Add("")
+          KH.Add(FB_.Text.Substring(MC(MC.Count - 1), MD(MD.Count - 1)))
+          MC.Add(i)
         Case "'", "`", "→", "=", "≠", "<", ">", "+", "-", "±", "∓", "·",
              ":", "˄", "˅"
-          MAA.Add(BBF) : MAD.Add(i - MAC(MAC.Count - 1))
-          KAH.Add(BEB.Substring(MAC(MAC.Count - 1), MAD(MAD.Count - 1)))
-          KAI.Add(BEB.Substring(i, 1)) : MAC.Add(i + 1)
+          MA.Add(BBG) : MD.Add(i - MC(MC.Count - 1))
+          KH.Add(FB_.Text.Substring(MC(MC.Count - 1), MD(MD.Count - 1)))
+          KI.Add(FB_.Text.Substring(i, 1)) : MC.Add(i + 1)
       End Select
     Next
-
-    If MAC.Count > MAD.Count Then : MAD.Add(BBE - MAC(MAC.Count - 1))
-      KAH.Add(BEB.Substring(MAC(MAC.Count - 1), MAD(MAD.Count - 1)))
-      MAA.Add(0) : End If
-
-    'sss.Text = CStr(KAH.Count) : Exit Sub
-    sss.Text = ""
-    For i = 0 To KAH.Count - 1 Step 1
-      sss.Text &= "KAI: " & KAI(i) & "		" &
-        "KAH: " & KAH(i) & "		" &
-        "MAA: " & CStr(MAA(i)) & "		" &
-        "MAC: " & CStr(MAC(i)) & "		" &
-        "MAD: " & CStr(MAD(i)) & vbCrLf
+    If MC.Count > MD.Count Then : MD.Add(BBE - MC(MC.Count - 1))
+      KH.Add(FB_.Text.Substring(MC(MC.Count - 1), MD(MD.Count - 1)))
+    End If
+    Ϟ104.Text = ""
+    For i = 0 To KH.Count - 1 Step 1
+      Ϟ104.Text &= "KAI: " & KI(i) & "		" &
+        "KAH: " & KH(i) & "		" &
+        "MAA: " & CStr(MA(i)) & "		" &
+        "MAC: " & CStr(MC(i)) & "		" &
+        "MAD: " & CStr(MD(i)) & vbCrLf
     Next
-
-    ' □
-    'EA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
-    '  .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
-    '  .Margin = New Thickness(BBA * 10, BBB * 10 - 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
-    'BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10 - 10) : BBA += 1
-    'BBB += 1 : AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    'If BBA > 2 Then : For i = 0 To BBA - 3 Step 1
-    '    ADAF(B111.Children(i)).Margin = New Thickness(BDA(i), BBB * 10, 0, 0) : BDB(i) = BBB * 10
-    '  Next : End If
-    'If B111.Children.Count > BBA Then : For i = BBA - 1 To B111.Children.Count - 2 Step 1
-    '    ADAF(B111.Children(i)).Margin = New Thickness(i * 10 + 10, BBB * 10, 0, 0)
-    '    BDA(i) = i * 10 + 10 : BDB(i) = BBB * 10 : Next : End If
-
-
-    'BEB = BEB.Replace("√)", "") : BEB = BEB.Replace("ln)", "")
-    'BEB = BEB.Replace("cos)", "") : BEB = BEB.Replace("sin)", "")
-    'BEB = BEB.Replace("tan)", "") : BEB = BEB.Replace("cot)", "")
-    'BEB = BEB.Replace("acos)", "") : BEB = BEB.Replace("asin)", "")
-    'BEB = BEB.Replace("atan)", "") : BEB = BEB.Replace("acot)", "")
-    'BEB = BEB.Replace("lim')", "") : BEB = BEB.Replace("log')", "")
-    'BEB = BEB.Replace("Ʃ'')", "") : BEB = BEB.Replace("∏'')", "")
-    'BEB = BEB.Replace("√')", "") : BEB = BEB.Replace("ʃ''d())", "")
-
-    'If BBD - BBE = 1 AndAlso BEA.Substring(BBC, 1) = ")" Then
-    '  BED = "√(" : BAAG() : BED = "cos(" : BAAG() : BED = "acos(" : BAAG() : BED = "√('" : BAAG()
-    '  BED = "(`" : BAAG() : BED = "sin(" : BAAG() : BED = "asin(" : BAAG() : BED = "ln(" : BAAG()
-    '  BED = "(´" : BAAG() : BED = "tan(" : BAAG() : BED = "atan(" : BAAG() : BED = "lim('" : BAAG()
-    '  BED = "('" : BAAG() : BED = "cot(" : BAAG() : BED = "acot(" : BAAG() : BED = "log('" : BAAG()
-    '  BED = "Ʃ(''" : BAAG() : BED = "∏(''" : BAAG() : BED = "ʃ(''d()" : BAAG() : End If
-
-    'If BBE <> BEB.Length Then
-    '  B102.Text = " " & CStr(BBC) & " " & CStr(BBE) & " " & CStr(BBD) ' Exit Sub ' Test
-    '  FA_.Document.Selection.Text = FA_.Document.Selection.Text.Remove(BBC - BED.Length, BED.Length)
-    'End If
-
-
+    BBG = 0 : BABA()
   End Sub
-  Private Sub BAAE()
-    'Try
-    '  EA_ = New TextBlock With {.Text = BED, .FontFamily = New FontFamily("Consolas"),
-    '  .Margin = New Thickness(BBA * 10, BBB * 10, 0, 0)} : B111.Children.Insert(BBA - 1, EA_)
-    '  BDA.Insert(BBA - 1, BBA * 10) : BDB.Insert(BBA - 1, BBB * 10) : BBA += 1
-    '  AA_.X1 = BBA * 10 : AA_.X2 = BBA * 10 : AA_.Y1 = BBB * 10 : AA_.Y2 = BBB * 10 + 17
-    '  If B111.Children.Count > BBA Then
-    '    For i = BBA - 1 To B111.Children.Count - 2 Step 1 : BDA(i) = i * 10 + 10
-    '      ADAF(B111.Children(i)).Margin = New Thickness(BDA(i), BDB(i), 0, 0) : Next : End If
-    '  FA_.Focus(3)
-    'Catch ex As Exception
-    '  FA_.Document.Selection.Text += vbCrLf & "B111.ChildrenAdded: " & ex.Message & vbCrLf & ex.Source
-    'End Try
+
+  Private Sub DAAD()
+    ' Ausdruckseigenschaften - Variante 2
+    If CH = XXX And KA.Count > 1 Then Exit Sub Else CH = XXX ' Wiederlaufverbot
+    KH.Clear() : KI.Clear() : MA.Clear() : MB.Clear() : MC.Clear() : MD.Clear()
+    ME_.Clear() : MF_.Clear() : MG_.Clear() : MH_.Clear() : MI_.Clear() : MJ_.Clear()
+    MM_.Clear() : IA.Clear() : IB.Clear() : LA.Clear() : KH.Add(XXX) : KI.Add("")
+    ME_.Add(0) : MA.Add(0) : KG.Add("DAAD") : _A = -1 : _F = 0 : _G = 0 ' 3 ÷ 2 × 3
+    '1     Ausdruckteile
+    Do
+      '1.1     Anweisungen
+      _A += 1 : _B = MA(_A) : _C = _B : _D = KH(_A).Length : _E = _D : A_ = False : AAD = 0
+      C1.Clear() : C2.Clear() : C3.Clear() : C4.Clear() : C5.Clear() : C6.Clear() : C7.Clear()
+      '1.2     Funktionen
+      If XXX.Substring(_B, 1) <> "-" Then
+        ' Erstes ein Zeichen
+        If _D > 1 Then : Select Case XXX.Substring(_B, 1)
+            Case "(" : _C += 1 : _E -= 2 : MB.Add(1)
+            Case "{" : _C += 1 : _E -= 2 : MB.Add(1)
+            Case "ǀ" : _C += 1 : _E -= 2 : MB.Add(2)
+            Case "[" : _C += 1 : _E -= 2 : MB.Add(2)
+          End Select : End If
+        ' Erste zwei Zeichen
+        If _D > 2 Then : Select Case XXX.Substring(_B, 2)
+            Case "√(" : _C += 2 : _E -= 3 : MB.Add(3)
+            Case "d(" : _C += 2 : _E -= 3 : MB.Add(4)
+            Case "ʃ(" : _C += 2 : _E -= 3 : MB.Add(5)
+            Case "Ʃ(" : _C += 2 : _E -= 3 : MB.Add(6)
+            Case "∏(" : _C += 2 : _E -= 3 : MB.Add(7)
+          End Select : End If
+        ' Erste drei Zeichen
+        If _D > 3 Then : Select Case XXX.Substring(_B, 3)
+            Case "ln(" : _C += 3 : _E -= 4 : MB.Add(8)
+          End Select : End If
+        ' Erste vier Zeichen
+        If _D > 4 Then : Select Case XXX.Substring(_B, 2)
+            Case "log(" : _C += 4 : _E -= 5 : MB.Add(9)
+            Case "lim(" : _C += 4 : _E -= 5 : MB.Add(10)
+            Case "cos(" : _C += 4 : _E -= 5 : MB.Add(11)
+            Case "sin(" : _C += 4 : _E -= 5 : MB.Add(12)
+            Case "tan(" : _C += 4 : _E -= 5 : MB.Add(13)
+            Case "cot(" : _C += 4 : _E -= 5 : MB.Add(14)
+          End Select : End If
+        ' Erste fünf Zeichen
+        If _D > 5 Then : Select Case XXX.Substring(_B, 5)
+            Case "acos(" : _C += 5 : _E -= 6 : MB.Add(15)
+            Case "asin(" : _C += 5 : _E -= 6 : MB.Add(16)
+            Case "atan(" : _C += 5 : _E -= 6 : MB.Add(17)
+            Case "acot(" : _C += 5 : _E -= 6 : MB.Add(18)
+          End Select : End If
+      Else
+        ' Erste zwei Zeichen
+        If _D > 2 Then : Select Case XXX.Substring(_B, 2)
+            Case "-(" : _C += 2 : _E -= 3 : MB.Add(1)
+            Case "-{" : _C += 2 : _E -= 3 : MB.Add(1)
+            Case "-ǀ" : _C += 2 : _E -= 3 : MB.Add(2)
+            Case "-[" : _C += 2 : _E -= 3 : MB.Add(2)
+          End Select : End If
+        ' Erste drei Zeichen
+        If _D > 3 Then : Select Case XXX.Substring(_B, 3)
+            Case "-√(" : _C += 3 : _E -= 4 : MB.Add(3)
+            Case "-d(" : _C += 3 : _E -= 4 : MB.Add(4)
+            Case "-ʃ(" : _C += 3 : _E -= 4 : MB.Add(5)
+            Case "-Ʃ(" : _C += 3 : _E -= 4 : MB.Add(6)
+            Case "-∏(" : _C += 3 : _E -= 4 : MB.Add(7)
+          End Select : End If
+        ' Erste vier Zeichen
+        If _D > 4 Then : Select Case XXX.Substring(_B, 4)
+            Case "-ln(" : _C += 4 : _E -= 5 : MB.Add(8)
+          End Select : End If
+        ' Erste fünf Zeichen
+        If _D > 5 Then : Select Case XXX.Substring(_B, 5)
+            Case "-log(" : _C += 5 : _E -= 6 : MB.Add(9)
+            Case "-lim(" : _C += 5 : _E -= 6 : MB.Add(10)
+            Case "-cos(" : _C += 5 : _E -= 6 : MB.Add(11)
+            Case "-sin(" : _C += 5 : _E -= 6 : MB.Add(12)
+            Case "-tan(" : _C += 5 : _E -= 6 : MB.Add(13)
+            Case "-cot(" : _C += 5 : _E -= 6 : MB.Add(14)
+          End Select : End If
+        ' Erste sechs Zeichen
+        If _D > 6 Then : Select Case XXX.Substring(_B, 6)
+            Case "-acos(" : _C += 6 : _E -= 7 : MB.Add(15)
+            Case "-asin(" : _C += 6 : _E -= 7 : MB.Add(16)
+            Case "-atan(" : _C += 6 : _E -= 7 : MB.Add(17)
+            Case "-acot(" : _C += 6 : _E -= 7 : MB.Add(18)
+          End Select : End If
+      End If
+
+      '1.3     Funktionsgültigkeit
+      If _B < _C Then AAD = 1 : A_ = True
+      '1.4     Öffnungsklammer
+      Select Case XXX.Substring(_C, 1)
+        Case "(" : AAD += 1 : Case "ǀ" : AAD += 1
+        Case "{" : AAD += 1 : Case "[" : AAD += 1
+      End Select
+      '1.5     Operatoren
+      If _E > 1 Then ' wenn bb = true dann _E > 1
+        For i = _C To _C + _E - 2 Step 1
+          Select Case XXX.Substring(i, 1) ' ǀ <> | ǁ
+            Case "(" : AAD += 1 : Case ")" : AAD -= 1
+            Case "ǀ" : AAD += 1 : Case "|" : AAD -= 1
+            Case "[" : AAD += 1 : Case "]" : AAD -= 1
+            Case "{" : AAD += 1 : Case "}" : AAD -= 1
+          End Select
+          If AAD = 0 Then : Select Case XXX.Substring(i, 2)
+              Case "' " : C1.Add(i) : Case "→ " : C2.Add(i)
+              Case "= " : C3.Add(i) : Case "≠ " : C3.Add(i)
+              Case "< " : C3.Add(i) : Case "> " : C3.Add(i)
+              Case "+ " : C4.Add(i) : Case "- " : C4.Add(i)
+              Case "± " : C4.Add(i) : Case "∓ " : C4.Add(i)
+              Case "· " : C5.Add(i) : Case ": " : C5.Add(i)
+              Case "˄ " : C6.Add(i) : Case "˅ " : C6.Add(i)
+              Case "˟ " : C6.Add(i) : End Select
+            'Ein-Funktion-Unterschied von Mehr-Funktion: f(1) o f(2)
+            If A_ = True Then MB.RemoveAt(MB.Count - 1) : A_ = False
+          End If
+        Next
+      End If
+      '1.6     Operatorengruppenwahl
+      If C6.Count > 0 Then AAD = 6 : C7 = C6
+      If C5.Count > 0 Then AAD = 5 : C7 = C5
+      If C4.Count > 0 Then AAD = 4 : C7 = C4
+      If C3.Count > 0 Then AAD = 3 : C7 = C3
+      If C2.Count > 0 Then AAD = 2 : C7 = C2
+      If C1.Count > 0 Then AAD = 1 : C7 = C1
+      '1.7     Funktionslosigkeit
+      If A_ = False Then _C = _B : _E = _D : MB.Add(0)
+      '1.8     Wenn die Operatoren nicht gültig sind
+      If C7.Count = 0 Then
+        '1.8.1
+        If A_ = True Then
+          'Term, Operator, Teilungsanfang, Quellenteilindex,
+          'Ausgangsteilenanzahl, Ausgangsteilenanfangsindex
+          KH.Add(XXX.Substring(_C, _E)) : KI.Add("") : MA.Add(_C)
+          ME_.Add(_A) : MH_.Add(1) : MI_.Add(KI.Count - 1)
+        Else
+          MH_.Add(0) : MI_.Add(_A) ' KH, KI, MA, ME_ schon vorher angegeben
+        End If
+        'Eingangsanfang, Eingangslänge, Ausgangsanfang, Ausgangslänge, Operatorengruppe
+        MC.Add(_B) : MD.Add(_D) : MF_.Add(_C) : MG_.Add(_E) : IB.Add(0)
+        If KH(_A) <> "∞" And KH(_A) <> "-∞" And Double.TryParse(KH(_A), 0) = True Then
+          MJ_.Add(1) : Else MJ_.Add(0) : End If ' Eingangsteil-Zahl
+        If KH(_A) = CB Or KH(_A) = "-" & CB Then MM_.Add(1) Else MM_.Add(0) ' Gesuchte Variable
+      End If
+      '1.9     Wenn die Operatoren gültig sind !!! Reihenfolge
+      If C7.Count > 0 Then
+        C7.Insert(0, _C) : C7.Add(_C + _E)
+        MJ_.Add(0) : MM_.Add(0) ' : MAK.Add(0) ' betreffen nicht
+        '1.8.1     Eigenschaften des Eingangsausdrucksubstrings
+        MC.Add(_B) : MD.Add(_D) : MF_.Add(_C) : MG_.Add(_E)
+        IB.Add(AAD) : MH_.Add(C7.Count - 1) : MI_.Add(KI.Count)
+        '1.8.2     Ausgangsausdrucksubstringe
+        For i = 1 To C7.Count - 1 Step 1
+          If i = 1 Then : KH.Add(XXX.Substring(_C, C7(i) - _C - 1))
+            KI.Add("") : ME_.Add(_A) : MA.Add(_C)
+          End If
+          If i > 1 And i < C7.Count - 1 Then
+            KH.Add(XXX.Substring(C7(i - 1) + 2, C7(i) - C7(i - 1) - 3))
+            KI.Add(XXX.Substring(C7(i - 1), 1)) : ME_.Add(_A) : MA.Add(C7(i - 1) + 2)
+          End If
+          If i = C7.Count - 1 Then
+            KH.Add(XXX.Substring(C7(i - 1) + 2, C7(i) - C7(i - 1) - 2))
+            KI.Add(XXX.Substring(C7(i - 1), 1)) : ME_.Add(_A) : MA.Add(C7(i - 1) + 2)
+          End If
+          '1 Operator 2 Quellenteilindex 3 Teilungsanfang
+        Next
+      End If
+      '1.10     Gemeinsame Eigenschaften auch wenn: ba = False And bb = False
+      If XXX.Substring(_B, 1) = "-" Then IA.Add(2) Else IA.Add(0) ' Vorzeichen vor Eingangsteiles
+      LA.Add(False) '17 Gesuchte Variable in Gleichung im Nenner (Hinzufügen False ohne Bedingungen)
+    Loop Until _A = KH.Count - 1
+    '2     Eigenschaftenkorrektur
+    For i = 0 To KH.Count - 1 Step 1
+      'Vorzeichen
+      If IB(i) = 6 Then
+        If IA(i) = 0 Then IA(i) = 1 Else If IA(i) = 2 Then IA(i) = 3
+        If IB(ME_(i)) = 5 And i = MI_(ME_(i)) Then IA(ME_(i)) = IA(i)
+        'wenn Operatorengruppe 6 in Anfangsposition bei Operatorengruppe 5
+      End If
+      'Gesuchte Variable
+      If MM_(i) = 1 Then : _J = i : _K = 1
+        Do : _K += 1 : MM_(ME_(_J)) += _K : _J = ME_(_J) : Loop Until _J = 0
+        If KI(i) = ":" Then : _J = i : Do : LA(ME_(_J)) = True : _J = ME_(_J) : Loop Until _J = 0 : End If
+        If KI(ME_(i)) = ":" And IB(ME_(i)) = 6 Then : _J = i : Do : LA(ME_(_J)) = True : _J = ME_(_J)
+          Loop Until _J = 0 : End If
+      End If
+    Next
+  End Sub
+
+  Private Sub BABA()
+    For i = 0 To MA.Count - 1 Step 1
+      Select Case KH(i)
+        Case "ʃ("
+#Region ""
+          ' wenn nicht schon einmal geändert wurde
+          If i > 0 AndAlso MA(i) >= MA(i - 1) Then
+            Ξ_A = New Ξ_A_A : BABB(i)
+          End If
+#End Region
+      End Select
+    Next
+  End Sub
+
+  Private Sub BABB(a As Integer)
+    ' Funktions innere Terme
+    Ξ_A.AAA.Add(MC(a + 1))
+
+    For i = a + 1 To BBAA(a) Step 1
+      If KI(i) = "'" And MA(a) = MA(i) - 1 Then : Ξ_A.AAB.Add(MC(i) - 1 - Ξ_A.AAA(Ξ_A.AAA.Count - 1))
+        Ξ_A.AAA.Add(MC(i)) : End If : Next : Ξ_A.AAB.Add(MC(a + BBAA(a)) - Ξ_A.AAA(Ξ_A.AAA.Count - 1))
+
+    'Ϟ104.Text = ""
+    'For i = 0 To Ξ_A.AAA.Count - 1 Step 1
+    '  Ϟ104.Text &= "Ξ_A.AAA: " & Ξ_A.AAA(i).ToString() & vbCrLf &
+    '            "Ξ_A.AAB: " & Ξ_A.AAB(i).ToString() & vbCrLf &
+    '            "Teil: " & FB_.Text.Substring(Ξ_A.AAA(i), Ξ_A.AAB(i)) & vbCrLf & vbCrLf
+    'Next
+  End Sub
+  Private Sub BACA()
+    ' TERME MATHPRINT TEXT
+  End Sub
+  Private Sub BACB()
+    ' TERME MATHPRINT VIEW
   End Sub
 #End Region
 #Region "B-AB"
-
+  Private Function BBAA(a As Integer) As Integer
+    ' Anzahl der Teile einer Funktion
+    BBAA = MA.Count - 1
+    For i = a + 1 To MA.Count - 1 Step 1 : If MA(a) = MA(i) Then : BBAA = i - a : Exit For : End If : Next : Return BBAA
+  End Function
 #End Region
 #Region "B-AC"
 #End Region
@@ -1211,7 +1498,7 @@ Public NotInheritable Class MainPage
       Case "9.7" : ABA = "105" : Case "9.8" : ABA = "106" : Case "9.9" : ABA = "107" : Case "9.10" : ABA = "108"
       Case "9.11" : ABA = "109" : Case "9.12" : ABA = "110" : Case "9.13" : ABA = "111" : Case "9.14" : ABA = "112"
       Case "9.15" : ABA = "113" : Case "9.16" : ABA = "114" : Case "9.17" : ABA = "115" : Case "9.18" : ABA = "116"
-      Case "9.19" : ABA = "117" : Case "9.20" : ABA = "118" : Case Else : ABA = 0 : End Select : CAA = ABA : CABC()
+      Case "9.19" : ABA = "117" : Case "9.20" : ABA = "118" : Case Else : ABA = 0 : End Select : XXX = ABA : CABC()
   End Sub
   Private Sub CABB()
     ' Die Auswahl des chemischen Elements von der Liste
@@ -1264,3 +1551,4 @@ Public NotInheritable Class MainPage
 #End Region
 #End Region
 End Class
+#End Region

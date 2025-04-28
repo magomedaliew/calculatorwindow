@@ -112,15 +112,15 @@
    <Button Name="C114" Click="C_AA" Content="ǀ"/>
    <Button Name="C115" Click="C_AA" Content="|"/>
    <Button Name="C116" Click="C_AA" Content="]"/>
-   <Button Name="C117" Click="C_AA" Content="+"/>
-   <Button Name="C118" Click="C_AA" Content="*"/>
-   <Button Name="C119" Click="C_AA" Content="˄"/>
+   <Button Name="C117" Click="C_AB" Content="+"/>
+   <Button Name="C118" Click="C_AB" Content="*"/>
+   <Button Name="C119" Click="C_AB" Content="˄"/>
    <Button Name="C120" Click="C_AA" Content="∞"/>
-   <Button Name="C121" Click="C_AA" Content="–"/>
-   <Button Name="C122" Click="C_AA" Content=":"/>
-   <Button Name="C123" Click="C_AD" Content="˅"/>
+   <Button Name="C121" Click="C_AB" Content="–"/>
+   <Button Name="C122" Click="C_AB" Content=":"/>
+   <Button Name="C123" Click="C_AB" Content="˅"/>
    <Button Name="C124" Click="C_AA" Content="Δ"/>
-   <Button Name="C125" Click="C_AB" Content="-"/>
+   <Button Name="C125" Click="C_AA" Content="-"/>
    <Button Name="C126" Click="C_AA"/>
    <Button Name="C127" Click="C_AA" Content="´"/>
    <Button Name="C128" Click="C_AA" Content="°"/>
@@ -145,22 +145,22 @@
    <Button Name="C147" Click="C_AC" Content="atan"/>
    <Button Name="C148" Click="C_AC" Content="acot"/>
 
-   <Button Name="C149" Click="C_AC" Content=""/>
-   <Button Name="C150" Click="C_AC" Content="▲"/>
-   <Button Name="C151" Click="C_AA" Content=""/>
-   <Button Name="C152" Click="C_AA" Content="⛭"/>
-   <Button Name="C153" Click="C_AA" Content="◀"/>
-   <Button Name="C154" Click="C_AE" Content="⬜"/>
-   <Button Name="C155" Click="C_AE" Content="▶"/>
-   <Button Name="C156" Click="C_AF" Content="⛯"/>
-   <Button Name="C157" Click="C_AA" Content=""/>
-   <Button Name="C158" Click="C_AC" Content="▼"/>
-   <Button Name="C159" Click="C_AD" Content=""/>
-   <Button Name="C160" Click="C_AD" Content=""/>
-   <Button Name="C161" Click="C_AC" Content=""/>
-   <Button Name="C162" Click="C_AC" Content=""/>
-   <Button Name="C163" Click="C_AC" Content=""/>
-   <Button Name="C164" Click="C_AC" Content=""/>
+   <Button Name="C149" Click="C_AG" Content=""/>
+   <Button Name="C150" Click="C_AG" Content="▲"/>
+   <Button Name="C151" Click="C_AG" Content=""/>
+   <Button Name="C152" Click="C_AG" Content="⛭"/>
+   <Button Name="C153" Click="C_AG" Content="◀"/>
+   <Button Name="C154" Click="C_AG" Content="⬜"/>
+   <Button Name="C155" Click="C_AG" Content="▶"/>
+   <Button Name="C156" Click="C_AG" Content="⛯"/>
+   <Button Name="C157" Click="C_AG" Content=""/>
+   <Button Name="C158" Click="C_AG" Content="▼"/>
+   <Button Name="C159" Click="C_AG" Content=""/>
+   <Button Name="C160" Click="C_AG" Content=""/>
+   <Button Name="C161" Click="C_AG" Content=""/>
+   <Button Name="C162" Click="C_AG" Content=""/>
+   <Button Name="C163" Click="C_AG" Content=""/>
+   <Button Name="C164" Click="C_AG" Content=""/>
   </Grid>
  </Grid>
 </Page>
