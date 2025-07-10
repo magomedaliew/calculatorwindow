@@ -17,9 +17,13 @@
   <Style TargetType="TextBlock">
    <Setter Property="TextWrapping" Value="Wrap"/>
    <Setter Property="FontFamily" Value="Consolas"/>
-
    <!--<Setter Property="IsTextSelectionEnabled" Value="True"/>-->
    <!--<Setter Property="SelectionHighlightColor" Value="SkyBlue"/>-->
   </Style>
+  <!--ToolTip-->
+  <Style TargetType="ToolTip">
+   <Setter Property="Placement" Value="Bottom"/>
+  </Style>
+
  </Application.Resources>
 </Application>

@@ -112,15 +112,15 @@
    <Button Name="C114" Click="C_AA" Content="ǀ"/>
    <Button Name="C115" Click="C_AA" Content="|"/>
    <Button Name="C116" Click="C_AA" Content="]"/>
-   <Button Name="C117" Click="C_AB" Content="+"/>
-   <Button Name="C118" Click="C_AB" Content="*"/>
-   <Button Name="C119" Click="C_AB" Content="˄"/>
+   <Button Name="C117" Click="C_AA" Content="+"/>
+   <Button Name="C118" Click="C_AA" Content="*"/>
+   <Button Name="C119" Click="C_AA" Content="˄"/>
    <Button Name="C120" Click="C_AA" Content="∞"/>
-   <Button Name="C121" Click="C_AB" Content="–"/>
-   <Button Name="C122" Click="C_AB" Content=":"/>
-   <Button Name="C123" Click="C_AB" Content="˅"/>
+   <Button Name="C121" Click="C_AA" Content="-"/>
+   <Button Name="C122" Click="C_AA" Content=":"/>
+   <Button Name="C123" Click="C_AA" Content="˅"/>
    <Button Name="C124" Click="C_AA" Content="Δ"/>
-   <Button Name="C125" Click="C_AA" Content="-"/>
+   <Button Name="C125" Click="C_AA" Content="‐"/>
    <Button Name="C126" Click="C_AA"/>
    <Button Name="C127" Click="C_AA" Content="´"/>
    <Button Name="C128" Click="C_AA" Content="°"/>
@@ -128,11 +128,11 @@
    <Button Name="C130" Click="C_AA" Content=")"/>
    <Button Name="C131" Click="C_AA" Content="!"/>
    <Button Name="C132" Click="C_AA" Content="→"/>
-   <Button Name="C133" Click="C_AA" Content="√"/>
+   <Button Name="C133" Click="C_AC" Content="√"/>
    <Button Name="C134" Click="C_AE" Content="Ʃ"/>
    <Button Name="C135" Click="C_AE" Content="∏"/>
    <Button Name="C136" Click="C_AF" Content="ʃ"/>
-   <Button Name="C137" Click="C_AA" Content="√'"/>
+   <Button Name="C137" Click="C_AD" Content="√'"/>
    <Button Name="C138" Click="C_AC" Content="ln"/>
    <Button Name="C139" Click="C_AD" Content="lim"/>
    <Button Name="C140" Click="C_AD" Content="log"/>
