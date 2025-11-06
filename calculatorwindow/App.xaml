@@ -6,6 +6,7 @@
  <Application.Resources>
   <!--Button-->
   <Style TargetType="Button">
+   <Setter Property="Background" Value="Transparent"/>
    <Setter Property="VerticalAlignment" Value="3"/>
    <Setter Property="HorizontalAlignment" Value="3"/>
    <Setter Property="VerticalContentAlignment" Value="1"/>
@@ -24,6 +25,11 @@
   <Style TargetType="ToolTip">
    <Setter Property="Placement" Value="Bottom"/>
   </Style>
-
+  <!--AppBarButton-->
+  <Style TargetType="AppBarButton">
+   <Setter Property="VerticalAlignment" Value="1"/>
+   <Setter Property="HorizontalAlignment" Value="1"/>
+  </Style>
+  
  </Application.Resources>
 </Application>

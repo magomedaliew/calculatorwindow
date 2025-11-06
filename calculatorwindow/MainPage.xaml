@@ -9,157 +9,156 @@
   DataContext="{ThemeResource ButtonPadding}"
   Background="White" RequestedTheme="Light">
 
-  <Grid Name="AA00">
-  <Grid Name="A100">
-   <AppBarButton Name="A101" Click="A_AA">
-    <FontIcon Glyph="&#xE80F;"/>
-   </AppBarButton>
-   <AppBarButton Name="A102" Click="A_AB">
-    <FontIcon Glyph="&#xE8A9;"/>
-   </AppBarButton>
-   <AppBarButton Name="A103" Click="A_AC">
-    <FontIcon Glyph="&#xE8EF;"/>
-   </AppBarButton>
-   <AppBarButton Name="A104" Click="A_AD">
-    <FontIcon Glyph="&#xE75C;"/>
-   </AppBarButton>
-   <AppBarButton Name="A105" Click="A_AE">
-    <FontIcon Glyph="&#xE8BC;"/>
-   </AppBarButton>
-   <AppBarButton Name="A106" Click="A_AF">
-    <FontIcon Glyph="&#xE8C4;"/>
-   </AppBarButton>
-   <AppBarButton Name="A107" Click="A_AG">
-    <FontIcon Glyph="&#xE781;"/>
-   </AppBarButton>
-   <AppBarButton Name="A108" Click="A_AH">
-    <FontIcon Glyph="&#xE8B9;"/>
-   </AppBarButton>
-   <AppBarButton Name="A109" Click="A_AI">
-    <FontIcon Glyph="&#xE80F;"/>
-   </AppBarButton>
-   <AppBarButton Name="A110" Click="A_AJ">
-    <FontIcon Glyph="&#xE80F;"/>
-   </AppBarButton>
-  </Grid>
-  <Grid Name="B100">
-   <Grid Name="B101">
-    <TextBlock Name="Յ101"/>
-    <Button Name="Յ102" Click="B_ՅA"/>
-    <Button Name="Յ103" Click="B_ՅB"/>
-    <Button Name="Յ104" Click="B_ՅC"/>
-   </Grid>
-   <Grid Name="B102">
-    
-   </Grid>
-   <Rectangle Name="B103"/>
-   <ScrollViewer Name="Հ101">
-    <Canvas Name="Ξ101">
-     <TextBlock Name="Ϟ101"/>
-    </Canvas>
-   </ScrollViewer>
-   <ScrollViewer Name="Հ102">
-    <Canvas Name="Ξ102">
-     <TextBlock Name="Ϟ102"/>
-    </Canvas>
-   </ScrollViewer>
-  </Grid>
-  <Grid Name="B200">
-   <Button Name="B201" Click="B_BA"/>
-   <Button Name="B202" Click="B_BB"/>
-   <Button Name="B203" Click="B_BC"/>
-   <Button Name="B204" Click="B_BD"/>
-   <Button Name="B205" Click="B_BE"/>
-   <Button Name="B206" Click="B_BF"/>
-   <Button Name="B207" Click="B_BG"/>
-   <Button Name="B208" Click="B_BH"/>
-   <Button Name="B209" Click="B_BI"/>
-   <Button Name="B210" Click="B_BJ"/>
-  </Grid>
-  <Grid Name="B300">
-   <!--PeriodenTabelle-->
-  </Grid>
-  <Grid Name="B400">
-   <Button Name="B401" Click="CABD"/>
-  </Grid>
-  <Grid Name="B500">
-   <Button Name="B501" Click="ABAA"/>
-   <Button Name="B502" Click="ABAB"/>
-   <Button Name="B503" Click="ABAC"/>
-   <Button Name="B504" Click="ABAD"/>
-   <Button Name="B505" Click="ABAE"/>
-   <Button Name="B506" Click="ABAF"/>
-   <ToggleSwitch Name="B511" Toggled="ABBA"/>
-   <ToggleSwitch Name="B512" Toggled="ABBB"/>
-   <ToggleSwitch Name="B513" Toggled="ABBC"/>
-   <!--<CheckBox Checked="AAAA"/>-->
-  </Grid>
-  <Grid Name="C100">
-   <Button Name="C101" Click="C_AA" Content="1"/>
-   <Button Name="C102" Click="C_AA" Content="2"/>
-   <Button Name="C103" Click="C_AA" Content="3"/>
-   <Button Name="C104" Click="C_AA" Content="4"/>
-   <Button Name="C105" Click="C_AA" Content="5"/>
-   <Button Name="C106" Click="C_AA" Content="6"/>
-   <Button Name="C107" Click="C_AA" Content="7"/>
-   <Button Name="C108" Click="C_AA" Content="8"/>
-   <Button Name="C109" Click="C_AA" Content="9"/>
-   <Button Name="C110" Click="C_AA" Content="0"/>
-   <Button Name="C111" Click="C_AA" Content="e"/>
-   <Button Name="C112" Click="C_AA" Content="π"/>
-   <Button Name="C113" Click="C_AA" Content="["/>
-   <Button Name="C114" Click="C_AA" Content="ǀ"/>
-   <Button Name="C115" Click="C_AA" Content="|"/>
-   <Button Name="C116" Click="C_AA" Content="]"/>
-   <Button Name="C117" Click="C_AB" Content="+"/>
-   <Button Name="C118" Click="C_AB" Content="*"/>
-   <Button Name="C119" Click="C_AB" Content="˄"/>
-   <Button Name="C120" Click="C_AA" Content="∞"/>
-   <Button Name="C121" Click="C_AC" Content="–"/>
-   <Button Name="C122" Click="C_AB" Content=":"/>
-   <Button Name="C123" Click="C_AB" Content="˅"/>
-   <Button Name="C124" Click="C_AA" Content="Δ"/>
-   <Button Name="C125" Click="C_AA" Content="-"/>
-   <Button Name="C126" Click="C_AA"/>
-   <Button Name="C127" Click="C_AA" Content="´"/>
-   <Button Name="C128" Click="C_AA" Content="°"/>
-   <Button Name="C129" Click="C_AA" Content="("/>
-   <Button Name="C130" Click="C_AA" Content=")"/>
-   <Button Name="C131" Click="C_AA" Content="!"/>
-   <Button Name="C132" Click="C_AA" Content="→"/>
-   <Button Name="C133" Click="C_AD" Content="√"/>
-   <Button Name="C134" Click="C_AF" Content="Ʃ"/>
-   <Button Name="C135" Click="C_AF" Content="∏"/>
-   <Button Name="C136" Click="C_AG" Content="ʃ"/>
-   <Button Name="C137" Click="C_AE" Content="√'"/>
-   <Button Name="C138" Click="C_AD" Content="ln"/>
-   <Button Name="C139" Click="C_AE" Content="lim"/>
-   <Button Name="C140" Click="C_AE" Content="log"/>
-   <Button Name="C141" Click="C_AD" Content="cos"/>
-   <Button Name="C142" Click="C_AD" Content="sin"/>
-   <Button Name="C143" Click="C_AD" Content="tan"/>
-   <Button Name="C144" Click="C_AD" Content="cot"/>
-   <Button Name="C145" Click="C_AD" Content="acos"/>
-   <Button Name="C146" Click="C_AD" Content="asin"/>
-   <Button Name="C147" Click="C_AD" Content="atan"/>
-   <Button Name="C148" Click="C_AD" Content="acot"/>
+ <Grid Name="AA00">
 
-   <Button Name="C149" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C150" Click="C_AH" Visibility="Collapsed" Content="▲"/>
-   <Button Name="C151" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C152" Click="C_AH" Visibility="Collapsed" Content="⛭"/>
-   <Button Name="C153" Click="C_AH" Visibility="Collapsed" Content="◀"/>
-   <Button Name="C154" Click="C_AH" Visibility="Collapsed" Content="⬜"/>
-   <Button Name="C155" Click="C_AH" Visibility="Collapsed" Content="▶"/>
-   <Button Name="C156" Click="C_AH" Visibility="Collapsed" Content="⛯"/>
-   <Button Name="C157" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C158" Click="C_AH" Visibility="Collapsed" Content="▼"/>
-   <Button Name="C159" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C160" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C161" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C162" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C163" Click="C_AH" Visibility="Collapsed" Content=""/>
-   <Button Name="C164" Click="C_AH" Visibility="Collapsed" Content=""/>
+  <Grid Name="AԹ01">
+   <Image Source="/Assets/A_A_001.png"/>
+   <AppBarButton Name="Թ101" Click="Թ_AA"/>
+   <AppBarButton Name="Թ102" Click="Թ_AB"/>
+   <Canvas Name="Թ103"/>
+  </Grid>
+  <Grid Name="AA01">
+   <Grid Name="A100">
+    <AppBarButton Name="A101" Click="A_AA"/>
+    <AppBarButton Name="A102" Click="A_AB"/>
+    <AppBarButton Name="A103" Click="A_AC"/>
+    <AppBarButton Name="A104" Click="A_AD">
+     <FontIcon Glyph="&#xE8EF;"/>
+    </AppBarButton>
+    <AppBarButton Name="A105" Click="A_AE">
+     <FontIcon Glyph="&#xE75C;"/>
+    </AppBarButton>
+    <AppBarButton Name="A106" Click="A_AF">
+     <FontIcon Glyph="&#xE8BC;"/>
+    </AppBarButton>
+    <AppBarButton Name="A107" Click="A_AG">
+     <FontIcon Glyph="&#xE8C4;"/>
+    </AppBarButton>
+    <AppBarButton Name="A108" Click="A_AH">
+     <FontIcon Glyph="&#xE781;"/>
+    </AppBarButton>
+    <AppBarButton Name="A109" Click="A_AI">
+     <FontIcon Glyph="&#xE8B9;"/>
+    </AppBarButton>
+    <AppBarButton Name="A110" Click="A_AJ">
+     <FontIcon Glyph="&#xE80F;"/>
+    </AppBarButton>
+    <AppBarButton Name="A111" Click="A_AK">
+     <FontIcon Glyph="&#xE80F;"/>
+    </AppBarButton>
+   </Grid>
+   <Grid Name="B100">
+    <Grid Name="B102">
+
+    </Grid>
+    <Rectangle Name="B103"/>
+    <ScrollViewer Name="Հ101">
+     <Grid Name="Ξ101"/>
+    </ScrollViewer>
+    <ScrollViewer Name="Հ102">
+     <Grid Name="Ξ102"/>
+    </ScrollViewer>
+    <ScrollViewer Name="Հ103">
+     <Grid Name="Ξ103"/>
+    </ScrollViewer>
+   </Grid>
+   <Grid Name="B200">
+    <Button Name="B201" Click="B_BA"/>
+    <Button Name="B202" Click="B_BB"/>
+    <Button Name="B203" Click="B_BC"/>
+    <Button Name="B204" Click="B_BD"/>
+    <Button Name="B205" Click="B_BE"/>
+    <Button Name="B206" Click="B_BF"/>
+    <Button Name="B207" Click="B_BG"/>
+    <Button Name="B208" Click="B_BH"/>
+    <Button Name="B209" Click="B_BI"/>
+    <Button Name="B210" Click="B_BJ"/>
+   </Grid>
+   <Grid Name="B300">
+    <!--PeriodenTabelle-->
+   </Grid>
+   <Grid Name="B400">
+    <Button Name="B401" Click="CABD"/>
+   </Grid>
+   <Grid Name="B500">
+    <Button Name="B501" Click="ABAA"/>
+    <Button Name="B502" Click="ABAB"/>
+    <Button Name="B503" Click="ABAC"/>
+    <Button Name="B504" Click="ABAD"/>
+    <Button Name="B505" Click="ABAE"/>
+    <Button Name="B506" Click="ABAF"/>
+    <ToggleSwitch Name="B511" Toggled="ABBA"/>
+    <ToggleSwitch Name="B512" Toggled="ABBB"/>
+    <ToggleSwitch Name="B513" Toggled="ABBC"/>
+    <!--<CheckBox Checked="AAAA"/>-->
+   </Grid>
+   <Grid Name="C100">
+    <Button Name="C101" Click="C_AA" Content="1"/>
+    <Button Name="C102" Click="C_AA" Content="2"/>
+    <Button Name="C103" Click="C_AA" Content="3"/>
+    <Button Name="C104" Click="C_AA" Content="4"/>
+    <Button Name="C105" Click="C_AA" Content="5"/>
+    <Button Name="C106" Click="C_AA" Content="6"/>
+    <Button Name="C107" Click="C_AA" Content="7"/>
+    <Button Name="C108" Click="C_AA" Content="8"/>
+    <Button Name="C109" Click="C_AA" Content="9"/>
+    <Button Name="C110" Click="C_AA" Content="0"/>
+    <Button Name="C111" Click="C_AA" Content="e"/>
+    <Button Name="C112" Click="C_AA" Content="π"/>
+    <Button Name="C113" Click="C_AA" Content="["/>
+    <Button Name="C114" Click="C_AA" Content="ǀ"/>
+    <Button Name="C115" Click="C_AA" Content="|"/>
+    <Button Name="C116" Click="C_AA" Content="]"/>
+    <Button Name="C117" Click="C_AB" Content="+"/>
+    <Button Name="C118" Click="C_AB" Content="*"/>
+    <Button Name="C119" Click="C_AB" Content="˄"/>
+    <Button Name="C120" Click="C_AA" Content="∞"/>
+    <Button Name="C121" Click="C_AC" Content="–"/>
+    <Button Name="C122" Click="C_AB" Content=":"/>
+    <Button Name="C123" Click="C_AB" Content="˅"/>
+    <Button Name="C124" Click="C_AA" Content="Δ"/>
+    <Button Name="C125" Click="C_AA" Content="-"/>
+    <Button Name="C126" Click="C_AA"/>
+    <Button Name="C127" Click="C_AA" Content="´"/>
+    <Button Name="C128" Click="C_AA" Content="°"/>
+    <Button Name="C129" Click="C_AA" Content="("/>
+    <Button Name="C130" Click="C_AA" Content=")"/>
+    <Button Name="C131" Click="C_AA" Content="!"/>
+    <Button Name="C132" Click="C_AA" Content="→"/>
+    <Button Name="C133" Click="C_AD" Content="√"/>
+    <Button Name="C134" Click="C_AF" Content="Ʃ"/>
+    <Button Name="C135" Click="C_AF" Content="∏"/>
+    <Button Name="C136" Click="C_AG" Content="ʃ"/>
+    <Button Name="C137" Click="C_AE" Content="√'"/>
+    <Button Name="C138" Click="C_AD" Content="ln"/>
+    <Button Name="C139" Click="C_AE" Content="lim"/>
+    <Button Name="C140" Click="C_AE" Content="log"/>
+    <Button Name="C141" Click="C_AD" Content="cos"/>
+    <Button Name="C142" Click="C_AD" Content="sin"/>
+    <Button Name="C143" Click="C_AD" Content="tan"/>
+    <Button Name="C144" Click="C_AD" Content="cot"/>
+    <Button Name="C145" Click="C_AD" Content="acos"/>
+    <Button Name="C146" Click="C_AD" Content="asin"/>
+    <Button Name="C147" Click="C_AD" Content="atan"/>
+    <Button Name="C148" Click="C_AD" Content="acot"/>
+
+    <Button Name="C149" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C150" Click="C_AH" Visibility="Collapsed" Content="▲"/>
+    <Button Name="C151" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C152" Click="C_AH" Visibility="Collapsed" Content="⛭"/>
+    <Button Name="C153" Click="C_AH" Visibility="Collapsed" Content="◀"/>
+    <Button Name="C154" Click="C_AH" Visibility="Collapsed" Content="⬜"/>
+    <Button Name="C155" Click="C_AH" Visibility="Collapsed" Content="▶"/>
+    <Button Name="C156" Click="C_AH" Visibility="Collapsed" Content="⛯"/>
+    <Button Name="C157" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C158" Click="C_AH" Visibility="Collapsed" Content="▼"/>
+    <Button Name="C159" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C160" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C161" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C162" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C163" Click="C_AH" Visibility="Collapsed" Content=""/>
+    <Button Name="C164" Click="C_AH" Visibility="Collapsed" Content=""/>
+   </Grid>
   </Grid>
  </Grid>
 </Page>

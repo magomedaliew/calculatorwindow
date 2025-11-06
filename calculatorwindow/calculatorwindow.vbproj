@@ -143,6 +143,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\A_1_006.png" />
+    <Content Include="Assets\A_1_007.png" />
+    <Content Include="Assets\A_1_008.png" />
     <Content Include="Assets\A_A_001.png" />
     <Content Include="Assets\A_A_004.png" />
     <Content Include="Assets\A_A_005.png" />
@@ -153,6 +156,9 @@
     <Content Include="Assets\A_A_002.png" />
     <Content Include="Assets\A_A_003.png" />
     <Content Include="Assets\A_A_009.png" />
+    <Content Include="Assets\A_1_001.png" />
+    <Content Include="Assets\A_1_002.png" />
+    <Content Include="Assets\A_1_003.png" />
     <Content Include="My Project\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
