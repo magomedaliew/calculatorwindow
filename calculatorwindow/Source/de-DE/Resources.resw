@@ -127,22 +127,22 @@
   <data name="A002" xml:space="preserve">
     <value>Anhang</value>
   </data>
-  <data name="A003" xml:space="preserve">
+  <data name="A015" xml:space="preserve">
     <value>Rechnen</value>
   </data>
-  <data name="A004" xml:space="preserve">
+  <data name="A016" xml:space="preserve">
     <value>Löschen</value>
   </data>
-  <data name="A005" xml:space="preserve">
+  <data name="A017" xml:space="preserve">
     <value>Ergebnisse</value>
   </data>
-  <data name="A006" xml:space="preserve">
+  <data name="A018" xml:space="preserve">
     <value>Dimensionen</value>
   </data>
-  <data name="A007" xml:space="preserve">
+  <data name="A019" xml:space="preserve">
     <value>Quelle</value>
   </data>
-  <data name="A008" xml:space="preserve">
+  <data name="A020" xml:space="preserve">
     <value>Darstellung</value>
   </data>
   <data name="A101" xml:space="preserve">
@@ -170,13 +170,13 @@
   <data name="A110" xml:space="preserve">
     <value>Periodentabelle</value>
   </data>
-  <data name="A202" xml:space="preserve">
+  <data name="A011" xml:space="preserve">
     <value>Ausdruck</value>
   </data>
-  <data name="A203" xml:space="preserve">
+  <data name="A013" xml:space="preserve">
     <value>Gleichung</value>
   </data>
-  <data name="A009" xml:space="preserve">
+  <data name="A021" xml:space="preserve">
     <value>Detaillierter</value>
     <comment>Ersatz</comment>
   </data>
@@ -972,10 +972,10 @@
   <data name="A105" xml:space="preserve">
     <value>Feedback</value>
   </data>
-  <data name="E253" xml:space="preserve">
+  <data name="A003" xml:space="preserve">
     <value>dunkel</value>
   </data>
-  <data name="E254" xml:space="preserve">
+  <data name="A004" xml:space="preserve">
     <value>hell</value>
   </data>
   <data name="E251" xml:space="preserve">
@@ -985,7 +985,10 @@
   <data name="E252" xml:space="preserve">
     <value>innen</value>
   </data>
-  <data name="A00" xml:space="preserve">
-    <value />
+  <data name="A014" xml:space="preserve">
+    <value>Funktion</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>Dimension</value>
   </data>
 </root>

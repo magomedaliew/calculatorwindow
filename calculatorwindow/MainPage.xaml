@@ -10,9 +10,10 @@
   Background="White" RequestedTheme="Light">
 
  <Grid Name="AA00">
-
   <Grid Name="AԹ01">
-   <Image Source="/Assets/A_A_001.png"/>
+   <AppBarButton>
+    <Image Name="Թ100"/>
+   </AppBarButton>
    <AppBarButton Name="Թ101" Click="Թ_AA"/>
    <AppBarButton Name="Թ102" Click="Թ_AB"/>
    <Canvas Name="Թ103"/>
@@ -22,36 +23,36 @@
     <AppBarButton Name="A101" Click="A_AA"/>
     <AppBarButton Name="A102" Click="A_AB"/>
     <AppBarButton Name="A103" Click="A_AC"/>
-    <AppBarButton Name="A104" Click="A_AD">
+    <AppBarButton Name="A104" Click="A_AD"/>
+
+    <AppBarButton Name="A105" Click="A_AE">
      <FontIcon Glyph="&#xE8EF;"/>
     </AppBarButton>
-    <AppBarButton Name="A105" Click="A_AE">
+    <AppBarButton Name="A106" Click="A_AF">
      <FontIcon Glyph="&#xE75C;"/>
     </AppBarButton>
-    <AppBarButton Name="A106" Click="A_AF">
+    <AppBarButton Name="A107" Click="A_AG">
      <FontIcon Glyph="&#xE8BC;"/>
     </AppBarButton>
-    <AppBarButton Name="A107" Click="A_AG">
+    <AppBarButton Name="A108" Click="A_AH">
      <FontIcon Glyph="&#xE8C4;"/>
     </AppBarButton>
-    <AppBarButton Name="A108" Click="A_AH">
+    <AppBarButton Name="A109" Click="A_AI">
      <FontIcon Glyph="&#xE781;"/>
     </AppBarButton>
-    <AppBarButton Name="A109" Click="A_AI">
+    <AppBarButton Name="A110" Click="A_AJ">
      <FontIcon Glyph="&#xE8B9;"/>
     </AppBarButton>
-    <AppBarButton Name="A110" Click="A_AJ">
-     <FontIcon Glyph="&#xE80F;"/>
-    </AppBarButton>
     <AppBarButton Name="A111" Click="A_AK">
-     <FontIcon Glyph="&#xE80F;"/>
+     <!--<FontIcon Glyph="&#xE80F;"/>-->
+    </AppBarButton>
+    <AppBarButton Name="A112" Click="A_AL">
+     <!--<FontIcon Glyph="&#xE80F;"/>-->
     </AppBarButton>
    </Grid>
    <Grid Name="B100">
-    <Grid Name="B102">
-
-    </Grid>
-    <Rectangle Name="B103"/>
+    <Grid Name="B101"/>
+    <Rectangle Name="B102"/>
     <ScrollViewer Name="Հ101">
      <Grid Name="Ξ101"/>
     </ScrollViewer>

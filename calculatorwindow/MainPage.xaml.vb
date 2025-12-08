@@ -5,11 +5,9 @@
 Imports Windows.Storage
 'Imports Windows.UI.Xaml
 Imports Windows.UI.Xaml.Shapes
-
 Imports Windows.UI.Xaml.Media
 Imports Windows.UI.ViewManagement
 Imports Windows.ApplicationModel.Core
-
 'Imports Windows.UI.Xaml.Controls
 Imports Windows.UI.Xaml.Documents
 Imports Windows.Networking.Connectivity
@@ -232,105 +230,106 @@ Public NotInheritable Class MainPage
       For i = 1 To 2 Step 1 : AA00.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 4 Step 1 : AԹ01.ColumnDefinitions.Add(New ColumnDefinition) : Next
       For i = 1 To 5 Step 1 : AA01.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 16 Step 1 : A100.ColumnDefinitions.Add(New ColumnDefinition) : Next
-      For i = 1 To 3 Step 1 : B100.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 5 Step 1 : B100.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 12 Step 1 : A100.ColumnDefinitions.Add(New ColumnDefinition) : Next
       For i = 1 To 4 Step 1 : C100.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 21 Step 1 : C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
-
-      'Home
-      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe Fluent Icons")} ' Segoe MDL2 Assets
-      'Anhang
-      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE8A9), .FontFamily = New FontFamily("Segoe MDL2 Assets")} ' Segoe MDL2 Assets
 
       Ξ101.Children.Add(AA_) : AA01.Children.Add(CA_) : AA01.Children.Add(DA_)
       B100.Children.Add(EA_)
 
-      'Grid.SetColumn(A101, 1) : Grid.SetColumn(A102, 2) : Grid.SetColumn(A103, 3)
-      Grid.SetColumn(A104, 4) : Grid.SetColumn(A105, 5) : Grid.SetColumn(A106, 6)
-      Grid.SetColumn(A107, 7) : Grid.SetColumn(A108, 8) : Grid.SetColumn(A109, 9)
-      Grid.SetColumn(A110, 10) : Grid.SetColumn(A111, 11) : Grid.SetColumn(A112, 12)
-      Grid.SetColumn(A113, 13) : Grid.SetColumn(A114, 14)
-      Grid.SetColumn(Հ101, 1) : Grid.SetColumn(Հ102, 3) : Grid.SetColumn(B102, 1)
       Grid.SetColumn(Թ101, 1) : Grid.SetColumn(Թ102, 2) : Grid.SetColumn(Թ103, 3)
+      Grid.SetColumn(A101, 0) : Grid.SetColumn(A102, 1) : Grid.SetColumn(A103, 2)
+      Grid.SetColumn(A104, 3) : Grid.SetColumn(A105, 4) : Grid.SetColumn(A106, 5)
+      Grid.SetColumn(A107, 6) : Grid.SetColumn(A108, 7) : Grid.SetColumn(A109, 8)
+      Grid.SetColumn(A110, 9)
+      Grid.SetColumn(A111, 10) : Grid.SetColumn(A112, 11) : Grid.SetColumn(Թ100, 0)
 
-      'Grid.SetColumn(B103, 1)
-      Grid.SetColumn(EA_, 1)
-
-      Grid.SetRowSpan(Հ102, 3)
-
-      Grid.SetRow(EA_, 2) : B100.RowDefinitions.Item(2).Height = New GridLength(10, 2)
-
-      Grid.SetRow(AԹ01, 0)
-      Grid.SetRow(AA01, 1)
-
-      Grid.SetRow(B100, 2)
-      Grid.SetRow(B300, 2)
-      Grid.SetRow(C100, 4)
-      Grid.SetRow(Հ101, 2)
-
-      Grid.SetColumnSpan(B103, 3) : A103.FontFamily = New FontFamily("Calibri")
+      Grid.SetRow(AԹ01, 0) : Grid.SetRow(AA01, 1) : Grid.SetRow(B100, 2)
+      Grid.SetRow(B200, 2) : Grid.SetRow(B400, 2) : Grid.SetRow(B500, 2)
+      Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4)
 
       AA00.RowDefinitions.Item(0).Height = New GridLength(32, 1)
-      AA00.ColumnDefinitions.Item(0).Width = New GridLength(46, 1)
-      AA00.ColumnDefinitions.Item(1).Width = New GridLength(46, 1)
-      AA00.ColumnDefinitions.Item(2).Width = New GridLength(46, 1)
-      AA00.ColumnDefinitions.Item(3).Width = New GridLength(41.738, 1)
+      AԹ01.ColumnDefinitions.Item(0).Width = New GridLength(46, 1)
+      AԹ01.ColumnDefinitions.Item(1).Width = New GridLength(46, 1)
+      AԹ01.ColumnDefinitions.Item(2).Width = New GridLength(46, 1)
+      AԹ01.ColumnDefinitions.Item(3).Width = New GridLength(AAA0.ActualWidth - 46 * 6, 1)
 
-      'Յ101.FontFamily = New FontFamily("Calibri")
-      'Յ102.VerticalAlignment = 1 : Յ102.HorizontalAlignment = 1
+      ToolTipService.SetToolTip(A101, New ToolTip With {.Content = A_D.GetString("A011")})
+      ToolTipService.SetToolTip(A102, New ToolTip With {.Content = A_D.GetString("A012")})
+      ToolTipService.SetToolTip(A103, New ToolTip With {.Content = A_D.GetString("A013")})
+      ToolTipService.SetToolTip(A104, New ToolTip With {.Content = A_D.GetString("A014")})
+      ToolTipService.SetToolTip(A105, New ToolTip With {.Content = A_D.GetString("A015")})
+      ToolTipService.SetToolTip(A106, New ToolTip With {.Content = A_D.GetString("A016")})
+      ToolTipService.SetToolTip(A107, New ToolTip With {.Content = A_D.GetString("A017")})
+      ToolTipService.SetToolTip(A108, New ToolTip With {.Content = A_D.GetString("A018")})
+      ToolTipService.SetToolTip(A109, New ToolTip With {.Content = A_D.GetString("A019")})
+      ToolTipService.SetToolTip(A110, New ToolTip With {.Content = A_D.GetString("A020")})
+      ToolTipService.SetToolTip(A111, New ToolTip With {.Content = A_D.GetString("A021")})
 
-      ToolTipService.SetToolTip(A101, New ToolTip With {.Content = A_D.GetString("A001")})
-      ToolTipService.SetToolTip(A102, New ToolTip With {.Content = A_D.GetString("A002")})
-      ToolTipService.SetToolTip(A103, New ToolTip With {.Content = A_D.GetString("A003")})
-      ToolTipService.SetToolTip(A104, New ToolTip With {.Content = A_D.GetString("A004")})
-      ToolTipService.SetToolTip(A105, New ToolTip With {.Content = A_D.GetString("A005")})
-      ToolTipService.SetToolTip(A106, New ToolTip With {.Content = A_D.GetString("A006")})
-      ToolTipService.SetToolTip(A107, New ToolTip With {.Content = A_D.GetString("A007")})
-      ToolTipService.SetToolTip(A108, New ToolTip With {.Content = A_D.GetString("A008")})
-
-      Dim title = ApplicationView.GetForCurrentView().TitleBar
       AΞA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
-      title.ButtonPressedForegroundColor = Colors.Pink : AddHandler AΞA.Tick, AddressOf B_ϞA
-      title.ButtonHoverForegroundColor = Colors.Pink
-
-      DA_.MaxHeight = 0 : DA_.MaxWidth = 0
 
       'If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
       '  Ϟ102.FontFamily = New FontFamily("Segoe UI") : Ϟ102.Text = A_D.GetString("A900")
       'End If
 
-      AAA = 0 : Do : AAB += 1 ' AAA0 Size Changed => AAA
-        Grid.SetRow(C100.Children.Item(AAA), AAC) : Grid.SetColumn(C100.Children.Item(AAA), AAB)
-        AAA += 1
-        If AAB = 4 Or AAB = 9 Or AAB = 14 Or AAB = 19 Then : AAB = If(AAC = 3, AAB + 1, AAB - 4)
-          AAC += 1 : End If
-        If AAC = 4 Then : If AAB = 20 Then : Exit Do : Else : AAC = 0 : End If : End If : Loop
+      A111.Content = "A1" : A112.Content = "B1" : C126.Content = A_D.GetString("A254")
+      B102.Margin = New Thickness(-10, -10, -10, 0) : DA_.MaxHeight = 0 : DA_.MaxWidth = 0
+      EA_.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : AA_.StrokeThickness = 2
 
-      A109.Content = "A1" : A110.Content = "B1" : B103.Margin = New Thickness(-10, -10, -10, 0)
-      C126.Content = A_D.GetString("A254") : A103.Content = "→"
+      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ101.Tapped, AddressOf B_ՀA
+      AddHandler DA_.SelectionChanged, AddressOf B_ΞA : AddHandler AΞA.Tick, AddressOf B_ϞA
 
-      EA_.Visibility = 1 : B511.Visibility = 1 : AA_.StrokeThickness = 2
-
-      AddHandler Հ101.Tapped, AddressOf B_ՀA
-      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler DA_.SelectionChanged, AddressOf B_ΞA
+      Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
+      Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ103)
+      Dim ac = ApplicationView.GetForCurrentView().TitleBar ' !!! Reihenfolge !!!
+      ac.ButtonPressedForegroundColor = Colors.Pink : ac.ButtonHoverForegroundColor = Colors.Pink
+      'AddHandler aa.LayoutMetricsChanged, AddressOf A_C_
 
       _EA = Color.FromArgb(170, 170, 170, 170) : _EE = Color.FromArgb(255, 0, 255, 120)
       _EB = Colors.Blue : _EC = Colors.Magenta : _ED = Colors.DeepSkyBlue
       _EF = Colors.Orange : _GA = New Color() {_EA, _EB, _EC, _ED, _EE, _EF} : AAB = 1 : AAH = 1
 
+      Grid.SetRow(C101, 0) : Grid.SetColumn(C101, 1) : Grid.SetRow(C102, 0) : Grid.SetColumn(C102, 2)
+      Grid.SetRow(C103, 0) : Grid.SetColumn(C103, 3) : Grid.SetRow(C104, 0) : Grid.SetColumn(C104, 4)
+      Grid.SetRow(C105, 1) : Grid.SetColumn(C105, 1) : Grid.SetRow(C106, 1) : Grid.SetColumn(C106, 2)
+      Grid.SetRow(C107, 1) : Grid.SetColumn(C107, 3) : Grid.SetRow(C108, 1) : Grid.SetColumn(C108, 4)
+      Grid.SetRow(C109, 2) : Grid.SetColumn(C109, 1) : Grid.SetRow(C110, 2) : Grid.SetColumn(C110, 2)
+      Grid.SetRow(C111, 2) : Grid.SetColumn(C111, 3) : Grid.SetRow(C112, 2) : Grid.SetColumn(C112, 4)
+      Grid.SetRow(C113, 3) : Grid.SetColumn(C113, 1) : Grid.SetRow(C114, 3) : Grid.SetColumn(C114, 2)
+      Grid.SetRow(C115, 3) : Grid.SetColumn(C115, 3) : Grid.SetRow(C116, 3) : Grid.SetColumn(C116, 4)
 
-      Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
-      Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(A101)
+      Grid.SetRow(C117, 0) : Grid.SetColumn(C117, 6) : Grid.SetRow(C118, 0) : Grid.SetColumn(C118, 7)
+      Grid.SetRow(C119, 0) : Grid.SetColumn(C119, 8) : Grid.SetRow(C120, 0) : Grid.SetColumn(C120, 9)
+      Grid.SetRow(C121, 1) : Grid.SetColumn(C121, 6) : Grid.SetRow(C122, 1) : Grid.SetColumn(C122, 7)
+      Grid.SetRow(C123, 1) : Grid.SetColumn(C123, 8) : Grid.SetRow(C124, 1) : Grid.SetColumn(C124, 9)
+      Grid.SetRow(C125, 2) : Grid.SetColumn(C125, 6) : Grid.SetRow(C126, 2) : Grid.SetColumn(C126, 7)
+      Grid.SetRow(C127, 2) : Grid.SetColumn(C127, 8) : Grid.SetRow(C128, 2) : Grid.SetColumn(C128, 9)
+      Grid.SetRow(C129, 3) : Grid.SetColumn(C129, 6) : Grid.SetRow(C130, 3) : Grid.SetColumn(C130, 7)
+      Grid.SetRow(C131, 3) : Grid.SetColumn(C131, 8) : Grid.SetRow(C132, 3) : Grid.SetColumn(C132, 9)
 
-      'AddHandler aa.LayoutMetricsChanged, AddressOf A_C_
-      'ab.ButtonInactiveBackgroundColor = Colors.Transparent
+      Grid.SetRow(C133, 0) : Grid.SetColumn(C133, 11) : Grid.SetRow(C134, 0) : Grid.SetColumn(C134, 12)
+      Grid.SetRow(C135, 0) : Grid.SetColumn(C135, 13) : Grid.SetRow(C136, 0) : Grid.SetColumn(C136, 14)
+      Grid.SetRow(C137, 1) : Grid.SetColumn(C137, 11) : Grid.SetRow(C138, 1) : Grid.SetColumn(C138, 12)
+      Grid.SetRow(C139, 1) : Grid.SetColumn(C139, 13) : Grid.SetRow(C140, 1) : Grid.SetColumn(C140, 14)
+      Grid.SetRow(C141, 2) : Grid.SetColumn(C141, 11) : Grid.SetRow(C142, 2) : Grid.SetColumn(C142, 12)
+      Grid.SetRow(C143, 2) : Grid.SetColumn(C143, 13) : Grid.SetRow(C144, 2) : Grid.SetColumn(C144, 14)
+      Grid.SetRow(C145, 3) : Grid.SetColumn(C145, 11) : Grid.SetRow(C146, 3) : Grid.SetColumn(C146, 12)
+      Grid.SetRow(C147, 3) : Grid.SetColumn(C147, 13) : Grid.SetRow(C148, 3) : Grid.SetColumn(C148, 14)
 
-      DA_.Focus(3) : AΞA.Start() : AADA() : AADB() : AADC() : A_B_()
+      Grid.SetRow(C149, 0) : Grid.SetColumn(C149, 16) : Grid.SetRow(C150, 0) : Grid.SetColumn(C150, 17)
+      Grid.SetRow(C151, 0) : Grid.SetColumn(C151, 18) : Grid.SetRow(C152, 0) : Grid.SetColumn(C152, 19)
+      Grid.SetRow(C153, 1) : Grid.SetColumn(C153, 16) : Grid.SetRow(C154, 1) : Grid.SetColumn(C154, 17)
+      Grid.SetRow(C155, 1) : Grid.SetColumn(C155, 18) : Grid.SetRow(C156, 1) : Grid.SetColumn(C156, 19)
+      Grid.SetRow(C157, 2) : Grid.SetColumn(C157, 16) : Grid.SetRow(C158, 2) : Grid.SetColumn(C158, 17)
+      Grid.SetRow(C159, 2) : Grid.SetColumn(C159, 18) : Grid.SetRow(C160, 2) : Grid.SetColumn(C160, 19)
+      Grid.SetRow(C161, 3) : Grid.SetColumn(C161, 16) : Grid.SetRow(C162, 3) : Grid.SetColumn(C162, 17)
+      Grid.SetRow(C163, 3) : Grid.SetColumn(C163, 18) : Grid.SetRow(C164, 3) : Grid.SetColumn(C164, 19)
 
-    Catch ex As Exception
-      'Ϟ102.Text = ex.Message
-    End Try
+      Թ102.Content = "⛭" : Թ101.Icon =
+        New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+
+      DA_.Focus(3) : AΞA.Start() : AADC() : AADB() : A_B_() ' : AADA()
+    Catch ex As Exception : End Try ' Ϟ102.Text = ex.Message
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
     Try : If AAA0.ActualWidth > 1.5 * AAA0.ActualHeight Then
@@ -341,10 +340,16 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "Թ100"
   Private Sub Թ_AA()
-    AAB = 1 : AAAA()
+    If AAB = 1 Then ' Anhang
+      AAB = 2 : ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A002")}) : AAAA()
+      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE8A9), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+    Else ' Home ' Segoe MDL2 Assets ' Segoe Fluent Icons
+      AAB = 1 : ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A001")}) : AAAA()
+      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+    End If
   End Sub
   Private Sub Թ_AB()
-    AAB = 2 : AAAA() : AΞA.Stop()
+    ABBC()
   End Sub
 #End Region
 #Region "A100"
@@ -409,6 +414,9 @@ Public NotInheritable Class MainPage
     AACA()
   End Sub
   Private Sub A_AK()
+    AACA()
+  End Sub
+  Private Sub A_AL()
     AACB()
   End Sub
 #End Region
@@ -424,7 +432,7 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub B_ϞA()
     ' Kursor-1-Blinken AA_
-    Select Case A103.Visibility : Case 0 : A103.Visibility = 1 : Case 1 : A103.Visibility = 0 : End Select
+    'Select Case A103.Visibility : Case 0 : A103.Visibility = 1 : Case 1 : A103.Visibility = 0 : End Select
   End Sub
   Private Sub B_ΔA()
     Try ' DA_ Eingabe: TextChanged
@@ -452,12 +460,12 @@ Public NotInheritable Class MainPage
       'Try
       '  Dim aaaab As New List(Of String)
       '  '1     Löschen alter Definitionen
-      '  AEAX() : If B103.Text = "" Then Exit Sub
+      '  AEAX() : If B102.Text = "" Then Exit Sub
       '  '2     Autosuggestboxsplit
-      '  FAA = B103.Text.TrimEnd(" ").Split(" ")
+      '  FAA = B102.Text.TrimEnd(" ").Split(" ")
       '  '4     Gleichung-Platz-Zeiger
-      '  If B103.Text.Length > 1 Then
-      '    Select Case B103.Text.Substring(0, 2)
+      '  If B102.Text.Length > 1 Then
+      '    Select Case B102.Text.Substring(0, 2)
       '      Case A_D.GetString("B001"), A_D.GetString("B002")
       '        Ϟ102.PlaceholderText = A_D.GetString("A051")
       '    End Select
@@ -467,8 +475,8 @@ Public NotInheritable Class MainPage
       '  '6     Filterung der Kods nach eingegebene Zeichen
       '  If CI <> "" Then
       '    For i = 0 To FAC.Count - 5 Step 5
-      '      If FAC(i).Length >= B103.Text.Length Then
-      '        If B103.Text = FAC(i).Substring(0, B103.Text.Length) Then aaaab.Add(FAC(i))
+      '      If FAC(i).Length >= B102.Text.Length Then
+      '        If B102.Text = FAC(i).Substring(0, B102.Text.Length) Then aaaab.Add(FAC(i))
       '      End If
       '    Next
       '  End If
@@ -476,9 +484,9 @@ Public NotInheritable Class MainPage
       '  If e.Reason = AutoSuggestionBoxTextChangeReason.UserInput Then
       '    If aaaab.Count > 0 Then
       '      sender.ItemsSource = aaaab
-      '      If B103.Text = aaaab(0) Then sender.ItemsSource = Nothing
+      '      If B102.Text = aaaab(0) Then sender.ItemsSource = Nothing
       '    End If
-      '    If B103.Text.Length = 0 Then sender.ItemsSource = Nothing
+      '    If B102.Text.Length = 0 Then sender.ItemsSource = Nothing
       '    If aaaab.Count = 0 Then sender.ItemsSource = Nothing
       '  End If
       'Catch ex As Exception
@@ -616,13 +624,13 @@ Public NotInheritable Class MainPage
 
     If B500.RowDefinitions.Count > 0 Then : Exit Sub : End If : Grid.SetRow(B500, 2)
 
-    If ApplicationData.Current.LocalSettings.Values("textstyle") = "." Then B511.IsOn = True
-    If ApplicationData.Current.LocalSettings.Values("frameview") = "." Then B512.IsOn = True
-    If ApplicationData.Current.LocalSettings.Values("lightness") = "." Then B513.IsOn = True
+    'If ApplicationData.Current.LocalSettings.Values("textstyle") = "m" Then B511.IsOn = True
+    If ApplicationData.Current.LocalSettings.Values("rectangle") = "i" Then B512.IsOn = True
+    'If ApplicationData.Current.LocalSettings.Values("lightness") = "l" Then B513.IsOn = True
 
-    B511.OffContent = A_D.GetString("E202") : B511.OnContent = A_D.GetString("E201")
+    'B511.OffContent = A_D.GetString("E202") : B511.OnContent = A_D.GetString("E201")
     B512.OffContent = A_D.GetString("E251") : B512.OnContent = A_D.GetString("E252")
-    B513.OffContent = A_D.GetString("E253") : B513.OnContent = A_D.GetString("E254")
+    'B513.OffContent = A_D.GetString("A004") : B513.OnContent = A_D.GetString("A003")
 
     B500.RowDefinitions.Add(New RowDefinition) : B500.RowDefinitions.Add(New RowDefinition)
     B500.RowDefinitions.Add(New RowDefinition) : B500.RowDefinitions.Add(New RowDefinition)
@@ -632,17 +640,17 @@ Public NotInheritable Class MainPage
     B500.ColumnDefinitions.Add(New ColumnDefinition) : B500.ColumnDefinitions.Add(New ColumnDefinition)
     B500.ColumnDefinitions.Add(New ColumnDefinition) : B500.RowDefinitions.Add(New RowDefinition)
 
-    Grid.SetRow(B511, 0) : Grid.SetColumn(B511, 1) : Grid.SetRow(B512, 1) : Grid.SetColumn(B512, 1)
-    Grid.SetRow(B513, 2) : Grid.SetColumn(B513, 1) : Grid.SetRow(B501, 3) : Grid.SetColumn(B501, 1)
-    Grid.SetRow(B502, 4) : Grid.SetColumn(B502, 1) : Grid.SetRow(B503, 5) : Grid.SetColumn(B503, 1)
-    Grid.SetRow(B504, 6) : Grid.SetColumn(B504, 1) : Grid.SetRow(B505, 7) : Grid.SetColumn(B505, 1)
-    Grid.SetRow(B506, 8) : Grid.SetColumn(B506, 1)
+    Grid.SetRow(B512, 1) : Grid.SetColumn(B512, 1)
+    'Grid.SetRow(B511, 0) : Grid.SetColumn(B511, 1) : Grid.SetRow(B513, 2) : Grid.SetColumn(B513, 1)
+    Grid.SetRow(B501, 3) : Grid.SetColumn(B501, 1) : Grid.SetRow(B502, 4) : Grid.SetColumn(B502, 1)
+    Grid.SetRow(B503, 5) : Grid.SetColumn(B503, 1) : Grid.SetRow(B504, 6) : Grid.SetColumn(B504, 1)
+    Grid.SetRow(B505, 7) : Grid.SetColumn(B505, 1) : Grid.SetRow(B506, 8) : Grid.SetColumn(B506, 1)
 
     B500.ColumnDefinitions.Item(0).Width = New GridLength(0.2, 2)
 
     B501.Margin = New Thickness(10) : B502.Margin = New Thickness(10) : B503.Margin = New Thickness(10)
     B504.Margin = New Thickness(10) : B505.Margin = New Thickness(10) : B506.Margin = New Thickness(10)
-    B511.Margin = New Thickness(10) : B512.Margin = New Thickness(10) : B513.Margin = New Thickness(10)
+    B512.Margin = New Thickness(10) ' : B511.Margin = New Thickness(10) : B513.Margin = New Thickness(10)
 
     B506.Background = New SolidColorBrush(Colors.Blue) : B502.Background = New SolidColorBrush(Colors.SkyBlue)
     B503.Background = New SolidColorBrush(Colors.Gold) : B504.Background = New SolidColorBrush(Colors.Magenta)
@@ -869,10 +877,7 @@ Public NotInheritable Class MainPage
 #Region ""
         ' H-S => Q-S : Q-A° => Q-S
         AAAB() : AABA()
-        A100.ColumnDefinitions.Item(0).Width = New GridLength(0, 2)
-        B100.ColumnDefinitions.Item(1).Width = New GridLength(6, 2)
-        B100.ColumnDefinitions.Item(2).Width = New GridLength(1, 2)
-        B100.ColumnDefinitions.Item(3).Width = New GridLength(7, 2)
+        A100.Padding = New Thickness(138, 0, 138, 0)
         C100.ColumnDefinitions.Item(0).Width = New GridLength(0.5, 2)
         C100.ColumnDefinitions.Item(20).Width = New GridLength(4.5, 2)
         For i = 5 To 19 Step 1 : C100.ColumnDefinitions.Item(i).
@@ -887,7 +892,6 @@ Public NotInheritable Class MainPage
 #Region ""
         ' Q-A => Q-L,   H-L => Q-L
         AAAB() : AABC()
-        B100.ColumnDefinitions.Item(3).Width = New GridLength(14, 2)
 #End Region
       Case = 104 ' Q-Beispiele
 #Region ""
@@ -906,15 +910,15 @@ Public NotInheritable Class MainPage
       Case = 201 ' H-Start
 #Region ""
         ' Q-S => H-S : H-A° => H-S
-        AAAB() : AABA() : CA_.Visibility = 1
+        AAAB() : AABA()
+        A100.Padding = New Thickness(30, 0, 30, 0)
         AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-        B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
-        B100.ColumnDefinitions.Item(2).Width = New GridLength(0, 2)
-        B100.ColumnDefinitions.Item(3).Width = New GridLength(14, 2)
-        C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
+        'C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
+        C100.ColumnDefinitions.Item(0).Width = New GridLength(30, 1)
         C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
         C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
-        C100.ColumnDefinitions.Item(20).Width = New GridLength(0.3, 2)
+        C100.ColumnDefinitions.Item(20).Width = New GridLength(30, 1)
+        'C100.ColumnDefinitions.Item(20).Width = New GridLength(0.3, 2)
 #End Region
       Case = 202 ' H-Anhang
 #Region ""
@@ -924,8 +928,8 @@ Public NotInheritable Class MainPage
       Case = 203 ' H-Listen
 #Region ""
         ' Q-A => Q-L,   H-L => Q-L
-        AAAB() : AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-        AABC() : B100.ColumnDefinitions.Item(3).Width = New GridLength(13, 2)
+        AAAB() : AABC()
+        AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
 #End Region
       Case = 204 ' H-Beispiele
 #Region ""
@@ -946,21 +950,36 @@ Public NotInheritable Class MainPage
   Private Sub AAAB()
     ' A°:Q-H: Alle Q oder H
     If AAA = 1 Then : CA_.Visibility = 0 : Grid.SetRow(A100, 0)
-      A113.Visibility = 1 : A114.Visibility = 1
+      A111.Visibility = 1 : A112.Visibility = 1
       AA01.RowDefinitions.Item(0).Height = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(4).Width = New GridLength(1, 2)
       A100.ColumnDefinitions.Item(5).Width = New GridLength(1, 2)
       A100.ColumnDefinitions.Item(6).Width = New GridLength(1, 2)
       A100.ColumnDefinitions.Item(7).Width = New GridLength(1, 2)
       A100.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
-      'A100.ColumnDefinitions.Item(11).Width = New GridLength(1.7, 2)
-    Else : Grid.SetRow(A100, 3)
-      'A100.ColumnDefinitions.Item(11).Width = New GridLength(0.3, 2)
-      A113.Content = If(A113.Content = "A1", "A2", "A1") : AACA()
-      A114.Content = If(A114.Content = "B1", "B2", "B1") : AACB()
-      A113.Visibility = 0 : A114.Visibility = 0
+      A100.ColumnDefinitions.Item(9).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
+      A100.ColumnDefinitions.Item(11).Width = New GridLength(0, 2)
+      ' ! Bis Upgrade !
+      C100.ColumnDefinitions.Item(15).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(16).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(17).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(18).Width = New GridLength(1, 2)
+      C100.ColumnDefinitions.Item(19).Width = New GridLength(1, 2)
+    Else : CA_.Visibility = 1 : Grid.SetRow(A100, 3)
+      A111.Content = If(A111.Content = "A1", "A2", "A1") : AACA()
+      A112.Content = If(A112.Content = "B1", "B2", "B1") : AACB()
+      A111.Visibility = 0 : A112.Visibility = 0
+      A100.ColumnDefinitions.Item(10).Width = New GridLength(1, 2)
+      A100.ColumnDefinitions.Item(11).Width = New GridLength(1, 2)
+      ' ! Bis Upgrade !
+      C100.ColumnDefinitions.Item(15).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(16).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(17).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(18).Width = New GridLength(0, 2)
+      C100.ColumnDefinitions.Item(19).Width = New GridLength(0, 2)
     End If
     CA_.Background = New SolidColorBrush(ACAB(AAE))
-    A100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
   End Sub
   Private Sub AABA()
     ' S:Q-H: Start: Q und H
@@ -1038,22 +1057,24 @@ Public NotInheritable Class MainPage
     B100.Visibility = 0 : B200.Visibility = 1 : Հ101.Visibility = 1
     Հ102.Visibility = 0 : EB_.Visibility = 1
     AA01.RowDefinitions.Item(1).Height = New GridLength(1, 2)
-    B100.ColumnDefinitions.Item(1).Width = New GridLength(0, 2)
-    B100.ColumnDefinitions.Item(2).Width = New GridLength(0, 2)
   End Sub
   Private Sub AACA()
-    If A109.Content = "A1" Then : A109.Content = "A2" : AAC = 0
+    If A111.Content = "A1" Then : A111.Content = "A2" : AAC = 0
       AAD = 1
-    Else : A109.Content = "A1" : AAC = 1 : AAD = 0 : End If
-    A100.ColumnDefinitions.Item(5).Width = New GridLength(AAC, 2)
-    A100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
+    Else : A111.Content = "A1" : AAC = 1 : AAD = 0 : End If
+    A100.ColumnDefinitions.Item(0).Width = New GridLength(AAC, 2)
+    A100.ColumnDefinitions.Item(1).Width = New GridLength(AAC, 2)
+    A100.ColumnDefinitions.Item(2).Width = New GridLength(AAC, 2)
+    A100.ColumnDefinitions.Item(3).Width = New GridLength(AAC, 2)
+    A100.ColumnDefinitions.Item(6).Width = New GridLength(AAD, 2)
     A100.ColumnDefinitions.Item(7).Width = New GridLength(AAD, 2)
     A100.ColumnDefinitions.Item(8).Width = New GridLength(AAD, 2)
+    A100.ColumnDefinitions.Item(9).Width = New GridLength(AAD, 2)
   End Sub
   Private Sub AACB()
-    If A110.Content = "B1" Then : A110.Content = "B2" : AAC = 0
+    If A112.Content = "B1" Then : A112.Content = "B2" : AAC = 0
       AAD = 1
-    Else : A110.Content = "B1" : AAC = 1 : AAD = 0 : End If
+    Else : A112.Content = "B1" : AAC = 1 : AAD = 0 : End If
     C100.ColumnDefinitions.Item(6).Width = New GridLength(AAC, 2)
     C100.ColumnDefinitions.Item(7).Width = New GridLength(AAC, 2)
     C100.ColumnDefinitions.Item(8).Width = New GridLength(AAC, 2)
@@ -1066,55 +1087,45 @@ Public NotInheritable Class MainPage
   Private Sub AADA()
     ' Textstyle - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("textstyle")
-      Case "."
-      Case ""
+      Case "m"
+      Case "c"
     End Select
   End Sub
   Private Sub AADB()
-    ' frameview - Bearbeitung '
-    Select Case ApplicationData.Current.LocalSettings.Values("frameview")
-      Case "." : B103.Visibility = 0
-      Case "" : B103.Visibility = 1 : End Select
-    B103.Stroke = New SolidColorBrush(ACAB(AAG))
+    ' Rectangle - Bearbeitung '
+    Select Case ApplicationData.Current.LocalSettings.Values("rectangle")
+      Case "i" : B102.Visibility = 0
+      Case "o" : B102.Visibility = 1 : End Select
+    B102.Stroke = New SolidColorBrush(ACAB(AAG))
   End Sub
   Private Sub AADC()
     ' Helligkeit - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("lightness")
-      Case "."
-        AA01.Background = New SolidColorBrush(Colors.White)
-        C100.Background = New SolidColorBrush(Colors.White)
-        B501.Visibility = 0 : B502.Visibility = 0 : B503.Visibility = 0
-        B504.Visibility = 0 : B505.Visibility = 0 : B506.Visibility = 0
-        AAE = 14 : AAF = 0 : AAG = 1 : AADD()
-      Case ""
-        AA01.Background = New SolidColorBrush(Colors.Blue)
-        C100.Background = New SolidColorBrush(Colors.Blue)
-        B501.Visibility = 1 : B502.Visibility = 1 : B503.Visibility = 1
-        B504.Visibility = 1 : B505.Visibility = 1 : B506.Visibility = 1
-        AAE = 11 : AAF = 14 : AAG = 13 : AADD()
-        ' genau hier
-        ApplicationData.Current.LocalSettings.Values("colors") = ""
+      Case "l"
+        ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A002")})
+        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A004")})
+        ' ms-appx:///Assets/A_0_001.png
+        Թ100.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
+        AAE = 14 : AAF = 0 : AAG = 1 : AAEA()
+      Case "d"
+        ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A001")})
+        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A003")})
+        ' ms-appx:///Assets/A_0_002.png
+        Թ100.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
+        AAE = 11 : AAF = 14 : AAG = 13 : AAEA()
     End Select : AADE()
-  End Sub
-  Private Sub AADD()
-    Dim title = ApplicationView.GetForCurrentView().TitleBar
-    title.BackgroundColor = ACAB(AAE) : title.ButtonInactiveForegroundColor = ACAB(AAF)
-    title.ForegroundColor = ACAB(AAF) : title.ButtonInactiveBackgroundColor = ACAB(AAE)
-    title.ButtonBackgroundColor = ACAB(AAE) : title.InactiveBackgroundColor = ACAB(AAE)
-    title.ButtonForegroundColor = ACAB(AAF) : title.InactiveForegroundColor = ACAB(AAF)
-    title.ButtonHoverBackgroundColor = ACAB(AAE) : title.ButtonPressedBackgroundColor = ACAB(AAG)
   End Sub
   Private Sub AADE()
     'Colors
     Select Case ApplicationData.Current.LocalSettings.Values("colors")
-      Case "" : AAE = 11 : AAF = 14 : AAG = 14 : Case "1" : AAE = 10 : AAF = 11 : AAG = 11
-      Case "2" : AAE = 4 : AAF = 14 : AAG = 11 : Case "3" : AAE = 1 : AAF = 14 : AAG = 12
-      Case "4" : AAE = 12 : AAF = 14 : AAG = 12 : Case "5" : AAE = 13 : AAF = 14 : AAG = 2
-      Case "6" : AAE = 11 : AAF = 14 : AAG = 11 : End Select
+      Case "1" : AAE = 10 : AAF = 11 : AAG = 11 : Case "2" : AAE = 4 : AAF = 14 : AAG = 11
+      Case "3" : AAE = 1 : AAF = 14 : AAG = 12 : Case "4" : AAE = 12 : AAF = 14 : AAG = 12
+      Case "5" : AAE = 13 : AAF = 14 : AAG = 2 : Case "6" : AAE = 11 : AAF = 14 : AAG = 11
+    End Select
 
-    AA_.Stroke = New SolidColorBrush(ACAB(AAG))
+    If Թ102.Content = "⛯" Then AAE = 11 : AAF = 14 : AAG = 14
 
-    B103.Stroke = New SolidColorBrush(ACAB(AAG))
+    AA_.Stroke = New SolidColorBrush(ACAB(AAG)) : B102.Stroke = New SolidColorBrush(ACAB(AAG))
 
     A100.Background = New SolidColorBrush(ACAB(AAE)) : CA_.Background = New SolidColorBrush(ACAB(AAE))
 
@@ -1122,36 +1133,47 @@ Public NotInheritable Class MainPage
     Next
 
     For i = 0 To 63 Step 1 : ACAD(C100.Children.Item(i)).Foreground = New SolidColorBrush(ACAB(AAG))
-      ACAD(C100.Children.Item(i)).Background = New SolidColorBrush(Colors.White) : Next
-
-    If AAF + AAG = 28 Then
-      For i = 0 To 63 Step 1 : ACAD(C100.Children.Item(i)).Background = New SolidColorBrush(ACAB(AAE))
-      Next : End If
+    Next
 
     Select Case AAF + AAG
       Case 22
-        A104.Content = New Image With
+        A101.Content = New Image With
           {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_001.png")}}
-        A105.Content = New Image With
+        A102.Content = New Image With
           {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_002.png")}}
-        A106.Content = New Image With
+        A103.Content = New Image With
           {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_003.png")}}
-      Case Else
         A104.Content = New Image With
+          {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_004.png")}}
+      Case Else
+        A101.Content = New Image With
           {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_006.png")}}
-        A105.Content = New Image With
+        A102.Content = New Image With
           {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_007.png")}}
-        A106.Content = New Image With
+        A103.Content = New Image With
           {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_008.png")}}
+        A104.Content = New Image With
+          {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_1_009.png")}}
     End Select
 
     If Ξ101.Children.Count > 2 Then : For i = 0 To Ξ101.Children.Count - 3 Step 1
         ACAF(Ξ101.Children(i)).Foreground = New SolidColorBrush(ACAB(AAG)) : Next
     End If
 
-    B511.Background = New SolidColorBrush(ACAB(AAE)) : B511.Foreground = New SolidColorBrush(ACAB(AAF))
+    'B511.Background = New SolidColorBrush(ACAB(AAE)) : B511.Foreground = New SolidColorBrush(ACAB(AAF))
     B512.Background = New SolidColorBrush(ACAB(AAE)) : B512.Foreground = New SolidColorBrush(ACAB(AAF))
-    B513.Background = New SolidColorBrush(ACAB(AAE)) : B513.Foreground = New SolidColorBrush(ACAB(AAF))
+    'B513.Background = New SolidColorBrush(ACAB(AAE)) : B513.Foreground = New SolidColorBrush(ACAB(AAF))
+  End Sub
+  Private Sub AAEA()
+    Dim title = ApplicationView.GetForCurrentView().TitleBar
+    title.BackgroundColor = ACAB(AAE) : title.ButtonInactiveForegroundColor = ACAB(AAF)
+    title.ForegroundColor = ACAB(AAF) : title.ButtonInactiveBackgroundColor = ACAB(AAE)
+    title.ButtonBackgroundColor = ACAB(AAE) : title.InactiveBackgroundColor = ACAB(AAE)
+    title.ButtonForegroundColor = ACAB(AAF) : title.InactiveForegroundColor = ACAB(AAF)
+    title.ButtonHoverBackgroundColor = ACAB(AAE) : title.ButtonPressedBackgroundColor = ACAB(AAG)
+    C100.Background = New SolidColorBrush(ACAB(AAE))
+    Թ101.Foreground = New SolidColorBrush(ACAB(AAF)) : Թ102.Foreground = New SolidColorBrush(ACAB(AAF))
+    AA00.Background = New SolidColorBrush(ACAB(AAE)) : AA01.Background = New SolidColorBrush(ACAB(AAE))
   End Sub
   'Private Sub AIAS()
   '  Select Case Ϟ102.Document.Selection.
@@ -1191,27 +1213,27 @@ Public NotInheritable Class MainPage
   Private Sub ABBA()
     ' Textstyle - Auswahl
     If B511.IsOn = True Then
-      ApplicationData.Current.LocalSettings.Values("textstyle") = "."
-    Else ' mathprint ' classic_r
-      ApplicationData.Current.LocalSettings.Values("textstyle") = ""
+      ApplicationData.Current.LocalSettings.Values("textstyle") = "m"
+    Else ' mathprint ' classic
+      ApplicationData.Current.LocalSettings.Values("textstyle") = "c"
     End If : AADA()
   End Sub
   Private Sub ABBB()
-    ' frameview - Auswahl
+    ' Rectangle - Auswahl
     If B512.IsOn = True Then
-      ApplicationData.Current.LocalSettings.Values("frameview") = "."
+      ApplicationData.Current.LocalSettings.Values("rectangle") = "i"
     Else ' outside ' inside_
-      ApplicationData.Current.LocalSettings.Values("frameview") = ""
+      ApplicationData.Current.LocalSettings.Values("rectangle") = "o"
     End If : AADB()
   End Sub
   Private Sub ABBC()
-    ' Helligkeit
-    If B513.IsOn = True Then
-      ApplicationData.Current.LocalSettings.Values("lightness") = "."
-      ' genau hier
-      ApplicationData.Current.LocalSettings.Values("colors") = "1"
-    Else ' light ' dark_
-      ApplicationData.Current.LocalSettings.Values("lightness") = ""
+    ' Helligkeit - Auswahl
+    If Թ102.Content = "⛭" Then
+      Թ102.Content = "⛯" ' ☀️
+      ApplicationData.Current.LocalSettings.Values("lightness") = "d"
+    Else ' dark ' light
+      Թ102.Content = "⛭"
+      ApplicationData.Current.LocalSettings.Values("lightness") = "l"
     End If : AADC()
   End Sub
 #End Region
@@ -1248,7 +1270,7 @@ Public NotInheritable Class MainPage
       Dim aaaaa As String = "AA" ' : Ϟ102.Document.Selection.StartPosition = 0
       'Ϟ102.Document.Selection.EndPosition = _Ϟ102.Document.Selection.StoryLength
 
-      'aaaaa = A_D.GetString("A201") & ":   " & B103.Text & vbCrLf &
+      'aaaaa = A_D.GetString("A201") & ":   " & B102.Text & vbCrLf &
       '  A_D.GetString("A202") & ":   " & Ϟ102.Document.Selection.Text
 
       Dim emailMessage As New EmailMessage With {.Body = aaaaa,
@@ -1345,7 +1367,7 @@ Public NotInheritable Class MainPage
     '  BGD = "Ʃ(''" : BAAG() : BGD = "∏(''" : BAAG() : BGD = "ʃ(''d()" : BAAG() : End If
 
     'If BJE <> BGB.Length Then
-    '  B103.Text = " " & CStr(BJC) & " " & CStr(BJE) & " " & CStr(BJD) ' Exit Sub ' Test
+    '  B102.Text = " " & CStr(BJC) & " " & CStr(BJE) & " " & CStr(BJD) ' Exit Sub ' Test
     '  DA_.Document.Selection.Text = DA_.Document.Selection.Text.Remove(BJC - BGD.Length, BGD.Length)
     'End If
 

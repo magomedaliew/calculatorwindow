@@ -126,22 +126,22 @@
   <data name="A002" xml:space="preserve">
     <value>Attachment</value>
   </data>
-  <data name="A003" xml:space="preserve">
+  <data name="A015" xml:space="preserve">
     <value>Calculate</value>
   </data>
-  <data name="A004" xml:space="preserve">
+  <data name="A016" xml:space="preserve">
     <value>Clear</value>
   </data>
-  <data name="A005" xml:space="preserve">
+  <data name="A017" xml:space="preserve">
     <value>Results</value>
   </data>
-  <data name="A006" xml:space="preserve">
+  <data name="A018" xml:space="preserve">
     <value>Dimensions</value>
   </data>
-  <data name="A007" xml:space="preserve">
+  <data name="A019" xml:space="preserve">
     <value>Source</value>
   </data>
-  <data name="A008" xml:space="preserve">
+  <data name="A020" xml:space="preserve">
     <value>Depiction</value>
   </data>
   <data name="A101" xml:space="preserve">
@@ -168,13 +168,13 @@
   <data name="A110" xml:space="preserve">
     <value>Periodic table</value>
   </data>
-  <data name="A202" xml:space="preserve">
+  <data name="A011" xml:space="preserve">
     <value>Expression</value>
   </data>
-  <data name="A203" xml:space="preserve">
+  <data name="A013" xml:space="preserve">
     <value>Equation</value>
   </data>
-  <data name="A009" xml:space="preserve">
+  <data name="A021" xml:space="preserve">
     <value>Detailed</value>
   </data>
   <data name="A251" xml:space="preserve">
@@ -957,10 +957,10 @@
   <data name="A105" xml:space="preserve">
     <value>Feedback</value>
   </data>
-  <data name="E253" xml:space="preserve">
+  <data name="A003" xml:space="preserve">
     <value>dark</value>
   </data>
-  <data name="E254" xml:space="preserve">
+  <data name="A004" xml:space="preserve">
     <value>light</value>
   </data>
   <data name="E251" xml:space="preserve">
@@ -969,8 +969,10 @@
   <data name="E252" xml:space="preserve">
     <value>inside</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="A00" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="A014" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="A012" xml:space="preserve">
+    <value>Dimension</value>
   </data>
 </root>

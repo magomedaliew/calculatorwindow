@@ -143,9 +143,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\A_0_001.png" />
+    <Content Include="Assets\A_0_002.png" />
+    <Content Include="Assets\A_1_004.png" />
     <Content Include="Assets\A_1_006.png" />
     <Content Include="Assets\A_1_007.png" />
     <Content Include="Assets\A_1_008.png" />
+    <Content Include="Assets\A_1_009.png" />
     <Content Include="Assets\A_A_001.png" />
     <Content Include="Assets\A_A_004.png" />
     <Content Include="Assets\A_A_005.png" />
