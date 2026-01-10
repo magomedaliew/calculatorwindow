@@ -32,14 +32,13 @@ Public NotInheritable Class MainPage
   Private CA_ As New Canvas ' AA01 Rows Canvas
   Private CԳ_ As New Canvas ' Canvas 1 in Ξ102
   Private DA_ As New TextBox ' Übersetzung Ξ101
-  Private EA_ As New ListView ' Auto Suggestion
   Private EB_ As New ListView ' Chemische Liste
-  Private FA_ As New TextBlock ' Periodentabelle
+  Private FA_ As New TextBlock ' Allgemeiner TB
   Private FB_ As New TextBlock ' Periodentabelle
+  Private FC_ As New TextBlock ' Periodentabelle
 
   Private Ϟ101 As New TextBlock
   Private Ϟ102 As New TextBlock
-
 #End Region
 #Region "A-02"
   ' Klassen
@@ -60,6 +59,10 @@ Public NotInheritable Class MainPage
   Private AAF As Byte ' Farben Nummer für ACAB
   Private AAG As Byte ' Farben Nummer für ACAB
   Private AAH As Byte ' Eingabe Umschalte Zahl
+  Private AAI As Byte ' Quer-Hochformat-Design
+  Private AAJ As Integer ' Dimension-Tabelle-Zahl
+  Private AAK As Integer ' Dimension-Tabelle-Zahl
+  Private AGA As String ' Allgemeiner Substring
   Private AΞA As DispatcherTimer ' Kursor Ξ101
 #End Region
 #Region "A-12"
@@ -177,10 +180,14 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "A-13"
   ' Chemie
-  Private CEA As String ' Listen Text Substring
 #End Region
 #Region "A-14"
-
+  ' Physik
+  Private DGA As String ' Gesuchte Dimension
+  Private DGB As String ' Gesuchte Dimension
+  Private DGC As String ' Mehrzwecks String
+  Private DՃA() As String ' Dimensions-Liste
+  Private DՃB() As String ' Dimensions-Split
 #End Region
 #Region "A-15"
   ' A Byte
@@ -233,16 +240,19 @@ Public NotInheritable Class MainPage
       For i = 1 To 12 Step 1 : A100.ColumnDefinitions.Add(New ColumnDefinition) : Next
       For i = 1 To 4 Step 1 : C100.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 21 Step 1 : C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 12 Step 1 : Ξ101.RowDefinitions.Add(New RowDefinition) : Next
+      For i = 1 To 15 Step 1 : Ξ101.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 50 Step 1 : Ξ102.RowDefinitions.Add(New RowDefinition) : Next
+      For i = 1 To 6 Step 1 : Ξ102.ColumnDefinitions.Add(New ColumnDefinition) : Next
 
-      Ξ101.Children.Add(AA_) : AA01.Children.Add(CA_) : AA01.Children.Add(DA_)
-      B100.Children.Add(EA_)
+      AA01.Children.Add(CA_) : AA01.Children.Add(DA_) : Ξ102.Children.Add(AA_)
 
-      Grid.SetColumn(Թ101, 1) : Grid.SetColumn(Թ102, 2) : Grid.SetColumn(Թ103, 3)
+      Grid.SetColumn(Թ102, 1) : Grid.SetColumn(Թ103, 2) : Grid.SetColumn(Թ104, 3)
       Grid.SetColumn(A101, 0) : Grid.SetColumn(A102, 1) : Grid.SetColumn(A103, 2)
       Grid.SetColumn(A104, 3) : Grid.SetColumn(A105, 4) : Grid.SetColumn(A106, 5)
       Grid.SetColumn(A107, 6) : Grid.SetColumn(A108, 7) : Grid.SetColumn(A109, 8)
-      Grid.SetColumn(A110, 9)
-      Grid.SetColumn(A111, 10) : Grid.SetColumn(A112, 11) : Grid.SetColumn(Թ100, 0)
+      Grid.SetColumn(A110, 9) : Grid.SetColumn(A111, 10) : Grid.SetColumn(A112, 11)
+      Grid.SetColumn(Թ101, 0)
 
       Grid.SetRow(AԹ01, 0) : Grid.SetRow(AA01, 1) : Grid.SetRow(B100, 2)
       Grid.SetRow(B200, 2) : Grid.SetRow(B400, 2) : Grid.SetRow(B500, 2)
@@ -252,6 +262,8 @@ Public NotInheritable Class MainPage
       AԹ01.ColumnDefinitions.Item(0).Width = New GridLength(46, 1)
       AԹ01.ColumnDefinitions.Item(1).Width = New GridLength(46, 1)
       AԹ01.ColumnDefinitions.Item(2).Width = New GridLength(46, 1)
+      Ξ102.ColumnDefinitions.Item(0).Width = New GridLength(20, 1)
+      Ξ102.ColumnDefinitions.Item(1).Width = New GridLength(20, 1)
       AԹ01.ColumnDefinitions.Item(3).Width = New GridLength(AAA0.ActualWidth - 46 * 6, 1)
 
       ToolTipService.SetToolTip(A101, New ToolTip With {.Content = A_D.GetString("A011")})
@@ -272,15 +284,21 @@ Public NotInheritable Class MainPage
       '  Ϟ102.FontFamily = New FontFamily("Segoe UI") : Ϟ102.Text = A_D.GetString("A900")
       'End If
 
-      A111.Content = "A1" : A112.Content = "B1" : C126.Content = A_D.GetString("A254")
-      B102.Margin = New Thickness(-10, -10, -10, 0) : DA_.MaxHeight = 0 : DA_.MaxWidth = 0
-      EA_.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : AA_.StrokeThickness = 2
+      A111.Content = "A1" : A112.Content = "B1" : DA_.MaxHeight = 0 : DA_.MaxWidth = 0
+      B101.Margin = New Thickness(10, 0, 10, 0) : B102.Margin = New Thickness(5, -25, 5, 2)
+      Հ101.Margin = New Thickness(15, 5, 15, 7) : Հ102.Margin = New Thickness(15, 5, 15, 7)
+      Հ103.Margin = New Thickness(15, 5, 15, 7)
+
+      'Ξ101 Հ101
+      B101.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : Հ101.Visibility = 1
+      Հ103.Visibility = 1 : AA_.StrokeThickness = 2 : C126.Content = A_D.GetString("A254")
 
       AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ101.Tapped, AddressOf B_ՀA
       AddHandler DA_.SelectionChanged, AddressOf B_ΞA : AddHandler AΞA.Tick, AddressOf B_ϞA
+      AddHandler B101.SelectionChanged, AddressOf Թ_AB
 
       Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
-      Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ103)
+      Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ104)
       Dim ac = ApplicationView.GetForCurrentView().TitleBar ' !!! Reihenfolge !!!
       ac.ButtonPressedForegroundColor = Colors.Pink : ac.ButtonHoverForegroundColor = Colors.Pink
       'AddHandler aa.LayoutMetricsChanged, AddressOf A_C_
@@ -325,10 +343,10 @@ Public NotInheritable Class MainPage
       Grid.SetRow(C161, 3) : Grid.SetColumn(C161, 16) : Grid.SetRow(C162, 3) : Grid.SetColumn(C162, 17)
       Grid.SetRow(C163, 3) : Grid.SetColumn(C163, 18) : Grid.SetRow(C164, 3) : Grid.SetColumn(C164, 19)
 
-      Թ102.Content = "⛭" : Թ101.Icon =
+      Թ103.Content = "⛭" : Թ102.Icon =
         New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
 
-      DA_.Focus(3) : AΞA.Start() : AADC() : AADB() : A_B_() ' : AADA()
+      DA_.Focus(3) : AΞA.Start() : AAFC() : AAFB() : A_B_() ' : AAFA()
     Catch ex As Exception : End Try ' Ϟ102.Text = ex.Message
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
@@ -338,22 +356,40 @@ Public NotInheritable Class MainPage
     Catch ex As Exception : End Try '  : Ϟ102.Text = ex.Message
   End Sub
 #End Region
-#Region "Թ100"
-  Private Sub Թ_AA()
-    If AAB = 1 Then ' Anhang
-      AAB = 2 : ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A002")}) : AAAA()
-      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE8A9), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
-    Else ' Home ' Segoe MDL2 Assets ' Segoe Fluent Icons
-      AAB = 1 : ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A001")}) : AAAA()
-      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
-    End If
+#Region "Թ_10"
+  Private Sub Թ_A_()
+    Select Case AAB
+      Case 1, 7 ' Anhang
+        AAB = 2 : ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A002")}) : AAAA()
+        Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE8A9), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+      Case Else ' Home ' Segoe MDL2 Assets ' Segoe Fluent Icons
+        AAB = 1 : ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")}) : AAAA()
+        Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+    End Select
   End Sub
-  Private Sub Թ_AB()
+  Private Sub Թ_B_()
     ABBC()
   End Sub
 #End Region
 #Region "A100"
   Private Sub A_AA()
+    ' Dimensionen-Buttons Erstellen ! Reihenfolge !
+    If Ξ101.Children.Count = 0 Then
+      Dim eaaaa As New Button ' : Dim eaaab As TextBlock
+      For i = 1 To 87 Step 1 : AGA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
+        'eaaab = New TextBlock With {.Text = A_C.GetString(AGA),
+        '.Foreground = New SolidColorBrush(Colors.Black), .IsTextSelectionEnabled = False}
+        eaaaa = New Button With {.Background = New SolidColorBrush(Colors.AliceBlue),
+        .Padding = New Thickness(0), .HorizontalContentAlignment = 1, .Content = A_C.GetString(AGA),
+        .Margin = New Thickness(2)}
+        Ξ101.Children.Add(eaaaa) : AddHandler eaaaa.Click, AddressOf Թ_AA : Next : End If
+    ' Dimensionen-Buttons Verstellen ! Reihenfolge !
+    If AAB = 7 Then
+      Հ101.Visibility = 1 : Հ102.Visibility = 0 : Հ103.Visibility = 1 : AAB = 1
+    Else
+      B101.Visibility = 1 : Հ101.Visibility = 0 : Հ102.Visibility = 1 : AAB = 7
+      Հ103.Visibility = 1 : AAAA() : End If
+
     'Dim aa As DispatcherTimer
     'aa = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
     'AddHandler aa.Tick, AddressOf B_ϞA
@@ -411,19 +447,19 @@ Public NotInheritable Class MainPage
     CA_.Background = New SolidColorBrush(ACAB(AAE))
   End Sub
   Private Sub A_AJ()
-    AACA()
+    AAEA()
   End Sub
   Private Sub A_AK()
-    AACA()
+    AAEA()
   End Sub
   Private Sub A_AL()
-    AACB()
+    AAEB()
   End Sub
 #End Region
 #Region "B100"
   Private Sub B_ՀA(a As Object, b As TappedRoutedEventArgs)
     Try : DA_.Focus(3) : AAH = 1 : DA_.SelectionLength = 0
-      BJA = Math.Ceiling((b.GetPosition(Հ101).X - 4) / 10)
+      BJA = Math.Ceiling((b.GetPosition(Հ102).X - 4) / 10)
       If BJA > DA_.Text.Length Then BJA = DA_.Text.Length
       AA_.Visibility = 0 : AΞA.Start() : AA_.X1 = BJA * 10
       AA_.X2 = BJA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
@@ -474,9 +510,9 @@ Public NotInheritable Class MainPage
       '  If FAA.Count > 0 Then EAAA() : EAAB()
       '  '6     Filterung der Kods nach eingegebene Zeichen
       '  If CI <> "" Then
-      '    For i = 0 To FAC.Count - 5 Step 5
-      '      If FAC(i).Length >= B102.Text.Length Then
-      '        If B102.Text = FAC(i).Substring(0, B102.Text.Length) Then aaaab.Add(FAC(i))
+      '    For i = 0 To DՃA.Count - 5 Step 5
+      '      If DՃA(i).Length >= B102.Text.Length Then
+      '        If B102.Text = DՃA(i).Substring(0, B102.Text.Length) Then aaaab.Add(DՃA(i))
       '      End If
       '    Next
       '  End If
@@ -620,7 +656,7 @@ Public NotInheritable Class MainPage
 
   End Sub
   Private Sub B_BD()
-    AAB = 7 : B500.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 1 ' : AADA()
+    AAB = 7 : B500.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 1 ' : AAFA()
 
     If B500.RowDefinitions.Count > 0 Then : Exit Sub : End If : Grid.SetRow(B500, 2)
 
@@ -824,9 +860,9 @@ Public NotInheritable Class MainPage
     'AAB = 3 : AAAA() : ABAD(10) : Ϟ102.FontFamily = New FontFamily("Consolas")
     '' Dimensionen
     'ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("A109") & "   " & vbLf & vbLf)
-    'For i = 1 To 87 Step 1 : CEA = If(i < 10, "00", "0") & CStr(i)
-    '  ABAE(Colors.White, Colors.Blue, (A_C.GetString("B" & CEA) & "       ").Substring(0, 8))
-    '  ABAE(Colors.White, Colors.DeepSkyBlue, A_D.GetString("C" & CEA) & vbLf) : Next
+    'For i = 1 To 87 Step 1 : AGA = If(i < 10, "00", "0") & CStr(i)
+    '  ABAE(Colors.White, Colors.Blue, (A_C.GetString("B" & AGA) & "       ").Substring(0, 8))
+    '  ABAE(Colors.White, Colors.DeepSkyBlue, A_D.GetString("C" & AGA) & vbLf) : Next
   End Sub
   Private Sub B_BJ()
     AAB = 5 : AAAA()
@@ -866,88 +902,144 @@ Public NotInheritable Class MainPage
     End Select
   End Sub
 #End Region
+#Region "Թ100"
+  Private Sub Թ_AA(a As Button, b As RoutedEventArgs)
+    DGA = a.Content : AAB = 1 : If DGA <> DGB Then DAAA() : DGB = DGA
+    Հ101.Visibility = 1 : B101.Visibility = 0
+    B101.ItemsSource = DՃA.Where(Function(item, index) index Mod 5 = 0)
+  End Sub
+  Private Sub Թ_AB()
+    B101.Visibility = 1 : Հ102.Visibility = 0
+    DՃB = B101.Items(B101.SelectedIndex).Split(" ")
+    ' Formel
+    FA_ = New TextBlock With {.Text = DՃA(B101.SelectedIndex * 5 + 1)}
+    Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 0) : Grid.SetColumn(FA_, 4)
+    Grid.SetColumnSpan(FA_, 2)
+    Ξ102.RowDefinitions.Item(1).Height = New GridLength(3, 2)
+
+    ' Dimensionsliste-Symbolen
+    For Each i As String In DՃB
+      DGC &= (i & "     ").Substring(0, 5) & vbCrLf & vbCrLf : Next
+    FA_ = New TextBlock With {.Text = DGC} : DGC = ""
+    Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 2) : Grid.SetColumn(FA_, 2)
+    Ξ102.ColumnDefinitions.Item(2).Width = New GridLength(0.1, 2)
+
+    ' Dimensionsliste-Werte
+    For i = 0 To DՃB.Count - 1 Step 1 : DGC &= "= " & vbCrLf & vbCrLf : Next
+    FA_ = New TextBlock With {.Text = DGC}
+    Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 2) : Grid.SetColumn(FA_, 3)
+    'Ξ102.ColumnDefinitions.Item(3).Width = New GridLength(FA_.Width, 1)
+  End Sub
+#End Region
 #End Region
 #Region "□□□□"
 #Region "AAAA"
 #Region "A-AA"
   Private Sub AAAA()
-    ' Quer-Hoch-Formaten-Seiten
-    Select Case 100 * AAA + AAB
-      Case = 101 ' Q-Start
-#Region ""
-        ' H-S => Q-S : Q-A° => Q-S
-        AAAB() : AABA()
-        A100.Padding = New Thickness(138, 0, 138, 0)
-        C100.ColumnDefinitions.Item(0).Width = New GridLength(0.5, 2)
-        C100.ColumnDefinitions.Item(20).Width = New GridLength(4.5, 2)
-        For i = 5 To 19 Step 1 : C100.ColumnDefinitions.Item(i).
-            Width = New GridLength(1, 2) : Next
-#End Region
-      Case = 102 ' Q-Anhang
-#Region ""
-        ' H-A => Q-A : Q-A° => Q-A
-        AAAB() : AABB()
-#End Region
-      Case = 103 ' Q-Listen
-#Region ""
-        ' Q-A => Q-L,   H-L => Q-L
-        AAAB() : AABC()
-#End Region
-      Case = 104 ' Q-Beispiele
-#Region ""
-        AAAB()
-#End Region
-      Case = 105 ' Q-Tabelle
-#Region ""
-        ' H-T => Q-T,   Q-A => Q-T,   Q-E => Q-T
-        AAAB() : B200.Visibility = 1 : B300.Visibility = 0
-        EB_.Visibility = 1 : If B300.Children.Count = 0 Then CAAA()
-#End Region
-      Case = 106 ' Q-Elemente
-#Region ""
-        AAAB()
-#End Region
-      Case = 201 ' H-Start
-#Region ""
-        ' Q-S => H-S : H-A° => H-S
-        AAAB() : AABA()
-        A100.Padding = New Thickness(30, 0, 30, 0)
-        AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-        'C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
-        C100.ColumnDefinitions.Item(0).Width = New GridLength(30, 1)
-        C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
-        C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
-        C100.ColumnDefinitions.Item(20).Width = New GridLength(30, 1)
-        'C100.ColumnDefinitions.Item(20).Width = New GridLength(0.3, 2)
-#End Region
-      Case = 202 ' H-Anhang
-#Region ""
-        ' Q-A => H-A : H-A° => H-A
-        AAAB() : AABB() : AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-#End Region
-      Case = 203 ' H-Listen
-#Region ""
-        ' Q-A => Q-L,   H-L => Q-L
-        AAAB() : AABC()
-        AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
-#End Region
-      Case = 204 ' H-Beispiele
-#Region ""
-        AAAB()
-#End Region
-      Case = 205 ' H-Tabelle*
-#Region ""
-        ' Q-T => H-T,   H-A => H-T,   H-E => H-T
-        AAAB() : B200.Visibility = 1 : B300.Visibility = 1
-        EB_.Visibility = 0 : If EB_.Items.Count = 0 Then CAAB()
-#End Region
-      Case = 206 ' H-Elemente
-#Region ""
-        AAAB()
-#End Region
+    ' Widerholungsverbot
+    If AAI = 100 * AAA + AAB Then Exit Sub Else AAI = 100 * AAA + AAB
+    ' Quer-Hoch-Formaten
+    Select Case AAI
+      Case = 101 : AABA() ' Q-Start
+      Case = 102 : AABB() ' Q-Anhang
+      Case = 103 : AABC() ' Q-Listen
+      Case = 104 : AADA() ' Q-Beispiele
+      Case = 105 : AABE() ' Q-Tabelle
+      Case = 106 : AADA() ' Q-Elemente
+      Case = 107 : AABG() ' Q-Dimensionen
+      Case = 201 : AACA() ' H-Start
+      Case = 202 : AACB() ' H-Anhang
+      Case = 203 : AACC() ' H-Listen
+      Case = 204 : AADA() ' H-Beispiele
+      Case = 205 : AACE() ' H-Tabelle*
+      Case = 206 : AADA() ' H-Elemente
+      Case = 207 : AACG() ' H-Dimensionen
     End Select
   End Sub
-  Private Sub AAAB()
+  Private Sub AABA()
+    ' H-S => Q-S : Q-A° => Q-S
+    AADA() : AADB()
+    A100.Padding = New Thickness(138, 0, 138, 0)
+    C100.ColumnDefinitions.Item(0).Width = New GridLength(0.5, 2)
+    C100.ColumnDefinitions.Item(20).Width = New GridLength(4.5, 2)
+    For i = 5 To 19 Step 1 : C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2) : Next
+    ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
+    Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+  End Sub
+  Private Sub AABB()
+    ' H-A => Q-A : Q-A° => Q-A
+    AADA() : AADC()
+  End Sub
+  Private Sub AABC()
+    ' Q-A => Q-L,   H-L => Q-L
+    AADA() : AADD()
+  End Sub
+  Private Sub AABE()
+    ' H-T => Q-T,   Q-A => Q-T,   Q-E => Q-T
+    AADA() : B200.Visibility = 1 : B300.Visibility = 0
+    EB_.Visibility = 1 : If B300.Children.Count = 0 Then CAAA()
+  End Sub
+  Private Sub AABG()
+    AABA() : AAJ = 1 : AAK = 0
+    For i = 0 To 86 Step 1
+      Grid.SetRow(Ξ101.Children(i), AAJ) : Grid.SetColumn(Ξ101.Children(i), AAK)
+      AAK += 1 : If AAK = 14 Then AAJ += 1 : AAK = 0
+    Next
+    Ξ101.RowDefinitions.Item(10).Height = New GridLength(0, 2)
+    Ξ101.RowDefinitions.Item(11).Height = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(8).Width = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(9).Width = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(10).Width = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(11).Width = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(12).Width = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(13).Width = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(14).Width = New GridLength(1, 2)
+  End Sub
+  Private Sub AACA()
+    ' Q-S => H-S : H-A° => H-S
+    AADA() : AADB()
+    A100.Padding = New Thickness(30, 0, 30, 0)
+    AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+    'C100.ColumnDefinitions.Item(0).Width = New GridLength(0.3, 2)
+    C100.ColumnDefinitions.Item(0).Width = New GridLength(30, 1)
+    C100.ColumnDefinitions.Item(5).Width = New GridLength(0, 2)
+    C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
+    C100.ColumnDefinitions.Item(20).Width = New GridLength(30, 1)
+    'C100.ColumnDefinitions.Item(20).Width = New GridLength(0.3, 2)
+    ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
+    Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+  End Sub
+  Private Sub AACB()
+    ' Q-A => H-A : H-A° => H-A
+    AADA() : AADC() : AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+  End Sub
+  Private Sub AACC()
+    ' Q-A => Q-L,   H-L => Q-L
+    AADA() : AADD()
+    AA01.RowDefinitions.Item(0).Height = New GridLength(0, 2)
+  End Sub
+  Private Sub AACE()
+    ' Q-T => H-T,   H-A => H-T,   H-E => H-T
+    AADA() : B200.Visibility = 1 : B300.Visibility = 1
+    EB_.Visibility = 0 : If EB_.Items.Count = 0 Then CAAB()
+  End Sub
+  Private Sub AACG()
+    AACA() : AAJ = 1 : AAK = 0
+    For i = 0 To 86 Step 1
+      Grid.SetRow(Ξ101.Children(i), AAJ) : Grid.SetColumn(Ξ101.Children(i), AAK)
+      AAK += 1 : If AAK = 8 Then AAJ += 1 : AAK = 0
+    Next
+    Ξ101.RowDefinitions.Item(10).Height = New GridLength(1, 2)
+    Ξ101.RowDefinitions.Item(11).Height = New GridLength(1, 2)
+    Ξ101.ColumnDefinitions.Item(8).Width = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(9).Width = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(11).Width = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(12).Width = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(13).Width = New GridLength(0, 2)
+    Ξ101.ColumnDefinitions.Item(14).Width = New GridLength(0, 2)
+  End Sub
+  Private Sub AADA()
     ' A°:Q-H: Alle Q oder H
     If AAA = 1 Then : CA_.Visibility = 0 : Grid.SetRow(A100, 0)
       A111.Visibility = 1 : A112.Visibility = 1
@@ -967,8 +1059,8 @@ Public NotInheritable Class MainPage
       C100.ColumnDefinitions.Item(18).Width = New GridLength(1, 2)
       C100.ColumnDefinitions.Item(19).Width = New GridLength(1, 2)
     Else : CA_.Visibility = 1 : Grid.SetRow(A100, 3)
-      A111.Content = If(A111.Content = "A1", "A2", "A1") : AACA()
-      A112.Content = If(A112.Content = "B1", "B2", "B1") : AACB()
+      A111.Content = If(A111.Content = "A1", "A2", "A1") : AAEA()
+      A112.Content = If(A112.Content = "B1", "B2", "B1") : AAEB()
       A111.Visibility = 0 : A112.Visibility = 0
       A100.ColumnDefinitions.Item(10).Width = New GridLength(1, 2)
       A100.ColumnDefinitions.Item(11).Width = New GridLength(1, 2)
@@ -981,7 +1073,7 @@ Public NotInheritable Class MainPage
     End If
     CA_.Background = New SolidColorBrush(ACAB(AAE))
   End Sub
-  Private Sub AABA()
+  Private Sub AADB()
     ' S:Q-H: Start: Q und H
     B100.Visibility = 0 : B200.Visibility = 1 : B300.Visibility = 1
     B400.Visibility = 1 : C100.Visibility = 0 : B500.Visibility = 1
@@ -990,7 +1082,7 @@ Public NotInheritable Class MainPage
     AA01.RowDefinitions.Item(2).Height = New GridLength(12, 2)
     AA01.RowDefinitions.Item(4).Height = New GridLength(6, 2)
   End Sub
-  Private Sub AABB()
+  Private Sub AADC()
     ' A:Q-H: Anhang: Q und H
     AA01.RowDefinitions.Item(1).Height = New GridLength(0, 2)
     AA01.RowDefinitions.Item(4).Height = New GridLength(3, 2)
@@ -1052,13 +1144,13 @@ Public NotInheritable Class MainPage
     ' Icon 10-99
     B210.Content = New Image With {.Source = New BitmapImage With {.UriSource = New Uri("ms-appx:///Assets/A_A_010.png")}}
   End Sub
-  Private Sub AABC()
+  Private Sub AADD()
     ' L:Q-H: Listen: Q und H
     B100.Visibility = 0 : B200.Visibility = 1 : Հ101.Visibility = 1
-    Հ102.Visibility = 0 : EB_.Visibility = 1
+    Հ102.Visibility = 1 : Հ103.Visibility = 0 : EB_.Visibility = 1
     AA01.RowDefinitions.Item(1).Height = New GridLength(1, 2)
   End Sub
-  Private Sub AACA()
+  Private Sub AAEA()
     If A111.Content = "A1" Then : A111.Content = "A2" : AAC = 0
       AAD = 1
     Else : A111.Content = "A1" : AAC = 1 : AAD = 0 : End If
@@ -1071,7 +1163,7 @@ Public NotInheritable Class MainPage
     A100.ColumnDefinitions.Item(8).Width = New GridLength(AAD, 2)
     A100.ColumnDefinitions.Item(9).Width = New GridLength(AAD, 2)
   End Sub
-  Private Sub AACB()
+  Private Sub AAEB()
     If A112.Content = "B1" Then : A112.Content = "B2" : AAC = 0
       AAD = 1
     Else : A112.Content = "B1" : AAC = 1 : AAD = 0 : End If
@@ -1084,38 +1176,38 @@ Public NotInheritable Class MainPage
     C100.ColumnDefinitions.Item(13).Width = New GridLength(AAD, 2)
     C100.ColumnDefinitions.Item(14).Width = New GridLength(AAD, 2)
   End Sub
-  Private Sub AADA()
+  Private Sub AAFA()
     ' Textstyle - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("textstyle")
       Case "m"
       Case "c"
     End Select
   End Sub
-  Private Sub AADB()
+  Private Sub AAFB()
     ' Rectangle - Bearbeitung '
     Select Case ApplicationData.Current.LocalSettings.Values("rectangle")
       Case "i" : B102.Visibility = 0
       Case "o" : B102.Visibility = 1 : End Select
     B102.Stroke = New SolidColorBrush(ACAB(AAG))
   End Sub
-  Private Sub AADC()
+  Private Sub AAFC()
     ' Helligkeit - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("lightness")
       Case "l"
-        ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A002")})
-        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A004")})
+        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A002")})
+        ToolTipService.SetToolTip(Թ103, New ToolTip With {.Content = A_D.GetString("A004")})
         ' ms-appx:///Assets/A_0_001.png
-        Թ100.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
-        AAE = 14 : AAF = 0 : AAG = 1 : AAEA()
+        Թ110.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
+        AAE = 14 : AAF = 0 : AAG = 1 : AAGB()
       Case "d"
-        ToolTipService.SetToolTip(Թ101, New ToolTip With {.Content = A_D.GetString("A001")})
-        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A003")})
+        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
+        ToolTipService.SetToolTip(Թ103, New ToolTip With {.Content = A_D.GetString("A003")})
         ' ms-appx:///Assets/A_0_002.png
-        Թ100.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
-        AAE = 11 : AAF = 14 : AAG = 13 : AAEA()
-    End Select : AADE()
+        Թ110.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
+        AAE = 11 : AAF = 14 : AAG = 13 : AAGB()
+    End Select : AAGA()
   End Sub
-  Private Sub AADE()
+  Private Sub AAGA()
     'Colors
     Select Case ApplicationData.Current.LocalSettings.Values("colors")
       Case "1" : AAE = 10 : AAF = 11 : AAG = 11 : Case "2" : AAE = 4 : AAF = 14 : AAG = 11
@@ -1123,7 +1215,7 @@ Public NotInheritable Class MainPage
       Case "5" : AAE = 13 : AAF = 14 : AAG = 2 : Case "6" : AAE = 11 : AAF = 14 : AAG = 11
     End Select
 
-    If Թ102.Content = "⛯" Then AAE = 11 : AAF = 14 : AAG = 14
+    If Թ103.Content = "⛯" Then AAE = 11 : AAF = 14 : AAG = 14
 
     AA_.Stroke = New SolidColorBrush(ACAB(AAG)) : B102.Stroke = New SolidColorBrush(ACAB(AAG))
 
@@ -1164,15 +1256,15 @@ Public NotInheritable Class MainPage
     B512.Background = New SolidColorBrush(ACAB(AAE)) : B512.Foreground = New SolidColorBrush(ACAB(AAF))
     'B513.Background = New SolidColorBrush(ACAB(AAE)) : B513.Foreground = New SolidColorBrush(ACAB(AAF))
   End Sub
-  Private Sub AAEA()
+  Private Sub AAGB()
     Dim title = ApplicationView.GetForCurrentView().TitleBar
     title.BackgroundColor = ACAB(AAE) : title.ButtonInactiveForegroundColor = ACAB(AAF)
     title.ForegroundColor = ACAB(AAF) : title.ButtonInactiveBackgroundColor = ACAB(AAE)
     title.ButtonBackgroundColor = ACAB(AAE) : title.InactiveBackgroundColor = ACAB(AAE)
     title.ButtonForegroundColor = ACAB(AAF) : title.InactiveForegroundColor = ACAB(AAF)
     title.ButtonHoverBackgroundColor = ACAB(AAE) : title.ButtonPressedBackgroundColor = ACAB(AAG)
-    C100.Background = New SolidColorBrush(ACAB(AAE))
-    Թ101.Foreground = New SolidColorBrush(ACAB(AAF)) : Թ102.Foreground = New SolidColorBrush(ACAB(AAF))
+    C100.Background = New SolidColorBrush(ACAB(AAE)) : Թ104.Background = New SolidColorBrush(ACAB(AAE))
+    Թ102.Foreground = New SolidColorBrush(ACAB(AAF)) : Թ103.Foreground = New SolidColorBrush(ACAB(AAF))
     AA00.Background = New SolidColorBrush(ACAB(AAE)) : AA01.Background = New SolidColorBrush(ACAB(AAE))
   End Sub
   'Private Sub AIAS()
@@ -1188,27 +1280,27 @@ Public NotInheritable Class MainPage
 #Region "A-AB"
   Private Sub ABAA()
     ' Colors AliceBlue
-    ApplicationData.Current.LocalSettings.Values("colors") = "1" : AADE()
+    ApplicationData.Current.LocalSettings.Values("colors") = "1" : AAGA()
   End Sub
   Private Sub ABAB()
     ' Colors SkyBlue
-    ApplicationData.Current.LocalSettings.Values("colors") = "2" : AADE()
+    ApplicationData.Current.LocalSettings.Values("colors") = "2" : AAGA()
   End Sub
   Private Sub ABAC()
     ' Colors Gold
-    ApplicationData.Current.LocalSettings.Values("colors") = "3" : AADE()
+    ApplicationData.Current.LocalSettings.Values("colors") = "3" : AAGA()
   End Sub
   Private Sub ABAD()
     ' Colors Magenta
-    ApplicationData.Current.LocalSettings.Values("colors") = "4" : AADE()
+    ApplicationData.Current.LocalSettings.Values("colors") = "4" : AAGA()
   End Sub
   Private Sub ABAE()
     ' Colors Lime
-    ApplicationData.Current.LocalSettings.Values("colors") = "5" : AADE()
+    ApplicationData.Current.LocalSettings.Values("colors") = "5" : AAGA()
   End Sub
   Private Sub ABAF()
     ' Colors Blue
-    ApplicationData.Current.LocalSettings.Values("colors") = "6" : AADE()
+    ApplicationData.Current.LocalSettings.Values("colors") = "6" : AAGA()
   End Sub
   Private Sub ABBA()
     ' Textstyle - Auswahl
@@ -1216,7 +1308,7 @@ Public NotInheritable Class MainPage
       ApplicationData.Current.LocalSettings.Values("textstyle") = "m"
     Else ' mathprint ' classic
       ApplicationData.Current.LocalSettings.Values("textstyle") = "c"
-    End If : AADA()
+    End If : AAFA()
   End Sub
   Private Sub ABBB()
     ' Rectangle - Auswahl
@@ -1224,17 +1316,17 @@ Public NotInheritable Class MainPage
       ApplicationData.Current.LocalSettings.Values("rectangle") = "i"
     Else ' outside ' inside_
       ApplicationData.Current.LocalSettings.Values("rectangle") = "o"
-    End If : AADB()
+    End If : AAFB()
   End Sub
   Private Sub ABBC()
     ' Helligkeit - Auswahl
-    If Թ102.Content = "⛭" Then
-      Թ102.Content = "⛯" ' ☀️
+    If Թ103.Content = "⛭" Then
+      Թ103.Content = "⛯" ' ☀️
       ApplicationData.Current.LocalSettings.Values("lightness") = "d"
     Else ' dark ' light
-      Թ102.Content = "⛭"
+      Թ103.Content = "⛭"
       ApplicationData.Current.LocalSettings.Values("lightness") = "l"
-    End If : AADC()
+    End If : AAFC()
   End Sub
 #End Region
 #Region "A-AC"
@@ -1337,9 +1429,9 @@ Public NotInheritable Class MainPage
 
 
     ' □
-    'FA_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
+    'FB_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
     '  .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
-    '  .Margin = New Thickness(BJA * 10, BJB * 10 - 10, 0, 0)} : B111.Children.Insert(BJA - 1, FA_)
+    '  .Margin = New Thickness(BJA * 10, BJB * 10 - 10, 0, 0)} : B111.Children.Insert(BJA - 1, FB_)
     'BDA.Insert(BJA - 1, BJA * 10) : BDB.Insert(BJA - 1, BJB * 10 - 10) : BJA += 1
     'BJB += 1 : AA_.X1 = BJA * 10 : AA_.X2 = BJA * 10 : AA_.Y1 = BJB * 10 : AA_.Y2 = BJB * 10 + 17
     'If BJA > 2 Then : For i = 0 To BJA - 3 Step 1
@@ -3100,9 +3192,9 @@ Public NotInheritable Class MainPage
     eaaba = ("1´1´1´1´2´10´11´2´2´2´2´2´2´2´2´2´2´2´2´2´2´2´2´2´2´3´4´5´6´7´8´9").Split("´")
     eaabb = ("2´4´15´20´1´5´5´2´3´4´6´7´8´9´10´11´12´13´14´15´16´17´18´19´20´1´1´1´1´1´1´1").Split("´")
 
-    For i = 1 To 32 Step 1 : CEA = If(i < 10, "00", "0")
+    For i = 1 To 32 Step 1 : AGA = If(i < 10, "00", "0")
       eaaab = New TextBlock With {
-        .FontSize = 12, .Text = A_A.GetString("A" & CEA & CStr(i)), .IsTextSelectionEnabled = False}
+        .FontSize = 12, .Text = A_A.GetString("A" & AGA & CStr(i)), .IsTextSelectionEnabled = False}
       eaaaa = New Button With {.Padding = New Thickness(0), .Content = eaaab,
             .Background = New SolidColorBrush(Colors.WhiteSmoke), .Margin = New Thickness(0.5)}
       B300.Children.Add(eaaaa)
@@ -3119,7 +3211,7 @@ Public NotInheritable Class MainPage
           "9´6´7´8´9´10´11´12´13´14´15´16´17´18´19´20´2´3´4´6´7´8´9´10´11´12´13´14´15´16´17´18´19´6´7´8´9" &
           "´10´11´12´13´14´15´16´17´18´19´20").Split("´")
 
-    For i = 1 To 118 Step 1 : CEA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
+    For i = 1 To 118 Step 1 : AGA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
       eaaab = New TextBlock With {
         .FontFamily = New FontFamily("Calibri Light"), .IsTextSelectionEnabled = False}
       Select Case ACAC(i - 1) : Case "0", "2", "8"
@@ -3128,17 +3220,17 @@ Public NotInheritable Class MainPage
         .Padding = New Thickness(0), .HorizontalContentAlignment = 0, .Content = eaaab,
         .Margin = New Thickness(0.5)}
       Grid.SetRow(eaaaa, CInt(eaaba(i - 1))) : Grid.SetColumn(eaaaa, CInt(eaabb(i - 1)))
-      eaaca = New Documents.Run With {.Text = A_A.GetString(CEA) & vbLf, .FontSize = 15}
+      eaaca = New Documents.Run With {.Text = A_A.GetString(AGA) & vbLf, .FontSize = 15}
       eaaab.Inlines.Add(eaaca) : B300.Children.Add(eaaaa)
-      eaaca = New Documents.Run With {.Text = vbLf & A_D.GetString(CEA), .FontSize = 12}
+      eaaca = New Documents.Run With {.Text = vbLf & A_D.GetString(AGA), .FontSize = 12}
       eaaab.Inlines.Add(eaaca) : AddHandler eaaaa.Click, AddressOf CABA : Next
   End Sub
   Private Sub CAAB()
     ' Liste der chemischen Elemente
-    For i = 1 To 118 Step 1 : CEA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
+    For i = 1 To 118 Step 1 : AGA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
       EB_.Items.Add(New TextBlock With {.FontFamily = New FontFamily("Consolas"),
         .FontSize = 16, .VerticalAlignment = 3, .HorizontalAlignment = 3,
-        .Text = (A_A.GetString(CEA) & "          ").Substring(0, 10) & A_D.GetString(CEA)})
+        .Text = (A_A.GetString(AGA) & "          ").Substring(0, 10) & A_D.GetString(AGA)})
     Next : AA01.Children.
       Add(EB_) : Grid.SetRow(EB_, 2) : AddHandler EB_.SelectionChanged, AddressOf CABB
   End Sub
@@ -3146,52 +3238,52 @@ Public NotInheritable Class MainPage
 #Region "C-AB"
   Private Sub CABA(a As Button, b As RoutedEventArgs)
     ' Die Auswahl des chemischen Elements von der Tabelle
-    CEA = CStr(Grid.GetRow(a)) & "." & CStr(Grid.GetColumn(a))
-    Select Case CEA
-      Case "3.2" : CEA = "1" : Case "3.20" : CEA = "2" : Case "4.2" : CEA = "3" : Case "4.3" : CEA = "4"
-      Case "4.15" : CEA = "5" : Case "4.16" : CEA = "6" : Case "4.17" : CEA = "7" : Case "4.18" : CEA = "8"
-      Case "4.19" : CEA = "9" : Case "4.20" : CEA = "10" : Case "5.2" : CEA = "11" : Case "5.3" : CEA = "12"
-      Case "5.15" : CEA = "13" : Case "5.16" : CEA = "14" : Case "5.17" : CEA = "15" : Case "5.18" : CEA = "16"
-      Case "5.19" : CEA = "17" : Case "5.20" : CEA = "18" : Case "6.2" : CEA = "19" : Case "6.3" : CEA = "20"
-      Case "6.4" : CEA = "21" : Case "6.6" : CEA = "22" : Case "6.7" : CEA = "23" : Case "6.8" : CEA = "24"
-      Case "6.9" : CEA = "25" : Case "6.10" : CEA = "26" : Case "6.11" : CEA = "27" : Case "6.12" : CEA = "28"
-      Case "6.13" : CEA = "29" : Case "6.14" : CEA = "30" : Case "6.15" : CEA = "31" : Case "6.16" : CEA = "32"
-      Case "6.17" : CEA = "33" : Case "6.18" : CEA = "34" : Case "6.19" : CEA = "35" : Case "6.20" : CEA = "36"
-      Case "7.2" : CEA = "37" : Case "7.3" : CEA = "38" : Case "7.4" : CEA = "39" : Case "7.6" : CEA = "40"
-      Case "7.7" : CEA = "41" : Case "7.8" : CEA = "42" : Case "7.9" : CEA = "43" : Case "7.10" : CEA = "44"
-      Case "7.11" : CEA = "45" : Case "7.12" : CEA = "46" : Case "7.13" : CEA = "47" : Case "7.14" : CEA = "48"
-      Case "7.15" : CEA = "49" : Case "7.16" : CEA = "50" : Case "7.17" : CEA = "51" : Case "7.18" : CEA = "52"
-      Case "7.19" : CEA = "53" : Case "7.20" : CEA = "54" : Case "8.2" : CEA = "55" : Case "8.3" : CEA = "56"
-      Case "8.4" : CEA = "57" : Case "10.6" : CEA = "58" : Case "10.7" : CEA = "59" : Case "10.8" : CEA = "60"
-      Case "10.9" : CEA = "61" : Case "10.10" : CEA = "62" : Case "10.11" : CEA = "63" : Case "10.12" : CEA = "64"
-      Case "10.13" : CEA = "65" : Case "10.14" : CEA = "66" : Case "10.15" : CEA = "67" : Case "10.16" : CEA = "68"
-      Case "10.17" : CEA = "69" : Case "10.18" : CEA = "70" : Case "10.19" : CEA = "71" : Case "8.6" : CEA = "72"
-      Case "8.7" : CEA = "73" : Case "8.8" : CEA = "74" : Case "8.9" : CEA = "75" : Case "8.10" : CEA = "76"
-      Case "8.11" : CEA = "77" : Case "8.12" : CEA = "78" : Case "8.13" : CEA = "79" : Case "8.14" : CEA = "80"
-      Case "8.15" : CEA = "81" : Case "8.16" : CEA = "82" : Case "8.17" : CEA = "83" : Case "8.18" : CEA = "84"
-      Case "8.19" : CEA = "85" : Case "8.20" : CEA = "86" : Case "9.2" : CEA = "87" : Case "9.3" : CEA = "88"
-      Case "9.4" : CEA = "89" : Case "11.6" : CEA = "90" : Case "11.7" : CEA = "91" : Case "11.8" : CEA = "92"
-      Case "11.9" : CEA = "93" : Case "11.10" : CEA = "94" : Case "11.11" : CEA = "95" : Case "11.12" : CEA = "96"
-      Case "11.13" : CEA = "97" : Case "11.14" : CEA = "98" : Case "11.15" : CEA = "99" : Case "11.16" : CEA = "100"
-      Case "11.17" : CEA = "101" : Case "11.18" : CEA = "102" : Case "11.19" : CEA = "103" : Case "9.6" : CEA = "104"
-      Case "9.7" : CEA = "105" : Case "9.8" : CEA = "106" : Case "9.9" : CEA = "107" : Case "9.10" : CEA = "108"
-      Case "9.11" : CEA = "109" : Case "9.12" : CEA = "110" : Case "9.13" : CEA = "111" : Case "9.14" : CEA = "112"
-      Case "9.15" : CEA = "113" : Case "9.16" : CEA = "114" : Case "9.17" : CEA = "115" : Case "9.18" : CEA = "116"
-      Case "9.19" : CEA = "117" : Case "9.20" : CEA = "118" : Case Else : CEA = 0 : End Select : CABC()
+    AGA = CStr(Grid.GetRow(a)) & "." & CStr(Grid.GetColumn(a))
+    Select Case AGA
+      Case "3.2" : AGA = "1" : Case "3.20" : AGA = "2" : Case "4.2" : AGA = "3" : Case "4.3" : AGA = "4"
+      Case "4.15" : AGA = "5" : Case "4.16" : AGA = "6" : Case "4.17" : AGA = "7" : Case "4.18" : AGA = "8"
+      Case "4.19" : AGA = "9" : Case "4.20" : AGA = "10" : Case "5.2" : AGA = "11" : Case "5.3" : AGA = "12"
+      Case "5.15" : AGA = "13" : Case "5.16" : AGA = "14" : Case "5.17" : AGA = "15" : Case "5.18" : AGA = "16"
+      Case "5.19" : AGA = "17" : Case "5.20" : AGA = "18" : Case "6.2" : AGA = "19" : Case "6.3" : AGA = "20"
+      Case "6.4" : AGA = "21" : Case "6.6" : AGA = "22" : Case "6.7" : AGA = "23" : Case "6.8" : AGA = "24"
+      Case "6.9" : AGA = "25" : Case "6.10" : AGA = "26" : Case "6.11" : AGA = "27" : Case "6.12" : AGA = "28"
+      Case "6.13" : AGA = "29" : Case "6.14" : AGA = "30" : Case "6.15" : AGA = "31" : Case "6.16" : AGA = "32"
+      Case "6.17" : AGA = "33" : Case "6.18" : AGA = "34" : Case "6.19" : AGA = "35" : Case "6.20" : AGA = "36"
+      Case "7.2" : AGA = "37" : Case "7.3" : AGA = "38" : Case "7.4" : AGA = "39" : Case "7.6" : AGA = "40"
+      Case "7.7" : AGA = "41" : Case "7.8" : AGA = "42" : Case "7.9" : AGA = "43" : Case "7.10" : AGA = "44"
+      Case "7.11" : AGA = "45" : Case "7.12" : AGA = "46" : Case "7.13" : AGA = "47" : Case "7.14" : AGA = "48"
+      Case "7.15" : AGA = "49" : Case "7.16" : AGA = "50" : Case "7.17" : AGA = "51" : Case "7.18" : AGA = "52"
+      Case "7.19" : AGA = "53" : Case "7.20" : AGA = "54" : Case "8.2" : AGA = "55" : Case "8.3" : AGA = "56"
+      Case "8.4" : AGA = "57" : Case "10.6" : AGA = "58" : Case "10.7" : AGA = "59" : Case "10.8" : AGA = "60"
+      Case "10.9" : AGA = "61" : Case "10.10" : AGA = "62" : Case "10.11" : AGA = "63" : Case "10.12" : AGA = "64"
+      Case "10.13" : AGA = "65" : Case "10.14" : AGA = "66" : Case "10.15" : AGA = "67" : Case "10.16" : AGA = "68"
+      Case "10.17" : AGA = "69" : Case "10.18" : AGA = "70" : Case "10.19" : AGA = "71" : Case "8.6" : AGA = "72"
+      Case "8.7" : AGA = "73" : Case "8.8" : AGA = "74" : Case "8.9" : AGA = "75" : Case "8.10" : AGA = "76"
+      Case "8.11" : AGA = "77" : Case "8.12" : AGA = "78" : Case "8.13" : AGA = "79" : Case "8.14" : AGA = "80"
+      Case "8.15" : AGA = "81" : Case "8.16" : AGA = "82" : Case "8.17" : AGA = "83" : Case "8.18" : AGA = "84"
+      Case "8.19" : AGA = "85" : Case "8.20" : AGA = "86" : Case "9.2" : AGA = "87" : Case "9.3" : AGA = "88"
+      Case "9.4" : AGA = "89" : Case "11.6" : AGA = "90" : Case "11.7" : AGA = "91" : Case "11.8" : AGA = "92"
+      Case "11.9" : AGA = "93" : Case "11.10" : AGA = "94" : Case "11.11" : AGA = "95" : Case "11.12" : AGA = "96"
+      Case "11.13" : AGA = "97" : Case "11.14" : AGA = "98" : Case "11.15" : AGA = "99" : Case "11.16" : AGA = "100"
+      Case "11.17" : AGA = "101" : Case "11.18" : AGA = "102" : Case "11.19" : AGA = "103" : Case "9.6" : AGA = "104"
+      Case "9.7" : AGA = "105" : Case "9.8" : AGA = "106" : Case "9.9" : AGA = "107" : Case "9.10" : AGA = "108"
+      Case "9.11" : AGA = "109" : Case "9.12" : AGA = "110" : Case "9.13" : AGA = "111" : Case "9.14" : AGA = "112"
+      Case "9.15" : AGA = "113" : Case "9.16" : AGA = "114" : Case "9.17" : AGA = "115" : Case "9.18" : AGA = "116"
+      Case "9.19" : AGA = "117" : Case "9.20" : AGA = "118" : Case Else : AGA = 0 : End Select : CABC()
   End Sub
   Private Sub CABB()
     ' Die Auswahl des chemischen Elements von der Liste
-    CEA = CStr(EB_.SelectedIndex + 1) : CABC()
+    AGA = CStr(EB_.SelectedIndex + 1) : CABC()
   End Sub
   Private Sub CABC()
     ' Das Laden des chemischen Elements
-    B401.Background = New SolidColorBrush(ACAB(CInt(ACAC(CInt(CEA) - 1)))) : B400.Visibility = 0
-    CA_.Background = B401.Background : Select Case ACAC(CInt(CEA) - 1) : Case 0, 2, 8
+    B401.Background = New SolidColorBrush(ACAB(CInt(ACAC(CInt(AGA) - 1)))) : B400.Visibility = 0
+    CA_.Background = B401.Background : Select Case ACAC(CInt(AGA) - 1) : Case 0, 2, 8
         B401.Foreground = New SolidColorBrush(Colors.White) : End Select : B300.Visibility = 1
     AAB = 6
-    CEA = If(CByte(CEA) < 10, "00", If(CByte(CEA) < 100, "0", "")) & CEA : EB_.Visibility = 1
-    FB_.Text = A_B.GetString("A" & CEA) : FA_.Text = (A_A.GetString("B" & CEA) & "          ").
-      Substring(0, 10) & A_D.GetString("B" & CEA) : If B400.RowDefinitions.Count > 0 Then Exit Sub
+    AGA = If(CByte(AGA) < 10, "00", If(CByte(AGA) < 100, "0", "")) & AGA : EB_.Visibility = 1
+    FC_.Text = A_B.GetString("A" & AGA) : FB_.Text = (A_A.GetString("B" & AGA) & "          ").
+      Substring(0, 10) & A_D.GetString("B" & AGA) : If B400.RowDefinitions.Count > 0 Then Exit Sub
 
     Dim aaaaa As New Grid : Dim aaaab As TextBlock : Dim aaaac As New GridLength(7, 2)
     B400.ColumnDefinitions.Add(New ColumnDefinition) : B400.RowDefinitions.Add(New RowDefinition)
@@ -3203,11 +3295,11 @@ Public NotInheritable Class MainPage
 
     B400.RowDefinitions.Item(1).Height = aaaac : B400.ColumnDefinitions.Item(1).Width = aaaac
     aaaaa.RowDefinitions.Item(2).Height = aaaac : aaaaa.ColumnDefinitions.Item(0).Width = aaaac
-    aaaaa.ColumnDefinitions.Item(2).Width = New GridLength(2, 2) : FA_.FontSize = 16
-    B401.Content = aaaaa : FB_.FontSize = 16
+    aaaaa.ColumnDefinitions.Item(2).Width = New GridLength(2, 2) : FB_.FontSize = 16
+    B401.Content = aaaaa : FC_.FontSize = 16
 
-    aaaaa.Children.Add(FA_) : Grid.SetRow(FA_, 0) : Grid.SetColumn(FA_, 0)
-    aaaaa.Children.Add(FB_) : Grid.SetRow(FB_, 2) : Grid.SetColumn(FB_, 2) : Grid.SetRow(B400, 2)
+    aaaaa.Children.Add(FB_) : Grid.SetRow(FB_, 0) : Grid.SetColumn(FB_, 0)
+    aaaaa.Children.Add(FC_) : Grid.SetRow(FC_, 2) : Grid.SetColumn(FC_, 2) : Grid.SetRow(B400, 2)
     aaaab = New TextBlock With {.MinWidth = 50, .MinHeight = 20, .IsTextSelectionEnabled = False}
     aaaaa.Children.Add(aaaab) : Grid.SetRow(aaaab, 1) : Grid.SetColumn(aaaab, 1) : Grid.SetColumn(B401, 1)
     aaaab = New TextBlock With {.IsTextSelectionEnabled = False, .Text = A_E.GetString("A003"),
@@ -3223,7 +3315,3539 @@ Public NotInheritable Class MainPage
 #End Region
 #End Region
 #Region "DDDD"
+  Private Sub DAAA()
+    '1     Formeln Laden
+    Select Case DGA
+      Case "a" : DՃA = New String() {
+         "a ax", "a = ax", "", "0", "4",
+         "a ay", "a = ay", "", "0", "",
+         "a az", "a = az", "", "0", "",
+         "a ax θ", "a = ax : cos(θ)", "", "0", "",
+         "a ay θ", "a = ay : sin(θ)", "", "0", "",
+         "a az θ", "a = az : cos(θ)", "", "0", "",
+         "a ax θ ϕ", "a = ax : cos(θ) : sin(ϕ)", "", "0", "",
+         "a az θ ϕ", "a = az : cos(θ) : cos(ϕ)", "", "0", "",
+         "a ax ay", "a = √(ax ^ 2 + ay ^ 2)", "", "0", "",
+         "a ax az", "a = √(ax ^ 2 + az ^ 2)", "", "0", "",
+         "a ay az", "a = √(ay ^ 2 + az ^ 2)", "", "0", "",
+         "a ax ay az", "a = √(ax ^ 2 + ay ^ 2 + az ^ 2)", "", "0", "",
+         "a F k P v1", "a = -2 k P (P : F - v1) : F ^ 2", "a F k v1 {v}", "62", "",
+         "a F k P v2", "a = -2 k P (v2 - P : F) : F ^ 2", "a F k v1 {v}", "62", "",
+         "a F k P Δv", "a = -k P Δv : F ^ 2", "a F k Δv {v}", "62", "",
+         "a F k Δt v1", "a = -2 (F : k : Δt + v1) : Δt", "a Δs Δt v1", "59", "",
+         "a F k Δt v2", "a = 2 (v2 + F : k : Δt) : Δt", "a Δs Δt v2", "59", "",
+         "a F k v1 v2", "a = -k (v2 ^ 2 - v1 ^ 2) : F : 2", "a F k Δv {v}", "19", "",
+         "a F k v1 Δv", "a = -k Δv (v1 + Δv : 2) : F", "a F k Δv {v}", "18", "",
+         "a F k v1 {v}", "a = -2 k {v} ({v} - v1) : F", "a F k Δv {v}", "16", "",
+         "a F k v2 Δv", "a = -k Δv (v2 - Δv : 2) : F", "a F k Δv {v}", "15", "",
+         "a F k v2 {v}", "a = -2 k {v} (v2 - {v}) : F", "a F k Δv {v}", "13", "",
+         "a F k Δv {v}", "a = -k Δv {v} : F", "a k m Δv {v}", "28", "",
+         "a F m", "a = F : m", "", "27", "",
+         "a F P Δs v1", "a = 2 (P ^ 2 : F - v1 P) : F : Δs", "a F P v1 W", "29", "",
+         "a F P Δs v2", "a = 2 (P v2 - P ^ 2 : F) : F : Δs", "a F P v2 W", "29", "",
+         "a F P Δs Δv", "a = P Δv : F : Δs", "a P Δv W", "29", "",
+         "a F P Δt v1", "a = 2 (P : F - v1) : Δt", "a F Δt v1 W", "62", "",
+         "a F P Δt v2", "a = 2 (v2 - P : F) : Δt", "a F Δt v2 W", "62", "",
+         "a F P v1 W", "a = 2 P (P : F - v1) : W", "a F P Δt v1", "43", "",
+         "a F P v2 W", "a = 2 P (v2 - P : F) : W", "a F P Δt v2", "43", "",
+         "a F Δt v1 W", "a = 2 (W : F : Δt - v1) : Δt", "a Δs Δt v1", "31", "",
+         "a F Δt v2 W", "a = 2 (v2 - W : F : Δt) : Δt", "a Δs Δt v2", "31", "",
+         "a F v1 v2 W", "a = F (v2 ^ 2 - v1 ^ 2) : W : 2", "a F Δv {v} W", "19", "",
+         "a F v1 Δv W", "a = F Δv (v1 + Δv : 2) : W", "a F Δv {v} W", "18", "",
+         "a F v1 {v} W", "a = 2 F {v} ({v} - v1) : W", "a F Δv {v} W", "16", "",
+         "a F v2 Δv W", "a = F Δv (v2 - Δv : 2) : W", "a F Δv {v} W", "15", "",
+         "a F v2 {v} W", "a = 2 F {v} (v2 - {v}) : W", "a F Δv {v} W", "13", "",
+         "a F Δv {v} W", "a = F Δv {v} : W", "a Δs Δv {v}", "31", "",
+         "a |Fn| m μg", "a = |Fn| μg : m", "a F m", "85", "",
+         "a |Fn| m μh", "a = |Fn| μh : m", "a F m", "88", "",
+         "a |Fn| m μr", "a = |Fn| μr : m", "a F m", "91", "",
+         "a |Fn| μg P Δs v1", "a = 2 P (P : |Fn| : μg - v1) : |Fn| : μg : Δs", "a F P Δs v1", "85", "",
+         "a |Fn| μg P Δs v2", "a = 2 P (v2 - P : |Fn| : μg) : |Fn| : μg : Δs", "a F P Δs v2", "85", "",
+         "a |Fn| μg P Δs Δv", "a = P Δv : |Fn| : μg : Δs", "a F P Δs Δv", "85", "",
+         "a |Fn| μg P Δt v1", "a = 2 (P : |Fn| : μg - v1) : Δt", "a F P Δt v1", "85", "",
+         "a |Fn| μg P Δt v2", "a = 2 (v2 - P : |Fn| : μg) : Δt", "a F P Δt v2", "85", "",
+         "a |Fn| μg P v1 W", "a = 2 P (P : |Fn| : μg - v1) : W", "a F P v1 W", "85", "",
+         "a |Fn| μg P v2 W", "a = 2 P (v2 - P : |Fn| : μg) : W", "a F P v2 W", "85", "",
+         "a |Fn| μg Δt v1 W", "a = 2 (W : |Fn| : μg : Δt - v1) : Δt", "a F Δt v1 W", "85", "",
+         "a |Fn| μg Δt v2 W", "a = 2 (v2 - W : |Fn| : μg : Δt) : Δt", "a F Δt v2 W", "85", "",
+         "a |Fn| μg v1 v2 W", "a = |Fn| μg (v2 ^ 2 - v1 ^ 2) : 2 : W", "a F v1 v2 W", "85", "",
+         "a |Fn| μg v1 Δv W", "a = |Fn| μg Δv (v1 + Δv : 2) : W", "a F v1 Δv W", "85", "",
+         "a |Fn| μg v1 {v} W", "a = 2 |Fn| μg {v} ({v} - v1) : W", "a F v1 {v} W", "85", "",
+         "a |Fn| μg v2 Δv W", "a = |Fn| μg (v2 - Δv : 2) Δv : W", "a F v2 Δv W", "85", "",
+         "a |Fn| μg v2 {v} W", "a = 2 |Fn| μg {v} (v2 - {v}) : W", "a F v2 {v} W", "85", "",
+         "a |Fn| μg Δv {v} W", "a = |Fn| μg Δv {v} : W", "a F Δv {v} W", "85", "",
+         "a |Fn| μh P Δs v1", "a = 2 P (P : |Fn| : μh - v1) : |Fn| : μh : Δs", "a F P Δs v1", "88", "",
+         "a |Fn| μh P Δs v2", "a = 2 P (v2 - P : |Fn| : μh) : |Fn| : μh : Δs", "a F P Δs v2", "88", "",
+         "a |Fn| μh P Δs Δv", "a = P Δv : |Fn| : μh : Δs", "a F P Δs Δv", "88", "",
+         "a |Fn| μh P Δt v1", "a = 2 (P : |Fn| : μh - v1) : Δt", "a F P Δt v1", "88", "",
+         "a |Fn| μh P Δt v2", "a = 2 (v2 - P : |Fn| : μh) : Δt", "a F P Δt v2", "88", "",
+         "a |Fn| μh P v1 W", "a = 2 P (P : |Fn| : μh - v1) : W", "a F P v1 W", "88", "",
+         "a |Fn| μh P v2 W", "a = 2 P (v2 - P : |Fn| : μh) : W", "a F P v2 W", "88", "",
+         "a |Fn| μh Δt v1 W", "a = 2 (W : |Fn| : μh : Δt - v1) : Δt", "a F Δt v1 W", "88", "",
+         "a |Fn| μh Δt v2 W", "a = 2 (v2 - W : |Fn| : μh : Δt) : Δt", "a F Δt v2 W", "88", "",
+         "a |Fn| μh v1 v2 W", "a = |Fn| μh (v2 ^ 2 - v1 ^ 2) : 2 : W", "a F v1 v2 W", "88", "",
+         "a |Fn| μh v1 Δv W", "a = |Fn| μh Δv (v1 + Δv : 2) : W", "a F v1 Δv W", "88", "",
+         "a |Fn| μh v1 {v} W", "a = 2 |Fn| μh {v} ({v} - v1) : W", "a F v1 {v} W", "88", "",
+         "a |Fn| μh v2 Δv W", "a = |Fn| μh (v2 - Δv : 2) Δv : W", "a F v2 Δv W", "88", "",
+         "a |Fn| μh v2 {v} W", "a = 2 |Fn| μh {v} (v2 - {v}) : W", "a F v2 {v} W", "88", "",
+         "a |Fn| μh Δv {v} W", "a = |Fn| μh Δv {v} : W", "a F Δv {v} W", "88", "",
+         "a |Fn| μr P Δs v1", "a = 2 P (P : |Fn| : μr - v1) : |Fn| : μr : Δs", "a F P Δs v1", "91", "",
+         "a |Fn| μr P Δs v2", "a = 2 P (v2 - P : |Fn| : μr) : |Fn| : μr : Δs", "a F P Δs v2", "91", "",
+         "a |Fn| μr P Δs Δv", "a = P Δv : |Fn| : μr : Δs", "a F P Δs Δv", "91", "",
+         "a |Fn| μr P Δt v1", "a = 2 (P : |Fn| : μr - v1) : Δt", "a F P Δt v1", "91", "",
+         "a |Fn| μr P Δt v2", "a = 2 (v2 - P : |Fn| : μr) : Δt", "a F P Δt v2", "91", "",
+         "a |Fn| μr P v1 W", "a = 2 P (P : |Fn| : μr - v1) : W", "a F P v1 W", "91", "",
+         "a |Fn| μr P v2 W", "a = 2 P (v2 - P : |Fn| : μr) : W", "a F P v2 W", "91", "",
+         "a |Fn| μr Δt v1 W", "a = 2 (W : |Fn| : μr : Δt - v1) : Δt", "a F Δt v1 W", "91", "",
+         "a |Fn| μr Δt v2 W", "a = 2 (v2 - W : |Fn| : μr : Δt) : Δt", "a F Δt v2 W", "91", "",
+         "a |Fn| μr v1 v2 W", "a = |Fn| μr (v2 ^ 2 - v1 ^ 2) : 2 : W", "a F v1 v2 W", "91", "",
+         "a |Fn| μr v1 Δv W", "a = |Fn| μr Δv (v1 + Δv : 2) : W", "a F v1 Δv W", "91", "",
+         "a |Fn| μr v1 {v} W", "a = 2 |Fn| μr {v} ({v} - v1) : W", "a F v1 {v} W", "91", "",
+         "a |Fn| μr v2 Δv W", "a = |Fn| μr (v2 - Δv : 2) Δv : W", "a F v2 Δv W", "91", "",
+         "a |Fn| μr v2 {v} W", "a = 2 |Fn| μr {v} (v2 - {v}) : W", "a F v2 {v} W", "91", "",
+         "a |Fn| μr Δv {v} W", "a = |Fn| μr Δv {v} : W", "a F Δv {v} W", "91", "",
+         "a k m P Δt", "a = √(-k P Δt) : m", "a k m W", "44", "",
+         "a k m P Δv", "a = √(-k P Δv : m ^ 2 ' 3)", "a k m P Δt", "25", "",
+         "a k m Δs", "a = -k Δs : m", "a F m", "57", "",
+         "a k m Δt v1", "a = -v1 : (Δt : 2 + m : k : Δt)", "a F k Δt v1", "26", "",
+         "a k m Δt v2", "a = v2 : (Δt : 2 - m : k : Δt)", "a F k Δt v2", "26", "",
+         "a k m Δt {v}", "a = -k Δt {v} : m", "a k m Δs", "21", "",
+         "a k m v1 v2", "a = √(-k (v2 ^ 2 - v1 ^ 2) : m : 2)", "a k m Δv {v}", "19", "",
+         "a k m v1 Δv", "a = √(-k Δv (v1 + Δv : 2) : m)", "a k m Δv {v}", "18", "",
+         "a k m v1 {v}", "a = √(-2 k {v} ({v} - v1) : m)", "a k m Δv {v}", "16", "",
+         "a k m v2 Δv", "a = √(-k Δv (v2 - Δv : 2) : m)", "a k m Δv {v}", "15", "",
+         "a k m v2 {v}", "a = √(-2 k {v} (v2 - {v}) : m)", "a k m Δv {v}", "13", "",
+         "a k m Δv {v}", "a = √(-k Δv {v} : m)", "a k m Δt {v}", "25", "",
+         "a k m W", "a = √(-k W) : m", "a k m Δv {v}", "75", "",
+         "a k P Δs v1", "a = 2 P (P : k : Δs + v1) : k : Δs ^ 2", "a F P Δs v1", "57", "",
+         "a k P Δs v2", "a = -2 P (v2 + P : k : Δs) : k : Δs ^ 2", "a F P Δs v2", "57", "",
+         "a k P Δs Δv", "a = -P Δv : k : Δs ^ 2", "a F k P Δv", "57", "",
+         "a k P Δt v1", "a = 2 (√(-P : k : Δt) - v1) : Δt", "a k Δt v1 W", "44", "",
+         "a k P Δt v2", "a = 2 (v2 - √(-P : k : Δt)) : Δt", "a k Δt v2 W", "44", "",
+         "a k P v1 v2", "a = -k (v2 - v1) (v1 + v2) ^ 2 : P : 4", "a k P Δv {v}", "19", "",
+         "a k P v1 Δv", "a = -k Δv (v1 + Δv : 2) ^ 2 : P", "a k P Δv {v}", "18", "",
+         "a k P v1 {v}", "a = -2 k ({v} - v1) {v} ^ 2 : P", "a k P Δv {v}", "16", "",
+         "a k P v1 W", "a = 2 P (√(-(P ^ 2) : k : W) - v1) : W", "a k Δt v1 W", "43", "",
+         "a k P v2 Δv", "a = -k Δv (v2 - Δv : 2) ^ 2 : P", "a k P Δv {v}", "15", "",
+         "a k P v2 {v}", "a = -2 k (v2 - {v}) {v} ^ 2 : P", "a k P Δv {v}", "13", "",
+         "a k P v2 W", "a = 2 P (v2 - √(-(P ^ 2) : k : W)) : W", "a k Δt v2 W", "43", "",
+         "a k P Δv {v}", "a = -k Δv {v} ^ 2 : P", "a F k Δv {v}", "61", "",
+         "a k Δt v1 W", "a = 2 (√(-W : k) : Δt - v1) : Δt", "a k v1 Δv W", "24", "",
+         "a k Δt v2 W", "a = 2 (v2 - √(-W : k) : Δt) : Δt", "a k v2 Δv W", "24", "",
+         "a k v1 v2 W", "a = √(-k : W) (v2 ^ 2 - v1 ^ 2) : 2", "a k Δv {v} W", "19", "",
+         "a k v1 Δv W", "a = √(-k : W) Δv (v1 + Δv : 2)", "a k Δv {v} W", "18", "",
+         "a k v1 {v} W", "a = 2 √(-k : W) {v} ({v} - v1)", "a k Δv {v} W", "16", "",
+         "a k v2 Δv W", "a = √(-k : W) Δv (v2 - Δv : 2)", "a k Δv {v} W", "15", "",
+         "a k v2 {v} W", "a = 2 √(-k : W) {v} (v2 - {v})", "a k Δv {v} W", "13", "",
+         "a k Δv {v} W", "a = √(-k : W) Δv {v}", "a k m Δv {v}", "78", "",
+         "a m P Δs Δt", "a = P Δt : m : Δs", "a m Δs W", "44", "",
+         "a m P Δs Δv", "a = √(P Δv : m : Δs)", "a F P Δs Δv", "26", "",
+         "a m P Δt v1", "a = (-v1 ± √(v1 ^ 2 + 2 P Δt : m)) : Δt", "a m Δt v1 W", "44", "",
+         "a m P Δt v2", "a = (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : Δt", "a m Δt v2 W", "44", "",
+         "a m P v1 v2", "a = 2 P : m : (v1 + v2)", "a m P {v}", "10", "",
+         "a m P v1 Δv", "a = P : m : (v1 + Δv : 2)", "a m P {v}", "18", "",
+         "a m P v1 W", "a = 2 P : m : (v1 ± √(v1 ^ 2 + 2 W : m))", "a m Δt v1 W", "43", "",
+         "a m P v2 Δv", "a = P : m : (v2 - Δv : 2)", "a m P {v}", "15", "",
+         "a m P v2 W", "a = 2 P : m : (v2 ± √(v2 ^ 2 - 2 W : m))", "a m Δt v2 W", "43", "",
+         "a m P {v}", "a = P : m : {v}", "a m Δt {v} W", "61", "",
+         "a m Δs W", "a = W : m : Δs", "a F m", "30", "",
+         "a m Δt v1 W", "a = (-v1 ± √(v1 ^ 2 + 2 W : m)) : Δt", "a F Δt v1 W", "26", "",
+         "a m Δt v2 W", "a = (v2 ± √(v2 ^ 2 - 2 W : m)) : Δt", "a F Δt v2 W", "26", "",
+         "a m Δt {v} W", "a = W : m : Δt : {v}", "a m Δs W", "21", "",
+         "a P Δs v1 W", "a = 2 P (P Δs : W - v1) : W", "a F P v1 W", "30", "",
+         "a P Δs v2 W", "a = 2 P (v2 - P Δs : W) : W", "a F P v2 W", "30", "",
+         "a P v1 {v} W", "a = 2 P ({v} - v1) : W", "a Δt v1 {v}", "43", "",
+         "a P v2 {v} W", "a = 2 P (v2 - {v}) : W", "a Δt v2 {v}", "43", "",
+         "a P Δv W", "a = P Δv : W", "a Δt Δv", "43", "",
+         "a Δs Δt v1", "a = 2 (Δs : Δt - v1) : Δt", "a Δt v1 {v}", "20", "",
+         "a Δs Δt v2", "a = 2 (v2 - Δs : Δt) : Δt", "a Δt v2 {v}", "20", "",
+         "a Δs v1 v2", "a = (v2 ^ 2 - v1 ^ 2) : Δs : 2", "a Δs Δv {v}", "19", "",
+         "a Δs v1 Δv", "a = (v1 + Δv : 2) Δv : Δs", "a Δs Δv {v}", "18", "",
+         "a Δs v1 {v}", "a = 2 {v} ({v} - v1) : Δs", "a Δs Δv {v}", "16", "",
+         "a Δs v2 Δv", "a = Δv (v2 - Δv : 2) : Δs", "a Δs Δv {v}", "15", "",
+         "a Δs v2 {v}", "a = 2 {v} (v2 - {v}) : Δs", "a Δs Δv {v}", "13", "",
+         "a Δs Δv {v}", "a = Δv {v} : Δs", "a Δt Δv", "22", "", "",
+         "a Δt v1 {v}", "a = 2 ({v} - v1) : Δt", "a Δt Δv", "16", "",
+         "a Δt v2 {v}", "a = 2 (v2 - {v}) : Δt", "a Δt Δv", "13", "",
+         "a Δt Δv", "a = Δv : Δt", "", "23", ""} ' a => 10074
+      Case "c" : DՃA = New String() {
+         "c M m V", "c = m : M : V", "c n V", "50", "",
+         "c n V", "c = n : V", "", "45", ""} ' c => 2
+      Case "F" : DՃA = New String() {
+         "F a k P Δv", "F = √(-k P Δv : a)", "F k P Δt", "25", "",
+         "F a k Δt v1", "F = -k Δt (v1 + a Δt : 2)", "F k Δt v1 Δv", "24", "",
+         "F a k Δt v2", "F = -k Δt (v2 - a Δt : 2)", "F k Δt v2 Δv", "24", "",
+         "F a k v1 v2", "F = -k (v2 ^ 2 - v1 ^ 2) : a : 2", "F a k Δv {v}", "19", "",
+         "F a k v1 Δv", "F = -k Δv (v1 + Δv : 2) : a", "F a k Δv {v}", "18", "",
+         "F a k v1 {v}", "F = -2 k {v} ({v} - v1) : a", "F a k Δv {v}", "16", "",
+         "F a k v2 Δv", "F = -k Δv (v2 - Δv : 2) : a", "F a k Δv {v}", "15", "",
+         "F a k v2 {v}", "F = -2 k {v} (v2 - {v}) : a", "F a k Δv {v}", "13", "",
+         "F a k Δv {v}", "F = -k Δv {v} : a", "F k Δt {v}", "25", "",
+         "F a m", "F = a m", "", "26", "",
+         "F a P Δs v1", "F = P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a : Δs", "F a P v1 W", "29", "",
+         "F a P Δs v2", "F = P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a : Δs", "F a P v2 W", "29", "",
+         "F a P Δs Δv", "F = P Δv : a : Δs", "F P Δs Δt", "25", "",
+         "F a P Δt v1", "F = P : (v1 + a Δt : 2)", "F P v1 Δv", "24", "",
+         "F a P Δt v2", "F = P : (v2 - a Δt : 2)", "F P v2 Δv", "24", "",
+         "F a P v1 W", "F = 2 a W : ((a W : P) ^ 2 + 2 a v1 W : P)", "F a P Δt v1", "43", "",
+         "F a P v2 W", "F = 2 a W : (2 a v2 W : P - (a W : P) ^ 2)", "F a P Δt v2", "43", "",
+         "F a Δt v1 W", "F = W : Δt : (v1 + a Δt : 2)", "F Δt v1 Δv W", "24", "",
+         "F a Δt v2 W", "F = W : Δt : (v2 - a Δt : 2)", "F Δt v2 Δv W", "24", "",
+         "F a v1 v2 W", "F = 2 a W : (v2 ^ 2 - v1 ^ 2)", "F a Δv {v} W", "19", "",
+         "F a v1 Δv W", "F = a W : Δv : (v1 + Δv : 2)", "F a Δv {v} W", "18", "",
+         "F a v1 {v} W", "F = a W : {v} : ({v} - v1) : 2", "F a Δv {v} W", "16", "",
+         "F a v2 Δv W", "F = a W : Δv : (v2 - Δv : 2)", "F a Δv {v} W", "15", "",
+         "F a v2 {v} W", "F = a W : {v} : (v2 - {v}) : 2", "F a Δv {v} W", "13", "",
+         "F a Δv {v} W", "F = a W : Δv : {v}", "F Δt {v} W", "25", "",
+         "F Ff", "F = Ff", "", "0", "",
+         "F Ff Frg", "F = Ff + Frg", "", "0", "",
+         "F Ff Frg Ft", "F = Ft + Ff + Frg", "", "0", "",
+         "F Ff Frh", "F = Ff + Frh", "", "0", "",
+         "F Ff Frh Ft", "F = Ft + Ff + Frh", "", "0", "",
+         "F Ff Frr", "F = Ff + Frr", "", "0", "",
+         "F Ff Frr Ft", "F = Ft + Ff + Frr", "", "0", "",
+         "F Ff |Fn| μg", "F = Ff + μg |Fn|", "", "0", "",
+         "F Ff |Fn| μh", "F = Ff + μh |Fn|", "", "0", "",
+         "F Ff |Fn| μr", "F = Ff + μr |Fn|", "", "0", "",
+         "F Ff |Fn| Ft μg", "F = Ft + Ff + μg |Fn|", "", "0", "",
+         "F Ff |Fn| Ft μh", "F = Ft + Ff + μh |Fn|", "", "0", "",
+         "F Ff |Fn| Ft μr", "F = Ft + Ff + μr |Fn|", "", "0", "",
+         "F Ff Ft", "F = Ft + Ff", "", "0", "",
+         "F |Fn| Ft k μg Δs", "F = Ft + μg |Fn| - k Δs", "", "0", "",
+         "F |Fn| Ft k μh Δs", "F = Ft + μh |Fn| - k Δs", "", "0", "",
+         "F |Fn| Ft k μr Δs", "F = Ft + μr |Fn| - k Δs", "", "0", "",
+         "F |Fn| Ft μg", "F = Ft + μg |Fn|", "", "0", "",
+         "F |Fn| Ft μh", "F = Ft + μh |Fn|", "", "0", "",
+         "F |Fn| Ft μr", "F = Ft + μr |Fn|", "", "0", "",
+         "F |Fn| k μg Δs", "F = μg |Fn| - k Δs", "", "0", "",
+         "F |Fn| k μh Δs", "F = μh |Fn| - k Δs", "", "0", "",
+         "F |Fn| k μr Δs", "F = μr |Fn| - k Δs", "", "0", "",
+         "F |Fn| μg", "F = μg |Fn|", "", "0", "",
+         "F |Fn| μh", "F = μh |Fn|", "", "0", "",
+         "F |Fn| μr", "F = μr |Fn|", "", "0", "",
+         "F Frg", "F = Frg", "", "0", "",
+         "F Frg Ft", "F = Ft + Frg", "", "0", "",
+         "F Frg Ft k Δs", "F = Ft + Frg - k Δs", "", "0", "",
+         "F Frg k Δs", "F = Frg - k Δs", "", "0", "",
+         "F Frh", "F = Frh", "", "0", "",
+         "F Frh Ft", "F = Ft + Frh", "", "0", "",
+         "F Frh Ft k Δs", "F = Ft + Frh - k Δs", "", "0", "",
+         "F Frh k Δs", "F = Frh - k Δs", "", "0", "",
+         "F Frr", "F = Frr", "", "0", "",
+         "F Frr Ft", "F = Ft + Frr", "", "0", "",
+         "F Frr Ft k Δs", "F = Ft + Frr - k Δs", "", "0", "",
+         "F Frr k Δs", "F = Frr - k Δs", "", "0", "",
+         "F Ft k Δs", "F = Ft - k Δs", "", "0", "",
+         "F Fx", "F = Fx", "", "0", "",
+         "F Fy", "F = Fy", "", "0", "",
+         "F Fz", "F = Fz", "", "0", "",
+         "F Fx θ", "F = Fx : cos(θ)", "", "0", "",
+         "F Fy θ", "F = Fy : sin(θ)", "", "0", "",
+         "F Fz θ", "F = Fz : cos(θ)", "", "0", "",
+         "F Fx θ ϕ", "F = Fx : cos(θ) : sin(ϕ)", "", "0", "",
+         "F Fz θ ϕ", "F = Fz : cos(θ) : cos(ϕ)", "", "0", "",
+         "F Fx Fy", "F = √(Fx ^ 2 + Fy ^ 2)", "", "0", "",
+         "F Fx Fz", "F = √(Fx ^ 2 + Fz ^ 2)", "", "0", "",
+         "F Fy Fz", "F = √(Fy ^ 2 + Fz ^ 2)", "", "0", "",
+         "F Fx Fy Fz", "F = √(Fx ^ 2 + Fy ^ 2 + Fz ^ 2)", "", "0", "",
+         "F k m P Δv", "F = √(-k m P Δv ' 3)", "F a k P Δv", "27", "",
+         "F k m Δt v1", "F = -v1 : (1 : k : Δt + Δt : m : 2)", "F a k Δt v1", "27", "",
+         "F k m Δt v2", "F = v2 : (Δt : m : 2 - 1 : k : Δt)", "F a k Δt v2", "27", "",
+         "F k m v1 v2", "F = √(-k m (v2 ^ 2 - v1 ^ 2) : 2)", "F k m Δv {v}", "19", "",
+         "F k m v1 Δv", "F = √(-k m Δv (v1 + Δv : 2))", "F k m Δv {v}", "18", "",
+         "F k m v1 {v}", "F = √(-2 k m {v} ({v} - v1))", "F k m Δv {v}", "16", "",
+         "F k m v2 Δv", "F = √(-k m Δv (v2 - Δv : 2))", "F k m Δv {v}", "15", "",
+         "F k m v2 {v}", "F = √(-2 k m {v} (v2 - {v}))", "F k m Δv {v}", "13", "",
+         "F k m Δv {v}", "F = √(-k m Δv {v})", "F a k Δv {v}", "27", "",
+         "F k P Δt", "F = √(-k P Δt)", "F k W", "44", "",
+         "F k Δs", "F = -k Δs", "", "57", "",
+         "F k Δt v1 v2", "F = -k Δt (v1 + v2) : 2", "F k Δt {v}", "10", "",
+         "F k Δt v1 Δv", "F = -k Δt (v1 + Δv : 2)", "F k Δt {v}", "18", "",
+         "F k Δt v2 Δv", "F = -k Δt (v2 - Δv : 2)", "F k Δt {v}", "15", "",
+         "F k Δt {v}", "F = -k Δt {v}", "F k Δs", "21", "",
+         "F k W", "F = √(-k W)", "F k Δs", "31", "",
+         "F m P Δs Δv", "F = √(P m Δv : Δs)", "F a P Δs Δv", "29", "",
+         "F m P Δt v1", "F = m (-v1 ± √(v1 ^ 2 + 2 P Δt : m)) : Δt", "F m Δt v1 W", "44", "",
+         "F m P Δt v2", "F = m (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : Δt", "F m Δt v2 W", "44", "",
+         "F m P v1 W", "F = m P (-v1 ± √(v1 ^ 2 + 2 W : m)) : W", "F m Δt v1 W", "43", "",
+         "F m P v2 W", "F = m P (v2 ± √(v2 ^ 2 - 2 W : m)) : W", "F m Δt v2 W", "43", "",
+         "F m P Δv W", "F = m P Δv : W", "F m Δt Δv", "43", "",
+         "F m Δs Δt v1", "F = 2 m (Δs : Δt - v1) : Δt", "F m Δt v1 {v}", "20", "",
+         "F m Δs Δt v2", "F = 2 m (v2 - Δs : Δt) : Δt", "F m Δt v2 {v}", "20", "",
+         "F m Δs v1 v2", "F = m (v2 ^ 2 - v1 ^ 2) : Δs : 2", "F m Δs Δv {v}", "19", "",
+         "F m Δs v1 Δv", "F = m Δv (v1 + Δv : 2) : Δs", "F m Δs Δv {v}", "18", "",
+         "F m Δs v1 {v}", "F = 2 m {v} ({v} - v1) : Δs", "F m Δs Δv {v}", "16", "",
+         "F m Δs v2 Δv", "F = m Δv (v2 - Δv : 2) : Δs", "F m Δs Δv {v}", "15", "",
+         "F m Δs v2 {v}", "F = 2 m {v} (v2 - {v}) : Δs", "F m Δs Δv {v}", "13", "",
+         "F m Δs Δv {v}", "F = m Δv {v} : Δs", "F m Δt Δv", "22", "",
+         "F m Δt v1 {v}", "F = 2 m ({v} - v1) : Δt", "F m Δt Δv", "16", "",
+         "F m Δt v1 W", "F = m (-v1 ± √(v1 ^ 2 + 2 W : m)) : Δt", "F m Δt Δv", "70", "",
+         "F m Δt v2 {v}", "F = 2 m (v2 - {v}) : Δt", "F m Δt Δv", "13", "",
+         "F m Δt v2 W", "F = m (v2 ± √(v2 ^ 2 - 2 W : m)) : Δt", "F m Δt Δv", "74", "",
+         "F m Δt Δv", "F = m Δv : Δt", "F a m", "23", "",
+         "F P Δs Δt", "F = P Δt : Δs", "F Δs W", "44", "",
+         "F P v1 v2", "F = 2 P : (v1 + v2)", "F P {v}", "10", "",
+         "F P v1 Δv", "F = P : (v1 + Δv : 2)", "F P {v}", "18", "",
+         "F P v2 Δv", "F = P : (v2 - Δv : 2)", "F P {v}", "15", "",
+         "F P {v}", "F = P : {v}", "F P Δs Δt", "21", "",
+         "F Δs W", "F = W : Δs", "", "30", "",
+         "F Δt v1 v2 W", "F = 2 W : Δt : (v1 + v2)", "F Δt {v} W", "10", "",
+         "F Δt v1 Δv W", "F = W : Δt : (v1 + Δv : 2)", "F Δt {v} W", "18", "",
+         "F Δt v2 Δv W", "F = W : Δt : (v2 - Δv : 2)", "F Δt {v} W", "15", "",
+         "F Δt {v} W", "F = W : Δt : {v}", "F Δs W", "21", ""} ' F => 3912
+      Case "k" : DՃA = New String() {
+         "k a F P v1", "k = -a F ^ 2 : P : (P : F - v1) : 2", "k a F v1 {v}", "62", "",
+         "k a F P v2", "k = -a F ^ 2 : P : (v2 - P : F) : 2", "k a F v2 {v}", "62", "",
+         "k a F P Δv", "k = -a F ^ 2 : P : Δv", "k F P Δt", "25", "",
+         "k a F Δt v1", "k = -F : Δt : (v1 + a Δt : 2)", "k F Δt v1 Δv", "24", "",
+         "k a F Δt v2", "k = -F : Δt : (v2 - a Δt : 2)", "k F Δt v2 Δv", "24", "",
+         "k a F v1 v2", "k = -2 a F : (v2 ^ 2 - v1 ^ 2)", "k a F Δv {v}", "19", "",
+         "k a F v1 Δv", "k = -a F : Δv : (v1 + Δv : 2)", "k a F Δv {v}", "18", "",
+         "k a F v1 {v}", "k = -a F : {v} : ({v} - v1) : 2", "k a F Δv {v}", "16", "",
+         "k a F v2 Δv", "k = -a F : Δv : (v2 - Δv : 2)", "k a F Δv {v}", "15", "",
+         "k a F v2 {v}", "k = -a F : {v} : (v2 - {v}) : 2", "k a F v2 {v}", "13", "",
+         "k a F Δv {v}", "k = -a F : Δv : {v}", "k F Δt {v}", "25", "",
+         "k a m P Δt", "k = -(a m) ^ 2 : P : Δt", "k F P Δt", "26", "",
+         "k a m P v1", "k = -a ^ 3 m ^ 2 : P : (P : a : m - v1) : 2", "k a F P v1", "26", "",
+         "k a m P v2", "k = -a ^ 3 m ^ 2 : P : (v2 - P : a : m) : 2", "k a F P v2", "26", "",
+         "k a m P Δv", "k = -a ^ 3 m ^ 2 : P : Δv", "k a F P Δv", "26", "",
+         "k a m Δs", "k = -a m : Δs", "k F Δs", "26", "",
+         "k a m Δt v1", "k = -a m : Δt : (v1 + a Δt : 2)", "k a F Δt v1", "26", "",
+         "k a m Δt v2", "k = -a m : Δt : (v2 - a Δt : 2)", "k a F Δt v2", "26", "",
+         "k a m Δt {v}", "k = -a m : Δt : {v}", "k a m Δs", "21", "",
+         "k a m v1 v2", "k = -2 a ^ 2 m : (v2 ^ 2 - v1 ^ 2)", "k a m Δv {v}", "19", "",
+         "k a m v1 Δv", "k = -(a ^ 2) m : Δv : (v1 + Δv : 2)", "k a m Δv {v}", "18", "",
+         "k a m v1 {v}", "k = -(a ^ 2) m : {v} : ({v} - v1) : 2", "k a m Δv {v}", "16", "",
+         "k a m v2 Δv", "k = -(a ^ 2) m : Δv : (v2 - Δv : 2)", "k a m Δv {v}", "15", "",
+         "k a m v2 {v}", "k = -(a ^ 2) m : {v} : (v2 - {v}) : 2", "k a m Δv {v}", "13", "",
+         "k a m Δv {v}", "k = -(a ^ 2 m) : Δv : {v}", "k a F Δv {v}", "26", "",
+         "k a m W", "k = -(a m) ^ 2 : W", "k F W", "26", "",
+         "k a P Δs v1", "k = -P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a : Δs ^ 2", "k a F P v1", "57", "",
+         "k a P Δs v2", "k = -P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a : Δs ^ 2", "k a F P v2", "57", "",
+         "k a P Δs Δv", "k = -P Δv : a : Δs ^ 2", "k P Δs Δt", "25", "",
+         "k a P Δt v1", "k = -P : Δt : (v1 + a Δt : 2) ^ 2", "k P Δt v1 Δv", "24", "",
+         "k a P Δt v2", "k = -P : Δt : (v2 - a Δt : 2) ^ 2", "k P Δt v2 Δv", "24", "",
+         "k a P v1 v2", "k = -4 a P : (v2 ^ 2 - v1 ^ 2) : (v1 + v2)", "k a P Δv {v}", "19", "",
+         "k a P v1 Δv", "k = -a P : Δv : (v1 + Δv : 2) ^ 2", "k a P Δv {v}", "18", "",
+         "k a P v1 {v}", "k = -a P : ({v} - v1) : {v} ^ 2 : 2", "k a P Δv {v}", "16", "",
+         "k a P v1 W", "k = -(P ^ 2) : W : (v1 + a W : P : 2) ^ 2", "k a P Δt v1", "43", "",
+         "k a P v2 Δv", "k = -a P : Δv : (v2 - Δv : 2) ^ 2", "k a P Δv {v}", "15", "",
+         "k a P v2 {v}", "k = -a P : (v2 - {v}) : {v} ^ 2 : 2", "k a P Δv {v}", "13", "",
+         "k a P v2 W", "k = -(P ^ 2) : W : (v2 - a W : P : 2) ^ 2", "k a P Δt v2", "43", "",
+         "k a P Δv {v}", "k = -a P : Δv : {v} ^ 2", "k P Δt {v}", "25", "",
+         "k a Δt v1 W", "k = -W : (Δt (v1 + a Δt : 2)) ^ 2", "k Δt v1 Δv W", "24", "",
+         "k a Δt v2 W", "k = -W : (Δt (v2 - a Δt : 2)) ^ 2", "k Δt v2 Δv W", "24", "",
+         "k a v1 v2 W", "k = -4 a ^ 2 W : (v2 ^ 2 - v1 ^ 2) ^ 2", "k a Δv {v} W", "19", "",
+         "k a v1 Δv W", "k = -(a ^ 2) W : ((v1 + Δv : 2) Δv) ^ 2", "k a Δv {v} W", "18", "",
+         "k a v1 {v} W", "k = -(a ^ 2) W : (2 ({v} - v1) {v}) ^ 2", "k a Δv {v} W", "16", "",
+         "k a v2 Δv W", "k = -(a ^ 2) W : ((v2 - Δv : 2) Δv) ^ 2", "k a Δv {v} W", "15", "",
+         "k a v2 {v} W", "k = -(a ^ 2) W : (2 (v2 - {v}) {v}) ^ 2", "k a Δv {v} W", "13", "",
+         "k a Δv {v} W", "k = -(a ^ 2) W : (Δv {v}) ^ 2", "k Δt {v} W", "25", "",
+         "k F |Fn| Ft μg Δs", "k = (Ft + μg |Fn| - F): Δs", "", "0", "",
+         "k F |Fn| Ft μh Δs", "k = (Ft + μh |Fn| - F): Δs", "", "0", "",
+         "k F |Fn| Ft μr Δs", "k = (Ft + μr |Fn| - F): Δs", "", "0", "",
+         "k F |Fn| μg Δs", "k = (μg |Fn| - F) : Δs", "", "0", "",
+         "k F |Fn| μh Δs", "k = (μh |Fn| - F) : Δs", "", "0", "",
+         "k F |Fn| μr Δs", "k = (μr |Fn| - F) : Δs", "", "0", "",
+         "k F Frg Ft Δs", "k = (Ft + Frg - F) : Δs", "", "0", "",
+         "k F Frh Ft Δs", "k = (Ft + Frh - F) : Δs", "", "0", "",
+         "k F Frr Ft Δs", "k = (Ft + Frr - F) : Δs", "", "0", "",
+         "k F Frg Δs", "k = (Frg - F) : Δs", "", "0", "",
+         "k F Frh Δs", "k = (Frh - F) : Δs", "", "0", "",
+         "k F Frr Δs", "k = (Frr - F) : Δs", "", "0", "",
+         "k F Ft Δs", "k = (Ft - F) : Δs", "", "0", "",
+         "k F m P v1", "k = -F ^ 3 : m : P : (P : F - v1) : 2", "k a F P v1", "27", "",
+         "k F m P v2", "k = -F ^ 3 : m : P : (v2 - P : F) : 2", "k a F P v2", "27", "",
+         "k F m P Δv", "k = -F ^ 3 : P : m : Δv", "k a F P Δv", "27", "",
+         "k F m Δt v1", "k = -F : Δt : (v1 + F Δt : m : 2)", "k a F Δt v1", "27", "",
+         "k F m Δt v2", "k = -F : Δt : (v2 - F Δt : m : 2)", "k a F Δt v2", "27", "",
+         "k F m v1 v2", "k = -2 F ^ 2 : m : (v2 ^ 2 - v1 ^ 2)", "k F m Δv {v}", "19", "",
+         "k F m v1 Δv", "k = -(F ^ 2) : m : Δv : (v1 + Δv : 2)", "k F m Δv {v}", "18", "",
+         "k F m v1 {v}", "k = -(F ^ 2) : m : {v} : ({v} - v1) : 2", "k F m Δv {v}", "16", "",
+         "k F m v2 Δv", "k = -(F ^ 2) : m : Δv : (v2 - Δv : 2)", "k F m Δv {v}", "15", "",
+         "k F m v2 {v}", "k = -(F ^ 2) : m : {v} : (v2 - {v}) : 2", "k F m Δv {v}", "13", "",
+         "k F m Δv {v}", "k = -(F ^ 2) : m : Δv : {v}", "k a F Δv {v}", "27", "",
+         "k F P Δt", "k = -(F ^ 2) : P : Δt", "k F W", "44", "",
+         "k F Δs", "k = -F : Δs", "", "58", "",
+         "k F Δt v1 v2", "k = -2 F : Δt : (v1 + v2)", "k F Δt {v}", "10", "",
+         "k F Δt v1 Δv", "k = -F : Δt : (v1 + Δv : 2)", "k F Δt {v}", "18", "",
+         "k F Δt v2 Δv", "k = -F : Δt : (v2 - Δv : 2)", "k F Δt {v}", "15", "",
+         "k F Δt {v}", "k = -F : Δt : {v}", "k F Δs", "21", "",
+         "k F W", "k = -(F ^ 2) : W", "k F Δs", "59", "",
+         "k Ff Δs", "k = -Ff : Δs", "", "0", "",
+         "k m P Δs Δv", "k = -√ (P m Δv : Δs ^ 3)", "k F m P Δv", "57", "",
+         "k m P Δt v1", "k = -4 P : Δt : (v1 ± √(v1 ^ 2 + 2 P Δt : m)) ^ 2", "k m Δt v1 W", "44", "",
+         "k m P Δt v2", "k = -4 P : Δt : (v2 ± √(v2 ^ 2 - 2 P Δt : m)) ^ 2", "k m Δt v2 W", "44", "",
+         "k m P Δt Δv", "k = -(m Δv) ^ 2 : P : Δt ^ 3", "k m Δt Δv W", "44", "",
+         "k m P v1 v2", "k = -8 P ^ 2 : m : (v2 - v1) : (v1 + v2) ^ 3", "k m P Δv {v}", "19", "",
+         "k m P v1 Δv", "k = -(P ^ 2) : m : Δv : (v1 + Δv : 2) ^ 3", "k m P Δv {v}", "18", "",
+         "k m P v1 {v}", "k = -(P ^ 2) : m : {v} ^ 3 : ({v} - v1) : 2", "k m P Δv {v}", "16", "",
+         "k m P v1 W", "k = -4 P ^ 2 : W : (v1 ± √(v1 ^ 2 + 2 W : m)) ^ 2", "k m P Δt v1", "43", "",
+         "k m P v2 Δv", "k = -(P ^ 2) : m : Δv : (v2 - Δv : 2) ^ 3", "k m P Δv {v}", "15", "",
+         "k m P v2 {v}", "k = -(P ^ 2) : m : {v} ^ 3 : (v2 - {v}) : 2", "k m P Δv {v}", "13", "",
+         "k m P v2 W", "k = -4 P ^ 2 : W : (v2 ± √(v2 ^ 2 - 2 W : m)) ^ 2", "k m P Δt v2", "43", "",
+         "k m P Δv {v}", "k = -(P ^ 2) : m : Δv : {v} ^ 3", "k P {v} W", "63", "",
+         "k m P Δv W", "k = -(m P Δv) ^ 2 : W ^ 3", "k m Δt Δv W", "43", "",
+         "k m Δs Δt v1", "k = -2 m (Δs : Δt - v1) : Δs : Δt", "k m Δs v1 {v}", "20", "",
+         "k m Δs Δt v2", "k = -2 m (v2 - Δs : Δt) : Δs : Δt", "k m Δs v2 {v}", "20", "",
+         "k m Δs Δt Δv", "k = -m Δv : Δs : Δt", "k a m Δs", "23", "",
+         "k m Δs v1 v2", "k = -m (v2 ^ 2 - v1 ^ 2) : Δs ^ 2 : 2", "k m Δs Δv {v}", "19", "",
+         "k m Δs v1 Δv", "k = -m Δv (v1 + Δv : 2) : Δs ^ 2", "k m Δs Δv {v}", "18", "",
+         "k m Δs v1 {v}", "k = -2 m {v} ({v} - v1) : Δs ^ 2", "k m Δs Δv {v}", "16", "",
+         "k m Δs v2 Δv", "k = -m Δv (v2 - Δv : 2) : Δs ^ 2", "k m Δs Δv {v}", "15", "",
+         "k m Δs v2 {v}", "k = -2 m {v} (v2 - {v}) : Δs ^ 2", "k m Δs Δv {v}", "13", "",
+         "k m Δs Δv {v}", "k = -m Δv {v} : Δs ^ 2", "k m Δs Δt Δv", "22", "",
+         "k m Δt v1 v2", "k = -2 m (v2 - v1) : Δt ^ 2 : (v1 + v2)", "k m Δt Δv {v}", "19", "",
+         "k m Δt v1 Δv", "k = -m Δv : Δt ^ 2 : (v1 + Δv : 2)", "k m Δt Δv {v}", "18", "",
+         "k m Δt v1 {v}", "k = -2 m ({v} - v1) : Δt ^ 2 : {v}", "k m Δt Δv {v}", "16", "",
+         "k m Δt v1 W", "k = -4 W : (Δt (v1 ± √(v1 ^ 2 + 2 W : m))) ^ 2", "k Δt v1 Δv W", "70", "",
+         "k m Δt v2 Δv", "k = -m Δv : Δt ^ 2 : (v2 - Δv : 2)", "k m Δt Δv {v}", "15", "",
+         "k m Δt v2 {v}", "k = -2 m (v2 - {v}) : Δt ^ 2 : {v}", "k m Δt Δv {v}", "13", "",
+         "k m Δt v2 W", "k = -4 W : (Δt (v2 ± √(v2 ^ 2 - 2 W : m))) ^ 2", "k Δt v2 Δv W", "74", "",
+         "k m Δt Δv {v}", "k = -m Δv : Δt ^ 2 : {v}", "k m Δs Δt Δv", "21", "",
+         "k m Δt Δv W", "k = -(m Δv) ^ 2 : Δt ^ 2 : W", "k a m W", "23", "",
+         "k P Δs Δt", "k = -P Δt : Δs ^ 2", "k Δs W", "44", "",
+         "k P Δs v1 v2", "k = -2 P : Δs : (v1 + v2)", "k P Δs {v}", "10", "",
+         "k P Δs v1 Δv", "k = -P : Δs : (v1 + Δv : 2)", "k P Δs {v}", "18", "",
+         "k P Δs v2 Δv", "k = -P : Δs : (v2 - Δv : 2)", "k P Δs {v}", "15", "",
+         "k P Δs {v}", "k = -P : Δs : {v}", "k P Δs Δt", "61", "",
+         "k P Δt v1 v2", "k = -4 P : Δt : (v1 + v2) ^ 2", "k P Δt {v}", "10", "",
+         "k P Δt v1 Δv", "k = -P : Δt : (v1 + Δv : 2) ^ 2", "k P Δt {v}", "18", "",
+         "k P Δt v2 Δv", "k = -P : Δt : (v2 - Δv : 2) ^ 2", "k P Δt {v}", "15", "",
+         "k P Δt {v}", "k = -P : Δt : {v} ^ 2", "k Δt {v} W", "21", "",
+         "k P v1 v2 W", "k = -4 P ^ 2 : (v1 + v2) ^ 2 : W", "k P {v} W", "10", "",
+         "k P v1 Δv W", "k = -(P ^ 2) : (v1 + Δv : 2) ^ 2 : W", "k P {v} W", "18", "",
+         "k P v2 Δv W", "k = -(P ^ 2) : (v2 - Δv : 2) ^ 2 : W", "k P {v} W", "15", "",
+         "k P {v} W", "k = -(P ^ 2) : {v} ^ 2 : W", "k Δt {v} W", "61", "",
+         "k Δs W", "k = -W : Δs ^ 2", "k F Δs", "30", "",
+         "k Δt v1 v2 W", "k = -4 W : (Δt (v1 + v2)) ^ 2", "k Δt {v} W", "10", "",
+         "k Δt v1 Δv W", "k = -W : (Δt (v1 + Δv : 2)) ^ 2", "k Δt {v} W", "18", "",
+         "k Δt v2 Δv W", "k = -W : (Δt (v2 - Δv : 2)) ^ 2", "k Δt {v} W", "15", "",
+         "k Δt {v} W", "k = -W : (Δt {v}) ^ 2", "k Δs W", "21", ""} ' k => 4396
+      Case "M" : DՃA = New String() {
+         "M c m V", "M = m : c : V", "M m n", "46", "",
+         "M m n", "M = m : n", "", "48", ""} ' M => 2
+      Case "m" : DՃA = New String() {
+         "m a F", "m = F : a", "", "28", "",
+         "m a |Fn| μg", "m = |Fn| μg : a", "m a F", "85", "",
+         "m a |Fn| μh", "m = |Fn| μh : a", "m a F", "88", "",
+         "m a |Fn| μr", "m = |Fn| μr : a", "m a F", "91", "",
+         "m a k P Δt", "m = √(-k P Δt) : a", "m a k W", "44", "",
+         "m a k P Δv", "m = √(-k P Δv : a ^ 3)", "m a k P Δt", "25", "",
+         "m a k Δs", "m = -k Δs : a", "m a F", "57", "",
+         "m a k Δt v1", "m = -k Δt (v1 + a Δt : 2) : a", "m a k v1 Δv", "24", "",
+         "m a k Δt v2", "m = -k Δt (v2 - a Δt : 2) : a", "m a k v2 Δv", "24", "",
+         "m a k Δt {v}", "m = -k Δt {v} : a", "m a k Δs", "21", "",
+         "m a k v1 v2", "m = -k (v2 ^ 2 - v1 ^ 2) : a ^ 2 : 2", "m a k Δv {v}", "19", "",
+         "m a k v1 Δv", "m = -k Δv (v1 + Δv : 2) : a ^ 2", "m a k Δv {v}", "18", "",
+         "m a k v1 {v}", "m = -2 k {v} ({v} - v1) : a ^ 2", "m a k Δv {v}", "16", "",
+         "m a k v2 Δv", "m = -k Δv (v2 - Δv : 2) : a ^ 2", "m a k Δv {v}", "15", "",
+         "m a k v2 {v}", "m = -2 k {v} (v2 - {v}) : a ^ 2", "m a k Δv {v}", "13", "",
+         "m a k Δv {v}", "m = -k Δv {v} : a ^ 2", "m a k Δt {v}", "25", "",
+         "m a k W", "m = √(-k W) : a", "m a F", "75", "",
+         "m a P Δs Δt", "m = P Δt : a : Δs", "m a Δs W", "20", "",
+         "m a P Δs v1", "m = P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a ^ 2 : Δs", "m F P Δs v1", "26", "",
+         "m a P Δs v2", "m = P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a ^ 2 : Δs", "m F P Δs v2", "26", "",
+         "m a P Δs Δv", "m = P Δv : a ^ 2 : Δs", "m a P Δs Δt", "25", "",
+         "m a P Δt v1", "m = P : a : (v1 + a Δt : 2)", "m a P v1 Δv", "24", "",
+         "m a P Δt v2", "m = P : a : (v2 - a Δt : 2)", "m a P v2 Δv", "24", "",
+         "m a P v1 v2", "m = 2 P : a : (v1 + v2)", "m a P {v}", "10", "",
+         "m a P v1 Δv", "m = P : a : (v1 + Δv : 2)", "m a P {v}", "18", "",
+         "m a P v1 W", "m = 2 P ^ 2 : (a ^ 2 W + 2 a P v1)", "m a P Δt v1", "43", "",
+         "m a P v2 Δv", "m = P : a : (v2 - Δv : 2)", "m a P {v}", "15", "",
+         "m a P v2 W", "m = 2 P ^ 2 : (2 a P v2 - a ^ 2 W)", "m a P Δt v2", "43", "",
+         "m a P {v}", "m = P : a : {v}", "m a Δt {v} W", "61", "",
+         "m a Δs W", "m = W : a : Δs", "m a F", "30", "",
+         "m a Δt v1 W", "m = W : a : Δt : (v1 + a Δt : 2)", "m v1 Δv W", "24", "",
+         "m a Δt v2 W", "m = W : a : Δt : (v2 - a Δt : 2)", "m v2 Δv W", "24", "",
+         "m a Δt {v} W", "m = W : a : Δt : {v}", "m a Δs W", "21", "",
+         "m c M V", "m = c M V", "m M n", "46", "",
+         "m F k P v1", "m = -F ^ 3 : k : P : (P : F - v1) : 2", "m F k v1 {v}", "62", "",
+         "m F k P v2", "m = -F ^ 3 : k : P : (v2 - P : F) : 2", "m F k v2 {v}", "62", "",
+         "m F k P Δv", "m = -F ^ 3 : k : P : Δv", "m F P Δs Δv", "59", "",
+         "m F k Δt v1", "m = -Δt : (2 : k : Δt + 2 v1 : F)", "m k Δs Δt v1", "59", "",
+         "m F k Δt v2", "m = Δt : (2 : k : Δt + 2 v2 : F)", "m k Δs Δt v2", "59", "",
+         "m F k v1 v2", "m = -2 F ^ 2 : k : (v2 ^ 2 - v1 ^ 2)", "m F k Δv {v}", "19", "",
+         "m F k v1 Δv", "m = -(F ^ 2) : k : Δv : (v1 + Δv : 2)", "m F k Δv {v}", "18", "",
+         "m F k v1 {v}", "m = -(F ^ 2) : k : {v} : ({v} - v1) : 2", "m F k Δv {v}", "16", "",
+         "m F k v2 Δv", "m = -(F ^ 2) : k : Δv : (v2 - Δv : 2)", "m F k Δv {v}", "15", "",
+         "m F k v2 {v}", "m = -(F ^ 2) : k : {v} : (v2 - {v}) : 2", "m F k Δv {v}", "13", "",
+         "m F k Δv {v}", "m = -(F ^ 2) : k : Δv : {v}", "m k Δs Δv {v}", "59", "",
+         "m F P Δs v1", "m = F ^ 3 Δs : (2 P ^ 2 - 2 F P v1)", "m F P v1 W", "29", "",
+         "m F P Δs v2", "m = F ^ 3 Δs : (2 F P v2 - 2 P ^ 2)", "m F P v2 W", "29", "",
+         "m F P Δs Δv", "m = F ^ 2 Δs : P : Δv", "m P Δs Δv W", "29", "",
+         "m F P Δt v1", "m = F Δt : (P : F - v1) : 2", "m F Δt v1 W", "62", "",
+         "m F P Δt v2", "m = F Δt : (v2 - P : F) : 2", "m F Δt v2 W", "62", "",
+         "m F P v1 W", "m = F W : P : (P : F - v1) : 2", "m F P Δt v1", "43", "",
+         "m F P v2 W", "m = F W : P : (v2 - P : F) : 2", "m F P Δt v2", "43", "",
+         "m F P Δv W", "m = F W : P : Δv", "m F Δt Δv", "43", "",
+         "m F Δs Δt v1", "m = F Δt : (Δs : Δt - v1) : 2", "m F Δt v1 {v}", "20", "",
+         "m F Δs Δt v2", "m = F Δt : (v2 - Δs : Δt) : 2", "m F Δt v2 {v}", "20", "",
+         "m F Δs v1 v2", "m = 2 F Δs : (v2 ^ 2 - v1 ^ 2)", "m F Δs Δv {v}", "19", "",
+         "m F Δs v1 Δv", "m = F Δs : Δv : (v1 + Δv : 2)", "m F Δs Δv {v}", "18", "",
+         "m F Δs v1 {v}", "m = F Δs : {v} : ({v} - v1) : 2", "m F Δs Δv {v}", "16", "",
+         "m F Δs v2 Δv", "m = F Δs : Δv : (v2 - Δv : 2)", "m F Δs Δv {v}", "15", "",
+         "m F Δs v2 {v}", "m = F Δs : {v} : (v2 - {v}) : 2", "m F Δs Δv {v}", "13", "",
+         "m F Δs Δv {v}", "m = F Δs : Δv : {v}", "m F Δt Δv", "22", "",
+         "m F Δt v1 {v}", "m = F Δt : ({v} - v1) : 2", "m F Δt Δv", "16", "",
+         "m F Δt v1 W", "m = F Δt : (W : F : Δt - v1) : 2", "m F Δs Δt v1", "31", "",
+         "m F Δt v2 {v}", "m = F Δt : (v2 - {v}) : 2", "m F Δt Δv", "13", "",
+         "m F Δt v2 W", "m = F Δt : (v2 - W : F : Δt) : 2", "m F Δs Δt v2", "31", "",
+         "m F Δt Δv", "m = F Δt : Δv", "m a F", "23", "",
+         "m |Fn| μg P Δs v1", "m = (|Fn| μg) ^ 2 Δs : P : (P : |Fn| : μg - v1) : 2", "m F P Δs v1", "85", "",
+         "m |Fn| μg P Δs v2", "m = (|Fn| μg) ^ 2 Δs : P : (v2 - P : |Fn| : μg) : 2", "m F P Δs v2", "85", "",
+         "m |Fn| μg P Δs Δv", "m = (|Fn| μg) ^ 2 Δs : P : Δv", "m F P Δs Δv", "85", "",
+         "m |Fn| μg P Δt v1", "m = |Fn| μg Δt : (P : |Fn| : μg - v1) : 2", "m F P Δt v1", "85", "",
+         "m |Fn| μg P Δt v2", "m = |Fn| μg Δt : (v2 - P : |Fn| : μg) : 2", "m F P Δt v2", "85", "",
+         "m |Fn| μg P v1 W", "m = |Fn| μg W : P : (P : |Fn| : μg - v1) : 2", "m F P v1 W", "85", "",
+         "m |Fn| μg P v2 W", "m = |Fn| μg W : P : (v2 - P : |Fn| : μg) : 2", "m F P v2 W", "85", "",
+         "m |Fn| μg P Δv W", "m = |Fn| μg W : P : Δv", "m F P Δv W", "85", "",
+         "m |Fn| μg Δs Δt v1", "m = |Fn| μg Δt : (Δs : Δt - v1) : 2", "m F Δs Δt v1", "85", "",
+         "m |Fn| μg Δs Δt v2", "m = |Fn| μg Δt : (v2 - Δs : Δt) : 2", "m F Δs Δt v2", "85", "",
+         "m |Fn| μg Δs v1 v2", "m = 2 |Fn| μg Δs : (v2 ^ 2 - v1 ^ 2)", "m F Δs v1 v2", "85", "",
+         "m |Fn| μg Δs v1 Δv", "m = |Fn| μg Δs : Δv : (v1 + Δv : 2)", "m F Δs v1 Δv", "85", "",
+         "m |Fn| μg Δs v1 {v}", "m = |Fn| μg Δs : {v} : ({v} - v1) : 2", "m F Δs v1 {v}", "85", "",
+         "m |Fn| μg Δs v2 Δv", "m = |Fn| μg Δs : Δv : (v2 - Δv : 2)", "m F Δs v2 Δv", "85", "",
+         "m |Fn| μg Δs v2 {v}", "m = |Fn| μg Δs : {v} : (v2 - {v}) : 2", "m F Δs v2 {v}", "85", "",
+         "m |Fn| μg Δs Δv {v}", "m = |Fn| μg Δs : Δv : {v}", "m F Δs Δv {v}", "85", "",
+         "m |Fn| μg Δt v1 {v}", "m = |Fn| μg Δt : ({v} - v1) : 2", "m F Δt v1 {v}", "85", "",
+         "m |Fn| μg Δt v1 W", "m = |Fn| μg Δt : (W : |Fn| : μg : Δt - v1) : 2", "m F Δt v1 W", "85", "",
+         "m |Fn| μg Δt v2 {v}", "m = |Fn| μg Δt : (v2 - {v}) : 2", "m F Δt v2 {v}", "85", "",
+         "m |Fn| μg Δt v2 W", "m = |Fn| μg Δt : (v2 - W : |Fn| : μg : Δt) : 2", "m F Δt v2 W", "85", "",
+         "m |Fn| μg Δt Δv", "m = |Fn| μg Δt : Δv", "m F Δt Δv", "85", "",
+         "m |Fn| μh P Δs v1", "m = (|Fn| μh) ^ 2 Δs : P : (P : |Fn| : μh - v1) : 2", "m F P Δs v1", "88", "",
+         "m |Fn| μh P Δs v2", "m = (|Fn| μh) ^ 2 Δs : P : (v2 - P : |Fn| : μh) : 2", "m F P Δs v2", "88", "",
+         "m |Fn| μh P Δs Δv", "m = (|Fn| μh) ^ 2 Δs : P : Δv", "m F P Δs Δv", "88", "",
+         "m |Fn| μh P Δt v1", "m = |Fn| μh Δt : (P : |Fn| : μh - v1) : 2", "m F P Δt v1", "88", "",
+         "m |Fn| μh P Δt v2", "m = |Fn| μh Δt : (v2 - P : |Fn| : μh) : 2", "m F P Δt v2", "88", "",
+         "m |Fn| μh P v1 W", "m = |Fn| μh W : P : (P : |Fn| : μh - v1) : 2", "m F P v1 W", "88", "",
+         "m |Fn| μh P v2 W", "m = |Fn| μh W : P : (v2 - P : |Fn| : μh) : 2", "m F P v2 W", "88", "",
+         "m |Fn| μh P Δv W", "m = |Fn| μh W : P : Δv", "m F P Δv W", "88", "",
+         "m |Fn| μh Δs Δt v1", "m = |Fn| μh Δt : (Δs : Δt - v1) : 2", "m F Δs Δt v1", "88", "",
+         "m |Fn| μh Δs Δt v2", "m = |Fn| μh Δt : (v2 - Δs : Δt) : 2", "m F Δs Δt v2", "88", "",
+         "m |Fn| μh Δs v1 v2", "m = 2 |Fn| μh Δs : (v2 ^ 2 - v1 ^ 2)", "m F Δs v1 v2", "88", "",
+         "m |Fn| μh Δs v1 Δv", "m = |Fn| μh Δs : Δv : (v1 + Δv : 2)", "m F Δs v1 Δv", "88", "",
+         "m |Fn| μh Δs v1 {v}", "m = |Fn| μh Δs : {v} : ({v} - v1) : 2", "m F Δs v1 {v}", "88", "",
+         "m |Fn| μh Δs v2 Δv", "m = |Fn| μh Δs : Δv : (v2 - Δv : 2)", "m F Δs v2 Δv", "88", "",
+         "m |Fn| μh Δs v2 {v}", "m = |Fn| μh Δs : {v} : (v2 - {v}) : 2", "m F Δs v2 {v}", "88", "",
+         "m |Fn| μh Δs Δv {v}", "m = |Fn| μh Δs : Δv : {v}", "m F Δs Δv {v}", "88", "",
+         "m |Fn| μh Δt v1 {v}", "m = |Fn| μh Δt : ({v} - v1) : 2", "m F Δt v1 {v}", "88", "",
+         "m |Fn| μh Δt v1 W", "m = |Fn| μh Δt : (W : |Fn| : μh : Δt - v1) : 2", "m F Δt v1 W", "88", "",
+         "m |Fn| μh Δt v2 {v}", "m = |Fn| μh Δt : (v2 - {v}) : 2", "m F Δt v2 {v}", "88", "",
+         "m |Fn| μh Δt v2 W", "m = |Fn| μh Δt : (v2 - W : |Fn| : μh : Δt) : 2", "m F Δt v2 W", "88", "",
+         "m |Fn| μh Δt Δv", "m = |Fn| μh Δt : Δv", "m F Δt Δv", "88", "",
+         "m |Fn| μr P Δs v1", "m = (|Fn| μr) ^ 2 Δs : P : (P : |Fn| : μr - v1) : 2", "m F P Δs v1", "91", "",
+         "m |Fn| μr P Δs v2", "m = (|Fn| μr) ^ 2 Δs : P : (v2 - P : |Fn| : μr) : 2", "m F P Δs v2", "91", "",
+         "m |Fn| μr P Δs Δv", "m = (|Fn| μr) ^ 2 Δs : P : Δv", "m F P Δs Δv", "91", "",
+         "m |Fn| μr P Δt v1", "m = |Fn| μr Δt : (P : |Fn| : μr - v1) : 2", "m F P Δt v1", "91", "",
+         "m |Fn| μr P Δt v2", "m = |Fn| μr Δt : (v2 - P : |Fn| : μr) : 2", "m F P Δt v2", "91", "",
+         "m |Fn| μr P v1 W", "m = |Fn| μr W : P : (P : |Fn| : μr - v1) : 2", "m F P v1 W", "91", "",
+         "m |Fn| μr P v2 W", "m = |Fn| μr W : P : (v2 - P : |Fn| : μr) : 2", "m F P v2 W", "91", "",
+         "m |Fn| μr P Δv W", "m = |Fn| μr W : P : Δv", "m F P Δv W", "91", "",
+         "m |Fn| μr Δs Δt v1", "m = |Fn| μr Δt : (Δs : Δt - v1) : 2", "m F Δs Δt v1", "91", "",
+         "m |Fn| μr Δs Δt v2", "m = |Fn| μr Δt : (v2 - Δs : Δt) : 2", "m F Δs Δt v2", "91", "",
+         "m |Fn| μr Δs v1 v2", "m = 2 |Fn| μr Δs : (v2 ^ 2 - v1 ^ 2)", "m F Δs v1 v2", "91", "",
+         "m |Fn| μr Δs v1 Δv", "m = |Fn| μr Δs : Δv : (v1 + Δv : 2)", "m F Δs v1 Δv", "91", "",
+         "m |Fn| μr Δs v1 {v}", "m = |Fn| μr Δs : {v} : ({v} - v1) : 2", "m F Δs v1 {v}", "91", "",
+         "m |Fn| μr Δs v2 Δv", "m = |Fn| μr Δs : Δv : (v2 - Δv : 2)", "m F Δs v2 Δv", "91", "",
+         "m |Fn| μr Δs v2 {v}", "m = |Fn| μr Δs : {v} : (v2 - {v}) : 2", "m F Δs v2 {v}", "91", "",
+         "m |Fn| μr Δs Δv {v}", "m = |Fn| μr Δs : Δv : {v}", "m F Δs Δv {v}", "91", "",
+         "m |Fn| μr Δt v1 {v}", "m = |Fn| μr Δt : ({v} - v1) : 2", "m F Δt v1 {v}", "91", "",
+         "m |Fn| μr Δt v1 W", "m = |Fn| μr Δt : (W : |Fn| : μr : Δt - v1) : 2", "m F Δt v1 W", "91", "",
+         "m |Fn| μr Δt v2 {v}", "m = |Fn| μr Δt : (v2 - {v}) : 2", "m F Δt v2 {v}", "91", "",
+         "m |Fn| μr Δt v2 W", "m = |Fn| μr Δt : (v2 - W : |Fn| : μr : Δt) : 2", "m F Δt v2 W", "91", "",
+         "m |Fn| μr Δt Δv", "m = |Fn| μr Δt : Δv", "m F Δt Δv", "91", "",
+         "m M n", "m = M n", "", "49", "",
+         "m k P Δs v1", "m = -k ^ 3 Δs ^ 4 : P : (P + k Δs v1) : 2", "m F k P v1", "57", "",
+         "m k P Δs v2", "m = k ^ 3 Δs ^ 4 : P : (P + k Δs v2) : 2", "m F k P v2", "57", "",
+         "m k P Δs Δv", "m = -k ^ 2 Δs ^ 3 : P : Δv", "m F P Δs Δv", "57", "",
+         "m k P Δt v1", "m = -k Δt ^ 2 : (2 v1 √(-k Δt : P) + 2)", "m k Δt v1 W", "44", "",
+         "m k P Δt v2", "m = k Δt ^ 2 : (2 v2 √(-k Δt : P) + 2)", "m k Δt v2 W", "44", "",
+         "m k P Δt Δv", "m = √(-k P Δt) Δt : Δv", "m a k P Δt", "23", "",
+         "m k P v1 v2", "m = -8 P ^ 2 : k : (v2 - v1) : (v1 + v2) ^ 3", "m k P Δv {v}", "19", "",
+         "m k P v1 Δv", "m = -(P ^ 2) : k : Δv : (v1 + Δv : 2) ^ 3", "m k P Δv {v}", "18", "",
+         "m k P v1 {v}", "m = -(P ^ 2) : k : {v} ^ 3 : ({v} - v1) : 2", "m k P Δv {v}", "16", "",
+         "m k P v1 W", "m = -k W : (2 P v1 √(-k : W) + 2 P ^ 2 : W)", "m k Δt v1 W", "43", "",
+         "m k P v2 Δv", "m = -(P ^ 2) : k : Δv : (v2 - Δv : 2) ^ 3", "m k P Δv {v}", "15", "",
+         "m k P v2 {v}", "m = -(P ^ 2) : k : {v} ^ 3 : (v2 - {v}) : 2", "m k P Δv {v}", "13", "",
+         "m k P v2 W", "m = k W : (2 P v2 √(-k : W) + 2 P ^ 2 : W)", "m k Δt v2 W", "43", "",
+         "m k P Δv {v}", "m = -(P ^ 2) : k : Δv : {v} ^ 3", "m F k Δv {v}", "61", "",
+         "m k P Δv W", "m = √(-k W) W : P : Δv", "m k P Δt Δv", "43", "",
+         "m k Δs Δt v1", "m = -k Δs Δt : (Δs : Δt - v1) : 2", "m k Δs v1 {v}", "20", "",
+         "m k Δs Δt v2", "m = -k Δs Δt : (v2 - Δs : Δt) : 2", "m k Δs v2 {v}", "20", "",
+         "m k Δs Δt Δv", "m = -k Δs Δt : Δv", "m a k Δs", "23", "",
+         "m k Δs v1 v2", "m = -2 k Δs ^ 2 : (v2 ^ 2 - v1 ^ 2)", "m k Δs Δv {v}", "19", "",
+         "m k Δs v1 Δv", "m = -k Δs ^ 2 : Δv : (v1 + Δv : 2)", "m k Δs Δv {v}", "18", "",
+         "m k Δs v1 {v}", "m = -k Δs ^ 2 : {v} : ({v} - v1) : 2", "m k Δs Δv {v}", "16", "",
+         "m k Δs v2 Δv", "m = -k Δs ^ 2 : Δv : (v2 - Δv : 2)", "m k Δs Δv {v}", "15", "",
+         "m k Δs v2 {v}", "m = -k Δs ^ 2 : {v} : (v2 - {v}) : 2", "m k Δs Δv {v}", "13", "",
+         "m k Δs Δv {v}", "m = -k Δs ^ 2 : Δv : {v}", "m k Δs Δt Δv", "22", "",
+         "m k Δt v1 v2", "m = -k Δt ^ 2 (v1 + v2) : (v2 - v1) : 2", "m k Δt Δv {v}", "19", "",
+         "m k Δt v1 Δv", "m = -k Δt ^ 2 (v1 + Δv : 2) : Δv", "m k Δt Δv {v}", "18", "",
+         "m k Δt v1 {v}", "m = -k Δt ^ 2 {v} : ({v} - v1) : 2", "m k Δt Δv {v}", "16", "",
+         "m k Δt v1 W", "m = -k Δt : (2 v1 √(-k : W) + 2 : Δt)", "m k Δt Δv W", "70", "",
+         "m k Δt v2 Δv", "m = -k Δt ^ 2 (v2 - Δv : 2) : Δv", "m k Δt Δv {v}", "15", "",
+         "m k Δt v2 {v}", "m = -k Δt ^ 2 {v} : (v2 - {v}) : 2", "m k Δt Δv {v}", "13", "",
+         "m k Δt v2 W", "m = k Δt : (2 v2 √(-k : W) + 2 : Δt)", "m k Δt Δv W", "74", "",
+         "m k Δt Δv {v}", "m = -k Δt ^ 2 {v} : Δv", "m k Δs Δt Δv", "21", "",
+         "m k Δt Δv W", "m = √(-k W) Δt : Δv", "m a k W", "23", "",
+         "m P Δs Δt v1", "m = P Δt ^ 2 : Δs : (Δs : Δt - v1) : 2", "m Δs Δt v1 W", "44", "",
+         "m P Δs Δt v2", "m = P Δt ^ 2 : Δs : (v2 - Δs : Δt) : 2", "m Δs Δt v2 W", "44", "",
+         "m P Δs Δt Δv", "m = P Δt ^ 2 : Δs : Δv", "m a P Δs Δt", "23", "",
+         "m P Δs v1 v2", "m = 4 P Δs : (v2 ^ 2 - v1 ^ 2) : (v1 + v2)", "m P Δs Δv {v}", "19", "",
+         "m P Δs v1 Δv", "m = P Δs : Δv : (v1 + Δv : 2) ^ 2", "m P Δs Δv {v}", "18", "",
+         "m P Δs v1 {v}", "m = P Δs : {v} ^ 2 : ({v} - v1) : 2", "m P Δs Δv {v}", "16", "",
+         "m P Δs v1 W", "m = W ^ 3 : (2 (P Δs) ^ 2 - 2 P Δs v1 W)", "m F P Δs v1", "30", "",
+         "m P Δs v2 Δv", "m = P Δs : Δv : (v2 - Δv : 2) ^ 2", "m P Δs Δv {v}", "15", "",
+         "m P Δs v2 {v}", "m = P Δs : {v} ^ 2 : (v2 - {v}) : 2", "m P Δs Δv {v}", "13", "",
+         "m P Δs v2 W", "m = W ^ 3 : (2 P Δs v2 W - 2 (P Δs) ^ 2)", "m F P Δs v2", "30", "",
+         "m P Δs Δv {v}", "m = P Δs : Δv : {v} ^ 2", "m P Δt Δv {v}", "22", "",
+         "m P Δs Δv W", "m = W ^ 2 : P : Δs : Δv", "m F P Δv W", "30", "",
+         "m P Δt v1 v2", "m = 2 P Δt : (v2 ^ 2 - v1 ^ 2)", "m P Δt Δv {v}", "19", "",
+         "m P Δt v1 Δv", "m = P Δt : Δv : (v1 + Δv : 2)", "m P Δt Δv {v}", "18", "",
+         "m P Δt v1 {v}", "m = P Δt : {v} : ({v} - v1) : 2", "m P Δt Δv {v}", "16", "",
+         "m P Δt v2 Δv", "m = P Δt : Δv : (v2 - Δv : 2)", "m P Δt Δv {v}", "15", "",
+         "m P Δt v2 {v}", "m = P Δt : {v} : (v2 - {v}) : 2", "m P Δt Δv {v}", "13", "",
+         "m P Δt Δv {v}", "m = P Δt : Δv : {v}", "m Δv {v} W", "61", "",
+         "m p Δs Δt", "m = p Δt : Δs", "m p v", "51", "",
+         "m p v", "m = p : v", "", "55", "",
+         "m Δs Δt v1 W", "m = Δt W : Δs : (Δs : Δt - v1) : 2", "m F Δs Δt v1", "30", "",
+         "m Δs Δt v2 W", "m = Δt W : Δs : (v2 - Δs : Δt) : 2", "m F Δs Δt v2", "30", "",
+         "m Δs Δt Δv W", "m = W Δt : Δs : Δv", "m F Δt Δv", "30", "",
+         "m v1 v2 W", "m = 2 W : (v2 ^ 2 - v1 ^ 2)", "m Δv {v} W", "19", "",
+         "m v1 Δv W", "m = W : Δv : (v1 + Δv : 2)", "m Δv {v} W", "18", "",
+         "m v1 {v} W", "m = W : {v} : ({v} - v1) : 2", "m Δv {v} W", "16", "",
+         "m v2 Δv W", "m = W : Δv : (v2 - Δv : 2)", "m Δv {v} W", "15", "",
+         "m v2 {v} W", "m = W : {v} : (v2 - {v}) : 2", "m Δv {v} W", "13", "",
+         "m Δv {v} W", "m = W : Δv : {v}", "m a Δt {v} W", "23", ""} ' m => 8754
+      Case "n" : DՃA = New String() {
+         "n c V", "n = c V", "", "45", "",
+         "n M m", "n = m : M", "", "50", ""} ' n => 2
+      Case "P" : DՃA = New String() {
+         "P a F k v1", "P = F (v1 ± √(v1 ^ 2 - 2 a F : k)) : 2", "P a F v1 W", "77", "",
+         "P a F k v2", "P = F (v2 ± √(v2 ^ 2 + 2 a F : k)) : 2", "P a F v2 W", "77", "",
+         "P a F k Δv", "P = -a F ^ 2 : k : Δv", "P F k Δt", "25", "",
+         "P a F Δs v1", "P = F (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "P a m Δs v1 W", "29", "",
+         "P a F Δs v2", "P = F (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "P a m Δs v2", "29", "",
+         "P a F Δs Δv", "P = a F Δs : Δv", "P a Δv W", "29", "",
+         "P a F Δt v1", "P = F (v1 + a Δt : 2)", "P F v1 Δv", "24", "",
+         "P a F Δt v2", "P = F (v2 - a Δt : 2)", "P F v2 Δv", "24", "",
+         "P a F v1 W", "P = F (v1 ± √(v1 ^ 2 + 2 a W : F)) : 2", "P F m v1 W", "43", "",
+         "P a F v2 W", "P = F (v2 ± √(v2 ^ 2 - 2 a W : F)) : 2", "P F m v2 W", "43", "",
+         "P a |Fn| μg Δs v1", "P = |Fn| μg (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "P a F Δs v1", "85", "",
+         "P a |Fn| μg Δs v2", "P = |Fn| μg (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "P a F Δs v2", "85", "",
+         "P a |Fn| μg Δs Δv", "P = a |Fn| μg Δs : Δv", "P a F Δs Δv", "85", "",
+         "P a |Fn| μg Δt v1", "P = |Fn| μg (v1 + a Δt : 2)", "P a F Δt v1", "85", "",
+         "P a |Fn| μg Δt v2", "P = |Fn| μg (v2 - a Δt : 2)", "P a F Δt v2", "85", "",
+         "P a |Fn| μg v1 W", "P = |Fn| μg (v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μg)) : 2", "P a F v1 W", "85", "",
+         "P a |Fn| μg v2 W", "P = |Fn| μg (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μg)) : 2", "P a F v2 W", "85", "",
+         "P a |Fn| μh Δs v1", "P = |Fn| μh (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "P a F Δs v1", "88", "",
+         "P a |Fn| μh Δs v2", "P = |Fn| μh (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "P a F Δs v2", "88", "",
+         "P a |Fn| μh Δs Δv", "P = a |Fn| μh Δs : Δv", "P a F Δs Δv", "88", "",
+         "P a |Fn| μh Δt v1", "P = |Fn| μh (v1 + a Δt : 2)", "P a F Δt v1", "88", "",
+         "P a |Fn| μh Δt v2", "P = |Fn| μh (v2 - a Δt : 2)", "P a F Δt v2", "88", "",
+         "P a |Fn| μh v1 W", "P = |Fn| μh (v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μh)) : 2", "P a F v1 W", "88", "",
+         "P a |Fn| μh v2 W", "P = |Fn| μh (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μh)) : 2", "P a F v2 W", "88", "",
+         "P a |Fn| μr Δs v1", "P = |Fn| μr (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "P a F Δs v1", "91", "",
+         "P a |Fn| μr Δs v2", "P = |Fn| μr (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "P a F Δs v2", "91", "",
+         "P a |Fn| μr Δs Δv", "P = a |Fn| μr Δs : Δv", "P a F Δs Δv", "91", "",
+         "P a |Fn| μr Δt v1", "P = |Fn| μr (v1 + a Δt : 2)", "P a F Δt v1", "91", "",
+         "P a |Fn| μr Δt v2", "P = |Fn| μr (v2 - a Δt : 2)", "P a F Δt v2", "91", "",
+         "P a |Fn| μr v1 W", "P = |Fn| μr (v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μr)) : 2", "P a F v1 W", "91", "",
+         "P a |Fn| μr v2 W", "P = |Fn| μr (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μr)) : 2", "P a F v2 W", "91", "",
+         "P a k m Δt", "P = -(a m) ^ 2 : k : Δt", "P F k Δt", "26", "",
+         "P a k m v1", "P = a m (v1 ± √(v1 ^ 2 - 2 a ^ 2 m : k)) : 2", "P a F k v1", "26", "",
+         "P a k m v2", "P = a m (v2 ± √(v2 ^ 2 + 2 a ^ 2 m : k)) : 2", "P a F k v2", "26", "",
+         "P a k m Δv", "P = -a ^ 3 m ^ 2 : k : Δv", "P F a k Δv", "26", "",
+         "P a k Δs v1", "P = -k Δs (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "P a F k v1", "57", "",
+         "P a k Δs v2", "P = -k Δs (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "P a F k v2", "57", "",
+         "P a k Δs Δv", "P = -a k Δs ^ 2 : Δv", "P a F k Δv", "57", "",
+         "P a k Δt v1", "P = -k Δt (v1 + a Δt : 2) ^ 2", "P k Δt v1 Δv", "24", "",
+         "P a k Δt v2", "P = -k Δt (v2 - a Δt : 2) ^ 2", "P k Δt v2 Δv", "24", "",
+         "P a k v1 v2", "P = -k (v2 - v1) (v1 + v2) ^ 2 : a : 4", "P a k Δv {v}", "19", "",
+         "P a k v1 Δv", "P = -k Δv (v1 + Δv : 2) ^ 2 : a", "P a k Δv {v}", "18", "",
+         "P a k v1 {v}", "P = -2 k ({v} - v1) {v} ^ 2 : a", "P a k Δv {v}", "16", "",
+         "P a k v2 Δv", "P = -k Δv (v2 - Δv : 2) ^ 2 : a", "P a k Δv {v}", "15", "",
+         "P a k v2 {v}", "P = -2 k (v2 - {v}) {v} ^ 2 : a", "P a k Δv {v}", "13", "",
+         "P a k Δv {v}", "P = -k Δv {v} ^ 2 : a", "P k Δt {v}", "25", "",
+         "P a m Δs Δt", "P = a m Δs : Δt", "P F Δs Δt", "26", "",
+         "P a m Δs v1", "P = a m (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "P F m Δs v1", "26", "",
+         "P a m Δs v2", "P = a m (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "P F m Δs v2", "26", "",
+         "P a m Δs Δv", "P = a ^ 2 m Δs : Δv", "P a m Δs Δt", "25", "",
+         "P a m Δt v1", "P = a m (v1 + a Δt : 2)", "P a m v1 Δv", "24", "",
+         "P a m Δt v2", "P = a m (v2 - a Δt : 2)", "P a m v2 Δv", "24", "",
+         "P a m v1 v2", "P = a m (v1 + v2) : 2", "P a m {v}", "10", "",
+         "P a m v1 Δv", "P = a m (v1 + Δv : 2)", "P a m {v}", "18", "",
+         "P a m v1 W", "P = a m (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "P F m v1 W", "26", "",
+         "P a m v2 Δv", "P = a m (v2 - Δv : 2)", "P a m {v}", "15", "",
+         "P a m v2 W", "P = a m (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "P F m v2 W", "26", "",
+         "P a m {v}", "P = a m {v}", "P F {v}", "26", "",
+         "P a Δs v1 W", "P = W (v1 ± √(v1 ^ 2 + 2 a Δs)) : Δs : 2", "P a F Δs v1", "30", "",
+         "P a Δs v2 W", "P = W (v2 ± √(v2 ^ 2 - 2 a Δs)) : Δs : 2", "P a F Δs v2", "30", "",
+         "P a v1 {v} W", "P = a W : ({v} - v1) : 2", "P a Δv W", "16", "",
+         "P a v2 {v} W", "P = a W : (v2 - {v}) : 2", "P a Δv W", "13", "",
+         "P a Δv W", "P = a W : Δv", "P Δt W", "25", "",
+         "P F k m v1", "P = F (v1 ± √(v1 ^ 2 - 2 F ^ 2 : k : m)) : 2", "P a F k v1", "27", "",
+         "P F k m v2", "P = F (v2 ± √(v2 ^ 2 + 2 F ^ 2 : k : m)) : 2", "P a F k v2", "27", "",
+         "P F k m Δv", "P = -F ^ 3 : k : m : Δv", "P a F k Δv", "27", "",
+         "P F k Δt", "P = -(F ^ 2) : k : Δt", "P Δt W", "77", "",
+         "P F m Δs v1", "P = F (v1 ± √(v1 ^ 2 + 2 F Δs : m)) : 2", "P F m v1 W", "27", "",
+         "P F m Δs v2", "P = F (v2 ± √(v2 ^ 2 - 2 F Δs : m)) : 2", "P F m v2 W", "27", "",
+         "P F m Δs Δv", "P = F ^ 2 Δs : m : Δv", "P a F Δs Δv", "27", "",
+         "P F m Δt v1", "P = F (v1 + F Δt : m : 2)", "P a F Δt v1", "27", "",
+         "P F m Δt v2", "P = F (v2 - F Δt : m : 2)", "P a F Δt v2", "27", "",
+         "P F m v1 W", "P = F (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "P F m Δt v1", "43", "",
+         "P F m v2 W", "P = F (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "P F m Δt v2", "43", "",
+         "P F m Δv W", "P = F W : m : Δv", "P a Δv W", "27", "",
+         "P F Δs Δt", "P = F Δs : Δt", "P Δt W", "29", "",
+         "P F v1 v2", "P = F (v1 + v2) : 2", "P F {v}", "10", "",
+         "P F v1 Δv", "P = F (v1 + Δv : 2)", "P F {v}", "18", "",
+         "P F v2 Δv", "P = F (v2 - Δv : 2)", "P F {v}", "15", "",
+         "P F {v}", "P = F {v}", "P F Δs Δt", "21", "",
+         "P |Fn| m μg Δs v1", "P = |Fn| μg (v1 ± √(v1 ^ 2 + 2 |Fn| μg Δs : m)) : 2", "P F m Δs v1", "85", "",
+         "P |Fn| m μg Δs v2", "P = |Fn| μg (v2 ± √(v2 ^ 2 - 2 |Fn| μg Δs : m)) : 2", "P F m Δs v2", "85", "",
+         "P |Fn| m μg Δs Δv", "P = (|Fn| μg) ^ 2 Δs : m : Δv", "P F m Δs Δv", "85", "",
+         "P |Fn| m μg Δt v1", "P = |Fn| μg (v1 + |Fn| μg Δt : m : 2)", "P F m Δt v1", "85", "",
+         "P |Fn| m μg Δt v2", "P = |Fn| μg (v2 - |Fn| μg Δt : m : 2)", "P F m Δt v2", "85", "",
+         "P |Fn| m μg v1 W", "P = |Fn| μg (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "P F m v1 W", "85", "",
+         "P |Fn| m μg v2 W", "P = |Fn| μg (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "P F m v2 W", "85", "",
+         "P |Fn| m μg Δv W", "P = |Fn| μg W : m : Δv", "P F m Δv W", "85", "",
+         "P |Fn| μg Δs Δt", "P = |Fn| μg Δs : Δt", "P F Δs Δt", "85", "",
+         "P |Fn| μg v1 v2", "P = |Fn| μg (v1 + v2) : 2", "P F v1 v2", "85", "",
+         "P |Fn| μg v1 Δv", "P = |Fn| μg (v1 + Δv : 2)", "P F v1 Δv", "85", "",
+         "P |Fn| μg v2 Δv", "P = |Fn| μg (v2 - Δv : 2)", "P F v2 Δv", "85", "",
+         "P |Fn| μg {v}", "P = |Fn| μg {v}", "P F {v}", "85", "",
+         "P |Fn| m μh Δs v1", "P = |Fn| μh (v1 ± √(v1 ^ 2 + 2 |Fn| μh Δs : m)) : 2", "P F m Δs v1", "88", "",
+         "P |Fn| m μh Δs v2", "P = |Fn| μh (v2 ± √(v2 ^ 2 - 2 |Fn| μh Δs : m)) : 2", "P F m Δs v2", "88", "",
+         "P |Fn| m μh Δs Δv", "P = (|Fn| μh) ^ 2 Δs : m : Δv", "P F m Δs Δv", "88", "",
+         "P |Fn| m μh Δt v1", "P = |Fn| μh (v1 + |Fn| μh Δt : m : 2)", "P F m Δt v1", "88", "",
+         "P |Fn| m μh Δt v2", "P = |Fn| μh (v2 - |Fn| μh Δt : m : 2)", "P F m Δt v2", "88", "",
+         "P |Fn| m μh v1 W", "P = |Fn| μh (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "P F m v1 W", "88", "",
+         "P |Fn| m μh v2 W", "P = |Fn| μh (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "P F m v2 W", "88", "",
+         "P |Fn| m μh Δv W", "P = |Fn| μh W : m : Δv", "P F m Δv W", "88", "",
+         "P |Fn| μh Δs Δt", "P = |Fn| μh Δs : Δt", "P F Δs Δt", "88", "",
+         "P |Fn| μh v1 v2", "P = |Fn| μh (v1 + v2) : 2", "P F v1 v2", "88", "",
+         "P |Fn| μh v1 Δv", "P = |Fn| μh (v1 + Δv : 2)", "P F v1 Δv", "88", "",
+         "P |Fn| μh v2 Δv", "P = |Fn| μh (v2 - Δv : 2)", "P F v2 Δv", "88", "",
+         "P |Fn| μh {v}", "P = |Fn| μh {v}", "P F {v}", "88", "",
+         "P |Fn| m μr Δs v1", "P = |Fn| μr (v1 ± √(v1 ^ 2 + 2 |Fn| μr Δs : m)) : 2", "P F m Δs v1", "91", "",
+         "P |Fn| m μr Δs v2", "P = |Fn| μr (v2 ± √(v2 ^ 2 - 2 |Fn| μr Δs : m)) : 2", "P F m Δs v2", "91", "",
+         "P |Fn| m μr Δs Δv", "P = (|Fn| μr) ^ 2 Δs : m : Δv", "P F m Δs Δv", "91", "",
+         "P |Fn| m μr Δt v1", "P = |Fn| μr (v1 + |Fn| μr Δt : m : 2)", "P F m Δt v1", "91", "",
+         "P |Fn| m μr Δt v2", "P = |Fn| μr (v2 - |Fn| μr Δt : m : 2)", "P F m Δt v2", "91", "",
+         "P |Fn| m μr v1 W", "P = |Fn| μr (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "P F m v1 W", "91", "",
+         "P |Fn| m μr v2 W", "P = |Fn| μr (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "P F m v2 W", "91", "",
+         "P |Fn| m μr Δv W", "P = |Fn| μr W : m : Δv", "P F m Δv W", "91", "",
+         "P |Fn| μr Δs Δt", "P = |Fn| μr Δs : Δt", "P F Δs Δt", "91", "",
+         "P |Fn| μr v1 v2", "P = |Fn| μr (v1 + v2) : 2", "P F v1 v2", "91", "",
+         "P |Fn| μr v1 Δv", "P = |Fn| μr (v1 + Δv : 2)", "P F v1 Δv", "91", "",
+         "P |Fn| μr v2 Δv", "P = |Fn| μr (v2 - Δv : 2)", "P F v2 Δv", "91", "",
+         "P |Fn| μr {v}", "P = |Fn| μr {v}", "P F {v}", "91", "",
+         "P k m Δs v1", "P = -k Δs (v1 ± √(v1 ^ 2 - 2 k Δs ^ 2 : m)) : 2", "P F k m v1", "57", "",
+         "P k m Δs v2", "P = -k Δs (v2 ± √(v2 ^ 2 + 2 k Δs ^ 2 : m)) : 2", "P F k m v2", "57", "",
+         "P k m Δs Δv", "P = k ^ 2 Δs ^ 3 : m : Δv", "P F m Δs Δv", "57", "",
+         "P k m Δt v1", "P = -(2 v1 : (Δt : m + 2 : k : Δt)) ^ 2 : k : Δt", "P k m v1 W", "44", "",
+         "P k m Δt v2", "P = -(2 v2 : (Δt : m - 2 : k : Δt)) ^ 2 : k : Δt", "P k m v2 W", "44", "",
+         "P k m Δt Δv", "P = -(m Δv) ^ 2 : k : Δt ^ 3", "P a k m Δt", "23", "",
+         "P k m v1 v2", "P = √(-k m (v2 - v1) (v1 + v2) ^ 3 : 8)", "P k m Δv {v}", "19", "",
+         "P k m v1 Δv", "P = √(-k m Δv (v1 + Δv : 2) ^ 3)", "P k m Δv {v}", "18", "",
+         "P k m v1 {v}", "P = √(-2 k m {v} ^ 3 ({v} - v1))", "P k m Δv {v}", "16", "",
+         "P k m v1 W", "P = √(-k W) (v1 ± √ (v1 ^ 2 + 2 W : m)) : 2)", "P F m v1 W", "75", "",
+         "P k m v2 Δv", "P = √(-k m Δv (v2 - Δv : 2) ^ 3)", "P k m Δv {v}", "15", "",
+         "P k m v2 {v}", "P = √(-2 k m {v} ^ 3 (v2 - {v}))", "P k m Δv {v}", "13", "",
+         "P k m v2 W", "P = √(-k W) (v2 ± √ (v2 ^ 2 - 2 W : m)) : 2)", "P F m v2 W", "75", "",
+         "P k m Δv {v}", "P = √(-k m Δv {v} ^ 3)", "P k {v} W", "61", "",
+         "P k m Δv W", "P = √(-k W) W : m : Δv", "P F k m Δv", "75", "",
+         "P k Δs Δt", "P = -k Δs ^ 2 : Δt", "P Δt W", "80", "",
+         "P k Δs v1 v2", "P = -k Δs (v1 + v2) : 2", "P k Δs {v}", "10", "",
+         "P k Δs v1 Δv", "P = -k Δs (v1 + Δv : 2)", "P k Δs {v}", "18", "",
+         "P k Δs v2 Δv", "P = -k Δs (v2 - Δv : 2)", "P k Δs {v}", "15", "",
+         "P k Δs {v}", "P = -k Δs {v}", "P k Δs Δt", "22", "",
+         "P k Δt v1 v2", "P = -k Δt (v1 + v2) ^ 2 : 4", "P k Δt {v}", "10", "",
+         "P k Δt v1 Δv", "P = -k Δt (v1 + Δv : 2) ^ 2", "P k Δt {v}", "18", "",
+         "P k Δt v2 Δv", "P = -k Δt (v2 - Δv : 2) ^ 2", "P k Δt {v}", "15", "",
+         "P k Δt {v}", "P = -k Δt {v} ^ 2", "P k Δs {v}", "21", "",
+         "P k v1 v2 W", "P = √(-k W) (v1 + v2) : 2", "P k {v} W", "10", "",
+         "P k v1 Δv W", "P = √(-k W) (v1 + Δv : 2)", "P k {v} W", "18", "",
+         "P k v2 Δv W", "P = √(-k W) (v2 - Δv : 2)", "P k {v} W", "15", "",
+         "P k {v} W", "P = √(-k W) {v}", "P F {v}", "75", "",
+         "P m Δs Δt v1", "P = 2 m Δs (Δs : Δt - v1) : Δt ^ 2", "P m Δt v1 {v}", "20", "",
+         "P m Δs Δt v2", "P = 2 m Δs (v2 - Δs : Δt) : Δt ^ 2", "P m Δt v2 {v}", "20", "",
+         "P m Δs Δt Δv", "P = m Δs Δv : Δt ^ 2", "P a m Δs Δt", "23", "",
+         "P m Δs v1 v2", "P = m (v2 ^ 2 - v1 ^ 2) (v1 + v2) : Δs : 4", "P m Δs Δv {v}", "19", "",
+         "P m Δs v1 Δv", "P = m Δv (v1 + Δv : 2) ^ 2 : Δs", "P m Δs Δv {v}", "18", "",
+         "P m Δs v1 {v}", "P = 2 m {v} ^ 2 ({v} - v1) : Δs", "P m Δs Δv {v}", "16", "",
+         "P m Δs v1 W", "P = W (v1 ± √(v1 ^ 2 + 2 W : m)) : Δs : 2", "P F m v1 W", "30", "",
+         "P m Δs v2 Δv", "P = m Δv (v2 - Δv : 2) ^ 2 : Δs", "P m Δs Δv {v}", "15", "",
+         "P m Δs v2 {v}", "P = 2 m {v} ^ 2 (v2 - {v}) : Δs", "P m Δs Δv {v}", "13", "",
+         "P m Δs v2 W", "P = W (v2 ± √(v2 ^ 2 - 2 W : m)) : Δs : 2", "P F m v2 W", "30", "",
+         "P m Δs Δv {v}", "P = m Δv {v} ^ 2 : Δs", "P m Δs Δt Δv", "22", "",
+         "P m Δs Δv W", "P = W ^ 2 : m : Δs : Δv", "P F m Δv W", "30", "",
+         "P m Δt v1 v2", "P = m (v2 ^ 2 - v1 ^ 2) : Δt : 2", "P m Δt Δv {v}", "19", "",
+         "P m Δt v1 Δv", "P = m (v1 + Δv : 2) Δv : Δt", "P m Δt Δv {v}", "18", "",
+         "P m Δt v1 {v}", "P = 2 m ({v} - v1) {v} : Δt", "P m Δt Δv {v}", "16", "",
+         "P m Δt v2 Δv", "P = m (v2 - Δv : 2) Δv : Δt", "P m Δt Δv {v}", "15", "",
+         "P m Δt v2 {v}", "P = 2 m (v2 - {v}) {v} : Δt", "P m Δt Δv {v}", "13", "",
+         "P m Δt Δv {v}", "P = m Δv {v} : Δt", "P m Δs Δt Δv", "21", "",
+         "P Δs v1 v2 W", "P = (v1 + v2) W : Δs : 2", "P Δs {v} W", "10", "",
+         "P Δs v1 Δv W", "P = (v1 + Δv : 2) W : Δs", "P Δs {v} W", "18", "",
+         "P Δs v2 Δv W", "P = (v2 - Δv : 2) W : Δs", "P Δs {v} W", "15", "",
+         "P Δs {v} W", "P = {v} W : Δs", "P Δt W", "22", "",
+         "P Δt W", "P = W : Δt", "", "42", ""} ' P => 6932
+      Case "p" : DՃA = New String() {
+         "p m Δs Δt", "p = m Δs : Δt", "", "51", "",
+         "p m v", "p = m v", "", "54", "",
+         "p px", "p = px", "", "0", "",
+         "p py", "p = py", "", "0", "",
+         "p pz", "p = pz", "", "0", "",
+         "p px θ", "p = px : cos(θ)", "", "0", "",
+         "p py θ", "p = py : sin(θ)", "", "0", "",
+         "p pz θ", "p = pz : cos(θ)", "", "0", "",
+         "p px θ ϕ", "p = px : cos(θ) : sin(ϕ)", "", "0", "",
+         "p pz θ ϕ", "p = pz : cos(θ) : cos(ϕ)", "", "0", "",
+         "p px py", "p = √(px ^ 2 + py ^ 2)", "", "0", "",
+         "p px pz", "p = √(px ^ 2 + pz ^ 2)", "", "0", "",
+         "p py pz", "p = √(py ^ 2 + pz ^ 2)", "", "0", "",
+         "p px py pz", "p = √(px ^ 2 + py ^ 2 + pz ^ 2)", "", "0", ""} ' p => 77
+      Case "V" : DՃA = New String() {
+         "V c n", "V = n : c", "", "47", "",
+         "V c M m", "V = m : c : M", "V c n", "50", ""} ' V => 2
+      Case "v" : DՃA = New String() {
+         "v m p", "v = p : m", "", "56", "",
+         "v Δs Δt", "v = Δs : Δt", "", "51", "",
+         "v vx", "v = vx", "", "0", "",
+         "v vy", "v = vy", "", "0", "",
+         "v vz", "v = vz", "", "0", "",
+         "v vx θ", "v = vx : cos(θ)", "", "0", "",
+         "v vy θ", "v = vy : sin(θ)", "", "0", "",
+         "v vz θ", "v = vz : cos(θ)", "", "0", "",
+         "v vx θ ϕ", "v = vx : cos(θ) : sin(ϕ)", "", "0", "",
+         "v vz θ ϕ", "v = vz : cos(θ) : cos(ϕ)", "", "0", "",
+         "v vx vy", "v = √(vx ^ 2 + vy ^ 2)", "", "0", "",
+         "v vx vz", "v = √(vx ^ 2 + vz ^ 2)", "", "0", "",
+         "v vy vz", "v = √(vy ^ 2 + vz ^ 2)", "", "0", "",
+         "v vx vy vz", "v = √(vx ^ 2 + vy ^ 2 + vz ^ 2)", "", "0", ""} ' v => 77
+      Case "W" : DՃA = New String() {
+         "W a F P v1", "W = 2 P (P : F - v1) : a", "W a F Δt v1", "43", "",
+         "W a F P v2", "W = 2 P (v2 - P : F) : a", "W a F Δt v2", "43", "",
+         "W a F Δt v1", "W = F Δt (v1 + a Δt : 2)", "W F Δt v1 Δv", "24", "",
+         "W a F Δt v2", "W = F Δt (v2 - a Δt : 2)", "W F Δt v2 Δv", "24", "",
+         "W a F v1 v2", "W = F (v2 ^ 2 - v1 ^ 2) : a : 2", "W a F Δv {v}", "19", "",
+         "W a F v1 Δv", "W = F Δv (v1 + Δv : 2) : a", "W a F Δv {v}", "18", "",
+         "W a F v1 {v}", "W = 2 F {v} ({v} - v1) : a", "W a F Δv {v}", "16", "",
+         "W a F v2 Δv", "W = F Δv (v2 - Δv : 2) : a", "W a F Δv {v}", "15", "",
+         "W a F v2 {v}", "W = 2 F {v} (v2 - {v}) : a", "W a F Δv {v}", "13", "",
+         "W a F Δv {v}", "W = F Δv {v} : a", "W F Δt {v}", "25", "",
+         "W a |Fn| μg P v1", "W = 2 P (P : |Fn| : μg - v1) : a", "W a F P v1", "85", "",
+         "W a |Fn| μg P v2", "W = 2 P (v2 - P : |Fn| : μg) : a", "W a F P v2", "85", "",
+         "W a |Fn| μg Δt v1", "W = |Fn| μg Δt (v1 + a Δt : 2)", "W a F Δt v1", "85", "",
+         "W a |Fn| μg Δt v2", "W = |Fn| μg Δt (v2 - a Δt : 2)", "W a F Δt v2", "85", "",
+         "W a |Fn| μg v1 v2", "W = |Fn| μg (v2 ^ 2 - v1 ^ 2) : a : 2", "W a F v1 v2", "85", "",
+         "W a |Fn| μg v1 Δv", "W = |Fn| μg (v1 + Δv : 2) Δv : a", "W a F v1 Δv", "85", "",
+         "W a |Fn| μg v1 {v}", "W = 2 |Fn| μg {v} ({v} - v1) : a", "W a F v1 {v}", "85", "",
+         "W a |Fn| μg v2 Δv", "W = |Fn| μg (v2 - Δv : 2) Δv : a", "W a F v2 Δv", "85", "",
+         "W a |Fn| μg v2 {v}", "W = 2 |Fn| μg {v} (v2 - {v}) : a", "W a F v2 {v}", "85", "",
+         "W a |Fn| μg Δv {v}", "W = |Fn| μg Δv {v} : a", "W a F Δv {v}", "85", "",
+         "W a |Fn| μh P v1", "W = 2 P (P : |Fn| : μh - v1) : a", "W a F P v1", "88", "",
+         "W a |Fn| μh P v2", "W = 2 P (v2 - P : |Fn| : μh) : a", "W a F P v2", "88", "",
+         "W a |Fn| μh Δt v1", "W = |Fn| μh Δt (v1 + a Δt : 2)", "W a F Δt v1", "88", "",
+         "W a |Fn| μh Δt v2", "W = |Fn| μh Δt (v2 - a Δt : 2)", "W a F Δt v2", "88", "",
+         "W a |Fn| μh v1 v2", "W = |Fn| μh (v2 ^ 2 - v1 ^ 2) : a : 2", "W a F v1 v2", "88", "",
+         "W a |Fn| μh v1 Δv", "W = |Fn| μh (v1 + Δv : 2) Δv : a", "W a F v1 Δv", "88", "",
+         "W a |Fn| μh v1 {v}", "W = 2 |Fn| μh {v} ({v} - v1) : a", "W a F v1 {v}", "88", "",
+         "W a |Fn| μh v2 Δv", "W = |Fn| μh (v2 - Δv : 2) Δv : a", "W a F v2 Δv", "88", "",
+         "W a |Fn| μh v2 {v}", "W = 2 |Fn| μh {v} (v2 - {v}) : a", "W a F v2 {v}", "88", "",
+         "W a |Fn| μh Δv {v}", "W = |Fn| μh Δv {v} : a", "W a F Δv {v}", "88", "",
+         "W a |Fn| μr P v1", "W = 2 P (P : |Fn| : μr - v1) : a", "W a F P v1", "91", "",
+         "W a |Fn| μr P v2", "W = 2 P (v2 - P : |Fn| : μr) : a", "W a F P v2", "91", "",
+         "W a |Fn| μr Δt v1", "W = |Fn| μr Δt (v1 + a Δt : 2)", "W a F Δt v1", "91", "",
+         "W a |Fn| μr Δt v2", "W = |Fn| μr Δt (v2 - a Δt : 2)", "W a F Δt v2", "91", "",
+         "W a |Fn| μr v1 v2", "W = |Fn| μr (v2 ^ 2 - v1 ^ 2) : a : 2", "W a F v1 v2", "91", "",
+         "W a |Fn| μr v1 Δv", "W = |Fn| μr (v1 + Δv : 2) Δv : a", "W a F v1 Δv", "91", "",
+         "W a |Fn| μr v1 {v}", "W = 2 |Fn| μr {v} ({v} - v1) : a", "W a F v1 {v}", "91", "",
+         "W a |Fn| μr v2 Δv", "W = |Fn| μr (v2 - Δv : 2) Δv : a", "W a F v2 Δv", "91", "",
+         "W a |Fn| μr v2 {v}", "W = 2 |Fn| μr {v} (v2 - {v}) : a", "W a F v2 {v}", "91", "",
+         "W a |Fn| μr Δv {v}", "W = |Fn| μr Δv {v} : a", "W a F Δv {v}", "91", "",
+         "W a k m", "W = -(a m) ^ 2 : k", "W F k", "26", "",
+         "W a k Δt v1", "W = -k (Δt (v1 + a Δt : 2)) ^ 2", "W k Δt v1 Δv", "24", "",
+         "W a k Δt v2", "W = -k (Δt (v2 - a Δt : 2)) ^ 2", "W k Δt v2 Δv", "24", "",
+         "W a k v1 v2", "W = -k ((v2 ^ 2 - v1 ^ 2) : a : 2) ^ 2", "W a k Δv {v}", "19", "",
+         "W a k v1 Δv", "W = -k (Δv (v1 + Δv : 2) : a) ^ 2", "W a k Δv {v}", "18", "",
+         "W a k v1 {v}", "W = -k (2 {v} ({v} - v1) : a) ^ 2", "W a k Δv {v}", "16", "",
+         "W a k v2 Δv", "W = -k (Δv (v2 - Δv : 2) : a) ^ 2", "W a k Δv {v}", "15", "",
+         "W a k v2 {v}", "W = -k (2 {v} (v2 - {v}) : a) ^ 2", "W a k Δv {v}", "13", "",
+         "W a k Δv {v}", "W = -k (Δv {v} : a) ^ 2", "W k Δt {v}", "25", "",
+         "W a m P v1", "W = 2 P (P : a : m - v1) : a", "W a F P v1", "26", "",
+         "W a m P v2", "W = 2 P (v2 - P : a : m) : a", "W a F P v2", "26", "",
+         "W a m Δs", "W = a m Δs", "W F Δs", "26", "",
+         "W a m Δt v1", "W = a m Δt (v1 + a Δt : 2)", "W a F Δt v1", "26", "",
+         "W a m Δt v2", "W = a m Δt (v2 - a Δt : 2)", "W a F Δt v2", "26", "",
+         "W a m Δt {v}", "W = a m Δt {v}", "W a m Δs", "21", "",
+         "W a P Δs v1", "W = P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a", "W a F P v1", "30", "",
+         "W a P Δs v2", "W = P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a", "W a F P v2", "30", "",
+         "W a P v1 {v}", "W = 2 P ({v} - v1) : a", "W a P Δv", "16", "",
+         "W a P v2 {v}", "W = 2 P (v2 - {v}) : a", "W a P Δv", "13", "",
+         "W a P Δv", "W = P Δv : a", "W P Δt", "25", "",
+         "W Ek1 Ek2", "W = Ek2 - Ek1", "W ΔEk", "32", "",
+         "W ΔEk", "W = ΔEk", "", "32", "",
+         "W Ep1 Ep2", "W = Ep1 - Ep2", "W ΔEp", "34", "",
+         "W ΔEp", "W = -ΔEp", "", "34", "",
+         "W F k", "W = -(F ^ 2) : k", "W F Δs", "78", "",
+         "W F m P v1", "W = 2 m P (P : F - v1) : F", "W a F P v1", "27", "",
+         "W F m P v2", "W = 2 m P (v2 - P : F) : F", "W a F P v2", "27", "",
+         "W F m P Δv", "W = m P Δv : F", "W a P Δv", "27", "",
+         "W F m Δt v1", "W = F Δt (v1 + F Δt : m : 2)", "W a F Δt v1", "27", "",
+         "W F m Δt v2", "W = F Δt (v2 - F Δt : m : 2)", "W a F Δt v2", "27", "",
+         "W F Δs", "W = F Δs", "", "29", "",
+         "W F Δt v1 v2", "W = F Δt (v1 + v2) : 2", "W F Δt {v}", "10", "",
+         "W F Δt v1 Δv", "W = F Δt (v1 + Δv : 2)", "W F Δt {v}", "18", "",
+         "W F Δt v2 Δv", "W = F Δt (v2 - Δv : 2)", "W F Δt {v}", "15", "",
+         "W F Δt {v}", "W = F Δt {v}", "W F Δs", "21", "",
+         "W |Fn| m μg P v1", "W = 2 m P (P : |Fn| : μg - v1) : |Fn| : μg", "W F m P v1", "85", "",
+         "W |Fn| m μg P v2", "W = 2 m P (v2 - P : |Fn| : μg) : |Fn| : μg", "W F m P v2", "85", "",
+         "W |Fn| m μg P Δv", "W = m P Δv : |Fn| : μg", "W F m P Δv", "85", "",
+         "W |Fn| m μg Δt v1", "W = |Fn| μg Δt (v1 + |Fn| μg Δt : m : 2)", "W F m Δt v1", "85", "",
+         "W |Fn| m μg Δt v2", "W = |Fn| μg Δt (v2 - |Fn| μg Δt : m : 2)", "W F m Δt v2", "85", "",
+         "W |Fn| m μh P v1", "W = 2 m P (P : |Fn| : μh - v1) : |Fn| : μh", "W F m P v1", "88", "",
+         "W |Fn| m μh P v2", "W = 2 m P (v2 - P : |Fn| : μh) : |Fn| : μh", "W F m P v2", "88", "",
+         "W |Fn| m μh P Δv", "W = m P Δv : |Fn| : μh", "W F m P Δv", "88", "",
+         "W |Fn| m μh Δt v1", "W = |Fn| μh Δt (v1 + |Fn| μh Δt : m : 2)", "W F m Δt v1", "88", "",
+         "W |Fn| m μh Δt v2", "W = |Fn| μh Δt (v2 - |Fn| μh Δt : m : 2)", "W F m Δt v2", "88", "",
+         "W |Fn| m μr P v1", "W = 2 m P (P : |Fn| : μr - v1) : |Fn| : μr", "W F m P v1", "91", "",
+         "W |Fn| m μr P v2", "W = 2 m P (v2 - P : |Fn| : μr) : |Fn| : μr", "W F m P v2", "91", "",
+         "W |Fn| m μr P Δv", "W = m P Δv : |Fn| : μr", "W F m P Δv", "91", "",
+         "W |Fn| m μr Δt v1", "W = |Fn| μr Δt (v1 + |Fn| μr Δt : m : 2)", "W F m Δt v1", "91", "",
+         "W |Fn| m μr Δt v2", "W = |Fn| μr Δt (v2 - |Fn| μr Δt : m : 2)", "W F m Δt v2", "91", "",
+         "W |Fn| μg Δs", "W = |Fn| μg Δs", "W F Δs", "85", "",
+         "W |Fn| μg Δt v1 v2", "W = |Fn| μg Δt (v1 + v2) : 2", "W F Δt v1 v2", "85", "",
+         "W |Fn| μg Δt v1 Δv", "W = |Fn| μg Δt (v1 + Δv : 2)", "W F Δt v1 Δv", "85", "",
+         "W |Fn| μg Δt v2 Δv", "W = |Fn| μg Δt (v2 - Δv : 2)", "W F Δt v2 Δv", "85", "",
+         "W |Fn| μg Δt {v}", "W = |Fn| μg Δt {v}", "W F Δt {v}", "85", "",
+         "W |Fn| μh Δs", "W = |Fn| μh Δs", "W F Δs", "88", "",
+         "W |Fn| μh Δt v1 v2", "W = |Fn| μh Δt (v1 + v2) : 2", "W F Δt v1 v2", "88", "",
+         "W |Fn| μh Δt v1 Δv", "W = |Fn| μh Δt (v1 + Δv : 2)", "W F Δt v1 Δv", "88", "",
+         "W |Fn| μh Δt v2 Δv", "W = |Fn| μh Δt (v2 - Δv : 2)", "W F Δt v2 Δv", "88", "",
+         "W |Fn| μh Δt {v}", "W = |Fn| μh Δt {v}", "W F Δt {v}", "88", "",
+         "W |Fn| μr Δs", "W = |Fn| μr Δs", "W F Δs", "91", "",
+         "W |Fn| μr Δt v1 v2", "W = |Fn| μr Δt (v1 + v2) : 2", "W F Δt v1 v2", "91", "",
+         "W |Fn| μr Δt v1 Δv", "W = |Fn| μr Δt (v1 + Δv : 2)", "W F Δt v1 Δv", "91", "",
+         "W |Fn| μr Δt v2 Δv", "W = |Fn| μr Δt (v2 - Δv : 2)", "W F Δt v2 Δv", "91", "",
+         "W |Fn| μr Δt {v}", "W = |Fn| μr Δt {v}", "W F Δt {v}", "91", "",
+         "W k m P Δv", "W = √(-(m P Δv) ^ 2 : k ' 3)", "W k m Δt Δv", "43", "",
+         "W k m Δt v1", "W = -k (2 v1 : (-k Δt : m - 2 : Δt)) ^ 2", "W k m Δt Δv", "70", "",
+         "W k m Δt v2", "W = -k (2 v2 : (k Δt : m - 2 : Δt)) ^ 2", "W k m Δt Δv", "74", "",
+         "W k m Δt Δv", "W = -(m Δv) ^ 2 : k : Δt ^ 2", "W a k m", "23", "",
+         "W k P v1 v2", "W = -4 P ^ 2 : k : (v1 + v2) ^ 2", "W k P {v}", "10", "",
+         "W k P v1 Δv", "W = -(P ^ 2) : k : (v1 + Δv : 2) ^ 2", "W k P {v}", "18", "",
+         "W k P v2 Δv", "W = -(P ^ 2) : k : (v2 - Δv : 2) ^ 2", "W k P {v}", "15", "",
+         "W k P {v}", "W = -(P ^ 2) : k : {v} ^ 2", "W F k", "61", "",
+         "W k Δs", "W = -k Δs ^ 2", "W F Δs", "75", "",
+         "W k Δt v1 v2", "W = -k (Δt (v1 + v2) : 2) ^ 2", "W k Δt {v}", "10", "",
+         "W k Δt v1 Δv", "W = -k (Δt (v1 + Δv : 2)) ^ 2", "W k Δt {v}", "18", "",
+         "W k Δt v2 Δv", "W = -k (Δt (v2 - Δv : 2)) ^ 2", "W k Δt {v}", "15", "",
+         "W k Δt {v}", "W = -k (Δt {v}) ^ 2", "W k Δs", "21", "",
+         "W m P Δs Δv", "W = √(m P Δs Δv)", "W m Δs Δt Δv", "43", "",
+         "W m Δs Δt v1", "W = 2 m Δs (Δs : Δt - v1) : Δt", "W m v1 {v}", "20", "",
+         "W m Δs Δt v2", "W = 2 m Δs (v2 - Δs : Δt) : Δt", "W m v2 {v}", "20", "",
+         "W m Δs Δt Δv", "W = m Δs Δv : Δt", "W a m Δs", "23", "",
+         "W m v1 v2", "W = m (v2 ^ 2 - v1 ^ 2) : 2", "W m Δv {v}", "19", "",
+         "W m v1 Δv", "W = m (v1 + Δv : 2) Δv", "W m Δv {v}", "18", "",
+         "W m v1 {v}", "W = 2 m ({v} - v1) {v}", "W m Δv {v}", "16", "",
+         "W m v2 Δv", "W = m (v2 - Δv : 2) Δv", "W m Δv {v}", "15", "",
+         "W m v2 {v}", "W = 2 m (v2 - {v}) {v}", "W m Δv {v}", "13", "",
+         "W m Δv {v}", "W = m Δv {v}", "W a m Δt {v}", "23", "",
+         "W P Δs v1 v2", "W = 2 P Δs : (v1 + v2)", "W P Δs {v}", "10", "",
+         "W P Δs v1 Δv", "W = P Δs : (v1 + Δv : 2)", "W P Δs {v}", "18", "",
+         "W P Δs v2 Δv", "W = P Δs : (v2 - Δv : 2)", "W P Δs {v}", "15", "",
+         "W P Δs {v}", "W = P Δs : {v}", "W P Δt", "22", "",
+         "W P Δt", "W = P Δt", "", "44", ""} ' W => 13534
+      Case "θ" : DՃA = New String() {
+         "θ a ax", "θ = acos(ax : a)", "", "0", "",
+         "θ a az", "θ = acos(az : a)", "", "0", "",
+         "θ a ay", "θ = asin(ay : a)", "", "0", "",
+         "θ ax ay", "θ = atan(ay : ax)", "", "0", "",
+         "θ ay az", "θ = atan(ay : az)", "", "0", "",
+         "θ a ax ϕ", "θ = acos(ax : a : sin(ϕ))", "", "0", "",
+         "θ a az ϕ", "θ = acos(az : a : cos(ϕ))", "", "0", "",
+         "θ ax ay ϕ", "θ = atan(ay sin(ϕ) : ax)", "", "0", "",
+         "θ ay az ϕ", "θ = atan(ay cos(ϕ) : az)", "", "0", "",
+         "θ F Fx", "θ = acos(Fx : F)", "", "0", "",
+         "θ F Fz", "θ = acos(Fz : F)", "", "0", "",
+         "θ F Fy", "θ = asin(Fy : F)", "", "0", "",
+         "θ Fx Fy", "θ = atan(Fy : Fx)", "", "0", "",
+         "θ Fy Fz", "θ = atan(Fy : Fz)", "", "0", "",
+         "θ F Fx ϕ", "θ = acos(Fx : F : sin(ϕ))", "", "0", "",
+         "θ F Fz ϕ", "θ = acos(Fz : F : cos(ϕ))", "", "0", "",
+         "θ Fx Fy ϕ", "θ = atan(Fy sin(ϕ) : Fx)", "", "0", "",
+         "θ Fy Fz ϕ", "θ = atan(Fy cos(ϕ) : Fz)", "", "0", "",
+         "θ Ft Ftx", "θ = acos(Ftx : Ft)", "", "0", "",
+         "θ Ft Ftz", "θ = acos(Ftz : Ft)", "", "0", "",
+         "θ Ft Fty", "θ = asin(Fty : Ft)", "", "0", "",
+         "θ Ftx Fty", "θ = atan(Fty : Ftx)", "", "0", "",
+         "θ Fty Ftz", "θ = atan(Fty : Ftz)", "", "0", "",
+         "θ Ft Ftx ϕ", "θ = acos(Ftx : Ft : sin(ϕ))", "", "0", "",
+         "θ Ft Ftz ϕ", "θ = acos(Ftz : Ft : cos(ϕ))", "", "0", "",
+         "θ Ftx Fty ϕ", "θ = atan(Fty sin(ϕ) : Ftx)", "", "0", "",
+         "θ Fty Ftz ϕ", "θ = atan(Fty cos(ϕ) : Ftz)", "", "0", "",
+         "θ p px", "θ = acos(px : p)", "", "0", "",
+         "θ p pz", "θ = acos(pz : p)", "", "0", "",
+         "θ p py", "θ = asin(py : p)", "", "0", "",
+         "θ px py", "θ = atan(py : px)", "", "0", "",
+         "θ py pz", "θ = atan(py : pz)", "", "0", "",
+         "θ p px ϕ", "θ = acos(px : p : sin(ϕ))", "", "0", "",
+         "θ p pz ϕ", "θ = acos(pz : p : cos(ϕ))", "", "0", "",
+         "θ px py ϕ", "θ = atan(py sin(ϕ) : px)", "", "0", "",
+         "θ py pz ϕ", "θ = atan(py cos(ϕ) : pz)", "", "0", "",
+         "θ Δs Δsx", "θ = acos(Δsx : Δs)", "", "0", "",
+         "θ Δs Δsz", "θ = acos(Δsz : Δs)", "", "0", "",
+         "θ Δs Δsy", "θ = asin(Δsy : Δs)", "", "0", "",
+         "θ Δsx Δsy", "θ = atan(Δsy : Δsx)", "", "0", "",
+         "θ Δsy Δsz", "θ = atan(Δsy : Δsz)", "", "0", "",
+         "θ Δs Δsx ϕ", "θ = acos(Δsx : Δs : sin(ϕ))", "", "0", "",
+         "θ Δs Δsz ϕ", "θ = acos(Δsz : Δs : cos(ϕ))", "", "0", "",
+         "θ Δsx Δsy ϕ", "θ = atan(Δsy sin(ϕ) : Δsx)", "", "0", "",
+         "θ Δsy Δsz ϕ", "θ = atan(Δsy cos(ϕ) : Δsz)", "", "0", "",
+         "θ Δv Δvx", "θ = acos(Δvx : Δv)", "", "0", "",
+         "θ Δv Δvz", "θ = acos(Δvz : Δv)", "", "0", "",
+         "θ Δv Δvy", "θ = asin(Δvy : Δv)", "", "0", "",
+         "θ Δvx Δvy", "θ = atan(Δvy : Δvx)", "", "0", "",
+         "θ Δvy Δvz", "θ = atan(Δvy : Δvz)", "", "0", "",
+         "θ Δv Δvx ϕ", "θ = acos(Δvx : Δv : sin(ϕ))", "", "0", "",
+         "θ Δv Δvz ϕ", "θ = acos(Δvz : Δv : cos(ϕ))", "", "0", "",
+         "θ Δvx Δvy ϕ", "θ = atan(Δvy sin(ϕ) : Δvx)", "", "0", "",
+         "θ Δvy Δvz ϕ", "θ = atan(Δvy cos(ϕ) : Δvz)", "", "0", "",
+         "θ {v} {vx}", "θ = acos({vx} : {v})", "", "0", "",
+         "θ {v} {vz}", "θ = acos({vz} : {v})", "", "0", "",
+         "θ {v} {vy}", "θ = asin({vy} : {v})", "", "0", "",
+         "θ {vx} {vy}", "θ = atan({vy} : {vx})", "", "0", "",
+         "θ {vy} {vz}", "θ = atan({vy} : {vz})", "", "0", "",
+         "θ {v} {vx} ϕ", "θ = acos({vx} : {v} : sin(ϕ))", "", "0", "",
+         "θ {v} {vz} ϕ", "θ = acos({vz} : {v} : cos(ϕ))", "", "0", "",
+         "θ {vx} {vy} ϕ", "θ = atan({vy} sin(ϕ) : {vx})", "", "0", "",
+         "θ {vy} {vz} ϕ", "θ = atan({vy} cos(ϕ) : {vz})", "", "0", ""} ' θ => 63
+      Case "ϕ" : DՃA = New String() {
+         "ϕ ay az θ", "ϕ = acos(az tan(θ) : ay)", "", "0", "",
+         "ϕ a az θ", "ϕ = acos(az : a : cos(θ))", "", "0", "",
+         "ϕ a ax θ", "ϕ = asin(ax : a : cos(θ))", "", "0", "",
+         "ϕ ax ay θ", "ϕ = asin(ax tan(θ) : ay)", "", "0", "",
+         "ϕ ax az", "ϕ = atan(ax : az)", "", "0", "",
+         "ϕ F Fx θ", "ϕ = asin(Fx : F : cos(θ))", "", "0", "",
+         "ϕ F Fz θ", "ϕ = acos(Fz : F : cos(θ))", "", "0", "",
+         "ϕ Fx Fy θ", "ϕ = asin(Fx tan(θ) : Fy)", "", "0", "",
+         "ϕ Fx Fz", "ϕ = atan(Fx : Fz)", "", "0", "",
+         "ϕ Fy Fz θ", "ϕ = acos(Fz tan(θ) : Fy)", "", "0", "",
+         "ϕ Ft Ftx θ", "ϕ = asin(Ftx : Ft : cos(θ))", "", "0", "",
+         "ϕ Ft Ftz θ", "ϕ = acos(Ftz : Ft : cos(θ))", "", "0", "",
+         "ϕ Ftx Fty θ", "ϕ = asin(Ftx tan(θ) : Fty)", "", "0", "",
+         "ϕ Ftx Ftz", "ϕ = atan(Ftx : Ftz)", "", "0", "",
+         "ϕ Fty Ftz θ", "ϕ = acos(Ftz tan(θ) : Fty)", "", "0", "",
+         "ϕ py pz θ", "ϕ = acos(pz tan(θ) : py)", "", "0", "",
+         "ϕ p pz θ", "ϕ = acos(pz : p : cos(θ))", "", "0", "",
+         "ϕ p px θ", "ϕ = asin(px : p : cos(θ))", "", "0", "",
+         "ϕ px py θ", "ϕ = asin(px tan(θ) : py)", "", "0", "",
+         "ϕ px pz", "ϕ = atan(px : pz)", "", "0", "",
+         "ϕ Δsy Δsz θ", "ϕ = acos(Δsz tan(θ) : Δsy)", "", "0", "",
+         "ϕ Δs Δsz θ", "ϕ = acos(Δsz : Δs : cos(θ))", "", "0", "",
+         "ϕ Δs Δsx θ", "ϕ = asin(Δsx : Δs : cos(θ))", "", "0", "",
+         "ϕ Δsx Δsy θ", "ϕ = asin(Δsx tan(θ) : Δsy)", "", "0", "",
+         "ϕ Δsx Δsz", "ϕ = atan(Δsx : Δsz)", "", "0", "",
+         "ϕ Δvy Δvz θ", "ϕ = acos(Δvz tan(θ) : Δvy)", "", "0", "",
+         "ϕ Δv Δvz θ", "ϕ = acos(Δvz : Δv : cos(θ))", "", "0", "",
+         "ϕ Δv Δvx θ", "ϕ = asin(Δvx : Δv : cos(θ))", "", "0", "",
+         "ϕ Δvx Δvy θ", "ϕ = asin(Δvx tan(θ) : Δvy)", "", "0", "",
+         "ϕ Δvx Δvz", "ϕ = atan(Δvx : Δvz)", "", "0", "",
+         "ϕ {vy} {vz} θ", "ϕ = acos({vz} tan(θ) : {vy})", "", "0", "",
+         "ϕ {v} {vz} θ", "ϕ = acos({vz} : {v} : cos(θ))", "", "0", "",
+         "ϕ {v} {vx} θ", "ϕ = asin({vx} : {v} : cos(θ))", "", "0", "",
+         "ϕ {vx} {vy} θ", "ϕ = asin({vx} tan(θ) : {vy})", "", "0", "",
+         "ϕ {vx} {vz}", "ϕ = atan({vx} : {vz})", "", "0", ""} ' ϕ => 35
+      Case "ax" : DՃA = New String() {
+         "ax a", "ax = a", "", "0", "",
+         "ax a θ", "ax = a cos(θ)", "", "0", "",
+         "ax ay θ", "ax = ay : tan(θ)", "", "0", "",
+         "ax az ϕ", "ax = az tan(ϕ)", "", "0", "",
+         "ax a ay", "ax = √(a ^ 2 - ay ^ 2)", "", "0", "",
+         "ax a az", "ax = √(a ^ 2 - az ^ 2)", "", "0", "",
+         "ax a θ ϕ", "ax = a cos(θ) sin(ϕ)", "", "0", "",
+         "ax ay θ ϕ", "ax = ay sin(ϕ) : tan(θ)", "", "0", "",
+         "ax a ay az", "ax = √(a ^ 2 - ay ^ 2 - az ^ 2)", "", "0", ""} ' ax => 9
+      Case "ay" : DՃA = New String() {
+         "ay a", "ay = a", "", "0", "",
+         "ay a θ", "ay = a sin(θ)", "", "0", "",
+         "ay ax θ", "ay = ax tan(θ)", "", "0", "",
+         "ay az θ", "ay = az tan(θ)", "", "0", "",
+         "ay a ax", "ay = √(a ^ 2 - ax ^ 2)", "", "0", "",
+         "ay a az", "ay = √(a ^ 2 - az ^ 2)", "", "0", "",
+         "ay ax θ ϕ", "ay = ax tan(θ) : sin(ϕ)", "", "0", "",
+         "ay az θ ϕ", "ay = az tan(θ) : cos(ϕ)", "", "0", "",
+         "ay a ax az", "ay = √(a ^ 2 - ax ^ 2 - az ^ 2)", "", "0", ""} ' ay => 9
+      Case "az" : DՃA = New String() {
+         "az a", "az = a", "", "0", "",
+         "az a θ", "az = a cos(θ)", "", "0", "",
+         "az ax ϕ", "az = ax : tan(ϕ)", "", "0", "",
+         "az ay θ", "az = ay : tan(θ)", "", "0", "",
+         "az a ax", "az = √(a ^ 2 - ax ^ 2)", "", "0", "",
+         "az a ay", "az = √(a ^ 2 - ay ^ 2)", "", "0", "",
+         "az ay θ ϕ", "az = ay cos(ϕ) : tan(θ)", "", "0", "",
+         "az a θ ϕ", "az = a cos(θ) cos(ϕ)", "", "0", "",
+         "az a ax ay", "az = √(a ^ 2 - ax ^ 2 - ay ^ 2)", "", "0", ""} ' az => 9
+      Case "Ff" : DՃA = New String() {
+         "Ff F", "Ff = F", "", "0", "",
+         "Ff F |Fn| Ft μg", "Ff = F - Ft - μg |Fn|", "", "0", "",
+         "Ff F |Fn| Ft μh", "Ff = F - Ft - μh |Fn|", "", "0", "",
+         "Ff F |Fn| Ft μr", "Ff = F - Ft - μr |Fn|", "", "0", "",
+         "Ff F |Fn| μg", "Ff = F - μg |Fn|", "", "0", "",
+         "Ff F |Fn| μh", "Ff = F - μh |Fn|", "", "0", "",
+         "Ff F |Fn| μr", "Ff = F - μr |Fn|", "", "0", "",
+         "Ff F Frg", "Ff = F - Frg", "", "0", "",
+         "Ff F Frg Ft", "Ff = F - Ft - Frg", "", "0", "",
+         "Ff F Frh", "Ff = F - Frh", "", "0", "",
+         "Ff F Frh Ft", "Ff = F - Ft - Frh", "", "0", "",
+         "Ff F Frr", "Ff = F - Frr", "", "0", "",
+         "Ff F Frr Ft", "Ff = F - Ft - Frr", "", "0", "",
+         "Ff F Ft", "Ff = F - Ft", "", "0", "",
+         "Ff k Δs", "Ff = -k Δs", "", "0", ""} ' Ff => 196
+      Case "Ft" : DՃA = New String() {
+         "Ft F Ff", "Ft = F - Ff", "", "0", "",
+         "Ft F Ff |Fn| μg", "Ft = F - Ff - μg |Fn|", "", "0", "",
+         "Ft F Ff |Fn| μh", "Ft = F - Ff - μh |Fn|", "", "0", "",
+         "Ft F Ff |Fn| μr", "Ft = F - Ff - μr |Fn|", "", "0", "",
+         "Ft F Ff Frg", "Ft = F - Ff - Frg", "", "0", "",
+         "Ft F Ff Frh", "Ft = F - Ff - Frh", "", "0", "",
+         "Ft F Ff Frr", "Ft = F - Ff - Frr", "", "0", "",
+         "Ft F |Fn| k μg Δs", "Ft = F + k Δs - μg |Fn|", "", "0", "",
+         "Ft F |Fn| k μh Δs", "Ft = F + k Δs - μh |Fn|", "", "0", "",
+         "Ft F |Fn| k μr Δs", "Ft = F + k Δs - μr |Fn|", "", "0", "",
+         "Ft F |Fn| μg", "Ft = F - μg |Fn|", "", "0", "",
+         "Ft F |Fn| μh", "Ft = F - μh |Fn|", "", "0", "",
+         "Ft F |Fn| μr", "Ft = F - μr |Fn|", "", "0", "",
+         "Ft F Frg", "Ft = F - Frg", "", "0", "",
+         "Ft F Frg k Δs", "Ft = F + k Δs - Frg", "", "0", "",
+         "Ft F Frh", "Ft = F - Frh", "", "0", "",
+         "Ft F Frh k Δs", "Ft = F + k Δs - Frh", "", "0", "",
+         "Ft F Frr", "Ft = F - Frr", "", "0", "",
+         "Ft F Frr k Δs", "Ft = F + k Δs - Frr", "", "0", "",
+         "Ft F k Δs", "Ft = F + k Δs", "", "0", ""} ' Ft => 351
+      Case "Fx" : DՃA = New String() {
+         "Fx F", "Fx = F", "", "0", "",
+         "Fx F θ", "Fx = F cos(θ)", "", "0", "",
+         "Fx Fy θ", "Fx = Fy : tan(θ)", "", "0", "",
+         "Fx Fz ϕ", "Fx = Fz tan(ϕ)", "", "0", "",
+         "Fx F Fy", "Fx = √(F ^ 2 - Fy ^ 2)", "", "0", "",
+         "Fx F Fz", "Fx = √(F ^ 2 - Fz ^ 2)", "", "0", "",
+         "Fx F θ ϕ", "Fx = F cos(θ) sin(ϕ)", "", "0", "",
+         "Fx Fy θ ϕ", "Fx = Fy sin(ϕ) : tan(θ)", "", "0", "",
+         "Fx F Fy Fz", "Fx = √(F ^ 2 - Fy ^ 2 - Fz ^ 2)", "", "0", ""} ' Fx => 9
+      Case "Fy" : DՃA = New String() {
+         "Fy F", "Fy = F", "", "0", "",
+         "Fy F θ", "Fy = F sin(θ)", "", "0", "",
+         "Fy Fx θ", "Fy = Fx tan(θ)", "", "0", "",
+         "Fy Fz θ", "Fy = Fz tan(θ)", "", "0", "",
+         "Fy F Fx", "Fy = √(F ^ 2 - Fx ^ 2)", "", "0", "",
+         "Fy F Fz", "Fy = √(F ^ 2 - Fz ^ 2)", "", "0", "",
+         "Fy Fx θ ϕ", "Fy = Fx tan(θ) : sin(ϕ)", "", "0", "",
+         "Fy Fz θ ϕ", "Fy = Fz tan(θ) : cos(ϕ)", "", "0", "",
+         "Fy F Fx Fz", "Fy = √(F ^ 2 - Fx ^ 2 - Fz ^ 2)", "", "0", ""} ' Fy => 9
+      Case "Fz" : DՃA = New String() {
+         "Fz F", "Fz = F", "", "0", "",
+         "Fz F θ", "Fz = F cos(θ)", "", "0", "",
+         "Fz Fx ϕ", "Fz = Fx : tan(ϕ)", "", "0", "",
+         "Fz Fy θ", "Fz = Fy : tan(θ)", "", "0", "",
+         "Fz F Fx", "Fz = √(F ^ 2 - Fx ^ 2)", "", "0", "",
+         "Fz F Fy", "Fz = √(F ^ 2 - Fy ^ 2)", "", "0", "",
+         "Fz Fy θ ϕ", "Fz = Fy cos(ϕ) : tan(θ)", "", "0", "",
+         "Fz F θ ϕ", "Fz = F cos(θ) cos(ϕ)", "", "0", "",
+         "Fz F Fx Fy", "Fz = √(F ^ 2 - Fx ^ 2 - Fy ^ 2)", "", "0", ""} ' Fz => 9
+      Case "μg" : DՃA = New String() {
+         "μg a |Fn| m", "μg = a m : |Fn|", "μg F |Fn|", "26", "",
+         "μg a |Fn| P Δs v1", "μg = P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a : |Fn| : Δs", "μg a |Fn| P v1 W", "94", "",
+         "μg a |Fn| P Δs v2", "μg = P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a : |Fn| : Δs", "μg a |Fn| P v2 W", "94", "",
+         "μg a |Fn| P Δs Δv", "μg = P Δv : a : |Fn| : Δs", "μg |Fn| P Δs Δt", "25", "",
+         "μg a |Fn| P Δt v1", "μg = P : |Fn| : (v1 + a Δt : 2)", "μg |Fn| P v1 Δv", "24", "",
+         "μg a |Fn| P Δt v2", "μg = P : |Fn| : (v2 - a Δt : 2)", "μg |Fn| P v2 Δv", "24", "",
+         "μg a |Fn| P v1 W", "μg = P : |Fn| : (v1 + a W : 2 : P)", "μg a |Fn| P Δt v1", "43", "",
+         "μg a |Fn| P v2 W", "μg = P : |Fn| : (v2 - a W : 2 : P)", "μg a |Fn| P Δt v2", "43", "",
+         "μg a |Fn| Δt v1 W", "μg = W : |Fn| : Δt : (v1 + a Δt : 2)", "μg |Fn| Δt v1 Δv W", "24", "",
+         "μg a |Fn| Δt v2 W", "μg = W : |Fn| : Δt : (v2 - a Δt : 2)", "μg |Fn| Δt v2 Δv W", "24", "",
+         "μg a |Fn| v1 v2 W", "μg = 2 a W : |Fn| : (v2 ^ 2 - v1 ^ 2)", "μg a |Fn| Δv {v} W", "19", "",
+         "μg a |Fn| v1 Δv W", "μg = a W : |Fn| : Δv : (v1 + Δv : 2)", "μg a |Fn| Δv {v} W", "18", "",
+         "μg a |Fn| v1 {v} W", "μg = a W : |Fn| : {v} : ({v} - v1) : 2", "μg a |Fn| Δv {v} W", "16", "",
+         "μg a |Fn| v2 Δv W", "μg = a W : |Fn| : Δv : (v2 - Δv : 2)", "μg a |Fn| Δv {v} W", "15", "",
+         "μg a |Fn| v2 {v} W", "μg = a W : |Fn| : {v} : (v2 - {v}) : 2", "μg a |Fn| Δv {v} W", "13", "",
+         "μg a |Fn| Δv {v} W", "μg = a W : |Fn| : Δv : {v}", "μg |Fn| Δt {v} W", "25", "",
+         "μg F Ff |Fn|", "μg = (F - Ff) : |Fn|", "", "0", "",
+         "μg F Ff |Fn| Ft", "μg = (F - Ft - Ff) : |Fn|", "", "0", "",
+         "μg F |Fn|", "μg = F : |Fn|", "", "87", "",
+         "μg F |Fn| Ft", "μg = (F - Ft) : |Fn|", "", "0", "",
+         "μg F |Fn| Ft k Δs", "μg = (F + k Δs - Ft) : |Fn|", "", "0", "",
+         "μg F |Fn| k Δs", "μg = (F + k Δs) : |Fn|", "", "0", "",
+         "μg |Fn| Frg", "μg = Frg : |Fn|", "", "0", "",
+         "μg |Fn| m P Δs Δv", "μg = √(P m Δv : Δs) : |Fn|", "μg |Fn| m P Δv W", "94", "",
+         "μg |Fn| m P Δt v1", "μg = m (-v1 ± √(v1 ^ 2 + 2 P Δt : m)) : |Fn| : Δt", "μg |Fn| m Δt v1 W", "44", "",
+         "μg |Fn| m P Δt v2", "μg = m (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : |Fn| : Δt", "μg |Fn| m Δt v2 W", "44", "",
+         "μg |Fn| m P v1 W", "μg = m P (-v1 ± √(v1 ^ 2 + 2 W : m)) : |Fn| : W", "μg |Fn| m Δt v1 W", "43", "",
+         "μg |Fn| m P v2 W", "μg = m P (v2 ± √(v2 ^ 2 - 2 W : m) : |Fn| : W", "μg |Fn| m Δt v2 W", "43", "",
+         "μg |Fn| m P Δv W", "μg = m P Δv : |Fn| : W", "μg |Fn| m Δt Δv", "43", "",
+         "μg |Fn| m Δs Δt v1", "μg = 2 m (Δs : Δt - v1) : |Fn| : Δt", "μg |Fn| m Δt v1 {v}", "20", "",
+         "μg |Fn| m Δs Δt v2", "μg = 2 m (v2 - Δs : Δt) : |Fn| : Δt", "μg |Fn| m Δt v2 {v}", "20", "",
+         "μg |Fn| m Δs v1 v2", "μg = m (v2 ^ 2 - v1 ^ 2) : |Fn| : Δs : 2", "μg |Fn| m Δs Δv {v}", "19", "",
+         "μg |Fn| m Δs v1 Δv", "μg = m Δv (v1 + Δv : 2) : |Fn| : Δs", "μg |Fn| m Δs Δv {v}", "18", "",
+         "μg |Fn| m Δs v1 {v}", "μg = 2 m {v} ({v} - v1) : |Fn| : Δs", "μg |Fn| m Δs Δv {v}", "16", "",
+         "μg |Fn| m Δs v2 Δv", "μg = m Δv (v2 - Δv : 2) : |Fn| : Δs", "μg |Fn| m Δs Δv {v}", "15", "",
+         "μg |Fn| m Δs v2 {v}", "μg = 2 m {v} (v2 - {v}) : |Fn| : Δs", "μg |Fn| m Δs Δv {v}", "13", "",
+         "μg |Fn| m Δs Δv {v}", "μg = m Δv {v} : |Fn| : Δs", "μg |Fn| m Δt Δv", "22", "",
+         "μg |Fn| m Δt v1 {v}", "μg = 2 m ({v} - v1) : |Fn| : Δt", "μg |Fn| m Δt Δv", "16", "",
+         "μg |Fn| m Δt v1 W", "μg = m (-v1 ± √(v1 ^ 2 + 2 W : m) : |Fn| : Δt", "μg |Fn| m Δt Δv", "70", "",
+         "μg |Fn| m Δt v2 {v}", "μg = 2 m (v2 - {v}) : |Fn| : Δt", "μg |Fn| m Δt Δv", "13", "",
+         "μg |Fn| m Δt v2 W", "μg = m (v2 ± √(v2 ^ 2 - 2 W : m) : |Fn| : Δt", "μg |Fn| m Δt Δv", "74", "",
+         "μg |Fn| m Δt Δv", "μg = m Δv : |Fn| : Δt", "μg a |Fn| m", "23", "",
+         "μg |Fn| P Δs Δt", "μg = P Δt : |Fn| : Δs", "μg |Fn| Δs W", "44", "",
+         "μg |Fn| P v1 v2", "μg = 2 P : |Fn| : (v1 + v2)", "μg |Fn| P {v}", "10", "",
+         "μg |Fn| P v1 Δv", "μg = P : |Fn| : (v1 + Δv : 2)", "μg |Fn| P {v}", "18", "",
+         "μg |Fn| P v2 Δv", "μg = P : |Fn| : (v2 - Δv : 2)", "μg |Fn| P {v}", "15", "",
+         "μg |Fn| P {v}", "μg = P : |Fn| : {v}", "μg |Fn| P Δs Δt", "21", "",
+         "μg |Fn| Δs W", "μg = W : |Fn| : Δs", "", "96", "",
+         "μg |Fn| Δt v1 v2 W", "μg = 2 W : |Fn| : Δt : (v1 + v2)", "μg |Fn| Δt {v} W", "10", "",
+         "μg |Fn| Δt v1 Δv W", "μg = W : |Fn| : Δt : (v1 + Δv : 2)", "μg |Fn| Δt {v} W", "18", "",
+         "μg |Fn| Δt v2 Δv W", "μg = W : |Fn| : Δt : (v2 - Δv : 2)", "μg |Fn| Δt {v} W", "15", "",
+         "μg |Fn| Δt {v} W", "μg = W : |Fn| : Δt : {v}", "μg |Fn| Δs W", "21", ""} ' μg => 2718
+      Case "μh" : DՃA = New String() {
+         "μh a |Fn| m", "μh = a m : |Fn|", "μh F |Fn|", "26", "",
+         "μh a |Fn| P Δs v1", "μh = P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a : |Fn| : Δs", "μh a |Fn| P v1 W", "98", "",
+         "μh a |Fn| P Δs v2", "μh = P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a : |Fn| : Δs", "μh a |Fn| P v2 W", "98", "",
+         "μh a |Fn| P Δs Δv", "μh = P Δv : a : |Fn| : Δs", "μh |Fn| P Δs Δt", "25", "",
+         "μh a |Fn| P Δt v1", "μh = P : |Fn| : (v1 + a Δt : 2)", "μh |Fn| P v1 Δv", "24", "",
+         "μh a |Fn| P Δt v2", "μh = P : |Fn| : (v2 - a Δt : 2)", "μh |Fn| P v2 Δv", "24", "",
+         "μh a |Fn| P v1 W", "μh = P : |Fn| : (v1 + a W : 2 : P)", "μh a |Fn| P Δt v1", "43", "",
+         "μh a |Fn| P v2 W", "μh = P : |Fn| : (v2 - a W : 2 : P)", "μh a |Fn| P Δt v2", "43", "",
+         "μh a |Fn| Δt v1 W", "μh = W : |Fn| : Δt : (v1 + a Δt : 2)", "μh |Fn| Δt v1 Δv W", "24", "",
+         "μh a |Fn| Δt v2 W", "μh = W : |Fn| : Δt : (v2 - a Δt : 2)", "μh |Fn| Δt v2 Δv W", "24", "",
+         "μh a |Fn| v1 v2 W", "μh = 2 a W : |Fn| : (v2 ^ 2 - v1 ^ 2)", "μh a |Fn| Δv {v} W", "19", "",
+         "μh a |Fn| v1 Δv W", "μh = a W : |Fn| : Δv : (v1 + Δv : 2)", "μh a |Fn| Δv {v} W", "18", "",
+         "μh a |Fn| v1 {v} W", "μh = a W : |Fn| : {v} : ({v} - v1) : 2", "μh a |Fn| Δv {v} W", "16", "",
+         "μh a |Fn| v2 Δv W", "μh = a W : |Fn| : Δv : (v2 - Δv : 2)", "μh a |Fn| Δv {v} W", "15", "",
+         "μh a |Fn| v2 {v} W", "μh = a W : |Fn| : {v} : (v2 - {v}) : 2", "μh a |Fn| Δv {v} W", "13", "",
+         "μh a |Fn| Δv {v} W", "μh = a W : |Fn| : Δv : {v}", "μh |Fn| Δt {v} W", "25", "",
+         "μh F Ff |Fn|", "μh = (F - Ff) : |Fn|", "", "0", "",
+         "μh F Ff |Fn| Ft", "μh = (F - Ft - Ff) : |Fn|", "", "0", "",
+         "μh F |Fn|", "μh = F : |Fn|", "", "90", "",
+         "μh F |Fn| Ft", "μh = (F - Ft) : |Fn|", "", "0", "",
+         "μh F |Fn| Ft k Δs", "μh = (F + k Δs - Ft) : |Fn|", "", "0", "",
+         "μh F |Fn| k Δs", "μh = (F + k Δs) : |Fn|", "", "0", "",
+         "μh |Fn| Frh", "μh = Frh : |Fn|", "", "0", "",
+         "μh |Fn| m P Δs Δv", "μh = √(P m Δv : Δs) : |Fn|", "μh |Fn| m P Δv W", "98", "",
+         "μh |Fn| m P Δt v1", "μh = m (-v1 ± √(v1 ^ 2 + 2 P Δt : m)) : |Fn| : Δt", "μh |Fn| m Δt v1 W", "44", "",
+         "μh |Fn| m P Δt v2", "μh = m (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : |Fn| : Δt", "μh |Fn| m Δt v2 W", "44", "",
+         "μh |Fn| m P v1 W", "μh = m P (-v1 ± √(v1 ^ 2 + 2 W : m)) : |Fn| : W", "μh |Fn| m Δt v1 W", "43", "",
+         "μh |Fn| m P v2 W", "μh = m P (v2 ± √(v2 ^ 2 - 2 W : m) : |Fn| : W", "μh |Fn| m Δt v2 W", "43", "",
+         "μh |Fn| m P Δv W", "μh = m P Δv : |Fn| : W", "μh |Fn| m Δt Δv", "43", "",
+         "μh |Fn| m Δs Δt v1", "μh = 2 m (Δs : Δt - v1) : |Fn| : Δt", "μh |Fn| m Δt v1 {v}", "20", "",
+         "μh |Fn| m Δs Δt v2", "μh = 2 m (v2 - Δs : Δt) : |Fn| : Δt", "μh |Fn| m Δt v2 {v}", "20", "",
+         "μh |Fn| m Δs v1 v2", "μh = m (v2 ^ 2 - v1 ^ 2) : |Fn| : Δs : 2", "μh |Fn| m Δs Δv {v}", "19", "",
+         "μh |Fn| m Δs v1 Δv", "μh = m Δv (v1 + Δv : 2) : |Fn| : Δs", "μh |Fn| m Δs Δv {v}", "18", "",
+         "μh |Fn| m Δs v1 {v}", "μh = 2 m {v} ({v} - v1) : |Fn| : Δs", "μh |Fn| m Δs Δv {v}", "16", "",
+         "μh |Fn| m Δs v2 Δv", "μh = m Δv (v2 - Δv : 2) : |Fn| : Δs", "μh |Fn| m Δs Δv {v}", "15", "",
+         "μh |Fn| m Δs v2 {v}", "μh = 2 m {v} (v2 - {v}) : |Fn| : Δs", "μh |Fn| m Δs Δv {v}", "13", "",
+         "μh |Fn| m Δs Δv {v}", "μh = m Δv {v} : |Fn| : Δs", "μh |Fn| m Δt Δv", "22", "",
+         "μh |Fn| m Δt v1 {v}", "μh = 2 m ({v} - v1) : |Fn| : Δt", "μh |Fn| m Δt Δv", "16", "",
+         "μh |Fn| m Δt v1 W", "μh = m (-v1 ± √(v1 ^ 2 + 2 W : m) : |Fn| : Δt", "μh |Fn| m Δt Δv", "70", "",
+         "μh |Fn| m Δt v2 {v}", "μh = 2 m (v2 - {v}) : |Fn| : Δt", "μh |Fn| m Δt Δv", "13", "",
+         "μh |Fn| m Δt v2 W", "μh = m (v2 ± √(v2 ^ 2 - 2 W : m) : |Fn| : Δt", "μh |Fn| m Δt Δv", "74", "",
+         "μh |Fn| m Δt Δv", "μh = m Δv : |Fn| : Δt", "μh a |Fn| m", "23", "",
+         "μh |Fn| P Δs Δt", "μh = P Δt : |Fn| : Δs", "μh |Fn| Δs W", "44", "",
+         "μh |Fn| P v1 v2", "μh = 2 P : |Fn| : (v1 + v2)", "μh |Fn| P {v}", "10", "",
+         "μh |Fn| P v1 Δv", "μh = P : |Fn| : (v1 + Δv : 2)", "μh |Fn| P {v}", "18", "",
+         "μh |Fn| P v2 Δv", "μh = P : |Fn| : (v2 - Δv : 2)", "μh |Fn| P {v}", "15", "",
+         "μh |Fn| P {v}", "μh = P : |Fn| : {v}", "μh |Fn| P Δs Δt", "10", "",
+         "μh |Fn| Δs W", "μh = W : |Fn| : Δs", "", "100", "",
+         "μh |Fn| Δt v1 v2 W", "μh = 2 W : |Fn| : Δt : (v1 + v2)", "μh |Fn| Δt {v} W", "10", "",
+         "μh |Fn| Δt v1 Δv W", "μh = W : |Fn| : Δt : (v1 + Δv : 2)", "μh |Fn| Δt {v} W", "18", "",
+         "μh |Fn| Δt v2 Δv W", "μh = W : |Fn| : Δt : (v2 - Δv : 2)", "μh |Fn| Δt {v} W", "15", "",
+         "μh |Fn| Δt {v} W", "μh = W : |Fn| : Δt : {v}", "μh |Fn| Δs W", "21", ""} ' μh => 2718
+      Case "μr" : DՃA = New String() {
+         "μr a |Fn| m", "μr = a m : |Fn|", "μr F |Fn|", "26", "",
+         "μr a |Fn| P Δs v1", "μr = P (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a : |Fn| : Δs", "μr a |Fn| P v1 W", "102", "",
+         "μr a |Fn| P Δs v2", "μr = P (v2 ± √(v2 ^ 2 - 2 a Δs)) : a : |Fn| : Δs", "μr a |Fn| P v2 W", "102", "",
+         "μr a |Fn| P Δs Δv", "μr = P Δv : a : |Fn| : Δs", "μr |Fn| P Δs Δt", "25", "",
+         "μr a |Fn| P Δt v1", "μr = P : |Fn| : (v1 + a Δt : 2)", "μr |Fn| P v1 Δv", "24", "",
+         "μr a |Fn| P Δt v2", "μr = P : |Fn| : (v2 - a Δt : 2)", "μr |Fn| P v2 Δv", "24", "",
+         "μr a |Fn| P v1 W", "μr = P : |Fn| : (v1 + a W : 2 : P)", "μr a |Fn| P Δt v1", "43", "",
+         "μr a |Fn| P v2 W", "μr = P : |Fn| : (v2 - a W : 2 : P)", "μr a |Fn| P Δt v2", "43", "",
+         "μr a |Fn| Δt v1 W", "μr = W : |Fn| : Δt : (v1 + a Δt : 2)", "μr |Fn| Δt v1 Δv W", "24", "",
+         "μr a |Fn| Δt v2 W", "μr = W : |Fn| : Δt : (v2 - a Δt : 2)", "μr |Fn| Δt v2 Δv W", "24", "",
+         "μr a |Fn| v1 v2 W", "μr = 2 a W : |Fn| : (v2 ^ 2 - v1 ^ 2)", "μr a |Fn| Δv {v} W", "19", "",
+         "μr a |Fn| v1 Δv W", "μr = a W : |Fn| : Δv : (v1 + Δv : 2)", "μr a |Fn| Δv {v} W", "18", "",
+         "μr a |Fn| v1 {v} W", "μr = a W : |Fn| : {v} : ({v} - v1) : 2", "μr a |Fn| Δv {v} W", "16", "",
+         "μr a |Fn| v2 Δv W", "μr = a W : |Fn| : Δv : (v2 - Δv : 2)", "μr a |Fn| Δv {v} W", "15", "",
+         "μr a |Fn| v2 {v} W", "μr = a W : |Fn| : {v} : (v2 - {v}) : 2", "μr a |Fn| Δv {v} W", "13", "",
+         "μr a |Fn| Δv {v} W", "μr = a W : |Fn| : Δv : {v}", "μr |Fn| Δt {v} W", "25", "",
+         "μr F Ff |Fn|", "μr = (F - Ff) : |Fn|", "", "0", "",
+         "μr F Ff |Fn| Ft", "μr = (F - Ft - Ff) : |Fn|", "", "0", "",
+         "μr F |Fn|", "μr = F : |Fn|", "", "93", "",
+         "μr F |Fn| Ft", "μr = (F - Ft) : |Fn|", "", "0", "",
+         "μr F |Fn| Ft k Δs", "μr = (F + k Δs - Ft) : |Fn|", "", "0", "",
+         "μr F |Fn| k Δs", "μr = (F + k Δs) : |Fn|", "", "0", "",
+         "μr |Fn| Frr", "μr = Frr : |Fn|", "", "0", "",
+         "μr |Fn| m P Δs Δv", "μr = √(P m Δv : Δs) : |Fn|", "μr |Fn| m P Δv W", "102", "",
+         "μr |Fn| m P Δt v1", "μr = m (-v1 ± √(v1 ^ 2 + 2 P Δt : m)) : |Fn| : Δt", "μr |Fn| m Δt v1 W", "44", "",
+         "μr |Fn| m P Δt v2", "μr = m (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : |Fn| : Δt", "μr |Fn| m Δt v2 W", "44", "",
+         "μr |Fn| m P v1 W", "μr = m P (-v1 ± √(v1 ^ 2 + 2 W : m)) : |Fn| : W", "μr |Fn| m Δt v1 W", "43", "",
+         "μr |Fn| m P v2 W", "μr = m P (v2 ± √(v2 ^ 2 - 2 W : m) : |Fn| : W", "μr |Fn| m Δt v2 W", "43", "",
+         "μr |Fn| m P Δv W", "μr = m P Δv : |Fn| : W", "μr |Fn| m Δt Δv", "43", "",
+         "μr |Fn| m Δs Δt v1", "μr = 2 m (Δs : Δt - v1) : |Fn| : Δt", "μr |Fn| m Δt v1 {v}", "20", "",
+         "μr |Fn| m Δs Δt v2", "μr = 2 m (v2 - Δs : Δt) : |Fn| : Δt", "μr |Fn| m Δt v2 {v}", "20", "",
+         "μr |Fn| m Δs v1 v2", "μr = m (v2 ^ 2 - v1 ^ 2) : |Fn| : Δs : 2", "μr |Fn| m Δs Δv {v}", "19", "",
+         "μr |Fn| m Δs v1 Δv", "μr = m Δv (v1 + Δv : 2) : |Fn| : Δs", "μr |Fn| m Δs Δv {v}", "18", "",
+         "μr |Fn| m Δs v1 {v}", "μr = 2 m {v} ({v} - v1) : |Fn| : Δs", "μr |Fn| m Δs Δv {v}", "16", "",
+         "μr |Fn| m Δs v2 Δv", "μr = m Δv (v2 - Δv : 2) : |Fn| : Δs", "μr |Fn| m Δs Δv {v}", "15", "",
+         "μr |Fn| m Δs v2 {v}", "μr = 2 m {v} (v2 - {v}) : |Fn| : Δs", "μr |Fn| m Δs Δv {v}", "13", "",
+         "μr |Fn| m Δs Δv {v}", "μr = m Δv {v} : |Fn| : Δs", "μr |Fn| m Δt Δv", "22", "",
+         "μr |Fn| m Δt v1 {v}", "μr = 2 m ({v} - v1) : |Fn| : Δt", "μr |Fn| m Δt Δv", "16", "",
+         "μr |Fn| m Δt v1 W", "μr = m (-v1 ± √(v1 ^ 2 + 2 W : m) : |Fn| : Δt", "μr |Fn| m Δt Δv", "70", "",
+         "μr |Fn| m Δt v2 {v}", "μr = 2 m (v2 - {v}) : |Fn| : Δt", "μr |Fn| m Δt Δv", "13", "",
+         "μr |Fn| m Δt v2 W", "μr = m (v2 ± √(v2 ^ 2 - 2 W : m) : |Fn| : Δt", "μr |Fn| m Δt Δv", "74", "",
+         "μr |Fn| m Δt Δv", "μr = m Δv : |Fn| : Δt", "μr a |Fn| m", "23", "",
+         "μr |Fn| P Δs Δt", "μr = P Δt : |Fn| : Δs", "μr |Fn| Δs W", "44", "",
+         "μr |Fn| P v1 v2", "μr = 2 P : |Fn| : (v1 + v2)", "μr |Fn| P {v}", "10", "",
+         "μr |Fn| P v1 Δv", "μr = P : |Fn| : (v1 + Δv : 2)", "μr |Fn| P {v}", "18", "",
+         "μr |Fn| P v2 Δv", "μr = P : |Fn| : (v2 - Δv : 2)", "μr |Fn| P {v}", "15", "",
+         "μr |Fn| P {v}", "μr = P : |Fn| : {v}", "μr |Fn| P Δs Δt", "21", "",
+         "μr |Fn| Δs W", "μr = W : |Fn| : Δs", "", "104", "",
+         "μr |Fn| Δt v1 v2 W", "μr = 2 W : |Fn| : Δt : (v1 + v2)", "μr |Fn| Δt {v} W", "10", "",
+         "μr |Fn| Δt v1 Δv W", "μr = W : |Fn| : Δt : (v1 + Δv : 2)", "μr |Fn| Δt {v} W", "18", "",
+         "μr |Fn| Δt v2 Δv W", "μr = W : |Fn| : Δt : (v2 - Δv : 2)", "μr |Fn| Δt {v} W", "15", "",
+         "μr |Fn| Δt {v} W", "μr = W : |Fn| : Δt : {v}", "μr |Fn| Δs W", "21", ""} ' μr => 2718
+      Case "px" : DՃA = New String() {
+         "px p", "px = p", "", "0", "",
+         "px p θ", "px = p cos(θ)", "", "0", "",
+         "px py θ", "px = py : tan(θ)", "", "0", "",
+         "px pz ϕ", "px = pz tan(ϕ)", "", "0", "",
+         "px p py", "px = √(p ^ 2 - py ^ 2)", "", "0", "",
+         "px p pz", "px = √(p ^ 2 - pz ^ 2)", "", "0", "",
+         "px p θ ϕ", "px = p cos(θ) sin(ϕ)", "", "0", "",
+         "px py θ ϕ", "px = py sin(ϕ) : tan(θ)", "", "0", "",
+         "px p py pz", "px = √(p ^ 2 - py ^ 2 - pz ^ 2)", "", "0", ""} ' px => 9
+      Case "py" : DՃA = New String() {
+         "py p", "py = p", "", "0", "",
+         "py p θ", "py = p sin(θ)", "", "0", "",
+         "py px θ", "py = px tan(θ)", "", "0", "",
+         "py pz θ", "py = pz tan(θ)", "", "0", "",
+         "py p px", "py = √(p ^ 2 - px ^ 2)", "", "0", "",
+         "py p pz", "py = √(p ^ 2 - pz ^ 2)", "", "0", "",
+         "py px θ ϕ", "py = px tan(θ) : sin(ϕ)", "", "0", "",
+         "py pz θ ϕ", "py = pz tan(θ) : cos(ϕ)", "", "0", "",
+         "py p px pz", "py = √(p ^ 2 - px ^ 2 - pz ^ 2)", "", "0", ""} ' py => 9
+      Case "pz" : DՃA = New String() {
+         "pz p", "pz = p", "", "0", "",
+         "pz p θ", "pz = p cos(θ)", "", "0", "",
+         "pz px ϕ", "pz = px : tan(ϕ)", "", "0", "",
+         "pz py θ", "pz = py : tan(θ)", "", "0", "",
+         "pz p px", "pz = √(p ^ 2 - px ^ 2)", "", "0", "",
+         "pz p py", "pz = √(p ^ 2 - py ^ 2)", "", "0", "",
+         "pz py θ ϕ", "pz = py cos(ϕ) : tan(θ)", "", "0", "",
+         "pz p θ ϕ", "pz = p cos(θ) cos(ϕ)", "", "0", "",
+         "pz p px py", "pz = √(p ^ 2 - px ^ 2 - py ^ 2)", "", "0", ""} ' pz => 9
+      Case "s1" : DՃA = New String() {
+         "s1 s2 Δs", "s1 = s2 - Δs", "", "2", "1"} ' s1 => 13
+      Case "s2" : DՃA = New String() {
+         "s2 s1 Δs", "s2 = s1 + Δs", "", "3", "1"} ' s2 => 13
+      Case "Δs" : DՃA = New String() {
+         "Δs a F P v1", "Δs = 2 P (P : F - v1) : a : F", "Δs a P v1 W", "29", "",
+         "Δs a F P v2", "Δs = 2 P (v2 - P : F) : a : F", "Δs a P v2 W", "29", "",
+         "Δs a F P Δv", "Δs = P Δv : a : F", "Δs F P Δt", "25", "",
+         "Δs a |Fn| μg P v1", "Δs = 2 P (P : |Fn| : μg - v1) : a : |Fn| : μg", "Δs a F P v1", "85", "",
+         "Δs a |Fn| μg P v2", "Δs = 2 P (v2 - P : |Fn| : μg) : a : |Fn| : μg", "Δs a F P v2", "85", "",
+         "Δs a |Fn| μg P Δv", "Δs = P Δv : a : |Fn| : μg", "Δs a F P Δv", "85", "",
+         "Δs a |Fn| μh P v1", "Δs = 2 P (P : |Fn| : μh - v1) : a : |Fn| : μh", "Δs a F P v1", "88", "",
+         "Δs a |Fn| μh P v2", "Δs = 2 P (v2 - P : |Fn| : μh) : a : |Fn| : μh", "Δs a F P v2", "88", "",
+         "Δs a |Fn| μh P Δv", "Δs = P Δv : a : |Fn| : μh", "Δs a F P Δv", "88", "",
+         "Δs a |Fn| μr P v1", "Δs = 2 P (P : |Fn| : μr - v1) : a : |Fn| : μr", "Δs a F P v1", "91", "",
+         "Δs a |Fn| μr P v2", "Δs = 2 P (v2 - P : |Fn| : μr) : a : |Fn| : μr", "Δs a F P v2", "91", "",
+         "Δs a |Fn| μr P Δv", "Δs = P Δv : a : |Fn| : μr", "Δs a F P Δv", "91", "",
+         "Δs a k m", "Δs = -a m : k", "Δs F k", "2", "",
+         "Δs a k P Δv", "Δs = √(-P Δv : a : k)", "Δs k P Δt", "2", "",
+         "Δs a m P Δt", "Δs = P Δt : a : m", "Δs a m W", "44", "",
+         "Δs a m P v1", "Δs = 2 P (P : a : m - v1) : (a ^ 2 m)", "Δs a F P v1", "26", "",
+         "Δs a m P v2", "Δs = 2 P (v2 - P : a : m) : a ^ 2 : m", "Δs a F P v2", "26", "",
+         "Δs a m P Δv", "Δs = P Δv : a ^ 2 : m", "Δs a F P Δv", "26", "",
+         "Δs a m W", "Δs = W : a : m", "Δs F W", "26", "",
+         "Δs a P v1 W", "Δs = a W ^ 2 : P ^ 2 : 2 + v1 W : P", "Δs a Δt v1", "43", "",
+         "Δs a P v2 W", "Δs = v2 W : P - a W ^ 2 : P ^ 2 : 2", "Δs a Δt v2", "43", "",
+         "Δs a Δt v1", "Δs = Δt (v1 + a Δt : 2)", "Δs Δt v1 Δv", "24", "",
+         "Δs a Δt v2", "Δs = Δt (v2 - a Δt : 2)", "Δs Δt v2 Δv", "24", "",
+         "Δs a v1 v2", "Δs = (v2 ^ 2 - v1 ^ 2) : a : 2", "Δs a Δv {v}", "19", "",
+         "Δs a v1 Δv", "Δs = Δv (v1 + Δv : 2) : a", "Δs a Δv {v}", "18", "",
+         "Δs a v1 {v}", "Δs = 2 {v} ({v} - v1) : a", "Δs a Δv {v}", "16", "",
+         "Δs a v2 Δv", "Δs = Δv (v2 - Δv : 2) : a", "Δs a Δv {v}", "15", "",
+         "Δs a v2 {v}", "Δs = 2 {v} (v2 - {v}) : a", "Δs a Δv {v}", "13", "",
+         "Δs a Δv {v}", "Δs = Δv {v} : a", "Δs Δt {v}", "25", "",
+         "Δs F |Fn| Ft k μg", "Δs = (Ft + μg |Fn| - F) : k", "", "0", "",
+         "Δs F |Fn| Ft k μh", "Δs = (Ft + μh |Fn| - F) : k", "", "0", "",
+         "Δs F |Fn| Ft k μr", "Δs = (Ft + μr |Fn| - F) : k", "", "0", "",
+         "Δs F |Fn| k μg", "Δs = (μg |Fn| - F) : k", "", "0", "",
+         "Δs F |Fn| k μh", "Δs = (μh |Fn| - F) : k", "", "0", "",
+         "Δs F |Fn| k μr", "Δs = (μr |Fn| - F) : k", "", "0", "",
+         "Δs F Frg Ft k", "Δs = (Ft + Frg - F) : k", "", "0", "",
+         "Δs F Frg k", "Δs = (Frg - F) : k", "", "0", "",
+         "Δs F Frh Ft k", "Δs = (Ft + Frh - F) : k", "", "0", "",
+         "Δs F Frh k", "Δs = (Frh - F) : k", "", "0", "",
+         "Δs F Frr Ft k", "Δs = (Ft + Frr - F) : k", "", "0", "",
+         "Δs F Frr k", "Δs = (Frr - F) : k", "", "0", "",
+         "Δs F Ft k", "Δs = (Ft - F) : k", "", "0", "",
+         "Δs F k", "Δs = -F : k", "", "0", "",
+         "Δs F m P v1", "Δs = 2 m P (P - F v1) : F ^ 3", "Δs a F P v1", "27", "",
+         "Δs F m P v2", "Δs = 2 m P (F v2 - P) : F ^ 3", "Δs a F P v2", "27", "",
+         "Δs F m P Δv", "Δs = P m Δv : F ^ 2", "Δs a F P Δv", "27", "",
+         "Δs F m Δt v1", "Δs = Δt (v1 + F Δt) : m : 2", "Δs a Δt v1", "27", "",
+         "Δs F m Δt v2", "Δs = Δt (v2 - F Δt) : m : 2", "Δs a Δt v2", "27", "",
+         "Δs F m v1 v2", "Δs = m (v2 ^ 2 - v1 ^ 2) : F : 2", "Δs F m Δv {v}", "19", "",
+         "Δs F m v1 Δv", "Δs = m Δv (v1 + Δv : 2) : F", "Δs F m Δv {v}", "18", "",
+         "Δs F m v1 {v}", "Δs = 2 m {v} ({v} - v1) : F", "Δs F m Δv {v}", "16", "",
+         "Δs F m v2 Δv", "Δs = m Δv (v2 - Δv : 2) : F", "Δs F m Δv {v}", "15", "",
+         "Δs F m v2 {v}", "Δs = 2 m {v} (v2 - {v}) : F", "Δs F m Δv {v}", "13", "",
+         "Δs F m Δv {v}", "Δs = m Δv {v} : F", "Δs a Δv {v}", "27", "",
+         "Δs F P Δt", "Δs = P Δt : F", "Δs F W", "44", "",
+         "Δs F W", "Δs = W : F", "", "29", "",
+         "Δs Ff k", "Δs = -Ff : k", "", "0", "",
+         "Δs |Fn| m μg P v1", "Δs = 2 m P (P - |Fn| : μg v1) : (|Fn| μg) ^ 3", "Δs F m P v1", "85", "",
+         "Δs |Fn| m μg P v2", "Δs = 2 m P (|Fn| μg v2 - P) : (|Fn| μg) ^ 3", "Δs F m P v2", "85", "",
+         "Δs |Fn| m μg P Δv", "Δs = P m Δv : (|Fn| μg) ^ 2", "Δs F m P Δv", "85", "",
+         "Δs |Fn| m μg Δt v1", "Δs = Δt (v1 + |Fn| μg Δt : m : 2)", "Δs F m Δt v1", "85", "",
+         "Δs |Fn| m μg Δt v2", "Δs = Δt (v2 - |Fn| μg Δt : m : 2)", "Δs F m Δt v2", "85", "",
+         "Δs |Fn| m μg v1 v2", "Δs = m (v2 ^ 2 - v1 ^ 2) : |Fn| : μg : 2", "Δs F m v1 v2", "85", "",
+         "Δs |Fn| m μg v1 Δv", "Δs = m (v1 + Δv : 2) Δv : |Fn| : μg", "Δs F m v1 Δv", "85", "",
+         "Δs |Fn| m μg v1 {v}", "Δs = 2 m {v} ({v} - v1) : |Fn| : μg", "Δs F m v1 {v}", "85", "",
+         "Δs |Fn| m μg v2 Δv", "Δs = m (v2 - Δv : 2) Δv : |Fn| : μg", "Δs F m v2 Δv", "85", "",
+         "Δs |Fn| m μg v2 {v}", "Δs = 2 m {v} (v2 - {v}) : |Fn| : μg", "Δs F m v2 {v}", "85", "",
+         "Δs |Fn| m μg Δv {v}", "Δs = m Δv {v} : |Fn| : μg", "Δs F m Δv {v}", "85", "",
+         "Δs |Fn| μg P Δt", "Δs = P Δt : |Fn| : μg", "Δs F P Δt", "85", "",
+         "Δs |Fn| μg W", "Δs = W : |Fn| : μg", "Δs F W", "85", "",
+         "Δs |Fn| m μh P v1", "Δs = 2 m P (P - |Fn| : μh v1) : (|Fn| μh) ^ 3", "Δs F m P v1", "88", "",
+         "Δs |Fn| m μh P v2", "Δs = 2 m P (|Fn| μh v2 - P) : (|Fn| μh) ^ 3", "Δs F m P v2", "88", "",
+         "Δs |Fn| m μh P Δv", "Δs = P m Δv : (|Fn| μh) ^ 2", "Δs F m P Δv", "88", "",
+         "Δs |Fn| m μh Δt v1", "Δs = Δt (v1 + |Fn| μh Δt : m : 2)", "Δs F m Δt v1", "88", "",
+         "Δs |Fn| m μh Δt v2", "Δs = Δt (v2 - |Fn| μh Δt : m : 2)", "Δs F m Δt v2", "88", "",
+         "Δs |Fn| m μh v1 v2", "Δs = m (v2 ^ 2 - v1 ^ 2) : |Fn| : μh : 2", "Δs F m v1 v2", "88", "",
+         "Δs |Fn| m μh v1 Δv", "Δs = m (v1 + Δv : 2) Δv : |Fn| : μh", "Δs F m v1 Δv", "88", "",
+         "Δs |Fn| m μh v1 {v}", "Δs = 2 m {v} ({v} - v1) : |Fn| : μh", "Δs F m v1 {v}", "88", "",
+         "Δs |Fn| m μh v2 Δv", "Δs = m (v2 - Δv : 2) Δv : |Fn| : μh", "Δs F m v2 Δv", "88", "",
+         "Δs |Fn| m μh v2 {v}", "Δs = 2 m {v} (v2 - {v}) : |Fn| : μh", "Δs F m v2 {v}", "88", "",
+         "Δs |Fn| m μh Δv {v}", "Δs = m Δv {v} : |Fn| : μh", "Δs F m Δv {v}", "88", "",
+         "Δs |Fn| μh P Δt", "Δs = P Δt : |Fn| : μh", "Δs F P Δt", "88", "",
+         "Δs |Fn| μh W", "Δs = W : |Fn| : μh", "Δs F W", "88", "",
+         "Δs |Fn| m μr P v1", "Δs = 2 m P (P - |Fn| : μr v1) : (|Fn| μr) ^ 3", "Δs F m P v1", "91", "",
+         "Δs |Fn| m μr P v2", "Δs = 2 m P (|Fn| μr v2 - P) : (|Fn| μr) ^ 3", "Δs F m P v2", "91", "",
+         "Δs |Fn| m μr P Δv", "Δs = P m Δv : (|Fn| μr) ^ 2", "Δs F m P Δv", "91", "",
+         "Δs |Fn| m μr Δt v1", "Δs = Δt (v1 + |Fn| μr Δt : m : 2)", "Δs F m Δt v1", "91", "",
+         "Δs |Fn| m μr Δt v2", "Δs = Δt (v2 - |Fn| μr Δt : m : 2)", "Δs F m Δt v2", "91", "",
+         "Δs |Fn| m μr v1 v2", "Δs = m (v2 ^ 2 - v1 ^ 2) : |Fn| : μr : 2", "Δs F m v1 v2", "91", "",
+         "Δs |Fn| m μr v1 Δv", "Δs = m (v1 + Δv : 2) Δv : |Fn| : μr", "Δs F m v1 Δv", "91", "",
+         "Δs |Fn| m μr v1 {v}", "Δs = 2 m {v} ({v} - v1) : |Fn| : μr", "Δs F m v1 {v}", "91", "",
+         "Δs |Fn| m μr v2 Δv", "Δs = m (v2 - Δv : 2) Δv : |Fn| : μr", "Δs F m v2 Δv", "91", "",
+         "Δs |Fn| m μr v2 {v}", "Δs = 2 m {v} (v2 - {v}) : |Fn| : μr", "Δs F m v2 {v}", "91", "",
+         "Δs |Fn| m μr Δv {v}", "Δs = m Δv {v} : |Fn| : μr", "Δs F m Δv {v}", "91", "",
+         "Δs |Fn| μr P Δt", "Δs = P Δt : |Fn| : μr", "Δs F P Δt", "91", "",
+         "Δs |Fn| μr W", "Δs = W : |Fn| : μr", "Δs F W", "91", "",
+         "Δs k m P v1", "Δs = √(-2 m P (P + k Δs v1) : k ^ 3 ' 4)", "Δs F m P v1", "2", "",
+         "Δs k m P v2", "Δs = √(2 m P (P + k Δs v2) : k ^ 3 ' 4)", "Δs F m P v2", "2", "",
+         "Δs k m P Δv", "Δs = √(-P m Δv : k ^ 2 ' 3)", "Δs F m P Δv", "2", "",
+         "Δs k m Δt v1", "Δs = v1 : (1 : Δt + k Δt : m : 2)", "Δs k m v1 {v}", "2", "",
+         "Δs k m Δt v2", "Δs = v2 : (1 : Δt - k Δt : m : 2)", "Δs k m v2 {v}", "2", "",
+         "Δs k m Δt Δv", "Δs = -m Δv : k : Δt", "Δs a k m", "2", "",
+         "Δs k m v1 v2", "Δs = √(-m (v2 ^ 2 - v1 ^ 2) : k : 2)", "Δs k m Δv {v}", "2", "",
+         "Δs k m v1 Δv", "Δs = √(-m Δv (v1 + Δv : 2) : k)", "Δs k m Δv {v}", "2", "",
+         "Δs k m v1 {v}", "Δs = √(-2 m {v} ({v} - v1) : k)", "Δs k m Δv {v}", "2", "",
+         "Δs k m v2 Δv", "Δs = √(-m Δv (v2 - Δv : 2) : k)", "Δs k m Δv {v}", "2", "",
+         "Δs k m v2 {v}", "Δs = √(-2 m {v} (v2 - {v}) : k)", "Δs k m Δv {v}", "2", "",
+         "Δs k m Δv {v}", "Δs = √(-m Δv {v} : k)", "Δs k W", "2", "",
+         "Δs k P Δt", "Δs = √(-P Δt : k)", "Δs k W", "2", "",
+         "Δs k P v1 v2", "Δs = -2 P : k : (v1 + v2)", "Δs k P {v}", "2", "",
+         "Δs k P v1 Δv", "Δs = -P : k : (v1 + Δv : 2)", "Δs k P {v}", "2", "",
+         "Δs k P v2 Δv", "Δs = -P : k : (v2 - Δv : 2)", "Δs k P {v}", "2", "",
+         "Δs k P {v}", "Δs = -P : k : {v}", "Δs F k", "2", "",
+         "Δs k W", "Δs = √(-W : k)", "Δs F k", "2", "",
+         "Δs m P Δt v1", "Δs = Δt (v1 ± √(v1 ^ 2 + 2 P Δt : m)) : 2", "Δs m Δt v1 W", "44", "",
+         "Δs m P Δt v2", "Δs = Δt (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : 2", "Δs m Δt v2 W", "44", "",
+         "Δs m P Δt Δv", "Δs = P Δt ^ 2 : (m Δv)", "Δs m Δt Δv W", "44", "",
+         "Δs m P v1 v2", "Δs = m (v2 ^ 2 - v1 ^ 2) (v1 + v2) : P : 4", "Δs m P Δv {v}", "19", "",
+         "Δs m P v1 Δv", "Δs = m Δv (v1 + Δv : 2) ^ 2 : P", "Δs m P Δv {v}", "18", "",
+         "Δs m P v1 {v}", "Δs = 2 m {v} ^ 2 ({v} - v1) : P", "Δs m P Δv {v}", "16", "",
+         "Δs m P v1 W", "Δs = W (v1 ± √(v1 ^ 2 + 2 W : m)) : P : 2", "Δs m Δt v1 W", "43", "",
+         "Δs m P v2 Δv", "Δs = m Δv (v2 - Δv : 2) ^ 2 : P", "Δs m P Δv {v}", "15", "",
+         "Δs m P v2 {v}", "Δs = 2 m {v} ^ 2 (v2 - {v}) : P", "Δs m P Δv {v}", "13", "",
+         "Δs m P v2 W", "Δs = W (v2 ± √(v2 ^ 2 - 2 W : m)) : P : 2", "Δs m Δt v2 W", "43", "",
+         "Δs m P Δv {v}", "Δs = m Δv {v} ^ 2 : P", "Δs m P Δt Δv", "22", "",
+         "Δs m P Δv W", "Δs = W ^ 2 : m : P : Δv", "Δs m Δt Δv W", "43", "",
+         "Δs m p Δt", "Δs = p Δt : m", "Δs Δt v", "56", "",
+         "Δs m Δt v1 W", "Δs = Δt (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "Δs F m Δt v1", "30", "",
+         "Δs m Δt v2 W", "Δs = Δt (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "Δs F m Δt v2", "30", "",
+         "Δs m Δt Δv W", "Δs = W Δt : m : Δv", "Δs a m W", "23", "",
+         "Δs P v1 v2 W", "Δs = (v1 + v2) W : P : 2", "Δs P {v} W", "10", "",
+         "Δs P v1 Δv W", "Δs = (v1 + Δv : 2) W : P", "Δs P {v} W", "18", "",
+         "Δs P v2 Δv W", "Δs = (v2 - Δv : 2) W : P", "Δs P {v} W", "15", "",
+         "Δs P {v} W", "Δs = {v} W : P", "Δs Δt {v}", "43", "",
+         "Δs s1 s2", "Δs = s2 - s1", "", "1", "1",
+         "Δs Δsx", "Δs = Δsx", "", "0", "",
+         "Δs Δsy", "Δs = Δsy", "", "0", "",
+         "Δs Δsz", "Δs = Δsz", "", "0", "",
+         "Δs Δsx θ", "Δs = Δsx : cos(θ)", "", "0", "",
+         "Δs Δsy θ", "Δs = Δsy : sin(θ)", "", "0", "",
+         "Δs Δsz θ", "Δs = Δsz : cos(θ)", "", "0", "",
+         "Δs Δsx θ ϕ", "Δs = Δsx : cos(θ) : sin(ϕ)", "", "0", "",
+         "Δs Δsz θ ϕ", "Δs = Δsz : cos(θ) : cos(ϕ)", "", "0", "",
+         "Δs Δsx Δsy", "Δs = √(Δsx ^ 2 + Δsy ^ 2)", "", "0", "",
+         "Δs Δsx Δsz", "Δs = √(Δsx ^ 2 + Δsz ^ 2)", "", "0", "",
+         "Δs Δsy Δsz", "Δs = √(Δsy ^ 2 + Δsz ^ 2)", "", "0", "",
+         "Δs Δsx Δsy Δsz", "Δs = √(Δsx ^ 2 + Δsy ^ 2 + Δsz ^ 2)", "", "0", "",
+         "Δs Δt v", "Δs = v Δt", "", "51", "",
+         "Δs Δt v1 v2", "Δs = Δt (v1 + v2) : 2", "Δs Δt {v}", "10", "",
+         "Δs Δt v1 Δv", "Δs = Δt (v1 + Δv : 2)", "Δs Δt {v}", "18", "",
+         "Δs Δt v2 Δv", "Δs = Δt (v2 - Δv : 2)", "Δs Δt {v}", "15", "",
+         "Δs Δt {v}", "Δs = Δt {v}", "", "20", ""} ' Δs => 6789
+      Case "t1" : DՃA = New String() {
+         "t1 t2 Δt", "t1 = t2 - Δt", "", "5", "2"} ' t1 => 1
+      Case "t2" : DՃA = New String() {
+         "t2 t1 Δt", "t2 = t1 + Δt", "", "6", "2"} ' t2 => 1
+      Case "Δt" : DՃA = New String() {
+         "Δt a F k v1", "Δt = (-v1 ± √(v1 ^ 2 - 2 a F : k)) : a", "Δt a Δs v1", "59", "",
+         "Δt a F k v2", "Δt = (v2 ± √(v2 ^ 2 + 2 a F : k)) : a", "Δt a Δs v2", "59", "",
+         "Δt a F P v1", "Δt = 2 (P : F - v1) : a", "Δt a F v1 W", "44", "",
+         "Δt a F P v2", "Δt = 2 (v2 - P : F) : a", "Δt a F v2 W", "44", "",
+         "Δt a F v1 W", "Δt = (-v1 ± √(v1 ^ 2 + 2 a W : F)) : a", "Δt a Δs v1", "31", "",
+         "Δt a F v2 W", "Δt = (v2 ± √(v2 ^ 2 - 2 a W : F)) : a", "Δt a Δs v2", "31", "",
+         "Δt a |Fn| μg P v1", "Δt = 2 (P : |Fn| : μg - v1) : a", "Δt a F P v1", "85", "",
+         "Δt a |Fn| μg P v2", "Δt = 2 (v2 - P : |Fn| : μg) : a", "Δt a F P v2", "85", "",
+         "Δt a |Fn| μg v1 W", "Δt = (-v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μg)) : a", "Δt a F v1 W", "85", "",
+         "Δt a |Fn| μg v2 W", "Δt = (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μg)) : a", "Δt a F v2 W", "85", "",
+         "Δt a |Fn| μh P v1", "Δt = 2 (P : |Fn| : μh - v1) : a", "Δt a F P v1", "88", "",
+         "Δt a |Fn| μh P v2", "Δt = 2 (v2 - P : |Fn| : μh) : a", "Δt a F P v2", "88", "",
+         "Δt a |Fn| μh v1 W", "Δt = (-v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μh)) : a", "Δt a F v1 W", "88", "",
+         "Δt a |Fn| μh v2 W", "Δt = (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μh)) : a", "Δt a F v2 W", "88", "",
+         "Δt a |Fn| μr P v1", "Δt = 2 (P : |Fn| : μr - v1) : a", "Δt a F P v1", "91", "",
+         "Δt a |Fn| μr P v2", "Δt = 2 (v2 - P : |Fn| : μr) : a", "Δt a F P v2", "91", "",
+         "Δt a |Fn| μr v1 W", "Δt = (-v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μr)) : a", "Δt a F v1 W", "91", "",
+         "Δt a |Fn| μr v2 W", "Δt = (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μr)) : a", "Δt a F v2 W", "91", "",
+         "Δt a k m P", "Δt = -(a m) ^ 2 : k : P", "Δt F k P", "26", "",
+         "Δt a k m v1", "Δt = (-v1 ± √(v1 ^ 2 - 2 a ^ 2 m : k)) : a", "Δt a F k v1", "26", "",
+         "Δt a k m v2", "Δt = (v2 ± √(v2 ^ 2 + 2 a ^ 2 m : k)) : a", "Δt a F k v2", "26", "",
+         "Δt a k m {v}", "Δt = -a m : k : {v}", "Δt F k {v}", "26", "",
+         "Δt a k v1 W", "Δt = (-v1 ± √(v1 ^ 2 + 2 a √(-W : k))) : a", "Δt a Δs v1", "78", "",
+         "Δt a k v2 W", "Δt = (v2 ± √(v2 ^ 2 - 2 a √(-W : k))) : a", "Δt a Δs v2", "78", "",
+         "Δt a m P Δs", "Δt = a m Δs : P", "Δt F P Δs", "26", "",
+         "Δt a m P v1", "Δt = 2 (P : a : m - v1) : a", "Δt a F P v1", "26", "",
+         "Δt a m P v2", "Δt = 2 (v2 - P : a : m) : a", "Δt a F P v2", "26", "",
+         "Δt a m v1 W", "Δt = (-v1 ± √(v1 ^ 2 + 2 W : m)) : a", "Δt a F v1 W", "26", "",
+         "Δt a m v2 W", "Δt = (v2 ± √(v2 ^ 2 - 2 W : m)) : a", "Δt a F v2 W", "26", "",
+         "Δt a m {v} W", "Δt = W : a : m : {v}", "Δt F {v} W", "26", "",
+         "Δt a Δs v1", "Δt = (-v1 ± √(v1 ^ 2 + 2 a Δs)) : a", "Δt a v1 {v}", "20", "",
+         "Δt a Δs v2", "Δt = (v2 ± √(v2 ^ 2 - 2 a Δs)) : a", "Δt a v2 {v}", "20", "",
+         "Δt a v1 {v}", "Δt = 2 ({v} - v1) : a", "Δt a Δv", "16", "",
+         "Δt a v2 {v}", "Δt = 2 (v2 - {v}) : a", "Δt a Δv", "13", "",
+         "Δt a Δv", "Δt = Δv : a", "", "23", "",
+         "Δt F k m v1", "Δt = m (-v1 ± √(v1 ^ 2 - 2 F ^ 2 : k : m)) : F", "Δt a F k v1", "27", "",
+         "Δt F k m v2", "Δt = m (v2 ± √(v2 ^ 2 + 2 F ^ 2 : k : m)) : F", "Δt a F k v2", "27", "",
+         "Δt F k P", "Δt = -(F ^ 2) : k : P", "Δt F k {v}", "62", "",
+         "Δt F k v1 v2", "Δt = -2 F : k : (v1 + v2)", "Δt F k {v}", "10", "",
+         "Δt F k v1 Δv", "Δt = -F : k : (v1 + Δv : 2)", "Δt F k {v}", "18", "",
+         "Δt F k v2 Δv", "Δt = -F : k : (v2 - Δv : 2)", "Δt F k {v}", "15", "",
+         "Δt F k {v}", "Δt = -F : k : {v}", "Δt Δs {v}", "59", "",
+         "Δt F m P v1", "Δt = 2 m (P : F - v1) : F", "Δt a F P v1", "27", "",
+         "Δt F m P v2", "Δt = 2 m (v2 - P : F) : F", "Δt F m P v2", "27", "",
+         "Δt F m Δs v1", "Δt = m (-v1 ± √(v1 ^ 2 + 2 F Δs : m)) : F", "Δt a Δs v1", "27", "",
+         "Δt F m Δs v2", "Δt = m (v2 ± √(v2 ^ 2 - 2 F Δs : m)) : F", "Δt a Δs v2", "27", "",
+         "Δt F m v1 {v}", "Δt = 2 m ({v} - v1) : F", "Δt F m Δv", "16", "",
+         "Δt F m v1 W", "Δt = m (-v1 ± √(v1 ^ 2 + 2 W : m)) : F", "Δt F m Δs v1", "31", "",
+         "Δt F m v2 {v}", "Δt = 2 m (v2 - {v}) : F", "Δt F m Δv", "13", "",
+         "Δt F m v2 W", "Δt = m (v2 ± √(v2 ^ 2 - 2 W : m)) : F", "Δt F m Δs v2", "31", "",
+         "Δt F m Δv", "Δt = m Δv : F", "Δt a Δv", "27", "",
+         "Δt F P Δs", "Δt = F Δs : P", "Δt P W", "29", "",
+         "Δt F v1 v2 W", "Δt = 2 W : F : (v1 + v2)", "Δt F {v} W", "10", "",
+         "Δt F v1 Δv W", "Δt = W : F : (v1 + Δv : 2)", "Δt F {v} W", "18", "",
+         "Δt F v2 Δv W", "Δt = W : F : (v2 - Δv : 2)", "Δt F {v} W", "15", "",
+         "Δt F {v} W", "Δt = W : F : {v}", "Δt Δs {v}", "31", "",
+         "Δt |Fn| m μg P v1", "Δt = 2 m (P : |Fn| : μg - v1) : |Fn| : μg", "Δt F m P v1", "85", "",
+         "Δt |Fn| m μg P v2", "Δt = 2 m (v2 - P : |Fn| : μg) : |Fn| : μg", "Δt F m P v2", "85", "",
+         "Δt |Fn| m μg Δs v1", "Δt = m (-v1 ± √(v1 ^ 2 + 2 |Fn| μg Δs : m)) : |Fn| : μg", "Δt F m Δs v1", "85", "",
+         "Δt |Fn| m μg Δs v2", "Δt = m (v2 ± √(v2 ^ 2 - 2 |Fn| μg Δs : m)) : |Fn| : μg", "Δt F m Δs v2", "85", "",
+         "Δt |Fn| m μg v1 {v}", "Δt = 2 m ({v} - v1) : |Fn| : μg", "Δt F m v1 {v}", "85", "",
+         "Δt |Fn| m μg v1 W", "Δt = m (-v1 ± √(v1 ^ 2 + 2 W : m)) : |Fn| : μg", "Δt F m v1 W", "85", "",
+         "Δt |Fn| m μg v2 {v}", "Δt = 2 m (v2 - {v}) : |Fn| : μg", "Δt F m v2 {v}", "85", "",
+         "Δt |Fn| m μg v2 W", "Δt = m (v2 ± √(v2 ^ 2 - 2 W : m)) : |Fn| : μg", "Δt F m v2 W", "85", "",
+         "Δt |Fn| m μg Δv", "Δt = m Δv : |Fn| : μg", "Δt F m Δv", "85", "",
+         "Δt |Fn| m μh P v1", "Δt = 2 m (P : |Fn| : μh - v1) : |Fn| : μh", "Δt F m P v1", "88", "",
+         "Δt |Fn| m μh P v2", "Δt = 2 m (v2 - P : |Fn| : μh) : |Fn| : μh", "Δt F m P v2", "88", "",
+         "Δt |Fn| m μh Δs v1", "Δt = m (-v1 ± √(v1 ^ 2 + 2 |Fn| μh Δs : m)) : |Fn| : μh", "Δt F m Δs v1", "88", "",
+         "Δt |Fn| m μh Δs v2", "Δt = m (v2 ± √(v2 ^ 2 - 2 |Fn| μh Δs : m)) : |Fn| : μh", "Δt F m Δs v2", "88", "",
+         "Δt |Fn| m μh v1 {v}", "Δt = 2 m ({v} - v1) : |Fn| : μh", "Δt F m v1 {v}", "88", "",
+         "Δt |Fn| m μh v1 W", "Δt = m (-v1 ± √(v1 ^ 2 + 2 W : m)) : |Fn| : μh", "Δt F m v1 W", "88", "",
+         "Δt |Fn| m μh v2 {v}", "Δt = 2 m (v2 - {v}) : |Fn| : μh", "Δt F m v2 {v}", "88", "",
+         "Δt |Fn| m μh v2 W", "Δt = m (v2 ± √(v2 ^ 2 - 2 W : m)) : |Fn| : μh", "Δt F m v2 W", "88", "",
+         "Δt |Fn| m μh Δv", "Δt = m Δv : |Fn| : μh", "Δt F m Δv", "88", "",
+         "Δt |Fn| m μr P v1", "Δt = 2 m (P : |Fn| : μr - v1) : |Fn| : μr", "Δt F m P v1", "91", "",
+         "Δt |Fn| m μr P v2", "Δt = 2 m (v2 - P : |Fn| : μr) : |Fn| : μr", "Δt F m P v2", "91", "",
+         "Δt |Fn| m μr Δs v1", "Δt = m (-v1 ± √(v1 ^ 2 + 2 |Fn| μr Δs : m)) : |Fn| : μr", "Δt F m Δs v1", "91", "",
+         "Δt |Fn| m μr Δs v2", "Δt = m (v2 ± √(v2 ^ 2 - 2 |Fn| μr Δs : m)) : |Fn| : μr", "Δt F m Δs v2", "91", "",
+         "Δt |Fn| m μr v1 {v}", "Δt = 2 m ({v} - v1) : |Fn| : μr", "Δt F m v1 {v}", "91", "",
+         "Δt |Fn| m μr v1 W", "Δt = m (-v1 ± √(v1 ^ 2 + 2 W : m)) : |Fn| : μr", "Δt F m v1 W", "91", "",
+         "Δt |Fn| m μr v2 {v}", "Δt = 2 m (v2 - {v}) : |Fn| : μr", "Δt F m v2 {v}", "91", "",
+         "Δt |Fn| m μr v2 W", "Δt = m (v2 ± √(v2 ^ 2 - 2 W : m)) : |Fn| : μr", "Δt F m v2 W", "91", "",
+         "Δt |Fn| m μr Δv", "Δt = m Δv : |Fn| : μr", "Δt F m Δv", "91", "",
+         "Δt |Fn| μg P Δs", "Δt = |Fn| μg Δs : P", "Δt F P Δs", "85", "",
+         "Δt |Fn| μg v1 v2 W", "Δt = 2 W : |Fn| : μg : (v1 + v2)", "Δt F v1 v2 W", "85", "",
+         "Δt |Fn| μg v1 Δv W", "Δt = W : |Fn| : μg : (v1 + Δv : 2)", "Δt F v1 Δv W", "85", "",
+         "Δt |Fn| μg v2 Δv W", "Δt = W : |Fn| : μg : (v2 - Δv : 2)", "Δt F v2 Δv W", "85", "",
+         "Δt |Fn| μg {v} W", "Δt = W : |Fn| : μg : {v}", "Δt F {v} W", "85", "",
+         "Δt |Fn| μh P Δs", "Δt = |Fn| μh Δs : P", "Δt F P Δs", "88", "",
+         "Δt |Fn| μh v1 v2 W", "Δt = 2 W : |Fn| : μh : (v1 + v2)", "Δt F v1 v2 W", "88", "",
+         "Δt |Fn| μh v1 Δv W", "Δt = W : |Fn| : μh : (v1 + Δv : 2)", "Δt F v1 Δv W", "88", "",
+         "Δt |Fn| μh v2 Δv W", "Δt = W : |Fn| : μh : (v2 - Δv : 2)", "Δt F v2 Δv W", "88", "",
+         "Δt |Fn| μh {v} W", "Δt = W : |Fn| : μh : {v}", "Δt F {v} W", "88", "",
+         "Δt |Fn| μr P Δs", "Δt = |Fn| μr Δs : P", "Δt F P Δs", "91", "",
+         "Δt |Fn| μr v1 v2 W", "Δt = 2 W : |Fn| : μr : (v1 + v2)", "Δt F v1 v2 W", "91", "",
+         "Δt |Fn| μr v1 Δv W", "Δt = W : |Fn| : μr : (v1 + Δv : 2)", "Δt F v1 Δv W", "91", "",
+         "Δt |Fn| μr v2 Δv W", "Δt = W : |Fn| : μr : (v2 - Δv : 2)", "Δt F v2 Δv W", "91", "",
+         "Δt |Fn| μr {v} W", "Δt = W : |Fn| : μr : {v}", "Δt F {v} W", "91", "",
+         "Δt k m P Δv", "Δt = √(-(m Δv) ^ 2 : k : P ' 3)", "Δt k m Δv W", "44", "",
+         "Δt k m Δs v1", "Δt = m (v1 ± √(v1 ^ 2 - 2 k Δs ^ 2 : m)) : k : Δs", "Δt F k m v1", "57", "",
+         "Δt k m Δs v2", "Δt = -m (v2 ± √(v2 ^ 2 + 2 k Δs ^ 2 : m)) : k : Δs", "Δt F k m v2", "57", "",
+         "Δt k m Δs Δv", "Δt = -m Δv : k : Δs", "Δt F m Δv", "57", "",
+         "Δt k m v1 v2", "Δt = √(-2 m (v2 - v1) : k : (v1 + v2))", "Δt k m Δv {v}", "19", "",
+         "Δt k m v1 Δv", "Δt = √(-m Δv : k : (v1 + Δv : 2))", "Δt k m Δv {v}", "18", "",
+         "Δt k m v1 {v}", "Δt = √(-2 m ({v} - v1) : k : {v})", "Δt k m Δv {v}", "16", "",
+         "Δt k m v1 W", "Δt = m (-v1 ± √(v1 ^ 2 + 2 W : m)) : √(-k W)", "Δt F k m v1", "75", "",
+         "Δt k m v2 Δv", "Δt = √(-m Δv : k : (v2 - Δv : 2))", "Δt k m Δv {v}", "15", "",
+         "Δt k m v2 {v}", "Δt = √(-2 m (v2 - {v}) : k : {v})", "Δt k m Δv {v}", "13", "",
+         "Δt k m v2 W", "Δt = m (v2 ± √(v2 ^ 2 - 2 W : m)) : √(-k W)", "Δt F k m v2", "75", "",
+         "Δt k m Δv W", "Δt = m Δv : √(-k W)", "Δt F m Δv", "75", "",
+         "Δt k m Δv {v}", "Δt = √(-m Δv : k : {v})", "Δt k m Δs Δv", "21", "",
+         "Δt k P Δs", "Δt = -k Δs ^ 2 : P", "Δt F k P", "57", "",
+         "Δt k P v1 v2", "Δt = -4 P : k : (v1 + v2) ^ 2", "Δt k P {v}", "10", "",
+         "Δt k P v1 Δv", "Δt = -P : k : (v1 + Δv : 2) ^ 2", "Δt k P {v}", "18", "",
+         "Δt k P v2 Δv", "Δt = -P : k : (v2 - Δv : 2) ^ 2", "Δt k P {v}", "15", "",
+         "Δt k P {v}", "Δt = -P : k : {v} ^ 2", "Δt F k {v}", "61", "",
+         "Δt k v1 v2 W", "Δt = 2 √(-W : k) : (v1 + v2)", "Δt k {v} W", "10", "",
+         "Δt k v1 Δv W", "Δt = √(-W : k) : (v1 + Δv : 2)", "Δt k {v} W", "18", "",
+         "Δt k v2 Δv W", "Δt = √(-W : k) : (v2 - Δv : 2)", "Δt k {v} W", "15", "",
+         "Δt k {v} W", "Δt = √(-W : k) : {v}", "Δt F k {v}", "75", "",
+         "Δt m P Δs Δv", "Δt = √(m Δs Δv : P)", "Δt m Δs Δv W", "44", "",
+         "Δt m P v1 v2", "Δt = m (v2 ^ 2 - v1 ^ 2) : P : 2", "Δt m P Δv {v}", "19", "",
+         "Δt m P v1 Δv", "Δt = m Δv (v1 + Δv : 2) : P", "Δt m P Δv {v}", "18", "",
+         "Δt m P v1 {v}", "Δt = 2 m {v} ({v} - v1) : P", "Δt m P Δv {v}", "16", "",
+         "Δt m P v2 Δv", "Δt = m Δv (v2 - Δv : 2) : P", "Δt m P Δv {v}", "15", "",
+         "Δt m P v2 {v}", "Δt = 2 m {v} (v2 - {v}) : P", "Δt m P Δv {v}", "13", "",
+         "Δt m P Δv {v}", "Δt = m Δv {v} : P", "Δt m P Δs Δv", "61", "",
+         "Δt m p Δs", "Δt = m Δs : p", "Δt Δs v", "56", "",
+         "Δt m Δs v1 W", "Δt = m Δs (-v1 ± √(v1 ^ 2 + 2 W : m)) : W", "Δt F m Δs v1", "30", "",
+         "Δt m Δs v2 W", "Δt = m Δs (v2 ± √(v2 ^ 2 - 2 W : m)) : W", "Δt F m Δs v2", "30", "",
+         "Δt m Δs Δv W", "Δt = m Δs Δv : W", "Δt F m Δv", "30", "",
+         "Δt P W", "Δt = W : P", "", "43", "",
+         "Δt Δs v", "Δt = Δs : v", "", "53", "",
+         "Δt Δs v1 v2", "Δt = 2 Δs : (v1 + v2)", "Δt Δs {v}", "10", "",
+         "Δt Δs v1 Δv", "Δt = Δs : (v1 + Δv : 2)", "Δt Δs {v}", "18", "",
+         "Δt Δs v2 Δv", "Δt = Δs : (v2 - Δv : 2)", "Δt Δs {v}", "15", "",
+         "Δt Δs {v}", "Δt = Δs : {v}", "", "22", "",
+         "Δt t1 t2", "Δt = t2 - t1", "", "4", "2"} ' Δt => 10047
+      Case "vx" : DՃA = New String() {
+         "vx v", "vx = v", "", "0", "",
+         "vx v θ", "vx = v cos(θ)", "", "0", "",
+         "vx vy θ", "vx = vy : tan(θ)", "", "0", "",
+         "vx vz ϕ", "vx = vz tan(ϕ)", "", "0", "",
+         "vx v vy", "vx = √(v ^ 2 - vy ^ 2)", "", "0", "",
+         "vx v vz", "vx = √(v ^ 2 - vz ^ 2)", "", "0", "",
+         "vx v θ ϕ", "vx = v cos(θ) sin(ϕ)", "", "0", "",
+         "vx vy θ ϕ", "vx = vy sin(ϕ) : tan(θ)", "", "0", "",
+         "vx v vy vz", "vx = √(v ^ 2 - vy ^ 2 - vz ^ 2)", "", "0", ""} ' vx => 9
+      Case "vy" : DՃA = New String() {
+         "vy v", "vy = v", "", "0", "",
+         "vy v θ", "vy = v sin(θ)", "", "0", "",
+         "vy vx θ", "vy = vx tan(θ)", "", "0", "",
+         "vy vz θ", "vy = vz tan(θ)", "", "0", "",
+         "vy v vx", "vy = √(v ^ 2 - vx ^ 2)", "", "0", "",
+         "vy v vz", "vy = √(v ^ 2 - vz ^ 2)", "", "0", "",
+         "vy vx θ ϕ", "vy = vx tan(θ) : sin(ϕ)", "", "0", "",
+         "vy vz θ ϕ", "vy = vz tan(θ) : cos(ϕ)", "", "0", "",
+         "vy v vx vz", "vy = √(v ^ 2 - vx ^ 2 - vz ^ 2)", "", "0", ""} ' vy => 9
+      Case "vz" : DՃA = New String() {
+         "vz v", "vz = v", "", "0", "",
+         "vz v θ", "vz = v cos(θ)", "", "0", "",
+         "vz vx ϕ", "vz = vx : tan(ϕ)", "", "0", "",
+         "vz vy θ", "vz = vy : tan(θ)", "", "0", "",
+         "vz v vx", "vz = √(v ^ 2 - vx ^ 2)", "", "0", "",
+         "vz v vy", "vz = √(v ^ 2 - vy ^ 2)", "", "0", "",
+         "vz vy θ ϕ", "vz = vy cos(ϕ) : tan(θ)", "", "0", "",
+         "vz v θ ϕ", "vz = v cos(θ) cos(ϕ)", "", "0", "",
+         "vz v vx vy", "vz = √(v ^ 2 - vx ^ 2 - vy ^ 2)", "", "0", ""} ' vz => 9
+      Case "v1" : DՃA = New String() {
+         "v1 a F k P", "v1 = P : F + a F ^ 2 : k : P : 2", "v1 a F k {v}", "62", "",
+         "v1 a F k Δt", "v1 = -F : k : Δt - a Δt : 2", "v1 F k Δt Δv", "24", "",
+         "v1 a F k v2", "v1 = √(v2 ^ 2 + 2 a F : k)", "v1 a Δs v2", "59", "",
+         "v1 a F k Δv", "v1 = -a F : k : Δv - Δv : 2", "v1 F k Δt Δv", "25", "",
+         "v1 a F k {v}", "v1 = {v} + a F : k : {v} : 2", "v1 a Δs {v}", "59", "",
+         "v1 a F P Δs", "v1 = P : F - a F Δs : P : 2", "v1 a F P W", "29", "",
+         "v1 a F P Δt", "v1 = P : F - a Δt : 2", "v1 F P Δv", "24", "",
+         "v1 a F P W", "v1 = P (2 a W : F - (a W : P) ^ 2) : a : W : 2", "v1 a F P Δt", "43", "",
+         "v1 a F Δt W", "v1 = W : F : Δt - a Δt : 2", "v1 a Δs Δt", "31", "",
+         "v1 a F v2 W", "v1 = √(v2 ^ 2 - 2 a W : F)", "v1 a Δs v2", "31", "",
+         "v1 a F Δv W", "v1 = a W : F : Δv - Δv : 2", "v1 a Δs Δv", "31", "",
+         "v1 a F {v} W", "v1 = {v} - a W : F : {v} : 2", "v1 a Δs {v}", "31", "",
+         "v1 a |Fn| μg P Δs", "v1 = P : |Fn| : μg - a |Fn| μg Δs : P : 2", "v1 a F P Δs", "85", "",
+         "v1 a |Fn| μg P Δt", "v1 = P : |Fn| : μg - a Δt : 2", "v1 a F P Δt", "85", "",
+         "v1 a |Fn| μg P W", "v1 = P : |Fn| : μg - a W : P : 2", "v1 a F P W", "85", "",
+         "v1 a |Fn| μg Δt W", "v1 = W : |Fn| : μg : Δt - a Δt : 2", "v1 a F Δt W", "85", "",
+         "v1 a |Fn| μg v2 W", "v1 = √(v2 ^ 2 - 2 a W : |Fn| : μg)", "v1 a F v2 W", "85", "",
+         "v1 a |Fn| μg Δv W", "v1 = a W : |Fn| : μg : Δv - Δv : 2", "v1 a F Δv W", "85", "",
+         "v1 a |Fn| μg {v} W", "v1 = {v} - a W : |Fn| : μg : {v} : 2", "v1 a F {v} W", "85", "",
+         "v1 a |Fn| μh P Δs", "v1 = P : |Fn| : μh - a |Fn| μh Δs : P : 2", "v1 a F P Δs", "88", "",
+         "v1 a |Fn| μh P Δt", "v1 = P : |Fn| : μh - a Δt : 2", "v1 a F P Δt", "88", "",
+         "v1 a |Fn| μh P W", "v1 = P : |Fn| : μh - a W : P : 2", "v1 a F P W", "88", "",
+         "v1 a |Fn| μh Δt W", "v1 = W : |Fn| : μh : Δt - a Δt : 2", "v1 a F Δt W", "88", "",
+         "v1 a |Fn| μh v2 W", "v1 = √(v2 ^ 2 - 2 a W : |Fn| : μh)", "v1 a F v2 W", "88", "",
+         "v1 a |Fn| μh Δv W", "v1 = a W : |Fn| : μh : Δv - Δv : 2", "v1 a F Δv W", "88", "",
+         "v1 a |Fn| μh {v} W", "v1 = {v} - a W : |Fn| : μh : {v} : 2", "v1 a F {v} W", "88", "",
+         "v1 a |Fn| μr P Δs", "v1 = P : |Fn| : μr - a |Fn| μr Δs : P : 2", "v1 a F P Δs", "91", "",
+         "v1 a |Fn| μr P Δt", "v1 = P : |Fn| : μr - a Δt : 2", "v1 a F P Δt", "91", "",
+         "v1 a |Fn| μr P W", "v1 = P : |Fn| : μr - a W : P : 2", "v1 a F P W", "91", "",
+         "v1 a |Fn| μr Δt W", "v1 = W : |Fn| : μr : Δt - a Δt : 2", "v1 a F Δt W", "91", "",
+         "v1 a |Fn| μr v2 W", "v1 = √(v2 ^ 2 - 2 a W : |Fn| : μr)", "v1 a F v2 W", "91", "",
+         "v1 a |Fn| μr Δv W", "v1 = a W : |Fn| : μr : Δv - Δv : 2", "v1 a F Δv W", "91", "",
+         "v1 a |Fn| μr {v} W", "v1 = {v} - a W : |Fn| : μr : {v} : 2", "v1 a F {v} W", "91", "",
+         "v1 a k m P", "v1 = P : a : m + a ^ 3 m ^ 2 : k : P : 2", "v1 a F k P", "26", "",
+         "v1 a k m Δt", "v1 = -a m : k : Δt - a Δt : 2", "v1 a F k Δt", "26", "",
+         "v1 a k m v2", "v1 = √(v2 ^ 2 + 2 a ^ 2 m : k)", "v1 a F k v2", "26", "",
+         "v1 a k m Δv", "v1 = -(a ^ 2) m : k : Δv - Δv : 2", "v1 a F k Δv", "26", "",
+         "v1 a k m {v}", "v1 = {v} + a ^ 2 m : k : {v} : 2", "v1 a F k {v}", "26", "",
+         "v1 a k P Δs", "v1 = -P : k : Δs + a k Δs ^ 2 : P : 2", "v1 a F k P", "57", "",
+         "v1 a k P Δt", "v1 = √(-P : k : Δt) - a Δt : 2", "v1 k P Δt Δv", "24", "",
+         "v1 a k P Δv", "v1 = √(-a P : k : Δv) - Δv : 2", "v1 k P Δt Δv", "25", "",
+         "v1 a k P {v}", "v1 = {v} + a P : k : {v} ^ 2 : 2", "v1 a F k {v}", "61", "",
+         "v1 a k P W", "v1 = P : √(-k W) - a W : P : 2", "v1 a k P Δt", "43", "",
+         "v1 a k Δt W", "v1 = √(-W : k) : Δt - a Δt : 2", "v1 a k P Δt", "42", "",
+         "v1 a k v2 W", "v1 = √(v2 ^ 2 - 2 a √(-W : k))", "v1 a F k v2", "75", "",
+         "v1 a k Δv W", "v1 = a √(-W : k) : Δv - Δv : 2", "v1 k Δt Δv W", "25", "",
+         "v1 a k {v} W", "v1 = {v} - a √(-W : k) : {v} : 2", "v1 a F k {v}", "75", "",
+         "v1 a m P Δs", "v1 = P : a : m - a ^ 2 m Δs : P : 2", "v1 a F P Δs", "26", "",
+         "v1 a m P Δt", "v1 = P : a : m - a Δt : 2", "v1 a m P Δv", "24", "",
+         "v1 a m P v2", "v1 = 2 P : a : m - v2", "v1 F P v2", "26", "",
+         "v1 a m P Δv", "v1 = P : a : m - Δv : 2", "v1 F P Δv", "26", "",
+         "v1 a m P W", "v1 = P : a : m - a W : P : 2", "v1 F P W", "26", "",
+         "v1 a m Δt W", "v1 = W : a : m : Δt - a Δt : 2", "v1 a F Δt W", "26", "",
+         "v1 a P Δs W", "v1 = P Δs : W - a W : P : 2", "v1 a F P W", "30", "",
+         "v1 a P {v} W", "v1 = {v} - a W : P : 2", "v1 a Δt {v}", "43", "",
+         "v1 a Δs Δt", "v1 = Δs : Δt - a Δt : 2", "v1 a Δt {v}", "20", "",
+         "v1 a Δs v2", "v1 = √(v2 ^ 2 - 2 a Δs)", "v1 a Δs Δv", "7", "",
+         "v1 a Δs Δv", "v1 = a Δs : Δv - Δv : 2", "v1 Δs Δt Δv", "25", "",
+         "v1 a Δs {v}", "v1 = {v} - a Δs : {v} : 2", "v1 a Δt {v}", "22", "",
+         "v1 a Δt {v}", "v1 = {v} - a Δt : 2", "v1 Δv {v}", "24", "",
+         "v1 F k m P", "v1 = P : F + F ^ 3 : k : m : P : 2", "v1 a F k P", "27", "",
+         "v1 F k m Δt", "v1 = -F : k : Δt - F Δt : m : 2", "v1 a F k Δt", "27", "",
+         "v1 F k m v2", "v1 = √(v2 ^ 2 + 2 F ^ 2 : k : m)", "v1 a F k v2", "27", "",
+         "v1 F k m Δv", "v1 = -(F ^ 2) : k : m : Δv - Δv : 2", "v1 a F k Δv", "27", "",
+         "v1 F k m {v}", "v1 = {v} + F ^ 2 : k : m : {v} : 2", "v1 a F k {v}", "27", "",
+         "v1 F k Δt v2", "v1 = -2 F : k : Δt - v2", "v1 Δs Δt v2", "59", "",
+         "v1 F k Δt Δv", "v1 = -F : k : Δt - Δv : 2", "v1 Δs Δt Δv", "59", "",
+         "v1 F m P Δs", "v1 = P : F - F ^ 2 Δs : m : P : 2", "v1 F m P W", "29", "",
+         "v1 F m P Δt", "v1 = P : F - F Δt : m : 2", "v1 a F P Δt", "27", "",
+         "v1 F m P W", "v1 = P : F - F W : m : P : 2", "v1 a F P W", "27", "",
+         "v1 F m Δs Δt", "v1 = Δs : Δt - F Δt : m : 2", "v1 a Δs Δt", "27", "",
+         "v1 F m Δs v2", "v1 = √(v2 ^ 2 - 2 F Δs : m)", "v1 a Δs v2", "27", "",
+         "v1 F m Δs Δv", "v1 = F Δs : m : Δv - Δv : 2", "v1 a Δs Δv", "27", "",
+         "v1 F m Δs {v}", "v1 = {v} - F Δs : m : {v} : 2", "v1 a Δs {v}", "27", "",
+         "v1 F m Δt {v}", "v1 = {v} - F Δt : m : 2", "v1 a Δt {v}", "27", "",
+         "v1 F m Δt W", "v1 = W : F : Δt - F Δt : m : 2", "v1 a F Δt W", "27", "",
+         "v1 F P v2", "v1 = 2 P : F - v2", "v1 F Δt v2 W", "43", "",
+         "v1 F P Δv", "v1 = P : F - Δv : 2", "v1 Δv {v}", "62", "",
+         "v1 F Δt v2 W", "v1 = 2 W : F : Δt - v2", "v1 Δs Δt v2", "31", "",
+         "v1 F Δt Δv W", "v1 = W : F : Δt - Δv : 2", "v1 Δs Δt Δv", "31", "",
+         "v1 |Fn| m μg P Δs", "v1 = P : |Fn| : μg - (|Fn| μg) ^ 2 Δs : m : P : 2", "v1 F m P Δs", "85", "",
+         "v1 |Fn| m μg P Δt", "v1 = P : |Fn| : μg - |Fn| μg Δt : m : 2", "v1 F m P Δt", "85", "",
+         "v1 |Fn| m μg P W", "v1 = P : |Fn| : μg - |Fn| μg W : m : P : 2", "v1 F m P W", "85", "",
+         "v1 |Fn| m μg Δs Δt", "v1 = Δs : Δt - |Fn| μg Δt : m : 2", "v1 F m Δs Δt", "85", "",
+         "v1 |Fn| m μg Δs v2", "v1 = √(v2 ^ 2 - 2 |Fn| μg Δs : m)", "v1 F m Δs v2", "85", "",
+         "v1 |Fn| m μg Δs Δv", "v1 = |Fn| μg Δs : m : Δv - Δv : 2", "v1 F m Δs Δv", "85", "",
+         "v1 |Fn| m μg Δs {v}", "v1 = {v} - |Fn| μg Δs : m : {v} : 2", "v1 F m Δs {v}", "85", "",
+         "v1 |Fn| m μg Δt {v}", "v1 = {v} - |Fn| μg Δt : m : 2", "v1 F m Δt {v}", "85", "",
+         "v1 |Fn| m μg Δt W", "v1 = W : |Fn| : μg : Δt - |Fn| μg Δt : m : 2", "v1 F m Δt W", "85", "",
+         "v1 |Fn| m μh P Δs", "v1 = P : |Fn| : μh - (|Fn| μh) ^ 2 Δs : m : P : 2", "v1 F m P Δs", "88", "",
+         "v1 |Fn| m μh P Δt", "v1 = P : |Fn| : μh - |Fn| μh Δt : m : 2", "v1 F m P Δt", "88", "",
+         "v1 |Fn| m μh P W", "v1 = P : |Fn| : μh - |Fn| μh W : m : P : 2", "v1 F m P W", "88", "",
+         "v1 |Fn| m μh Δs Δt", "v1 = Δs : Δt - |Fn| μh Δt : m : 2", "v1 F m Δs Δt", "88", "",
+         "v1 |Fn| m μh Δs v2", "v1 = √(v2 ^ 2 - 2 |Fn| μh Δs : m)", "v1 F m Δs v2", "88", "",
+         "v1 |Fn| m μh Δs Δv", "v1 = |Fn| μh Δs : m : Δv - Δv : 2", "v1 F m Δs Δv", "88", "",
+         "v1 |Fn| m μh Δs {v}", "v1 = {v} - |Fn| μh Δs : m : {v} : 2", "v1 F m Δs {v}", "88", "",
+         "v1 |Fn| m μh Δt {v}", "v1 = {v} - |Fn| μh Δt : m : 2", "v1 F m Δt {v}", "88", "",
+         "v1 |Fn| m μh Δt W", "v1 = W : |Fn| : μh : Δt - |Fn| μh Δt : m : 2", "v1 F m Δt W", "88", "",
+         "v1 |Fn| m μr P Δs", "v1 = P : |Fn| : μr - (|Fn| μr) ^ 2 Δs : m : P : 2", "v1 F m P Δs", "91", "",
+         "v1 |Fn| m μr P Δt", "v1 = P : |Fn| : μr - |Fn| μr Δt : m : 2", "v1 F m P Δt", "91", "",
+         "v1 |Fn| m μr P W", "v1 = P : |Fn| : μr - |Fn| μr W : m : P : 2", "v1 F m P W", "91", "",
+         "v1 |Fn| m μr Δs Δt", "v1 = Δs : Δt - |Fn| μr Δt : m : 2", "v1 F m Δs Δt", "91", "",
+         "v1 |Fn| m μr Δs v2", "v1 = √(v2 ^ 2 - 2 |Fn| μr Δs : m)", "v1 F m Δs v2", "91", "",
+         "v1 |Fn| m μr Δs Δv", "v1 = |Fn| μr Δs : m : Δv - Δv : 2", "v1 F m Δs Δv", "91", "",
+         "v1 |Fn| m μr Δs {v}", "v1 = {v} - |Fn| μr Δs : m : {v} : 2", "v1 F m Δs {v}", "91", "",
+         "v1 |Fn| m μr Δt {v}", "v1 = {v} - |Fn| μr Δt : m : 2", "v1 F m Δt {v}", "91", "",
+         "v1 |Fn| m μr Δt W", "v1 = W : |Fn| : μr : Δt - |Fn| μr Δt : m : 2", "v1 F m Δt W", "91", "",
+         "v1 |Fn| μg P v2", "v1 = 2 P : |Fn| : μg - v2", "v1 F P v2", "85", "",
+         "v1 |Fn| μg P Δv", "v1 = P : |Fn| : μg - Δv : 2", "v1 F P Δv", "85", "",
+         "v1 |Fn| μg Δt v2 W", "v1 = 2 W : |Fn| : μg : Δt - v2", "v1 F Δt v2 W", "85", "",
+         "v1 |Fn| μg Δt Δv W", "v1 = W : |Fn| : μg : Δt - Δv : 2", "v1 F Δt Δv W", "85", "",
+         "v1 |Fn| μh P v2", "v1 = 2 P : |Fn| : μh - v2", "v1 F P v2", "88", "",
+         "v1 |Fn| μh P Δv", "v1 = P : |Fn| : μh - Δv : 2", "v1 F P Δv", "88", "",
+         "v1 |Fn| μh Δt v2 W", "v1 = 2 W : |Fn| : μh : Δt - v2", "v1 F Δt v2 W", "88", "",
+         "v1 |Fn| μh Δt Δv W", "v1 = W : |Fn| : μh : Δt - Δv : 2", "v1 F Δt Δv W", "88", "",
+         "v1 |Fn| μr P v2", "v1 = 2 P : |Fn| : μr - v2", "v1 F P v2", "91", "",
+         "v1 |Fn| μr P Δv", "v1 = P : |Fn| : μr - Δv : 2", "v1 F P Δv", "91", "",
+         "v1 |Fn| μr Δt v2 W", "v1 = 2 W : |Fn| : μr : Δt - v2", "v1 F Δt v2 W", "91", "",
+         "v1 |Fn| μr Δt Δv W", "v1 = W : |Fn| : μr : Δt - Δv : 2", "v1 F Δt Δv W", "91", "",
+         "v1 k m P Δs", "v1 = (-k ^ 3 Δs ^ 4 : m : P : 2 - P) : k : Δs", "v1 F k m P", "57", "",
+         "v1 k m P Δt", "v1 = √(-k P Δt) (-Δt : m : 2 - 1 : k : Δt)", "v1 k m Δt W", "44", "",
+         "v1 k m P Δv", "v1 = √(-(P ^ 2) : k : m : Δv ' 3) - Δv : 2", "v1 k P Δv W", "67", "",
+         "v1 k m P {v}", "v1 = {v} + P ^ 2 : k : m : {v} ^ 3 : 2", "v1 F k m {v}", "61", "",
+         "v1 k m P W", "v1 = √(-k W) (-W : m : P : 2 - P : k : W)", "v1 k m Δt W", "43", "",
+         "v1 k m Δs Δt", "v1 = Δs : Δt + k Δs Δt : m : 2", "v1 k m Δs {v}", "20", "",
+         "v1 k m Δs v2", "v1 = √(v2 ^ 2 + 2 k Δs ^ 2 : m)", "v1 F k m v2", "57", "",
+         "v1 k m Δs Δv", "v1 = -k Δs ^ 2 : m : Δv - Δv : 2", "v1 F k m Δv", "57", "",
+         "v1 k m Δs {v}", "v1 = {v} + k Δs ^ 2 : m : {v} : 2", "v1 F k m {v}", "57", "",
+         "v1 k m Δt v2", "v1 = v2 (2 m : k : Δt ^ 2 + 1) : (2 m : k : Δt ^ 2 - 1)", "v1 k Δt v2 W", "81", "",
+         "v1 k m Δt Δv", "v1 = -m Δv : k : Δt ^ 2 - Δv : 2", "v1 a k m Δt", "23", "",
+         "v1 k m Δt {v}", "v1 = {v} + k Δt ^ 2 {v} : m : 2", "v1 k m Δs {v}", "21", "",
+         "v1 k m Δt W", "v1 = √(-k W) (-Δt : m : 2 - 1 : k : Δt)", "v1 k Δt Δv W", "70", "",
+         "v1 k P Δs v2", "v1 = -2 P : k : Δs - v2", "v1 F P v2", "57", "",
+         "v1 k P Δs Δv", "v1 = -P : k : Δs - Δv : 2", "v1 F P Δv", "57", "",
+         "v1 k P Δt v2", "v1 = 2 √(-P : k : Δt) - v2", "v1 k P v2 W", "44", "",
+         "v1 k P Δt Δv", "v1 = √(-P : k : Δt) - Δv : 2", "v1 k P Δv W", "44", "",
+         "v1 k P v2 W", "v1 = 2 P : √(-k W) - v2", "v1 k P Δs v2", "78", "",
+         "v1 k P Δv W", "v1 = P : √(-k W) - Δv : 2", "v1 k P Δs Δv", "78", "",
+         "v1 k Δt v2 W", "v1 = 2 √(-W : k) : Δt - v2", "v1 F k Δt v2", "75", "",
+         "v1 k Δt Δv W", "v1 = √(-W : k) : Δt - Δv : 2", "v1 k P Δv W", "42", "",
+         "v1 m P Δs Δt", "v1 = Δs : Δt - P Δt ^ 2 : m : Δs : 2", "v1 m Δs Δt W", "44", "",
+         "v1 m P Δs Δv", "v1 = -Δv : 2 ± √(P Δs : m : Δv)", "v1 m P Δs {v}", "18", "",
+         "v1 m P Δs {v}", "v1 = {v} - P Δs : m : {v} ^ 2 : 2", "v1 m P Δt {v}", "22", "",
+         "v1 m P Δs W", "v1 = P Δs : W - W ^ 2 : m : P : Δs : 2", "v1 F m P W", "30", "",
+         "v1 m P Δt v2", "v1 = √(v2 ^ 2 - 2 P Δt : m)", "v1 m v2 W", "44", "",
+         "v1 m P Δt Δv", "v1 = P Δt : m : Δv - Δv : 2", "v1 m P Δt {v}", "18", "",
+         "v1 m P Δt {v}", "v1 = {v} - P Δt : m : {v} : 2", "v1 F m Δt {v}", "61", "",
+         "v1 m Δs Δt W", "v1 = Δs : Δt - Δt W : m : Δs : 2", "v1 F m Δs Δt", "30", "",
+         "v1 m v2 W", "v1 = √(v2 ^ 2 - 2 W : m)", "v1 F m Δs v2", "30", "",
+         "v1 m Δv W", "v1 = W : m : Δv - Δv : 2", "v1 F m Δs Δv", "30", "",
+         "v1 m {v} W", "v1 = {v} - W : m : {v} : 2", "v1 F m Δs {v}", "30", "",
+         "v1 P Δs v2 W", "v1 = 2 P Δs : W - v2", "v1 Δs Δt v2", "43", "",
+         "v1 P Δs Δv W", "v1 = P Δs : W - Δv : 2", "v1 F P Δv", "30", "",
+         "v1 Δs Δt v2", "v1 = 2 Δs : Δt - v2", "v1 v2 {v}", "20", "",
+         "v1 Δs Δt Δv", "v1 = Δs : Δt - Δv : 2", "v1 Δv {v}", "20", "",
+         "v1 v2 Δv", "v1 = v2 - Δv", "", "8", "3",
+         "v1 v2 {v}", "v1 = 2 {v} - v2", "", "11", "3",
+         "v1 Δv {v}", "v1 = {v} - Δv : 2", "v1 v2 Δv", "12", "3"} ' v1 => 8047
+      Case "v2" : DՃA = New String() {
+         "v2 a F k P", "v2 = P : F - a F ^ 2 : k : P : 2", "v2 a F k {v}", "62", "",
+         "v2 a F k Δt", "v2 = a Δt : 2 - F : k : Δt", "v2 F k Δt Δv", "24", "",
+         "v2 a F k v1", "v2 = √(v1 ^ 2 - 2 a F : k)", "v2 a Δs v1", "59", "",
+         "v2 a F k Δv", "v2 = Δv : 2 - a F : k : Δv", "v2 F k Δt Δv", "25", "",
+         "v2 a F k {v}", "v2 = {v} - a F : k : {v} : 2", "v2 a Δs {v}", "59", "",
+         "v2 a F P Δs", "v2 = P : F + a F Δs : P : 2", "v2 a F P W", "29", "",
+         "v2 a F P Δt", "v2 = P : F + a Δt : 2", "v2 F P Δv", "24", "",
+         "v2 a F P W", "v2 = P : F + a W : P : 2", "v2 a F P Δt", "43", "",
+         "v2 a F Δt W", "v2 = W : F : Δt + a Δt : 2", "v2 a Δs Δt", "31", "",
+         "v2 a F v1 W", "v2 = √(v1 ^ 2 + 2 a W : F)", "v2 a Δs v1", "31", "",
+         "v2 a F Δv W", "v2 = a W : F : Δv + Δv : 2", "v2 a Δs Δv", "31", "",
+         "v2 a F {v} W", "v2 = {v} + a W : F : {v} : 2", "v2 a Δs {v}", "31", "",
+         "v2 a |Fn| μg P Δs", "v2 = P : |Fn| : μg + a |Fn| μg Δs : P : 2", "v2 a F P Δs", "85", "",
+         "v2 a |Fn| μg P Δt", "v2 = P : |Fn| : μg + a Δt : 2", "v2 a F P Δt", "85", "",
+         "v2 a |Fn| μg P W", "v2 = P : |Fn| : μg + a W : P : 2", "v2 a F P W", "85", "",
+         "v2 a |Fn| μg Δt W", "v2 = W : |Fn| : μg : Δt + a Δt : 2", "v2 a F Δt W", "85", "",
+         "v2 a |Fn| μg v1 W", "v2 = √(v1 ^ 2 + 2 a W : |Fn| : μg)", "v2 a F v1 W", "85", "",
+         "v2 a |Fn| μg Δv W", "v2 = a W : |Fn| : μg : Δv + Δv : 2", "v2 a F Δv W", "85", "",
+         "v2 a |Fn| μg {v} W", "v2 = {v} + a W : |Fn| : μg : {v} : 2", "v2 a F {v} W", "85", "",
+         "v2 a |Fn| μh P Δs", "v2 = P : |Fn| : μh + a |Fn| μh Δs : P : 2", "v2 a F P Δs", "88", "",
+         "v2 a |Fn| μh P Δt", "v2 = P : |Fn| : μh + a Δt : 2", "v2 a F P Δt", "88", "",
+         "v2 a |Fn| μh P W", "v2 = P : |Fn| : μh + a W : P : 2", "v2 a F P W", "88", "",
+         "v2 a |Fn| μh Δt W", "v2 = W : |Fn| : μh : Δt + a Δt : 2", "v2 a F Δt W", "88", "",
+         "v2 a |Fn| μh v1 W", "v2 = √(v1 ^ 2 + 2 a W : |Fn| : μh)", "v2 a F v1 W", "88", "",
+         "v2 a |Fn| μh Δv W", "v2 = a W : |Fn| : μh : Δv + Δv : 2", "v2 a F Δv W", "88", "",
+         "v2 a |Fn| μh {v} W", "v2 = {v} + a W : |Fn| : μh : {v} : 2", "v2 a F {v} W", "88", "",
+         "v2 a |Fn| μr P Δs", "v2 = P : |Fn| : μr + a |Fn| μr Δs : P : 2", "v2 a F P Δs", "91", "",
+         "v2 a |Fn| μr P Δt", "v2 = P : |Fn| : μr + a Δt : 2", "v2 a F P Δt", "91", "",
+         "v2 a |Fn| μr P W", "v2 = P : |Fn| : μr + a W : P : 2", "v2 a F P W", "91", "",
+         "v2 a |Fn| μr Δt W", "v2 = W : |Fn| : μr : Δt + a Δt : 2", "v2 a F Δt W", "91", "",
+         "v2 a |Fn| μr v1 W", "v2 = √(v1 ^ 2 + 2 a W : |Fn| : μr)", "v2 a F v1 W", "91", "",
+         "v2 a |Fn| μr Δv W", "v2 = a W : |Fn| : μr : Δv + Δv : 2", "v2 a F Δv W", "91", "",
+         "v2 a |Fn| μr {v} W", "v2 = {v} + a W : |Fn| : μr : {v} : 2", "v2 a F {v} W", "91", "",
+         "v2 a k m P", "v2 = P : a : m - a ^ 3 m ^ 2 : k : P : 2", "v2 a F k P", "26", "",
+         "v2 a k m Δt", "v2 = a Δt : 2 - a m : k : Δt", "v2 a F k Δt", "26", "",
+         "v2 a k m v1", "v2 = √(v1 ^ 2 - 2 a ^ 2 m : k)", "v2 a F k v1", "26", "",
+         "v2 a k m Δv", "v2 = Δv : 2 - a ^ 2 m : k : Δv", "v2 a F k Δv", "26", "",
+         "v2 a k m {v}", "v2 = {v} - a ^ 2 m : k : {v} : 2", "v2 a F k {v}", "26", "",
+         "v2 a k P Δs", "v2 = -P : k : Δs - a k Δs ^ 2 : P : 2", "v2 a F k P", "57", "",
+         "v2 a k P Δt", "v2 = a Δt : 2 + √(-P : k : Δt)", "v2 k P Δt Δv", "24", "",
+         "v2 a k P Δv", "v2 = Δv : 2 + √(-a P : k : Δv)", "v2 k P Δt Δv", "25", "",
+         "v2 a k P {v}", "v2 = {v} - a P : k : {v} ^ 2 : 2", "v2 a F k {v}", "61", "",
+         "v2 a k P W", "v2 = P : √(-k W) + a W : P : 2", "v2 a k P Δt", "43", "",
+         "v2 a k Δt W", "v2 = a Δt : 2 + √(-W : k) : Δt", "v2 a k P Δt", "42", "",
+         "v2 a k v1 W", "v2 = √(v1 ^ 2 + 2 a √(-W : k))", "v2 a F k v1", "75", "",
+         "v2 a k Δv W", "v2 = Δv : 2 + a √(-W : k) : Δv", "v2 k Δt Δv W", "25", "",
+         "v2 a k {v} W", "v2 = {v} + a √(-W : k) : {v} : 2", "v2 a F k {v}", "75", "",
+         "v2 a m P Δs", "v2 = P : a : m + a ^ 2 m Δs : P : 2", "v2 a F P Δs", "26", "",
+         "v2 a m P Δt", "v2 = P : a : m + a Δt : 2", "v2 a m P Δv", "24", "",
+         "v2 a m P v1", "v2 = 2 P : a : m - v1", "v2 F P v1", "26", "",
+         "v2 a m P Δv", "v2 = P : a : m + Δv : 2", "v2 F P Δv", "26", "",
+         "v2 a m P W", "v2 = P : a : m + a W : P : 2", "v2 a F P W", "26", "",
+         "v2 a m Δt W", "v1 = W : a : m : Δt + a Δt : 2", "v2 a F Δt W", "26", "",
+         "v2 a P Δs W", "v2 = P Δs : W + a W : P : 2", "v2 a F P W", "30", "",
+         "v2 a P {v} W", "v2 = {v} + a W : P : 2", "v2 a Δt {v}", "43", "",
+         "v2 a Δs Δt", "v2 = Δs : Δt + a Δt : 2", "v2 a Δt {v}", "20", "",
+         "v2 a Δs v1", "v2 = √(v1 ^ 2 + 2 a Δs)", "v2 a Δs Δv", "7", "",
+         "v2 a Δs Δv", "v2 = a Δs : Δv + Δv : 2", "v2 Δs Δt Δv", "25", "",
+         "v2 a Δs {v}", "v2 = {v} + a Δs : {v} : 2", "v2 a Δt {v}", "22", "",
+         "v2 a Δt {v}", "v2 = {v} + a Δt : 2", "v2 Δv {v}", "24", "",
+         "v2 F k m P", "v2 = P : F - F ^ 3 : k : m : P : 2", "v2 a F k P", "27", "",
+         "v2 F k m Δt", "v2 = F Δt : m : 2 - F : k : Δt", "v2 a F k Δt", "27", "",
+         "v2 F k m v1", "v2 = √(v1 ^ 2 - 2 F ^ 2 : k : m)", "v2 a F k v1", "27", "",
+         "v2 F k m Δv", "v2 = Δv : 2 - F ^ 2 : k : m : Δv", "v2 a F k Δv", "27", "",
+         "v2 F k m {v}", "v2 = {v} - F ^ 2 : k : m : {v} : 2", "v2 a F k {v}", "27", "",
+         "v2 F k Δt v1", "v2 = -2 F : k : Δt - v1", "v2 Δs Δt v1", "59", "",
+         "v2 F k Δt Δv", "v2 = Δv : 2 - F : k : Δt", "v2 Δs Δt Δv", "59", "",
+         "v2 F m P Δs", "v2 = P : F + F ^ 2 Δs : m : P : 2", "v2 F m P W", "29", "",
+         "v2 F m P Δt", "v2 = P : F + F Δt : m : 2", "v2 a F P Δt", "27", "",
+         "v2 F m P W", "v2 = P : F + F W : m : P : 2", "v2 a F P W", "27", "",
+         "v2 F m Δs Δt", "v2 = Δs : Δt + F Δt : m : 2", "v2 a Δs Δt", "27", "",
+         "v2 F m Δs v1", "v2 = √(v1 ^ 2 + 2 F Δs : m)", "v2 a Δs v1", "27", "",
+         "v2 F m Δs Δv", "v2 = F Δs : m : Δv + Δv : 2", "v2 a Δs Δv", "27", "",
+         "v2 F m Δs {v}", "v2 = {v} + F Δs : m : {v} : 2", "v2 a Δs {v}", "27", "",
+         "v2 F m Δt {v}", "v2 = {v} + F Δt : m : 2", "v2 a Δt {v}", "27", "",
+         "v2 F m Δt W", "v2 = W : F : Δt + F Δt : m : 2", "v2 a F Δt W", "27", "",
+         "v2 F P v1", "v2 = 2 P : F - v1", "v2 F Δt v1 W", "43", "",
+         "v2 F P Δv", "v2 = P : F + Δv : 2", "v2 Δv {v}", "62", "",
+         "v2 F Δt v1 W", "v2 = 2 W : F : Δt - v1", "v2 Δs Δt v1", "31", "",
+         "v2 F Δt Δv W", "v2 = W : F : Δt + Δv : 2", "v2 Δs Δt Δv", "31", "",
+         "v2 |Fn| m μg P Δs", "v2 = P : |Fn| : μg + (|Fn| μg) ^ 2 Δs : m : P : 2", "v2 F m P Δs", "85", "",
+         "v2 |Fn| m μg P Δt", "v2 = P : |Fn| : μg + |Fn| μg Δt : m : 2", "v2 F m P Δt", "85", "",
+         "v2 |Fn| m μg P W", "v2 = P : |Fn| : μg + |Fn| μg W : m : P : 2", "v2 F m P W", "85", "",
+         "v2 |Fn| m μg Δs Δt", "v2 = Δs : Δt + |Fn| μg Δt : m : 2", "v2 F m Δs Δt", "85", "",
+         "v2 |Fn| m μg Δs v1", "v2 = √(v1 ^ 2 + 2 |Fn| μg Δs : m)", "v2 F m Δs v1", "85", "",
+         "v2 |Fn| m μg Δs Δv", "v2 = |Fn| μg Δs : m : Δv + Δv : 2", "v2 F m Δs Δv", "85", "",
+         "v2 |Fn| m μg Δs {v}", "v2 = {v} + |Fn| μg Δs : m : {v} : 2", "v2 F m Δs {v}", "85", "",
+         "v2 |Fn| m μg Δt {v}", "v2 = {v} + |Fn| μg Δt : m : 2", "v2 F m Δt {v}", "85", "",
+         "v2 |Fn| m μg Δt W", "v2 = W : |Fn| : μg : Δt + |Fn| μg Δt : m : 2", "v2 F m Δt W", "85", "",
+         "v2 |Fn| m μh P Δs", "v2 = P : |Fn| : μh + (|Fn| μh) ^ 2 Δs : m : P : 2", "v2 F m P Δs", "88", "",
+         "v2 |Fn| m μh P Δt", "v2 = P : |Fn| : μh + |Fn| μh Δt : m : 2", "v2 F m P Δt", "88", "",
+         "v2 |Fn| m μh P W", "v2 = P : |Fn| : μh + |Fn| μh W : m : P : 2", "v2 F m P W", "88", "",
+         "v2 |Fn| m μh Δs Δt", "v2 = Δs : Δt + |Fn| μh Δt : m : 2", "v2 F m Δs Δt", "88", "",
+         "v2 |Fn| m μh Δs v1", "v2 = √(v1 ^ 2 + 2 |Fn| μh Δs : m)", "v2 F m Δs v1", "88", "",
+         "v2 |Fn| m μh Δs Δv", "v2 = |Fn| μh Δs : m : Δv + Δv : 2", "v2 F m Δs Δv", "88", "",
+         "v2 |Fn| m μh Δs {v}", "v2 = {v} + |Fn| μh Δs : m : {v} : 2", "v2 F m Δs {v}", "88", "",
+         "v2 |Fn| m μh Δt {v}", "v2 = {v} + |Fn| μh Δt : m : 2", "v2 F m Δt {v}", "88", "",
+         "v2 |Fn| m μh Δt W", "v2 = W : |Fn| : μh : Δt + |Fn| μh Δt : m : 2", "v2 F m Δt W", "88", "",
+         "v2 |Fn| m μr P Δs", "v2 = P : |Fn| : μr + (|Fn| μr) ^ 2 Δs : m : P : 2", "v2 F m P Δs", "91", "",
+         "v2 |Fn| m μr P Δt", "v2 = P : |Fn| : μr + |Fn| μr Δt : m : 2", "v2 F m P Δt", "91", "",
+         "v2 |Fn| m μr P W", "v2 = P : |Fn| : μr + |Fn| μr W : m : P : 2", "v2 F m P W", "91", "",
+         "v2 |Fn| m μr Δs Δt", "v2 = Δs : Δt + |Fn| μr Δt : m : 2", "v2 F m Δs Δt", "91", "",
+         "v2 |Fn| m μr Δs v1", "v2 = √(v1 ^ 2 + 2 |Fn| μr Δs : m)", "v2 F m Δs v1", "91", "",
+         "v2 |Fn| m μr Δs Δv", "v2 = |Fn| μr Δs : m : Δv + Δv : 2", "v2 F m Δs Δv", "91", "",
+         "v2 |Fn| m μr Δs {v}", "v2 = {v} + |Fn| μr Δs : m : {v} : 2", "v2 F m Δs {v}", "91", "",
+         "v2 |Fn| m μr Δt {v}", "v2 = {v} + |Fn| μr Δt : m : 2", "v2 F m Δt {v}", "91", "",
+         "v2 |Fn| m μr Δt W", "v2 = W : |Fn| : μr : Δt + |Fn| μr Δt : m : 2", "v2 F m Δt W", "91", "",
+         "v2 |Fn| μg P v1", "v2 = 2 P : |Fn| : μg - v1", "v2 F P v1", "85", "",
+         "v2 |Fn| μg P Δv", "v2 = P : |Fn| : μg + Δv : 2", "v2 F P Δv", "85", "",
+         "v2 |Fn| μg Δt v1 W", "v2 = 2 W : |Fn| : μg : Δt - v1", "v2 F Δt v1 W", "85", "",
+         "v2 |Fn| μg Δt Δv W", "v2 = W : |Fn| : μg : Δt + Δv : 2", "v2 F Δt Δv W", "85", "",
+         "v2 |Fn| μh P v1", "v2 = 2 P : |Fn| : μh - v1", "v2 F P v1", "88", "",
+         "v2 |Fn| μh P Δv", "v2 = P : |Fn| : μh + Δv : 2", "v2 F P Δv", "88", "",
+         "v2 |Fn| μh Δt v1 W", "v2 = 2 W : |Fn| : μh : Δt - v1", "v2 F Δt v1 W", "88", "",
+         "v2 |Fn| μh Δt Δv W", "v2 = W : |Fn| : μh : Δt + Δv : 2", "v2 F Δt Δv W", "88", "",
+         "v2 |Fn| μr P v1", "v2 = 2 P : |Fn| : μr - v1", "v2 F P v1", "91", "",
+         "v2 |Fn| μr P Δv", "v2 = P : |Fn| : μr + Δv : 2", "v2 F P Δv", "91", "",
+         "v2 |Fn| μr Δt v1 W", "v2 = 2 W : |Fn| : μr : Δt - v1", "v2 F Δt v1 W", "91", "",
+         "v2 |Fn| μr Δt Δv W", "v2 = W : |Fn| : μr : Δt + Δv : 2", "v2 F Δt Δv W", "91", "",
+         "v2 k m P Δs", "v2 = k ^ 2 Δs ^ 3 : m : P : 2 - P : k : Δs", "v2 F k m P", "57", "",
+         "v2 k m P Δt", "v2 = √(-k P Δt) (Δt : m - 2 : k : Δt) : 2", "v2 k m Δt W", "44", "",
+         "v2 k m P Δv", "v2 = Δv : 2 + √(-(P ^ 2) : k : m : Δv ' 3)", "v2 k P Δv W", "71", "",
+         "v2 k m P {v}", "v2 = {v} - P ^ 2 : k : m : {v} ^ 3 : 2", "v2 F k m {v}", "61", "",
+         "v2 k m P W", "v2 = √(-k W) (W : m : P : 2 - P : k : W)", "v2 k m Δt W", "43", "",
+         "v2 k m Δs Δt", "v2 = Δs : Δt - k Δs Δt : m : 2", "v2 k m Δs {v}", "20", "",
+         "v2 k m Δs v1", "v2 = √(v1 ^ 2 - 2 k Δs ^ 2 : m)", "v2 F k m v1", "57", "",
+         "v2 k m Δs Δv", "v2 = Δv : 2 - k Δs ^ 2 : m : Δv", "v2 F k m Δv", "57", "",
+         "v2 k m Δs {v}", "v2 = {v} - k Δs ^ 2 : m : {v} : 2", "v2 F k m {v}", "57", "",
+         "v2 k m Δt v1", "v2 = v1 (2 m : k : Δt ^ 2 - 1) : (2 m : k : Δt ^ 2 + 1)", "v2 k Δt v1 W", "81", "",
+         "v2 k m Δt Δv", "v2 = Δv : 2 - m Δv : k : Δt ^ 2", "v2 a k m Δt", "23", "",
+         "v2 k m Δt {v}", "v2 = {v} - k Δt ^ 2 {v} : m : 2", "v2 k m Δs {v}", "21", "",
+         "v2 k m Δt W", "v2  = √(-k W) (Δt : m : 2 - 1 : k : Δt)", "v2 k Δt Δv W", "74", "",
+         "v2 k P Δs v1", "v2 = -2 P : k : Δs - v1", "v2 F P v1", "57", "",
+         "v2 k P Δs Δv", "v2 = Δv : 2 - P : k : Δs", "v2 F P Δv", "57", "",
+         "v2 k P Δt v1", "v2 = √(-4 P : k : Δt) - v1", "v2 k P v1 W", "44", "",
+         "v2 k P Δt Δv", "v2 = Δv : 2 + √(-P : k : Δt)", "v2 k P Δv W", "44", "",
+         "v2 k P v1 W", "v2 = 2 P √(-1 : k : W) - v1", "v2 k P Δs v1", "78", "",
+         "v2 k P Δv W", "v2 = Δv : 2 + P √(-1 : k : W)", "v2 k P Δs Δv", "78", "",
+         "v2 k Δt v1 W", "v2 = 2 √(-W : k) : Δt - v1", "v2 F k Δt v1", "75", "",
+         "v2 k Δt Δv W", "v2 = Δv : 2 + √(-W : k) : Δt", "v2 k P Δv W", "42", "",
+         "v2 m P Δs Δt", "v2 = Δs : Δt + P Δt ^ 2 : m : Δs : 2", "v2 m Δs Δt W", "44", "",
+         "v2 m P Δs Δv", "v2 = Δv : 2 ± √(P Δs : m : Δv)", "v2 m P Δs {v}", "15", "",
+         "v2 m P Δs {v}", "v2 = {v} + P Δs : m : {v} ^ 2 : 2", "v2 m P Δt {v}", "22", "",
+         "v2 m P Δs W", "v2 = P Δs : W + W ^ 2 : m : P : Δs : 2", "v2 F m P W", "30", "",
+         "v2 m P Δt v1", "v2 = √(v1 ^ 2 + 2 P Δt : m)", "v2 m v1 W", "44", "",
+         "v2 m P Δt Δv", "v2 = P Δt : m : Δv + Δv : 2", "v2 m P Δt {v}", "15", "",
+         "v2 m P Δt {v}", "v2 = {v} + P Δt : m : {v} : 2", "v2 F m Δt {v}", "61", "",
+         "v2 m Δs Δt W", "v2 = Δs : Δt + Δt W : m : Δs : 2", "v2 F m Δs Δt", "30", "",
+         "v2 m v1 W", "v2 = √(v1 ^ 2 + 2 W : m)", "v2 F m Δs v1", "30", "",
+         "v2 m Δv W", "v2 = W : m : Δv + Δv : 2", "v2 F m Δs Δv", "30", "",
+         "v2 m {v} W", "v2 = {v} + W : m : {v} : 2", "v2 F m Δs {v}", "30", "",
+         "v2 P Δs v1 W", "v2 = 2 P Δs : W - v1", "v2 Δs Δt v1", "43", "",
+         "v2 P Δs Δv W", "v2 = P Δs : W + Δv : 2", "v2 F P Δv", "30", "",
+         "v2 Δs Δt v1", "v2 = 2 Δs : Δt - v1", "v2 v1 {v}", "20", "",
+         "v2 Δs Δt Δv", "v2 = Δs : Δt + Δv : 2", "v2 Δv {v}", "20", "",
+         "v2 v1 Δv", "v2 = v1 + Δv", "", "9", "3",
+         "v2 v1 {v}", "v2 = 2 {v} - v1", "", "12", "3",
+         "v2 Δv {v}", "v2 = {v} + Δv : 2", "v2 v1 Δv", "11", "3"} ' v2 => 8047
+      Case "Δv" : DՃA = New String() {
+         "Δv a F k P", "Δv = -a F ^ 2 : k : P", "Δv a F k {v}", "62", "",
+         "Δv a F k v1", "Δv = -v1 ± √(v1 ^ 2 - 2 a F : k)", "Δv a Δs v1", "59", "",
+         "Δv a F k v2", "Δv = v2 ± √(v2 ^ 2 + 2 a F : k)", "Δv a Δs v2", "59", "",
+         "Δv a F k {v}", "Δv = -a F : k : {v}", "Δv a Δs {v}", "59", "",
+         "Δv a F P Δs", "Δv = a F Δs : P", "Δv a P W", "29", "",
+         "Δv a F v1 W", "Δv = -v1 ± √(v1 ^ 2 + 2 a W : F)", "Δv a Δs v1", "31", "",
+         "Δv a F v2 W", "Δv = v2 ± √(v2 ^ 2 - 2 a W : F)", "Δv a Δs v2", "31", "",
+         "Δv a F {v} W", "Δv = a W : F : {v}", "Δv a Δs {v}", "31", "",
+         "Δv a |Fn| μg P Δs", "Δv = a |Fn| μg Δs : P", "Δv a F P Δs", "85", "",
+         "Δv a |Fn| μg v1 W", "Δv = -v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μg)", "Δv a F v1 W", "85", "",
+         "Δv a |Fn| μg v2 W", "Δv = v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μg)", "Δv a F v2 W", "85", "",
+         "Δv a |Fn| μg {v} W", "Δv = a W : |Fn| : μg : {v}", "Δv a F {v} W", "85", "",
+         "Δv a |Fn| μh P Δs", "Δv = a |Fn| μh Δs : P", "Δv a F P Δs", "88", "",
+         "Δv a |Fn| μh v1 W", "Δv = -v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μh)", "Δv a F v1 W", "88", "",
+         "Δv a |Fn| μh v2 W", "Δv = v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μh)", "Δv a F v2 W", "88", "",
+         "Δv a |Fn| μh {v} W", "Δv = a W : |Fn| : μh : {v}", "Δv a F {v} W", "88", "",
+         "Δv a |Fn| μr P Δs", "Δv = a |Fn| μr Δs : P", "Δv a F P Δs", "91", "",
+         "Δv a |Fn| μr v1 W", "Δv = -v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μr)", "Δv a F v1 W", "91", "",
+         "Δv a |Fn| μr v2 W", "Δv = v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μr)", "Δv a F v2 W", "91", "",
+         "Δv a |Fn| μr {v} W", "Δv = a W : |Fn| : μr : {v}", "Δv a F {v} W", "91", "",
+         "Δv a k m P", "Δv = -a ^ 3 m ^ 2 : k : P", "Δv a F k P", "26", "",
+         "Δv a k m v1", "Δv = -v1 ± √(v1 ^ 2 - 2 a ^ 2 m : k)", "Δv a F k v1", "26", "",
+         "Δv a k m v2", "Δv = v2 ± √(v2 ^ 2 + 2 a ^ 2 m : k)", "Δv a F k v2", "26", "",
+         "Δv a k m {v}", "Δv = -(a ^ 2) m : k : {v}", "Δv a F k {v}", "26", "",
+         "Δv a k P Δs", "Δv = -a k Δs ^ 2 : P", "Δv a F k P", "57", "",
+         "Δv a k P {v}", "Δv = -a P : k : {v} ^ 2", "Δv a F k {v}", "61", "",
+         "Δv a k v1 W", "Δv = -v1 ± √(v1 ^ 2 + 2 a √(-W : k))", "Δv a F k v1", "75", "",
+         "Δv a k v2 W", "Δv = v2 ± √(v2 ^ 2 - 2 a √(-W : k))", "Δv a F k v2", "75", "",
+         "Δv a k {v} W", "Δv = a √(-W : k) : {v}", "Δv a F k {v}", "75", "",
+         "Δv a m P Δs", "Δv = a ^ 2 m Δs : P", "Δv a F P Δs", "26", "",
+         "Δv a m P v1", "Δv = 2 (P : a : m - v1)", "Δv F P v1", "26", "",
+         "Δv a m P v2", "Δv = 2 (v2 - P : a : m)", "Δv F P v2", "26", "",
+         "Δv a P W", "Δv = a W : P", "Δv a Δt", "43", "",
+         "Δv a Δs v1", "Δv = -v1 ± √(v1 ^ 2 + 2 a Δs)", "Δv Δs Δt v1", "25", "",
+         "Δv a Δs v2", "Δv = v2 ± √(v2 ^ 2 - 2 a Δs)", "Δv Δs Δt v2", "25", "",
+         "Δv a Δs {v}", "Δv = a Δs : {v}", "Δv a Δt", "22", "",
+         "Δv a Δt", "Δv = a Δt", "", "24", "",
+         "Δv F k m P", "Δv = -F ^ 3 : k : P : m", "Δv F k m {v}", "62", "",
+         "Δv F k m v1", "Δv = -v1 ± √(v1 ^ 2 - 2 F ^ 2 : k : m)", "Δv a F k v1", "27", "",
+         "Δv F k m v2", "Δv = v2 ± √(v2 ^ 2 + 2 F ^ 2 : k : m)", "Δv a F k v2", "27", "",
+         "Δv F k m {v}", "Δv = -(F ^ 2) : k : m : {v}", "Δv a F k {v}", "27", "",
+         "Δv F k Δt v1", "Δv = -2 (F : k : Δt + v1)", "Δv Δs Δt v1", "59", "",
+         "Δv F k Δt v2", "Δv = 2 (v2 + F : k : Δt)", "Δv Δs Δt v2", "59", "",
+         "Δv F m P Δs", "Δv = F ^ 2 Δs : m : P", "Δv a m P Δs", "27", "",
+         "Δv F m P W", "Δv = F W : m : P", "Δv F m P Δs", "31", "",
+         "Δv F m Δs v1", "Δv = -v1 ± √(v1 ^ 2 + 2 F Δs : m)", "Δv a Δs v1", "27", "",
+         "Δv F m Δs v2", "Δv = v2 ± √(v2 ^ 2 - 2 F Δs : m)", "Δv a Δs v2", "27", "",
+         "Δv F m Δs {v}", "Δv = F Δs : m : {v}", "Δv a Δs {v}", "27", "",
+         "Δv F m Δt", "Δv = F Δt : m", "Δv a Δt", "27", "",
+         "Δv F P v1", "Δv = 2 (P : F - v1)", "Δv v1 {v}", "62", "",
+         "Δv F P v2", "Δv = 2 (v2 - P : F)", "Δv v2 {v}", "62", "",
+         "Δv F Δt v1 W", "Δv = 2 (W : F : Δt - v1)", "Δv Δs Δt v1", "31", "",
+         "Δv F Δt v2 W", "Δv = 2 (v2 - W : F : Δt)", "Δv Δs Δt v2", "31", "",
+         "Δv |Fn| m μg P Δs", "Δv = (|Fn| μg) ^ 2 Δs : m : P", "Δv F m P Δs", "85", "",
+         "Δv |Fn| m μg P W", "Δv = |Fn| μg W : m : P", "Δv F m P W", "85", "",
+         "Δv |Fn| m μg Δs v1", "Δv = -v1 ± √(v1 ^ 2 + 2 |Fn| μg Δs : m)", "Δv F m Δs v1", "85", "",
+         "Δv |Fn| m μg Δs v2", "Δv = v2 ± √(v2 ^ 2 - 2 |Fn| μg Δs : m)", "Δv F m Δs v2", "85", "",
+         "Δv |Fn| m μg Δs {v}", "Δv = |Fn| μg Δs  :  m : {v}", "Δv F m Δs {v}", "85", "",
+         "Δv |Fn| m μg Δt", "Δv = |Fn| μg Δt : m", "Δv F m Δt", "85", "",
+         "Δv |Fn| m μh P Δs", "Δv = (|Fn| μh) ^ 2 Δs : m : P", "Δv F m P Δs", "88", "",
+         "Δv |Fn| m μh P W", "Δv = |Fn| μh W : m : P", "Δv F m P W", "88", "",
+         "Δv |Fn| m μh Δs v1", "Δv = -v1 ± √(v1 ^ 2 + 2 |Fn| μh Δs : m)", "Δv F m Δs v1", "88", "",
+         "Δv |Fn| m μh Δs v2", "Δv = v2 ± √(v2 ^ 2 - 2 |Fn| μh Δs : m)", "Δv F m Δs v2", "88", "",
+         "Δv |Fn| m μh Δs {v}", "Δv = |Fn| μh Δs  :  m : {v}", "Δv F m Δs {v}", "88", "",
+         "Δv |Fn| m μh Δt", "Δv = |Fn| μh Δt : m", "Δv F m Δt", "88", "",
+         "Δv |Fn| m μr P Δs", "Δv = (|Fn| μr) ^ 2 Δs : m : P", "Δv F m P Δs", "91", "",
+         "Δv |Fn| m μr P W", "Δv = |Fn| μr W : m : P", "Δv F m P W", "91", "",
+         "Δv |Fn| m μr Δs v1", "Δv = -v1 ± √(v1 ^ 2 + 2 |Fn| μr Δs : m)", "Δv F m Δs v1", "91", "",
+         "Δv |Fn| m μr Δs v2", "Δv = v2 ± √(v2 ^ 2 - 2 |Fn| μr Δs : m)", "Δv F m Δs v2", "91", "",
+         "Δv |Fn| m μr Δs {v}", "Δv = |Fn| μr Δs  :  m : {v}", "Δv F m Δs {v}", "91", "",
+         "Δv |Fn| m μr Δt", "Δv = |Fn| μr Δt : m", "Δv F m Δt", "91", "",
+         "Δv |Fn| μg P v1", "Δv = 2 (P : |Fn| : μg - v1)", "Δv F P v1", "85", "",
+         "Δv |Fn| μg P v2", "Δv = 2 (v2 - P : |Fn| : μg)", "Δv F P v2", "85", "",
+         "Δv |Fn| μg Δt v1 W", "Δv = 2 (W : |Fn| : μg : Δt - v1)", "Δv F Δt v1 W", "85", "",
+         "Δv |Fn| μg Δt v2 W", "Δv = 2 (v2 - W : |Fn| : μg : Δt)", "Δv F Δt v2 W", "85", "",
+         "Δv |Fn| μh P v1", "Δv = 2 (P : |Fn| : μh - v1)", "Δv F P v1", "88", "",
+         "Δv |Fn| μh P v2", "Δv = 2 (v2 - P : |Fn| : μh)", "Δv F P v2", "88", "",
+         "Δv |Fn| μh Δt v1 W", "Δv = 2 (W : |Fn| : μh : Δt - v1)", "Δv F Δt v1 W", "88", "",
+         "Δv |Fn| μh Δt v2 W", "Δv = 2 (v2 - W : |Fn| : μh : Δt)", "Δv F Δt v2 W", "88", "",
+         "Δv |Fn| μr P v1", "Δv = 2 (P : |Fn| : μr - v1)", "Δv F P v1", "91", "",
+         "Δv |Fn| μr P v2", "Δv = 2 (v2 - P : |Fn| : μr)", "Δv F P v2", "91", "",
+         "Δv |Fn| μr Δt v1 W", "Δv = 2 (W : |Fn| : μr : Δt - v1)", "Δv F Δt v1 W", "91", "",
+         "Δv |Fn| μr Δt v2 W", "Δv = 2 (v2 - W : |Fn| : μr : Δt)", "Δv F Δt v2 W", "91", "",
+         "Δv k m P Δs", "Δv = -k ^ 2 Δs ^ 3 : m : P", "Δv F k m P", "57", "",
+         "Δv k m P Δt", "Δv = √(-k P Δt ^ 3) : m", "Δv k m Δt W", "44", "",
+         "Δv k m P {v}", "Δv = -(P ^ 2) : k : m : {v} ^ 3", "Δv F k m {v}", "61", "",
+         "Δv k m P W", "Δv = √(-k W ^ 3) : m : P", "Δv k m Δt W", "43", "",
+         "Δv k m Δs Δt", "Δv = -k Δs Δt : m", "Δv F m  Δt", "57", "",
+         "Δv k m Δs v1", "Δv = -v1 ± √(v1 ^ 2 - 2 k Δs ^ 2 : m)", "Δv F k m v1", "57", "",
+         "Δv k m Δs v2", "Δv = v2 ± √(v2 ^ 2 + 2 k Δs ^ 2 : m)", "Δv F k m v2", "57", "",
+         "Δv k m Δs {v}", "Δv = -k Δs ^ 2 : m : {v}", "Δv F k m {v}", "57", "",
+         "Δv k m Δt v1", "Δv = -v1 : (1 : 2 + m : k : Δt ^ 2)", "Δv k Δt v1 W", "67", "",
+         "Δv k m Δt v2", "Δv = v2 : (1 : 2 - m : k : Δt ^ 2)", "Δv k Δt v2 W", "67", "",
+         "Δv k m Δt {v}", "Δv = -k Δt ^ 2 {v} : m", "Δv k m Δs {v}", "21", "",
+         "Δv k m Δt W", "Δv = Δt √(-k W) : m", "Δv k m Δs Δt", "78", "",
+         "Δv k P Δs v1", "Δv = -2 (P : k : Δs + v1)", "Δv F P v1", "57", "",
+         "Δv k P Δs v2", "Δv = 2 (v2 + P : k : Δs)", "Δv F P v2", "57", "",
+         "Δv k P Δt v1", "Δv = 2 (√(-P : k : Δt) - v1)", "Δv k Δt v1 W", "44", "",
+         "Δv k P Δt v2", "Δv = 2 (v2 - √(-P : k : Δt))", "Δv k Δt v2 W", "44", "",
+         "Δv k P v1 W", "Δv = 2 (P √(-1 : k : W) - v1)", "Δv k Δt v1 W", "43", "",
+         "Δv k P v2 W", "Δv = 2 (v2 - P √(-1 : k : W))", "Δv k Δt v2 W", "43", "",
+         "Δv k Δt v1 W", "Δv = 2 (√(-W : k) : Δt - v1)", "Δv Δs Δt v1", "78", "",
+         "Δv k Δt v2 W", "Δv = 2 (v2 - √(-W : k) : Δt)", "Δv Δs Δt v2", "78", "",
+         "Δv m P Δs Δt", "Δv = P Δt ^ 2 : m : Δs", "Δv m Δs Δt W", "44", "",
+         "Δv m P Δs {v}", "Δv = P Δs : m : {v} ^ 2", "Δv m P Δt {v}", "22", "",
+         "Δv m P Δs W", "Δv = W ^ 2 : m : P : Δs", "Δv m Δs Δt W", "43", "",
+         "Δv m P Δt v1", "Δv = -v1 ± √(v1 ^ 2 + 2 P Δt : m)", "Δv m v1 W", "44", "",
+         "Δv m P Δt v2", "Δv = v2 ± √(v2 ^ 2 - 2 P Δt : m)", "Δv m v2 W", "44", "",
+         "Δv m P Δt {v}", "Δv = P Δt : m : {v}", "Δv m {v} W", "44", "",
+         "Δv m Δs Δt W", "Δv = W Δt : m : Δs", "Δv F m Δt", "30", "",
+         "Δv m v1 W", "Δv = -v1 ± √(v1 ^ 2 + 2 W : m)", "Δv a F v1 W", "27", "",
+         "Δv m v2 W", "Δv = v2 ± √(v2 ^ 2 - 2 W : m)", "Δv a F v2 W", "27", "",
+         "Δv m {v} W", "Δv = W : m : {v}", "Δv a F {v} W", "27", "",
+         "Δv P Δs v1 W", "Δv = 2 (P Δs : W - v1)", "Δv Δs Δt v1", "43", "",
+         "Δv P Δs v2 W", "Δv = 2 (v2 - P Δs : W)", "Δv Δs Δt v2", "43", "",
+         "Δv Δs Δt v1", "Δv = 2 (Δs : Δt - v1)", "Δv v1 {v}", "20", "",
+         "Δv Δs Δt v2", "Δv = 2 (v2 - Δs : Δt)", "Δv v2 {v}", "20", "",
+         "Δv v1 v2", "Δv = v2 - v1", "", "7", "3",
+         "Δv v1 {v}", "Δv = 2 ({v} - v1)", "Δv v1 v2", "12", "3",
+         "Δv v2 {v}", "Δv = 2 (v2 - {v})", "Δv v1 v2", "11", "3",
+         "Δv Δvx", "Δv = Δvx", "", "0", "",
+         "Δv Δvy", "Δv = Δvy", "", "0", "",
+         "Δv Δvz", "Δv = Δvz", "", "0", "",
+         "Δv Δvx θ", "Δv = Δvx : cos(θ)", "", "0", "",
+         "Δv Δvy θ", "Δv = Δvy : sin(θ)", "", "0", "",
+         "Δv Δvz θ", "Δv = Δvz : cos(θ)", "", "0", "",
+         "Δv Δvx θ ϕ", "Δv = Δvx : cos(θ) : sin(ϕ))", "", "0", "",
+         "Δv Δvz θ ϕ", "Δv = Δvz : cos(θ) : cos(ϕ)", "", "0", "",
+         "Δv Δvx Δvy", "Δv = √(Δvx ^ 2 + Δvy ^ 2)", "", "0", "",
+         "Δv Δvx Δvz", "Δv = √(Δvx ^ 2 + Δvz ^ 2)", "", "0", "",
+         "Δv Δvy Δvz", "Δv = √(Δvy ^ 2 + Δvz ^ 2)", "", "0", "",
+         "Δv Δvx Δvy Δvz", "Δv = √(Δvx ^ 2 + Δvy ^ 2 + Δvz ^ 2)", "", "0", ""} ' Δv => 6798
+      Case "Ek1" : DՃA = New String() {
+         "Ek1 Ek2 ΔEk", "Ek1 = Ek2 - ΔEk", "", "37", "",
+         "Ek1 Ek2 Ep1 Ep2", "Ek1 = Ek2 + Ep2 - Ep1", "Ek1 Ek2 ΔEp", "39", "",
+         "Ek1 Ek2 ΔEp", "Ek1 = Ek2 + ΔEp", "Ek1 Ek2 W", "34", "",
+         "Ek1 Ek2 W", "Ek1 = Ek2 - W", "Ek1 Ek2 ΔEk", "33", ""} ' Ek1 => 4
+      Case "Ek2" : DՃA = New String() {
+             "Ek2 Ek1 ΔEk", "Ek2 = Ek1 + ΔEk", "", "38", "",
+             "Ek2 Ek1 Ep1 Ep2", "Ek2 = Ek1 + Ep1 - Ep2", "Ek2 Ek1 ΔEp", "39", "",
+             "Ek2 Ek1 ΔEp", "Ek2 = Ek1 - ΔEp", "Ek2 Ek1 W", "34", "",
+             "Ek2 Ek1 W", "Ek2 = Ek1 + W", "Ek2 Ek1 ΔEk", "33", ""} ' Ek2 => 4
+      Case "ΔEk" : DՃA = New String() {
+         "ΔEk Ek1 Ek2", "ΔEk = Ek2 - Ek1", "", "36", "",
+         "ΔEk Ep1 Ep2", "ΔEk = Ep1 - Ep2", "ΔEk ΔEp", "39", "",
+         "ΔEk ΔEp", "ΔEk = -ΔEp", "ΔEk W", "34", "",
+         "ΔEk W", "ΔEk = W", "", "33", ""} ' ΔEk => 4
+      Case "Ep1" : DՃA = New String() {
+         "Ep1 Ep2 Ek1 Ek2", "Ep1 = Ep2 + Ek2 - Ek1", "Ep1 ΔEk Ep2", "36", "",
+         "Ep1 ΔEk Ep2", "Ep1 = Ep2 + ΔEk", "Ep1 Ep2 W", "32", "",
+         "Ep1 Ep2 ΔEp", "Ep1 = Ep2 - ΔEp", "", "40", "",
+         "Ep1 Ep2 W", "Ep1 = Ep2 + W", "Ep1 Ep2 ΔEp", "35", ""} ' Ep1 => 4
+      Case "Ep2" : DՃA = New String() {
+         "Ep2 Ek1 Ek2 Ep2", "Ep2 = Ep1 + Ek1 - Ek2", "Ep2 ΔEk Ep1", "36", "",
+         "Ep2 ΔEk Ep1", "Ep2 = Ep1 - ΔEk", "Ep2 Ep1 W", "32", "",
+         "Ep2 Ep1 ΔEp", "Ep2 = Ep1 + ΔEp", "", "41", "",
+         "Ep2 Ep1 W", "Ep2 = Ep1 - W", "Ep2 Ep1 ΔEp", "35", ""} ' Ep2 => 4
+      Case "ΔEp" : DՃA = New String() {
+         "ΔEp Ek1 Ek2", "ΔEp = Ek1 - Ek2", "ΔEp ΔEk", "36", "",
+         "ΔEp ΔEk", "ΔEp = -ΔEk", "ΔEp W", "32", "",
+         "ΔEp Ep1 Ep2", "ΔEp = Ep2 - Ep1", "", "39", "",
+         "ΔEp W", "ΔEp = -W", "", "35", ""} ' ΔEp => 4
+      Case "Ffx" : DՃA = New String() {
+         "Ffx Ff", "Ffx = Ff", "", "0", "",
+         "Ffx Ff θ", "Ffx = Ff cos(θ)", "", "0", "",
+         "Ffx Ffy θ", "Ffx = Ffy : tan(θ)", "", "0", "",
+         "Ffx Ffz ϕ", "Ffx = Ffz tan(ϕ)", "", "0", "",
+         "Ffx Ff Ffy", "Ffx = √(Ff ^ 2 - Ffy ^ 2)", "", "0", "",
+         "Ffx Ff Ffz", "Ffx = √(Ff ^ 2 - Ffz ^ 2)", "", "0", "",
+         "Ffx Ff θ ϕ", "Ffx = Ff cos(θ) sin(ϕ)", "", "0", "",
+         "Ffx Ffy θ ϕ", "Ffx = Ffy sin(ϕ) : tan(θ)", "", "0", "",
+         "Ffx Ff Ffy Ffz", "Ffx = √(Ff ^ 2 - Ffy ^ 2 - Ffz ^ 2)", "", "0", ""} ' Ffx => 9
+      Case "Ffy" : DՃA = New String() {
+         "Ffy Ff", "Ffy = Ff", "", "0", "",
+         "Ffy Ff θ", "Ffy = Ff sin(θ)", "", "0", "",
+         "Ffy Ffx θ", "Ffy = Ffx tan(θ)", "", "0", "",
+         "Ffy Ffz θ", "Ffy = Ffz tan(θ)", "", "0", "",
+         "Ffy Ff Ffx", "Ffy = √(Ff ^ 2 - Ffx ^ 2)", "", "0", "",
+         "Ffy Ff Ffz", "Ffy = √(Ff ^ 2 - Ffz ^ 2)", "", "0", "",
+         "Ffy Ffx θ ϕ", "Ffy = Ffx tan(θ) : sin(ϕ)", "", "0", "",
+         "Ffy Ffz θ ϕ", "Ffy = Ffz tan(θ) : cos(ϕ)", "", "0", "",
+         "Ffy Ff Ffx Ffz", "Ffy = √(Ff ^ 2 - Ffx ^ 2 - Ffz ^ 2)", "", "0", ""} ' Ffy => 9
+      Case "Ffz" : DՃA = New String() {
+         "Ffz Ff", "Ffz = Ff", "", "0", "",
+         "Ffz Ff θ", "Ffz = Ff cos(θ)", "", "0", "",
+         "Ffz Ffx ϕ", "Ffz = Ffx : tan(ϕ)", "", "0", "",
+         "Ffz Ffy θ", "Ffz = Ffy : tan(θ)", "", "0", "",
+         "Ffz Ff Ffx", "Ffz = √(Ff ^ 2 - Ffx ^ 2)", "", "0", "",
+         "Ffz Ff Ffy", "Ffz = √(Ff ^ 2 - Ffy ^ 2)", "", "0", "",
+         "Ffz Ffy θ ϕ", "Ffz = Ffy cos(ϕ) : tan(θ)", "", "0", "",
+         "Ffz Ff θ ϕ", "Ffz = Ff cos(θ) cos(ϕ)", "", "0", "",
+         "Ffz Ff Ffx Ffy", "Ffz = √(Ff ^ 2 - Ffx ^ 2 - Ffy ^ 2)", "", "0", ""} ' Ffz => 9
+      Case "Frg" : DՃA = New String() {
+         "Frg F", "Frg = F", "", "0", "",
+         "Frg F Ff", "Frg = F - Ff", "", "0", "",
+         "Frg F Ff Ft", "Frg = F - Ft - Ff", "", "0", "",
+         "Frg F Ft", "Frg = F - Ft", "", "0", "",
+         "Frg F Ft k Δs", "Frg = F + k Δs - Ft", "", "0", "",
+         "Frg F k Δs", "Frg = F + k Δs", "", "0", "",
+         "Frg |Fn| μg", "Frg = μg |Fn|", "", "0", ""} ' Frg => 105
+      Case "Frh" : DՃA = New String() {
+         "Frh F", "Frh = F", "", "0", "",
+         "Frh F Ff", "Frh = F - Ff", "", "0", "",
+         "Frh F Ff Ft", "Frh = F - Ft - Ff", "", "0", "",
+         "Frh F Ft", "Frh = F - Ft", "", "0", "",
+         "Frh F Ft k Δs", "Frh = F + k Δs - Ft", "", "0", "",
+         "Frh F k Δs", "Frh = F + k Δs", "", "0", "",
+         "Frh |Fn| μh", "Frh = μh |Fn|", "", "0", ""} ' Frh => 105
+      Case "Frr" : DՃA = New String() {
+         "Frr F", "Frr = F", "", "0", "",
+         "Frr F Ff", "Frr = F - Ff", "", "0", "",
+         "Frr F Ff Ft", "Frr = F - Ft - Ff", "", "0", "",
+         "Frr F Ft", "Frr = F - Ft", "", "0", "",
+         "Frr F Ft k Δs", "Frr = F + k Δs - Ft", "", "0", "",
+         "Frr F k Δs", "Frr = F + k Δs", "", "0", "",
+         "Frr |Fn| μr", "Frr = μr |Fn|", "", "0", ""} ' Frr => 105
+      Case "Ftx" : DՃA = New String() {
+         "Ftx Ft", "Ftx = Ft", "", "0", "",
+         "Ftx Ft θ", "Ftx = Ft cos(θ)", "", "0", "",
+         "Ftx Fty θ", "Ftx = Fty : tan(θ)", "", "0", "",
+         "Ftx Ftz ϕ", "Ftx = Ftz tan(ϕ)", "", "0", "",
+         "Ftx Ft Fty", "Ftx = √(Ft ^ 2 - Fty ^ 2)", "", "0", "",
+         "Ftx Ft Ftz", "Ftx = √(Ft ^ 2 - Ftz ^ 2)", "", "0", "",
+         "Ftx Ft θ ϕ", "Ftx = Ft cos(θ) sin(ϕ)", "", "0", "",
+         "Ftx Fty θ ϕ", "Ftx = Fty sin(ϕ) : tan(θ)", "", "0", "",
+         "Ftx Ft Fty Ftz", "Ftx = √(Ft ^ 2 - Fty ^ 2 - Ftz ^ 2)", "", "0", ""} ' Ftx => 9
+      Case "Fty" : DՃA = New String() {
+         "Fty Ft", "Fty = Ft", "", "0", "",
+         "Fty Ft θ", "Fty = Ft sin(θ)", "", "0", "",
+         "Fty Ftx θ", "Fty = Ftx tan(θ)", "", "0", "",
+         "Fty Ftz θ", "Fty = Ftz tan(θ)", "", "0", "",
+         "Fty Ft Ftx", "Fty = √(Ft ^ 2 - Ftx ^ 2)", "", "0", "",
+         "Fty Ft Ftz", "Fty = √(Ft ^ 2 - Ftz ^ 2)", "", "0", "",
+         "Fty Ftx θ ϕ", "Fty = Ftx tan(θ) : sin(ϕ)", "", "0", "",
+         "Fty Ftz θ ϕ", "Fty = Ftz tan(θ) : cos(ϕ)", "", "0", "",
+         "Fty Ft Ftx Ftz", "Fty = √(Ft ^ 2 - Ftx ^ 2 - Ftz ^ 2)", "", "0", ""} ' Fty => 9
+      Case "Ftz" : DՃA = New String() {
+         "Ftz Ft", "Ftz = Ft", "", "0", "",
+         "Ftz Ft θ", "Ftz = Ft cos(θ)", "", "0", "",
+         "Ftz Ftx ϕ", "Ftz = Ftx : tan(ϕ)", "", "0", "",
+         "Ftz Fty θ", "Ftz = Fty : tan(θ)", "", "0", "",
+         "Ftz Ft Ftx", "Ftz = √(Ft ^ 2 - Ftx ^ 2)", "", "0", "",
+         "Ftz Ft Fty", "Ftz = √(Ft ^ 2 - Fty ^ 2)", "", "0", "",
+         "Ftz Fty θ ϕ", "Ftz = Fty cos(ϕ) : tan(θ)", "", "0", "",
+         "Ftz Ft θ ϕ", "Ftz = Ft cos(θ) cos(ϕ)", "", "0", "",
+         "Ftz Ft Ftx Fty", "Ftz = √(Ft ^ 2 - Ftx ^ 2 - Fty ^ 2)", "", "0", ""} ' Ftz => 9
+      Case "sx1" : DՃA = New String() {
+         "sx1 s1", "sx1 = s1", "", "0", "",
+         "sx1 s1 θ", "sx1 = s1 cos(θ)", "", "0", "",
+         "sx1 sy1 θ", "sx1 = sy1 : tan(θ)", "", "0", "",
+         "sx1 sz1 ϕ", "sx1 = sz1 tan(ϕ)", "", "0", "",
+         "sx1 s1 sy1", "sx1 = √(s1 ^ 2 - sy1 ^ 2)", "", "0", "",
+         "sx1 s1 sz1", "sx1 = √(s1 ^ 2 - sz1 ^ 2)", "", "0", "",
+         "sx1 s1 θ ϕ", "sx1 = s1 cos(θ) sin(ϕ)", "", "0", "",
+         "sx1 sy1 θ ϕ", "sx1 = sy1 sin(ϕ) : tan(θ)", "", "0", "",
+         "sx1 s1 sy1 sz1", "sx1 = √(s1 ^ 2 - sy1 ^ 2 - sz1 ^ 2)", "", "0", ""} ' sx1 => 9
+      Case "sy1" : DՃA = New String() {
+         "sy1 s1", "sy1 = s1", "", "0", "",
+         "sy1 s1 θ", "sy1 = s1 sin(θ)", "", "0", "",
+         "sy1 sx1 θ", "sy1 = sx1 tan(θ)", "", "0", "",
+         "sy1 sz1 θ", "sy1 = sz1 tan(θ)", "", "0", "",
+         "sy1 s1 sx1", "sy1 = √(s1 ^ 2 - sx1 ^ 2)", "", "0", "",
+         "sy1 s1 sz1", "sy1 = √(s1 ^ 2 - sz1 ^ 2)", "", "0", "",
+         "sy1 sx1 θ ϕ", "sy1 = sx1 tan(θ) : sin(ϕ)", "", "0", "",
+         "sy1 sz1 θ ϕ", "sy1 = sz1 tan(θ) : cos(ϕ)", "", "0", "",
+         "sy1 s1 sx1 sz1", "sy1 = √(s1 ^ 2 - sx1 ^ 2 - sz1 ^ 2)", "", "0", ""} ' sy1 => 9
+      Case "sz1" : DՃA = New String() {
+         "sz1 s1", "sz1 = s1", "", "0", "",
+         "sz1 s1 θ", "sz1 = s1 cos(θ)", "", "0", "",
+         "sz1 sx1 ϕ", "sz1 = sx1 : tan(ϕ)", "", "0", "",
+         "sz1 sy1 θ", "sz1 = sy1 : tan(θ)", "", "0", "",
+         "sz1 s1 sx1", "sz1 = √(s1 ^ 2 - sx1 ^ 2)", "", "0", "",
+         "sz1 s1 sy1", "sz1 = √(s1 ^ 2 - sy1 ^ 2)", "", "0", "",
+         "sz1 sy1 θ ϕ", "sz1 = sy1 cos(ϕ) : tan(θ)", "", "0", "",
+         "sz1 s1 θ ϕ", "sz1 = s1 cos(θ) cos(ϕ)", "", "0", "",
+         "sz1 s1 sx1 sy1", "sz1 = √(s1 ^ 2 - sx1 ^ 2 - sy1 ^ 2)", "", "0", ""} ' sz1 => 9
+      Case "sx2" : DՃA = New String() {
+         "sx2 s2", "sx2 = s2", "", "0", "",
+         "sx2 s2 θ", "sx2 = s2 cos(θ)", "", "0", "",
+         "sx2 sy2 θ", "sx2 = sy2 : tan(θ)", "", "0", "",
+         "sx2 sz2 ϕ", "sx2 = sz2 tan(ϕ)", "", "0", "",
+         "sx2 s2 sy2", "sx2 = √(s2 ^ 2 - sy2 ^ 2)", "", "0", "",
+         "sx2 s2 sz2", "sx2 = √(s2 ^ 2 - sz2 ^ 2)", "", "0", "",
+         "sx2 s2 θ ϕ", "sx2 = s2 cos(θ) sin(ϕ)", "", "0", "",
+         "sx2 sy2 θ ϕ", "sx2 = sy2 sin(ϕ) : tan(θ)", "", "0", "",
+         "sx2 s2 sy2 sz2", "sx2 = √(s2 ^ 2 - sy2 ^ 2 - sz2 ^ 2)", "", "0", ""} ' sx2 => 9
+      Case "sy2" : DՃA = New String() {
+         "sy2 s2", "sy2 = s2", "", "0", "",
+         "sy2 s2 θ", "sy2 = s2 sin(θ)", "", "0", "",
+         "sy2 sx2 θ", "sy2 = sx2 tan(θ)", "", "0", "",
+         "sy2 sz2 θ", "sy2 = sz2 tan(θ)", "", "0", "",
+         "sy2 s2 sx2", "sy2 = √(s2 ^ 2 - sx2 ^ 2)", "", "0", "",
+         "sy2 s2 sz2", "sy2 = √(s2 ^ 2 - sz2 ^ 2)", "", "0", "",
+         "sy2 sx2 θ ϕ", "sy2 = sx2 tan(θ) : sin(ϕ)", "", "0", "",
+         "sy2 sz2 θ ϕ", "sy2 = sz2 tan(θ) : cos(ϕ)", "", "0", "",
+         "sy2 s2 sx2 sz2", "sy2 = √(s2 ^ 2 - sx2 ^ 2 - sz2 ^ 2)", "", "0", ""} ' sy2 => 9
+      Case "sz2" : DՃA = New String() {
+         "sz2 s2", "sz2 = s2", "", "0", "",
+         "sz2 s2 θ", "sz2 = s2 cos(θ)", "", "0", "",
+         "sz2 sx2 ϕ", "sz2 = sx2 : tan(ϕ)", "", "0", "",
+         "sz2 sy2 θ", "sz2 = sy2 : tan(θ)", "", "0", "",
+         "sz2 s2 sx2", "sz2 = √(s2 ^ 2 - sx2 ^ 2)", "", "0", "",
+         "sz2 s2 sy2", "sz2 = √(s2 ^ 2 - sy2 ^ 2)", "", "0", "",
+         "sz2 sy2 θ ϕ", "sz2 = sy2 cos(ϕ) : tan(θ)", "", "0", "",
+         "sz2 s2 θ ϕ", "sz2 = s2 cos(θ) cos(ϕ)", "", "0", "",
+         "sz2 s2 sx2 sy2", "sz2 = √(s2 ^ 2 - sx2 ^ 2 - sy2 ^ 2)", "", "0", ""} ' sz2 => 9
+      Case "Δsx" : DՃA = New String() {
+         "Δsx Δs", "Δsx = Δs", "", "0", "",
+         "Δsx Δs θ", "Δsx = Δs cos(θ)", "", "0", "",
+         "Δsx Δsy θ", "Δsx = Δsy : tan(θ)", "", "0", "",
+         "Δsx Δsz ϕ", "Δsx = Δsz tan(ϕ)", "", "0", "",
+         "Δsx Δs Δsy", "Δsx = √(Δs ^ 2 - Δsy ^ 2)", "", "0", "",
+         "Δsx Δs Δsz", "Δsx = √(Δs ^ 2 - Δsz ^ 2)", "", "0", "",
+         "Δsx Δs θ ϕ", "Δsx = Δs cos(θ) sin(ϕ)", "", "0", "",
+         "Δsx Δsy θ ϕ", "Δsx = Δsy sin(ϕ) : tan(θ)", "", "0", "",
+         "Δsx Δs Δsy Δsz", "Δsx = √(Δs ^ 2 - Δsy ^ 2 - Δsz ^ 2)", "", "0", ""} ' Δsx => 9
+      Case "Δsy" : DՃA = New String() {
+         "Δsy Δs", "Δsy = Δs", "", "0", "",
+         "Δsy Δs θ", "Δsy = Δs sin(θ)", "", "0", "",
+         "Δsy Δsx θ", "Δsy = Δsx tan(θ)", "", "0", "",
+         "Δsy Δsz θ", "Δsy = Δsz tan(θ)", "", "0", "",
+         "Δsy Δs Δsx", "Δsy = √(Δs ^ 2 - Δsx ^ 2)", "", "0", "",
+         "Δsy Δs Δsz", "Δsy = √(Δs ^ 2 - Δsz ^ 2)", "", "0", "",
+         "Δsy Δsx θ ϕ", "Δsy = Δsx tan(θ) : sin(ϕ)", "", "0", "",
+         "Δsy Δsz θ ϕ", "Δsy = Δsz tan(θ) : cos(ϕ)", "", "0", "",
+         "Δsy Δs Δsx Δsz", "Δsy = √(Δs ^ 2 - Δsx ^ 2 - Δsz ^ 2)", "", "0", ""} ' Δsy => 9
+      Case "Δsz" : DՃA = New String() {
+         "Δsz Δs", "Δsz = Δs", "", "0", "",
+         "Δsz Δs θ", "Δsz = Δs cos(θ)", "", "0", "",
+         "Δsz Δsx ϕ", "Δsz = Δsx : tan(ϕ)", "", "0", "",
+         "Δsz Δsy θ", "Δsz = Δsy : tan(θ)", "", "0", "",
+         "Δsz Δs Δsx", "Δsz = √(Δs ^ 2 - Δsx ^ 2)", "", "0", "",
+         "Δsz Δs Δsy", "Δsz = √(Δs ^ 2 - Δsy ^ 2)", "", "0", "",
+         "Δsz Δsy θ ϕ", "Δsz = Δsy cos(ϕ) : tan(θ)", "", "0", "",
+         "Δsz Δs θ ϕ", "Δsz = Δs cos(θ) cos(ϕ)", "", "0", "",
+         "Δsz Δs Δsx Δsy", "Δsz = √(Δs ^ 2 - Δsx ^ 2 - Δsy ^ 2)", "", "0", ""} ' Δsz => 9
+      Case "vx1" : DՃA = New String() {
+         "vx1 v1", "vx1 = v1", "", "0", "",
+         "vx1 v1 θ", "vx1 = v1 cos(θ)", "", "0", "",
+         "vx1 vy1 θ", "vx1 = vy1 : tan(θ)", "", "0", "",
+         "vx1 vz1 ϕ", "vx1 = vz1 tan(ϕ)", "", "0", "",
+         "vx1 v1 vy1", "vx1 = √(v1 ^ 2 - vy1 ^ 2)", "", "0", "",
+         "vx1 v1 vz1", "vx1 = √(v1 ^ 2 - vz1 ^ 2)", "", "0", "",
+         "vx1 v1 θ ϕ", "vx1 = v1 cos(θ) sin(ϕ)", "", "0", "",
+         "vx1 vy1 θ ϕ", "vx1 = vy1 sin(ϕ) : tan(θ)", "", "0", "",
+         "vx1 v1 vy1 vz1", "vx1 = √(v1 ^ 2 - vy1 ^ 2 - vz1 ^ 2)", "", "0", ""} ' vx1 => 9
+      Case "vy1" : DՃA = New String() {
+         "vy1 v1", "vy1 = v1", "", "0", "",
+         "vy1 v1 θ", "vy1 = v1 sin(θ)", "", "0", "",
+         "vy1 vx1 θ", "vy1 = vx1 tan(θ)", "", "0", "",
+         "vy1 vz1 θ", "vy1 = vz1 tan(θ)", "", "0", "",
+         "vy1 v1 vx1", "vy1 = √(v1 ^ 2 - vx1 ^ 2)", "", "0", "",
+         "vy1 v1 vz1", "vy1 = √(v1 ^ 2 - vz1 ^ 2)", "", "0", "",
+         "vy1 vx1 θ ϕ", "vy1 = vx1 tan(θ) : sin(ϕ)", "", "0", "",
+         "vy1 vz1 θ ϕ", "vy1 = vz1 tan(θ) : cos(ϕ)", "", "0", "",
+         "vy1 v1 vx1 vz1", "vy1 = √(v1 ^ 2 - vx1 ^ 2 - vz1 ^ 2)", "", "0", ""} ' vy1 => 9
+      Case "vz1" : DՃA = New String() {
+         "vz1 v1", "vz1 = v1", "", "0", "",
+         "vz1 v1 θ", "vz1 = v1 cos(θ)", "", "0", "",
+         "vz1 vx1 ϕ", "vz1 = vx1 : tan(ϕ)", "", "0", "",
+         "vz1 vy1 θ", "vz1 = vy1 : tan(θ)", "", "0", "",
+         "vz1 v1 vx1", "vz1 = √(v1 ^ 2 - vx1 ^ 2)", "", "0", "",
+         "vz1 v1 vy1", "vz1 = √(v1 ^ 2 - vy1 ^ 2)", "", "0", "",
+         "vz1 vy1 θ ϕ", "vz1 = vy1 cos(ϕ) : tan(θ)", "", "0", "",
+         "vz1 v1 θ ϕ", "vz1 = v1 cos(θ) cos(ϕ)", "", "0", "",
+         "vz1 v1 vx1 vy1", "vz1 = √(v1 ^ 2 - vx1 ^ 2 - vy1 ^ 2)", "", "0", ""} ' vz1 => 9
+      Case "vx2" : DՃA = New String() {
+         "vx2 v2", "vx2 = v2", "", "0", "",
+         "vx2 v2 θ", "vx2 = v2 cos(θ)", "", "0", "",
+         "vx2 vy2 θ", "vx2 = vy2 : tan(θ)", "", "0", "",
+         "vx2 vz2 ϕ", "vx2 = vz2 tan(ϕ)", "", "0", "",
+         "vx2 v2 vy2", "vx2 = √(v2 ^ 2 - vy2 ^ 2)", "", "0", "",
+         "vx2 v2 vz2", "vx2 = √(v2 ^ 2 - vz2 ^ 2)", "", "0", "",
+         "vx2 v2 θ ϕ", "vx2 = v2 cos(θ) sin(ϕ)", "", "0", "",
+         "vx2 vy2 θ ϕ", "vx2 = vy2 sin(ϕ) : tan(θ)", "", "0", "",
+         "vx2 v2 vy2 vz2", "vx2 = √(v2 ^ 2 - vy2 ^ 2 - vz2 ^ 2)", "", "0", ""} ' vx2 => 9
+      Case "vy2" : DՃA = New String() {
+         "vy2 v2", "vy2 = v2", "", "0", "",
+         "vy2 v2 θ", "vy2 = v2 sin(θ)", "", "0", "",
+         "vy2 vx2 θ", "vy2 = vx2 tan(θ)", "", "0", "",
+         "vy2 vz2 θ", "vy2 = vz2 tan(θ)", "", "0", "",
+         "vy2 v2 vx2", "vy2 = √(v2 ^ 2 - vx2 ^ 2)", "", "0", "",
+         "vy2 v2 vz2", "vy2 = √(v2 ^ 2 - vz2 ^ 2)", "", "0", "",
+         "vy2 vx2 θ ϕ", "vy2 = vx2 tan(θ) : sin(ϕ)", "", "0", "",
+         "vy2 vz2 θ ϕ", "vy2 = vz2 tan(θ) : cos(ϕ)", "", "0", "",
+         "vy2 v2 vx2 vz2", "vy2 = √(v2 ^ 2 - vx2 ^ 2 - vz2 ^ 2)", "", "0", ""} ' vy2 => 9
+      Case "vz2" : DՃA = New String() {
+         "vz2 v2", "vz2 = v2", "", "0", "",
+         "vz2 v2 θ", "vz2 = v2 cos(θ)", "", "0", "",
+         "vz2 vx2 ϕ", "vz2 = vx2 : tan(ϕ)", "", "0", "",
+         "vz2 vy2 θ", "vz2 = vy2 : tan(θ)", "", "0", "",
+         "vz2 v2 vx2", "vz2 = √(v2 ^ 2 - vx2 ^ 2)", "", "0", "",
+         "vz2 v2 vy2", "vz2 = √(v2 ^ 2 - vy2 ^ 2)", "", "0", "",
+         "vz2 vy2 θ ϕ", "vz2 = vy2 cos(ϕ) : tan(θ)", "", "0", "",
+         "vz2 v2 θ ϕ", "vz2 = v2 cos(θ) cos(ϕ)", "", "0", "",
+         "vz2 v2 vx2 vy2", "vz2 = √(v2 ^ 2 - vx2 ^ 2 - vy2 ^ 2)", "", "0", ""} ' vz2 => 9
+      Case "Δvx" : DՃA = New String() {
+         "Δvx Δv", "Δvx = Δv", "", "0", "",
+         "Δvx Δv θ", "Δvx = Δv cos(θ)", "", "0", "",
+         "Δvx Δvy θ", "Δvx = Δvy : tan(θ)", "", "0", "",
+         "Δvx Δvz ϕ", "Δvx = Δvz tan(ϕ)", "", "0", "",
+         "Δvx Δv Δvy", "Δvx = √(Δv ^ 2 - Δvy ^ 2)", "", "0", "",
+         "Δvx Δv Δvz", "Δvx = √(Δv ^ 2 - Δvz ^ 2)", "", "0", "",
+         "Δvx Δv θ ϕ", "Δvx = Δv cos(θ) sin(ϕ)", "", "0", "",
+         "Δvx Δvy θ ϕ", "Δvx = Δvy sin(ϕ) : tan(θ)", "", "0", "",
+         "Δvx Δv Δvy Δvz", "Δvx = √(Δv ^ 2 - Δvy ^ 2 - Δvz ^ 2)", "", "0", ""} ' Δvx => 9
+      Case "Δvy" : DՃA = New String() {
+         "Δvy Δv", "Δvy = Δv", "", "0", "",
+         "Δvy Δv θ", "Δvy = Δv sin(θ)", "", "0", "",
+         "Δvy Δvx θ", "Δvy = Δvx tan(θ)", "", "0", "",
+         "Δvy Δvz θ", "Δvy = Δvz tan(θ)", "", "0", "",
+         "Δvy Δv Δvx", "Δvy = √(Δv ^ 2 - Δvx ^ 2)", "", "0", "",
+         "Δvy Δv Δvz", "Δvy = √(Δv ^ 2 - Δvz ^ 2)", "", "0", "",
+         "Δvy Δvx θ ϕ", "Δvy = Δvx tan(θ) : sin(ϕ)", "", "0", "",
+         "Δvy Δvz θ ϕ", "Δvy = Δvz tan(θ) : cos(ϕ)", "", "0", "",
+         "Δvy Δv Δvx Δvz", "Δvy = √(Δv ^ 2 - Δvx ^ 2 - Δvz ^ 2)", "", "0", ""} ' Δvy => 9
+      Case "Δvz" : DՃA = New String() {
+         "Δvz Δv", "Δvz = Δv", "", "0", "",
+         "Δvz Δv θ", "Δvz = Δv cos(θ)", "", "0", "",
+         "Δvz Δvx ϕ", "Δvz = Δvx : tan(ϕ)", "", "0", "",
+         "Δvz Δvy θ", "Δvz = Δvy : tan(θ)", "", "0", "",
+         "Δvz Δv Δvx", "Δvz = √(Δv ^ 2 - Δvx ^ 2)", "", "0", "",
+         "Δvz Δv Δvy", "Δvz = √(Δv ^ 2 - Δvy ^ 2)", "", "0", "",
+         "Δvz Δvy θ ϕ", "Δvz = Δvy cos(ϕ) : tan(θ)", "", "0", "",
+         "Δvz Δv θ ϕ", "Δvz = Δv cos(θ) cos(ϕ)", "", "0", "",
+         "Δvz Δv Δvx Δvy", "Δvz = √(Δv ^ 2 - Δvx ^ 2 - Δvy ^ 2)", "", "0", ""} ' Δvz => 9
+      Case "{v}" : DՃA = New String() {
+         "{v} a F k v1", "{v} = (v1 ± √(v1 ^ 2 - 2 a F : k)) : 2", "{v} a Δs v1", "59", "",
+         "{v} a F k v2", "{v} = (v2 ± √(v2 ^ 2 + 2 a F : k)) : 2", "{v} a Δs v2", "59", "",
+         "{v} a F k Δv", "{v} = -a F : k : Δv", "{v} F k Δt", "25", "",
+         "{v} a F v1 W", "{v} = (v1 ± √(v1 ^ 2 + 2 a W : F)) : 2", "{v} m v1 W", "28", "",
+         "{v} a F v2 W", "{v} = (v2 ± √(v2 ^ 2 - 2 a W : F)) : 2", "{v} m v2 W", "28", "",
+         "{v} a F Δv W", "{v} = a W : F : Δv", "{v} a Δs Δv", "31", "",
+         "{v} a |Fn| μg v1 W", "{v} = (v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μg)) : 2", "{v} a F v1 W", "85", "",
+         "{v} a |Fn| μg v2 W", "{v} = (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μg)) : 2", "{v} a F v2 W", "85", "",
+         "{v} a |Fn| μg Δv W", "{v} = a W : |Fn| : μg : Δv", "{v} a F Δv W", "85", "",
+         "{v} a |Fn| μh v1 W", "{v} = (v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μh)) : 2", "{v} a F v1 W", "88", "",
+         "{v} a |Fn| μh v2 W", "{v} = (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μh)) : 2", "{v} a f v2 W", "88", "",
+         "{v} a |Fn| μh Δv W", "{v} = a W : |Fn| : μh : Δv", "{v} a F Δv W", "88", "",
+         "{v} a |Fn| μr v1 W", "{v} = (v1 ± √(v1 ^ 2 + 2 a W : |Fn| : μr)) : 2", "{v} a F v1 W", "91", "",
+         "{v} a |Fn| μr v2 W", "{v} = (v2 ± √(v2 ^ 2 - 2 a W : |Fn| : μr)) : 2", "{v} a F v2 W", "91", "",
+         "{v} a |Fn| μr Δv W", "{v} = a W : |Fn| : μr : Δv", "{v} a F Δv W", "91", "",
+         "{v} a k m Δt", "{v} = -a m : k : Δt", "{v} F k Δt", "26", "",
+         "{v} a k m v1", "{v} = (v1 ± √(v1 ^ 2 - 2 a ^ 2 m : k)) : 2", "{v} a F k v1", "26", "",
+         "{v} a k m v2", "{v} = (v2 ± √(v2 ^ 2 + 2 a ^ 2 m : k)) : 2", "{v} a F k v2", "26", "",
+         "{v} a k m Δv", "{v} = -(a ^ 2) m : k : Δv", "{v} a F k Δv", "26", "",
+         "{v} a k P Δv", "{v} = √(-a P : k : Δv)", "{v} k P Δt", "25", "",
+         "{v} a k v1 W", "{v} = (v1 ± √(v1 ^ 2 + 2 a √(-W : k))) : 2", "{v} a F k v1", "75", "",
+         "{v} a k v2 W", "{v} = (v2 ± √(v2 ^ 2 - 2 a √(-W : k))) : 2", "{v} a F k v2", "75", "",
+         "{v} a k Δv W", "{v} = a √(-W : k) : Δv", "{v} a F k Δv", "75", "",
+         "{v} a m P", "{v} = P : a : m", "{v} F P", "26", "",
+         "{v} a m Δt W", "{v} = W : a : m : Δt", "{v} F Δt W", "26", "",
+         "{v} a P v1 W", "{v} = v1 + a W : P : 2", "{v} a Δt v1", "43", "",
+         "{v} a P v2 W", "{v} = v2 - a W : P : 2", "{v} a Δt v2", "43", "",
+         "{v} a Δs v1", "{v} = (v1 ± √(v1 ^ 2 + 2 a Δs)) : 2", "{v} a Δt v1", "22", "",
+         "{v} a Δs v2", "{v} = (v2 ± √(v2 ^ 2 - 2 a Δs)) : 2", "{v} a Δt v2", "22", "",
+         "{v} a Δs Δv", "{v} = a Δs : Δv", "{v} Δs Δt", "25", "",
+         "{v} a Δt v1", "{v} = v1 + a Δt : 2", "{v} v1 Δv", "24", "",
+         "{v} a Δt v2", "{v} = v2 - a Δt : 2", "{v} v2 Δv", "24", "",
+         "{v} F k m v1", "{v} = (v1 ± √(v1 ^ 2 - 2 F ^ 2 : k : m)) : 2", "{v} a F k v1", "27", "",
+         "{v} F k m v2", "{v} = (v2 ± √(v2 ^ 2 + 2 F ^ 2 : k : m)) : 2", "{v} a F k v2", "27", "",
+         "{v} F k m Δv", "{v} = -(F ^ 2) : k : m : Δv", "{v} a F k Δv", "27", "",
+         "{v} F k Δt", "{v} = -F : k : Δt", "{v} Δs Δt", "59", "",
+         "{v} F m Δs v1", "{v} = (v1 ± √(v1 ^ 2 + 2 F Δs : m)) : 2", "{v} a Δs v1", "27", "",
+         "{v} F m Δs v2", "{v} = (v2 ± √(v2 ^ 2 - 2 F Δs : m)) : 2", "{v} a Δs v2", "27", "",
+         "{v} F m Δs Δv", "{v} = F Δs : m : Δv", "{v} a Δs Δv", "27", "",
+         "{v} F m Δt v1", "{v} = v1 + F Δt : m : 2", "{v} a Δt v1", "27", "",
+         "{v} F m Δt v2", "{v} = v2 - F Δt : m : 2", "{v} a Δt v2", "27", "",
+         "{v} F P", "{v} = P : F", "{v} F Δt W", "43", "",
+         "{v} F Δt W", "{v} = W : F : Δt", "{v} Δs Δt", "31", "",
+         "{v} |Fn| m μg Δs v1", "{v} = (v1 ± √(v1 ^ 2 + 2 |Fn| μg Δs : m)) : 2", "{v} F m  Δs v1", "85", "",
+         "{v} |Fn| m μg Δs v2", "{v} = (v2 ± √(v2 ^ 2 - 2 |Fn| μg Δs : m)) : 2", "{v} F m Δs v2", "85", "",
+         "{v} |Fn| m μg Δs Δv", "{v} = |Fn| μg Δs : m : Δv", "{v} F m Δs Δv", "85", "",
+         "{v} |Fn| m μg Δt v1", "{v} = v1 + |Fn| μg Δt : m : 2", "{v} F m Δt v1", "85", "",
+         "{v} |Fn| m μg Δt v2", "{v} = v2 - |Fn| μg Δt : m : 2", "{v} F m Δt v2", "85", "",
+         "{v} |Fn| m μh Δs v1", "{v} = (v1 ± √(v1 ^ 2 + 2 |Fn| μh Δs : m)) : 2", "{v} F m Δs v1", "88", "",
+         "{v} |Fn| m μh Δs v2", "{v} = (v2 ± √(v2 ^ 2 - 2 |Fn| μh Δs : m)) : 2", "{v} F m Δs v2", "88", "",
+         "{v} |Fn| m μh Δs Δv", "{v} = |Fn| μh Δs : m : Δv", "{v} F m Δs Δv", "88", "",
+         "{v} |Fn| m μh Δt v1", "{v} = v1 + |Fn| μh Δt : m : 2", "{v} F m Δt v1", "88", "",
+         "{v} |Fn| m μh Δt v2", "{v} = v2 - |Fn| μh Δt : m : 2", "{v} F m Δt v2", "88", "",
+         "{v} |Fn| m μr Δs v1", "{v} = (v1 ± √(v1 ^ 2 + 2 |Fn| μr Δs : m)) : 2", "{v} F m Δs v1", "91", "",
+         "{v} |Fn| m μr Δs v2", "{v} = (v2 ± √(v2 ^ 2 - 2 |Fn| μr Δs : m)) : 2", "{v} F m Δs v2", "91", "",
+         "{v} |Fn| m μr Δs Δv", "{v} = |Fn| μr Δs : m : Δv", "{v} F m Δs Δv", "91", "",
+         "{v} |Fn| m μr Δt v1", "{v} = v1 + |Fn| μr Δt : m : 2", "{v} F m Δt v1", "91", "",
+         "{v} |Fn| m μr Δt v2", "{v} = v2 - |Fn| μr Δt : m : 2", "{v} F m Δt v2", "91", "",
+         "{v} |Fn| μg P", "{v} = P : |Fn| : μg", "{v} F P", "85", "",
+         "{v} |Fn| μg Δt W", "{v} = W : |Fn| : μg : Δt", "{v} F Δt W", "85", "",
+         "{v} |Fn| μh P", "{v} = P : |Fn| : μh", "{v} F P", "88", "",
+         "{v} |Fn| μh Δt W", "{v} = W : |Fn| : μh : Δt", "{v} F Δt W", "88", "",
+         "{v} |Fn| μr P", "{v} = P : |Fn| : μr", "{v} F P", "91", "",
+         "{v} |Fn| μr Δt W", "{v} = W : |Fn| : μr : Δt", "{v} F Δt W", "91", "",
+         "{v} k m P Δv", "{v} = √(-(P ^ 2) : k : m : Δv ' 3)", "{v} k P W", "63", "",
+         "{v} k m Δs v1", "{v} = (v1 ± √(v1 ^ 2 - 2 k Δs ^ 2 : m)) : 2", "{v} F k m v1", "57", "",
+         "{v} k m Δs v2", "{v} = (v2 ± √(v2 ^ 2 + 2 k Δs ^ 2 : m)) : 2", "{v} F k m v2", "57", "",
+         "{v} k m Δs Δv", "{v} = -k Δs ^ 2 : m : Δv", "{v} F k m Δv", "57", "",
+         "{v} k m Δt v1", "{v} = v1 : (1 + k Δt ^ 2 : m : 2)", "{v} k m Δt Δv", "16", "",
+         "{v} k m Δt v2", "{v} = v2 : (1 - k Δt ^ 2 : m : 2)", "{v} k m Δt Δv", "13", "",
+         "{v} k m Δt Δv", "{v} = -m Δv : k : Δt ^ 2", "{v} a k m Δt", "23", "",
+         "{v} k P Δs", "{v} = -P : k : Δs", "{v} F P", "57", "",
+         "{v} k P Δt", "{v} = √(-P : k : Δt)", "{v} k P Δs", "21", "",
+         "{v} k P W", "{v} = P √(-1 : k : W)", "{v} k P Δt", "43", "",
+         "{v} k Δt W", "{v} = √(-W : k) : Δt", "{v} k P Δt", "42", "",
+         "{v} m P Δs Δv", "{v} = √(P Δs : m : Δv)", "{v} m P Δt Δv", "22", "",
+         "{v} m P Δt v1", "{v} = (v1 ± √(v1 ^ 2 + 2 P Δt : m)) : 2", "{v} m v1 W", "44", "",
+         "{v} m P Δt v2", "{v} = (v2 ± √(v2 ^ 2 - 2 P Δt : m)) : 2", "{v} m v2 W", "44", "",
+         "{v} m P Δt Δv", "{v} = P Δt : m : Δv", "{v} m Δv W", "44", "",
+         "{v} m v1 W", "{v} = (v1 ± √(v1 ^ 2 + 2 W : m)) : 2", "{v} F m Δs v1", "30", "",
+         "{v} m v2 W", "{v} = (v2 ± √(v2 ^ 2 - 2 W : m)) : 2", "{v} F m Δs v2", "30", "",
+         "{v} m Δv W", "{v} = W : m : Δv", "{v} a m Δt W", "23", "",
+         "{v} P Δs W", "{v} = P Δs : W", "{v} Δs Δt", "43", "",
+         "{v} Δs Δt", "{v} = Δs : Δt", "", "20", "",
+         "{v} v1 v2", "{v} = (v1 + v2) : 2", "", "10", "3",
+         "{v} v1 Δv", "{v} = v1 + Δv : 2", "{v} v1 v2", "9", "3",
+         "{v} v2 Δv", "{v} = v2 - Δv : 2", "{v} v1 v2", "8", "3",
+         "{v} {vx}", "{v} = {vx}", "", "0", "",
+         "{v} {vy}", "{v} = {vy}", "", "0", "",
+         "{v} {vz}", "{v} = {vz}", "", "0", "",
+         "{v} {vx} θ", "{v} = {vx} : cos(θ)", "", "0", "",
+         "{v} {vy} θ", "{v} = {vy} : sin(θ)", "", "0", "",
+         "{v} {vz} θ", "{v} = {vz} : cos(θ)", "", "0", "",
+         "{v} {vx} θ ϕ", "{v} = {vx} : cos(θ) : sin(ϕ)", "", "0", "",
+         "{v} {vz} θ ϕ", "{v} = {vz} : cos(θ) : cos(ϕ)", "", "0", "",
+         "{v} {vx} {vy}", "{v} = √({vx} ^ 2 + {vy} ^ 2)", "", "0", "",
+         "{v} {vx} {vz}", "{v} = √({vx} ^ 2 + {vz} ^ 2)", "", "0", "",
+         "{v} {vy} {vz}", "{v} = √({vy} ^ 2 + {vz} ^ 2)", "", "0", "",
+         "{v} {vx} {vy} {vz}", "{v} = √({vx} ^ 2 + {vy} ^ 2 + {vz} ^ 2)", "", "0", ""} ' {v} => 3600
+      Case "|Fn|" : DՃA = New String() {
+         "|Fn| F Ff Ft μg", "|Fn| = (F - Ft - Ff) : μg", "", "0", "",
+         "|Fn| F Ff Ft μh", "|Fn| = (F - Ft - Ff) : μh", "", "0", "",
+         "|Fn| F Ff Ft μr", "|Fn| = (F - Ft - Ff) : μr", "", "0", "",
+         "|Fn| F Ff μg", "|Fn| = (F - Ff) : μg", "", "0", "",
+         "|Fn| F Ff μh", "|Fn| = (F - Ff) : μh", "", "0", "",
+         "|Fn| F Ff μr", "|Fn| = (F - Ff) : μr", "", "0", "",
+         "|Fn| F Ft k μg Δs", "|Fn| = (F + k Δs - Ft) : μg", "", "0", "",
+         "|Fn| F Ft k μh Δs", "|Fn| = (F + k Δs - Ft) : μh", "", "0", "",
+         "|Fn| F Ft k μr Δs", "|Fn| = (F + k Δs - Ft) : μr", "", "0", "",
+         "|Fn| F Ft μg", "|Fn| = (F - Ft) : μg", "", "0", "",
+         "|Fn| F Ft μh", "|Fn| = (F - Ft) : μh", "", "0", "",
+         "|Fn| F Ft μr", "|Fn| = (F - Ft) : μr", "", "0", "",
+         "|Fn| F k μg Δs", "|Fn| = (F + k Δs) : μg", "", "0", "",
+         "|Fn| F k μh Δs", "|Fn| = (F + k Δs) : μh", "", "0", "",
+         "|Fn| F k μr Δs", "|Fn| = (F + k Δs) : μr", "", "0", "",
+         "|Fn| F μg", "|Fn| = F : μg", "", "0", "",
+         "|Fn| F μh", "|Fn| = F : μh", "", "0", "",
+         "|Fn| F μr", "|Fn| = F : μr", "", "0", "",
+         "|Fn| Frg μg", "|Fn| = Frg : μg", "", "0", "",
+         "|Fn| Frh μh", "|Fn| = Frh : μh", "", "0", "",
+         "|Fn| Frr μr", "|Fn| = Frr : μr", "", "0", ""} ' |Fn| => 315
+      Case "Frgx" : DՃA = New String() {
+         "Frgx Frg", "Frgx = Frg", "", "0", "",
+         "Frgx Frg θ", "Frgx = Frg cos(θ)", "", "0", "",
+         "Frgx Frgy θ", "Frgx = Frgy : tan(θ)", "", "0", "",
+         "Frgx Frgz ϕ", "Frgx = Frgz tan(ϕ)", "", "0", "",
+         "Frgx Frg Frgy", "Frgx = √(Frg ^ 2 - Frgy ^ 2)", "", "0", "",
+         "Frgx Frg Frgz", "Frgx = √(Frg ^ 2 - Frgz ^ 2)", "", "0", "",
+         "Frgx Frg θ ϕ", "Frgx = Frg cos(θ) sin(ϕ)", "", "0", "",
+         "Frgx Frgy θ ϕ", "Frgx = Frgy sin(ϕ) : tan(θ)", "", "0", "",
+         "Frgx Frg Frgy Frgz", "Frgx = √(Frg ^ 2 - Frgy ^ 2 - Frgz ^ 2)", "", "0", ""} ' Frgx => 9
+      Case "Frgy" : DՃA = New String() {
+         "Frgy Frg", "Frgy = Frg", "", "0", "",
+         "Frgy Frg θ", "Frgy = Frg sin(θ)", "", "0", "",
+         "Frgy Frgx θ", "Frgy = Frgx tan(θ)", "", "0", "",
+         "Frgy Frgz θ", "Frgy = Frgz tan(θ)", "", "0", "",
+         "Frgy Frg Frgx", "Frgy = √(Frg ^ 2 - Frgx ^ 2)", "", "0", "",
+         "Frgy Frg Frgz", "Frgy = √(Frg ^ 2 - Frgz ^ 2)", "", "0", "",
+         "Frgy Frgx θ ϕ", "Frgy = Frgx tan(θ) : sin(ϕ)", "", "0", "",
+         "Frgy Frgz θ ϕ", "Frgy = Frgz tan(θ) : cos(ϕ)", "", "0", "",
+         "Frgy Frg Frgx Frgz", "Frgy = √(Frg ^ 2 - Frgx ^ 2 - Frgz ^ 2)", "", "0", ""} ' Frgy => 9
+      Case "Frgz" : DՃA = New String() {
+         "Frgz Frg", "Frgz = Frg", "", "0", "",
+         "Frgz Frg θ", "Frgz = Frg cos(θ)", "", "0", "",
+         "Frgz Frgx ϕ", "Frgz = Frgx : tan(ϕ)", "", "0", "",
+         "Frgz Frgy θ", "Frgz = Frgy : tan(θ)", "", "0", "",
+         "Frgz Frg Frgx", "Frgz = √(Frg ^ 2 - Frgx ^ 2)", "", "0", "",
+         "Frgz Frg Frgy", "Frgz = √(Frg ^ 2 - Frgy ^ 2)", "", "0", "",
+         "Frgz Frgy θ ϕ", "Frgz = Frgy cos(ϕ) : tan(θ)", "", "0", "",
+         "Frgz Frg θ ϕ", "Frgz = Frg cos(θ) cos(ϕ)", "", "0", "",
+         "Frgz Frg Frgx Frgy", "Frgz = √(Frg ^ 2 - Frgx ^ 2 - Frgy ^ 2)", "", "0", ""} ' Frgz => 9
+      Case "Frhx" : DՃA = New String() {
+         "Frhx Frh", "Frhx = Frh", "", "0", "",
+         "Frhx Frh θ", "Frhx = Frh cos(θ)", "", "0", "",
+         "Frhx Frhy θ", "Frhx = Frhy : tan(θ)", "", "0", "",
+         "Frhx Frhz ϕ", "Frhx = Frhz tan(ϕ)", "", "0", "",
+         "Frhx Frh Frhy", "Frhx = √(Frh ^ 2 - Frhy ^ 2)", "", "0", "",
+         "Frhx Frh Frhz", "Frhx = √(Frh ^ 2 - Frhz ^ 2)", "", "0", "",
+         "Frhx Frh θ ϕ", "Frhx = Frh cos(θ) sin(ϕ)", "", "0", "",
+         "Frhx Frhy θ ϕ", "Frhx = Frhy sin(ϕ) : tan(θ)", "", "0", "",
+         "Frhx Frh Frhy Frhz", "Frhx = √(Frh ^ 2 - Frhy ^ 2 - Frhz ^ 2)", "", "0", ""} ' Frhx => 9
+      Case "Frhy" : DՃA = New String() {
+         "Frhy Frh", "Frhy = Frh", "", "0", "",
+         "Frhy Frh θ", "Frhy = Frh sin(θ)", "", "0", "",
+         "Frhy Frhx θ", "Frhy = Frhx tan(θ)", "", "0", "",
+         "Frhy Frhz θ", "Frhy = Frhz tan(θ)", "", "0", "",
+         "Frhy Frh Frhx", "Frhy = √(Frh ^ 2 - Frhx ^ 2)", "", "0", "",
+         "Frhy Frh Frhz", "Frhy = √(Frh ^ 2 - Frhz ^ 2)", "", "0", "",
+         "Frhy Frhx θ ϕ", "Frhy = Frhx tan(θ) : sin(ϕ)", "", "0", "",
+         "Frhy Frhz θ ϕ", "Frhy = Frhz tan(θ) : cos(ϕ)", "", "0", "",
+         "Frhy Frh Frhx Frhz", "Frhy = √(Frh ^ 2 - Frhx ^ 2 - Frhz ^ 2)", "", "0", ""} ' Frhy => 9
+      Case "Frhz" : DՃA = New String() {
+         "Frhz Frh", "Frhz = Frh", "", "0", "",
+         "Frhz Frh θ", "Frhz = Frh cos(θ)", "", "0", "",
+         "Frhz Frhx ϕ", "Frhz = Frhx : tan(ϕ)", "", "0", "",
+         "Frhz Frhy θ", "Frhz = Frhy : tan(θ)", "", "0", "",
+         "Frhz Frh Frhx", "Frhz = √(Frh ^ 2 - Frhx ^ 2)", "", "0", "",
+         "Frhz Frh Frhy", "Frhz = √(Frh ^ 2 - Frhy ^ 2)", "", "0", "",
+         "Frhz Frhy θ ϕ", "Frhz = Frhy cos(ϕ) : tan(θ)", "", "0", "",
+         "Frhz Frh θ ϕ", "Frhz = Frh cos(θ) cos(ϕ)", "", "0", "",
+         "Frhz Frh Frhx Frhy", "Frhz = √(Frh ^ 2 - Frhx ^ 2 - Frhy ^ 2)", "", "0", ""} ' Frhz => 9
+      Case "Frrx" : DՃA = New String() {
+         "Frrx Frr", "Frrx = Frr", "", "0", "",
+         "Frrx Frr θ", "Frrx = Frr cos(θ)", "", "0", "",
+         "Frrx Frry θ", "Frrx = Frry : tan(θ)", "", "0", "",
+         "Frrx Frrz ϕ", "Frrx = Frrz tan(ϕ)", "", "0", "",
+         "Frrx Frr Frry", "Frrx = √(Frr ^ 2 - Frry ^ 2)", "", "0", "",
+         "Frrx Frr Frrz", "Frrx = √(Frr ^ 2 - Frrz ^ 2)", "", "0", "",
+         "Frrx Frr θ ϕ", "Frrx = Frr cos(θ) sin(ϕ)", "", "0", "",
+         "Frrx Frry θ ϕ", "Frrx = Frry sin(ϕ) : tan(θ)", "", "0", "",
+         "Frrx Frr Frry Frrz", "Frrx = √(Frr ^ 2 - Frry ^ 2 - Frrz ^ 2)", "", "0", ""} ' Frrx => 9
+      Case "Frry" : DՃA = New String() {
+         "Frry Frr", "Frry = Frr", "", "0", "",
+         "Frry Frr θ", "Frry = Frr sin(θ)", "", "0", "",
+         "Frry Frrx θ", "Frry = Frrx tan(θ)", "", "0", "",
+         "Frry Frrz θ", "Frry = Frrz tan(θ)", "", "0", "",
+         "Frry Frr Frrx", "Frry = √(Frr ^ 2 - Frrx ^ 2)", "", "0", "",
+         "Frry Frr Frrz", "Frry = √(Frr ^ 2 - Frrz ^ 2)", "", "0", "",
+         "Frry Frrx θ ϕ", "Frry = Frrx tan(θ) : sin(ϕ)", "", "0", "",
+         "Frry Frrz θ ϕ", "Frry = Frrz tan(θ) : cos(ϕ)", "", "0", "",
+         "Frry Frr Frrx Frrz", "Frry = √(Frr ^ 2 - Frrx ^ 2 - Frrz ^ 2)", "", "0", ""} ' Frry => 9
+      Case "Frrz" : DՃA = New String() {
+         "Frrz Frr", "Frrz = Frr", "", "0", "",
+         "Frrz Frr θ", "Frrz = Frr cos(θ)", "", "0", "",
+         "Frrz Frrx ϕ", "Frrz = Frrx : tan(ϕ)", "", "0", "",
+         "Frrz Frry θ", "Frrz = Frry : tan(θ)", "", "0", "",
+         "Frrz Frr Frrx", "Frrz = √(Frr ^ 2 - Frrx ^ 2)", "", "0", "",
+         "Frrz Frr Frry", "Frrz = √(Frr ^ 2 - Frry ^ 2)", "", "0", "",
+         "Frrz Frry θ ϕ", "Frrz = Frry cos(ϕ) : tan(θ)", "", "0", "",
+         "Frrz Frr θ ϕ", "Frrz = Frr cos(θ) cos(ϕ)", "", "0", "",
+         "Frrz Frr Frrx Frry", "Frrz = √(Frr ^ 2 - Frrx ^ 2 - Frry ^ 2)", "", "0", ""} ' Frrz => 9
+      Case "{vx}" : DՃA = New String() {
+         "{vx} {v}", "{vx} = {v}", "", "0", "",
+         "{vx} {v} θ", "{vx} = {v} cos(θ)", "", "0", "",
+         "{vx} {vy} θ", "{vx} = {vy} : tan(θ)", "", "0", "",
+         "{vx} {vz} ϕ", "{vx} = {vz} tan(ϕ)", "", "0", "",
+         "{vx} {v} {vy}", "{vx} = √({v} ^ 2 - {vy} ^ 2)", "", "0", "",
+         "{vx} {v} {vz}", "{vx} = √({v} ^ 2 - {vz} ^ 2)", "", "0", "",
+         "{vx} {v} θ ϕ", "{vx} = {v} cos(θ) sin(ϕ)", "", "0", "",
+         "{vx} {vy} θ ϕ", "{vx} = {vy} sin(ϕ) : tan(θ)", "", "0", "",
+         "{vx} {v} {vy} {vz}", "{vx} = √({v} ^ 2 - {vy} ^ 2 - {vz} ^ 2)", "", "0", ""} ' {vx} => 9
+      Case "{vy}" : DՃA = New String() {
+         "{vy} {v}", "{vy} = {v}", "", "0", "",
+         "{vy} {v} θ", "{vy} = {v} sin(θ)", "", "0", "",
+         "{vy} {vx} θ", "{vy} = {vx} tan(θ)", "", "0", "",
+         "{vy} {vz} θ", "{vy} = {vz} tan(θ)", "", "0", "",
+         "{vy} {v} {vx}", "{vy} = √({v} ^ 2 - {vx} ^ 2)", "", "0", "",
+         "{vy} {v} {vz}", "{vy} = √({v} ^ 2 - {vz} ^ 2)", "", "0", "",
+         "{vy} {vx} θ ϕ", "{vy} = {vx} tan(θ) : sin(ϕ)", "", "0", "",
+         "{vy} {vz} θ ϕ", "{vy} = {vz} tan(θ) : cos(ϕ)", "", "0", "",
+         "{vy} {v} {vx} {vz}", "{vy} = √({v} ^ 2 - {vx} ^ 2 - {vz} ^ 2)", "", "0", ""} ' {vy} => 9
+      Case "{vz}" : DՃA = New String() {
+         "{vz} {v}", "{vz} = {v}", "", "0", "",
+         "{vz} {v} θ", "{vz} = {v} cos(θ)", "", "0", "",
+         "{vz} {vx} ϕ", "{vz} = {vx} : tan(ϕ)", "", "0", "",
+         "{vz} {vy} θ", "{vz} = {vy} : tan(θ)", "", "0", "",
+         "{vz} {v} {vx}", "{vz} = √({v} ^ 2 - {vx} ^ 2)", "", "0", "",
+         "{vz} {v} {vy}", "{vz} = √({v} ^ 2 - {vy} ^ 2)", "", "0", "",
+         "{vz} {vy} θ ϕ", "{vz} = {vy} cos(ϕ) : tan(θ)", "", "0", "",
+         "{vz} {v} θ ϕ", "{vz} = {v} cos(θ) cos(ϕ)", "", "0", "",
+         "{vz} {v} {vx} {vy}", "{vz} = √({v} ^ 2 - {vx} ^ 2 - {vy} ^ 2)", "", "0", ""} ' {vz} => 9
+    End Select
 
+    'Formelkombinationen insgesamt:		101 005 + 726
+
+    'EBAE("a k m P v1", "a => a ^ 4 m ^ 3 - 2 a k m P v1 + 2 k P ^ 2 = 0", "a F k P v1", 25) ' 13
+    'EBAE("a k m P v1", "a => ", "a F k P v1", 25) ' 13
+    'EBAE("a k m P v2", "a => a ^ 4 m ^ 3 + 2 a m k P v2 - 2 k P ^ 2 = 0", "a F k P v2", 25) ' 13
+    'EBAE("a k m P v2", "a => ", "a F k P v2", 25) ' 13
+    'EBAE("a m P Δs v1", "", "", 25) ' a = 3 √(P ^ 2 : m ^ 2 : Δs) (3 √ (1 + E3.1) - 3 √ (-1 + E3.1)) ' 26
+    'EBAE("a m P Δs v1", "", "", 25) ' a = √(-8 P v1 : m : Δs : 3) E3.3 ' 26
+    'EBAE("a m P Δs v2", "", "", 25) ' a = 3√(P ^ 2 : m ^ 2 : Δs) E4.2 ' 26
+    'EBAE("a m P Δs v2", "", "", 25) ' a = √(8 P v2 : m : Δs : 3) E4.3 ' 26
+    'EBAE("F a k P v1", "F => a F ^ 3 - 2 F k P v1 + 2 k P ^ 2 = 0", "F a k v1 {v}", 61) ' 13
+    'EBAE("F a k P v1", "F => ", "F a k v1 {v}", 61) ' 13
+    'EBAE("F a k P v2", "F => a F ^ 3 + 2 k F P v2 - 2 k P ^ 2 = 0", "F a k v2 {v}", 61) ' 13
+    'EBAE("F a k P v2", "F => ", "F a k v2 {v}", 61) ' 13
+    'EBAE("F k m P v1", "F => F ^ 4 - F (2 k m P v1) + 2 k m P ^ 2 = 0", "F a k P v1", 61) ' 13
+    'EBAE("F k m P v1", "F => ", "F a k P v1", 61) ' 13
+    'EBAE("F k m P v2", "F => F ^ 4 + F (2 k m P v2) - 2 k m P ^ 2 = 0", "F a k P v2", 61) ' 13
+    'EBAE("F k m P v2", "F => ", "F a k P v2", 61) ' 13
+    'EBAE("F m P Δs v1", "F = 3√(P ^ 2 m : Δs) (3√(1 + E3.1) - 3√(-1 + E3.1))", "F m P v1 W", 28) ' 26
+    'EBAE("F m P Δs v1", "F = √(-8 m P v1 : Δs : 3) E3.3", "F m P v1 W", 28) ' 26
+    'EBAE("F m P Δs v2", "F = 3√(m P ^ 2 : Δs) E4.2", "F m P v2 W", 28) ' 26
+    'EBAE("F m P Δs v2", "F = √(8 m P v2 : Δs : 3) E4.3", "F m P v2 W", 28) ' 26
+    'EBAE("k m P Δs v1", "k = 3 √(P ^ 2 m : Δs ^ 4) (3 √(-1 + E3.1) - 3√(1 + E3.1))", "k F m P v1", 56) ' 
+    'EBAE("k m P Δs v1", "k = -√(-8 m P v1 : Δs ^ 3 : 3) E3.3", "k F m P v1", 56) ' 
+    'EBAE("k m P Δs v2", "k = -(3 √(m P ^ 2 : Δs ^ 4)) E4.2", "k m P Δs v2", 56) ' 
+    'EBAE("k m P Δs v2", "k = -√(8 m P v2 : Δs ^ 3 : 3) E4.3", "k m P Δs v2", 56) ' 
+    'EBAE("m a k P v1 1", "m => a ^ 4 m ^ 3 - 2 a k m P v1 + 2 k P ^ 2 = 0", "m F k P v1", 25) ' 13
+    'EBAE("m a k P v1 2", "m => ", "m F k P v1", 25) ' 13
+    'EBAE("m a k P v2 1", "m => a ^ 4 m ^ 3 + 2 a m k P v2 - 2 k P ^ 2 = 0", "m F k P v2", 25) ' 13
+    'EBAE("m a k P v2 2", "m => ", "m F k P v2", 25) ' 13
+    'EBAE("μg |Fn| m P Δs v1 1", "μg = 3√(P ^ 2 m : Δs) (3√(1 + E3.1) - 3√(-1 + E3.1)) : |Fn|", "μg |Fn| m P v1 W", 93) ' 26
+    'EBAE("μg |Fn| m P Δs v1 2", "μg = √(-8 m P v1 : 3 : Δs) E3.3 : |Fn|", "μg |Fn| m P v1 W", 93) ' 26
+    'EBAE("μg |Fn| m P Δs v2 1", "μg = 3√(m P ^ 2 : Δs) E4.2 : |Fn|", "μg |Fn| m P v2 W", 93) ' 26
+    'EBAE("μg |Fn| m P Δs v2 2", "μg = √(8 m P v2 : 3 : Δs) E4.3 : |Fn|", "μg |Fn| m P v2 W", 93) ' 26
+    'EBAE("μh |Fn| m P Δs v1 1", "μh = 3√(P ^ 2 m : Δs) (3√(1 + E3.1) - 3√(-1 + E3.1)) : |Fn|", "μh |Fn| m P v1 W", 97) ' 26
+    'EBAE("μh |Fn| m P Δs v1 2", "μh = √(-8 m P v1 : 3 : Δs) E3.3 : |Fn|", "μh |Fn| m P v1 W", 97) ' 26
+    'EBAE("μh |Fn| m P Δs v2 1", "μh = 3√(m P ^ 2 : Δs) E4.2 : |Fn|", "μh |Fn| m P v2 W", 97) ' 26
+    'EBAE("μh |Fn| m P Δs v2 2", "μh = √(8 m P v2 : 3 : Δs) E4.3 : |Fn|", "μh |Fn| m P v2 W", 97) ' 26
+    'EBAE("μr |Fn| m P Δs v1 1", "μr = 3√(P ^ 2 m : Δs) (3√(1 + E3.1) - 3√(-1 + E3.1)) : |Fn|", "μr |Fn| m P v1 W", 101) ' 26
+    'EBAE("μr |Fn| m P Δs v1 2", "μr = √(-8 m P v1 : 3 : Δs) E3.3 : |Fn|", "μr |Fn| m P v1 W", 101) ' 26
+    'EBAE("μr |Fn| m P Δs v2 1", "μr = 3√(m P ^ 2 : Δs) E4.2 : |Fn|", "μr |Fn| m P v2 W", 101) ' 26
+    'EBAE("μr |Fn| m P Δs v2 2", "μr = √(8 m P v2 : 3 : Δs) E4.3 : |Fn|", "μr |Fn| m P v2 W", 101) ' 26
+    'EBAE("P a k v1 W 1", "P => P ^ 4 : k + P ^ 2 v1 ^ 2 W + a P v1 W ^ 2 + a ^ 2 W ^ 3 : 4 = 0", "P a k Δt v1", 42) ' 65
+    'EBAE("P a k v1 W 2", "P => ", "P a k Δt v1", 42) ' 65
+    'EBAE("P a k v2 W 1", "P => P ^ 4 : k + (P v2) ^ 2 W - a P v2 W ^ 2 + a ^ 2 W ^ 3 : 4 = 0", "P a k Δt v2", 42) ' 65
+    'EBAE("P a k v2 W 2", "P => ", "", 42) ' 65
+    'EBAE("Δs a k P v1 1", "a k Δs ^ 3 : P : 2 - Δs v1 - P : k = 0", "Δs a F P v1", 1) ' 26
+    'EBAE("Δs a k P v1 2", "a k Δs ^ 3 : P : 2 - Δs v1 - P : k = 0", "Δs a F P v1", 1) ' 26
+    'EBAE("Δs a k P v2 1", "a k Δs ^ 3 : P : 2 + Δs v2 + P : k = 0", "Δs a F P v2", 1) ' 26
+    'EBAE("Δs a k P v2 2", "a k Δs ^ 3 : P : 2 + Δs v2 + P : k = 0", "Δs a F P v2", 1) ' 26
+    'EBAE("Δt a k P v1 1", "a ^ 2 Δt ^ 3 : 4 + a Δt ^ 2 v1 + Δt v1 ^ 2 = -P : k", "Δt k P v1 Δv", 23) ' 26
+    'EBAE("Δt a k P v1 2", "a ^ 2 Δt ^ 3 : 4 + a Δt ^ 2 v1 + Δt v1 ^ 2 = -P : k", "Δt k P v1 Δv", 23) ' 26
+    'EBAE("Δt a k P v2 1", "a ^ 2 Δt ^ 3 : 4 - a Δt ^ 2 v2 + Δt v2 ^ 2 = -P : k", "Δt k P v2 Δv", 23) ' 26
+    'EBAE("Δt a k P v2 2", "a ^ 2 Δt ^ 3 : 4 - a Δt ^ 2 v2 + Δt v2 ^ 2 = -P : k", "Δt k P v2 Δv", 23) ' 26
+    'EBAE("Δt k m P v1 1", "Δt ^ 4 (k : m : 2) ^ 2 + Δt ^ 2 k : m + Δt k v1 ^ 2 : P + 1 = 0", "Δt k m v1 W", 43) ' 26
+    'EBAE("Δt k m P v1 2", "Δt ^ 4 (k : m : 2) ^ 2 + Δt ^ 2 k : m + Δt k v1 ^ 2 : P + 1 = 0", "Δt k m v1 W", 43) ' 26
+    'EBAE("Δt k m P v2 1", "Δt ^ 4 (k : m : 2) ^ 2 - Δt ^ 2 k : m + Δt k v2 ^ 2 : P + 1 = 0", "Δt k m v2 W", 43) ' 26
+    'EBAE("Δt k m P v2 2", "Δt ^ 4 (k : m : 2) ^ 2 - Δt ^ 2 k : m + Δt k v2 ^ 2 : P + 1 = 0", "Δt k m v2 W", 43) ' 26
+    'EBAE("Δt m P Δs v1", "Δt = 3√(m Δs^2 : P) (3√(1 + E3.1) - 3√(-1 + E3.1))", "Δt m P v1 {v}", 19) ' 52
+    'EBAE("Δt m P Δs v1", "Δt = √(-8 m Δs v1 : (3 P)) E3.3", "Δt m P v1 {v}", 19) ' 52
+    'EBAE("Δt m P Δs v2", "Δt = 3√(m Δs ^ 2 : P) E4.2", "Δt m P v2 {v}", 19) ' 52
+    'EBAE("Δt m P Δs v2", "Δt = Δt = √(8 m Δs v2 : (3 P)) E4.3", "Δt m P v2 {v}", 19) ' 52
+    'EBAE("v1 a k P v2 1", "v1 ^ 3 + v1 ^ 2 v2 - v1 v2 ^ 2 - v2 ^ 3 - 4 a P : k = 0", "v1 a k P {v}", 9) ' 13
+    'EBAE("v1 a k P v2 2", "v1 ^ 3 + v1 ^ 2 v2 - v1 v2 ^ 2 - v2 ^ 3 - 4 a P : k = 0", "v1 a k P {v}", 9) ' 13
+    'EBAE("v1 k m P v2 1", "v1 ^ 4 + 2 v1 ^ 3 v2 - 2 v2 ^ 3 v1 - v2 ^ 4 - 8 P ^ 2 : k : m = 0", "v1 k P v2 W", 80) ' 13
+    'EBAE("v1 k m P v2 2", "v1 ^ 4 + 2 v1 ^ 3 v2 - 2 v2 ^ 3 v1 - v2 ^ 4 - 8 P ^ 2 : k : m = 0", "v1 k P v2 W", 80) ' 13
+    'EBAE("v1 m P Δs v2", "v1 = 3√(E1.1 + √ E1.2) - 3√(-E1.1 + √ E1.2) - v2 : 3", "v1 m P Δs {v}", 9) ' 26
+    'EBAE("v1 m P Δs v2", "v1 = √(16 v2 ^ 2 : 9) E1.3 - v2 : 3", "v1 m P Δs {v}", 9) ' 26
+    'EBAE("v2 a k P v1 1", "v2 ^ 3 + v1 v2 ^ 2 - v1 ^ 2 v2 - v1 ^ 3 + 4 a P : k = 0", "v2 a k P {v}", 9) ' 13
+    'EBAE("v2 a k P v1 2", "v2 ^ 3 + v1 v2 ^ 2 - v1 ^ 2 v2 - v1 ^ 3 + 4 a P : k = 0", "v2 a k P {v}", 9) ' 13
+    'EBAE("v2 k m P v1 1", "v2 ^ 4 + 2 v2 ^ 3 v1 - 2 v1 ^ 3 v2 - v1 ^ 4 + 8 P ^ 2 : k : m = 0", "v2 k P v1 W", 80) ' 13
+    'EBAE("v2 k m P v1 2", "v2 ^ 4 + 2 v2 ^ 3 v1 - 2 v1 ^ 3 v2 - v1 ^ 4 + 8 P ^ 2 : k : m = 0", "v2 k P v1 W", 80) ' 13
+    'EBAE("v2 m P Δs v1", "v2 = 3√(E2.1 + √ E2.2) - 3√(-E2.1 + √ E2.2) - v1 : 3", "v2 m P Δs {v}", 9) ' 26
+    'EBAE("v2 m P Δs v1", "v2 = √(16 v1 ^ 2 : 9) E2.3 - v1 : 3", "v2 m P Δs {v}", 9) ' 26
+    'EBAE("Δv a k P v1 1", "Δv ^ 3 : 4 + v1 Δv ^ 2 + Δv v1 ^ 2 + a P : k = 0", "Δv a k P {v}", 17) ' 13
+    'EBAE("Δv a k P v1 2", "Δv ^ 3 : 4 + v1 Δv ^ 2 + Δv v1 ^ 2 + a P : k = 0", "Δv a k P {v}", 17) ' 13
+    'EBAE("Δv a k P v2 1", "Δv ^ 3 : 4 - v2 Δv ^ 2 + Δv v2 ^ 2 + a P : k = 0", "Δv a k P {v}", 14) ' 13
+    'EBAE("Δv a k P v2 2", "Δv ^ 3 : 4 - v2 Δv ^ 2 + Δv v2 ^ 2 + a P : k = 0", "Δv a k P {v}", 14) ' 13
+    'EBAE("Δv k m P v1 1", "Δv ^ 4 + 6 Δv ^ 3 v1 + 12 Δv ^ 2 v1 ^ 2 + 8 Δv v1 ^ 3 + 8 P ^ 2 : k : m = 0", "Δv k m P {v}", 17) ' 13
+    'EBAE("Δv k m P v1 2", "Δv ^ 4 + 6 Δv ^ 3 v1 + 12 Δv ^ 2 v1 ^ 2 + 8 Δv v1 ^ 3 + 8 P ^ 2 : k : m = 0", "Δv k m P {v}", 17) ' 13
+    'EBAE("Δv k m P v2 1", "Δv ^ 4 - 6 Δv ^ 3 v2 + 12 Δv ^ 2 v2 ^ 2 - 8 Δv v2 ^ 3 - 8 P ^ 2 : k : m = 0", "Δv k m P {v}", 14) ' 13
+    'EBAE("Δv k m P v2 2", "Δv ^ 4 - 6 Δv ^ 3 v2 + 12 Δv ^ 2 v2 ^ 2 - 8 Δv v2 ^ 3 - 8 P ^ 2 : k : m = 0", "Δv k m P {v}", 14) ' 13
+    'EBAE("Δv m P Δs v1", "Δv = 3√(E2.1 + √ E2.2) - 3√(-E2.1 + √ E2.2) - 4 v1 : 3", "Δv m P Δs {v}", 17) ' 26
+    'EBAE("Δv m P Δs v1", "Δv = √(16 v1 ^ 2 : 9) E2.3 - 4 v1 : 3", "Δv m P Δs {v}", 17) ' 26
+    'EBAE("Δv m P Δs v2", "Δv = 4 v2 : 3 + 3√(-E1.1 + √ E1.2) - 3√(E1.1 + √ E1.2)", "Δv m P Δs {v}", 14) ' 26
+    'EBAE("Δv m P Δs v2", "Δv = 4 v2 : 3 - √(16 v2 ^ 2 : 9) E1.3", "Δv m P Δs {v}", 14) ' 26
+    'EBAE("{v} a k P v1 1", "{v} ^ 3 - v1 {v} ^ 2 + a P : k : 2 = 0", "{v} a k P Δv", 15) ' 13
+    'EBAE("{v} a k P v1 2", "{v} ^ 3 - v1 {v} ^ 2 + a P : k : 2 = 0", "{v} a k P Δv", 15) ' 13
+    'EBAE("{v} a k P v2 1", "{v} ^ 3 - v2 {v} ^ 2 - a P : k : 2 = 0", "{v} a k P Δv", 12) ' 13
+    'EBAE("{v} a k P v2 2", "{v} ^ 3 - v2 {v} ^ 2 - a P : k : 2 = 0", "{v} a k P Δv", 12) ' 13
+    'EBAE("{v} k m P v1 1", "{v} ^ 4 - v1 {v} ^ 3 + P ^ 2 : k : m : 2 = 0", "{v} k m P Δv", 15) ' 13
+    'EBAE("{v} k m P v1 2", "{v} ^ 4 - v1 {v} ^ 3 + P ^ 2 : k : m : 2 = 0", "{v} k m P Δv", 15) ' 13
+    'EBAE("{v} k m P v2 1", "{v} ^ 4 - {v} ^ 3 v2 - P ^ 2 : k : m : 2", "{v} k m P Δv", 12) ' 13
+    'EBAE("{v} k m P v2 2", "{v} ^ 4 - {v} ^ 3 v2 - P ^ 2 : k : m : 2", "{v} k m P Δv", 12) ' 13
+    'EBAE("{v} m P Δs v1", "{v} = (3 √(E2.1 + √ E2.2) - 3 √(-E2.1 + √ E2.2) + 2 v1 : 3) : 2", "{v} m P Δs Δv", 15) ' 26
+    'EBAE("{v} m P Δs v1", "{v} = √(16 v1 ^ 2 : 36) E2.3 + v1 : 3", "{v} m P Δs Δv", 15) ' 26
+    'EBAE("{v} m P Δs v2", "{v} = (3 √(E1.1 + √ E1.2) - 3 √(-E1.1 + √ E1.2) + 2 v2 : 3) : 2", "{v} m P Δs Δv", 12) ' 26
+    'EBAE("{v} m P Δs v2", "{v} = √(16 v2 ^ 2 : 36) E1.3 + v2 : 3", "{v} m P Δs Δv", 12) ' 26
+    'EBAE("W a k P v1 1", "a ^ 2 W ^ 3 : 4 + a P v1 W ^ 2 + (P v1) ^ 2 W + P ^ 4 : k = 0", "W a k Δt v1", 42) ' 65
+    'EBAE("W a k P v1 2", "a ^ 2 W ^ 3 : 4 + a P v1 W ^ 2 + (P v1) ^ 2 W + P ^ 4 : k = 0", "W a k Δt v1", 42) ' 65
+    'EBAE("W a k P v2 1", "a ^ 2 W ^ 3 : 4 - a P v2 W ^ 2 + (P v2) ^ 2 W + P ^ 4 : k = 0", "W a k Δt v2", 42) ' 65
+    'EBAE("W a k P v2 2", "a ^ 2 W ^ 3 : 4 - a P v2 W ^ 2 + (P v2) ^ 2 W + P ^ 4 : k = 0", "W a k Δt v2", 42) ' 65
+    'EBAE("W k m P v1 1", "W ^ 4 k : (2 m P) ^ 2 + W ^ 2 : m + v1 ^ 2 W + P ^ 2 : k = 0", "W k m Δt v1", 42) ' 65
+    'EBAE("W k m P v1 2", "W ^ 4 k : (2 m P) ^ 2 + W ^ 2 : m + v1 ^ 2 W + P ^ 2 : k = 0", "W k m Δt v1", 42) ' 65
+    'EBAE("W k m P v2 1", "W ^ 4 k : (2 m P) ^ 2 - W ^ 2 : m + v2 ^ 2 W + P ^ 2 : k = 0", "W k m Δt v2", 42) ' 65
+    'EBAE("W k m P v2 2", "W ^ 4 k : (2 m P) ^ 2 - W ^ 2 : m + v2 ^ 2 W + P ^ 2 : k = 0", "W k m Δt v2", 42) ' 65
+    'EBAE("W m P Δs v1", "W = 3√(m (P Δs) ^ 2) (3√(1 + E3.1) - 3√(-1 + E3.1))", "W F m P v1", 29) ' 130
+    'EBAE("W m P Δs v1", "W = √(-8 m P Δs v1 : 3) E3.3", "W F m P v1", 29) ' 130
+    'EBAE("W m P Δs v2", "W = 3√(m (P Δs) ^ 2) E4.2", "W F m P v2", 29) ' 130
+    'EBAE("W m P Δs v2", "W = √(8 m P Δs v2 : 3) E4.3", "W F m P v2", 29) ' 130
+
+    '2     Für Vorschläge, Formeln und Formelnquelle
+    'If FAA.Count > 1 Then
+    '  For i = 0 To DՃA.Count - 5 Step 5
+    '    If CD = DՃA(i) Then C002.Text = DՃA(i + 1) : CH = DՃA(i + 4)
+    '  Next
+    'End If
+
+    '"s1 sx1 sy1 sz1 s2 sx2 sy2 sz2", "s1 = s2 - √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sx1 sy1 s2 sx2 sy2", "s1 = s2 - √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"s1 sx1 sy1 s2 sx2 sy2 Δsz", "s1 = s2 - √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 sx1 sz1 s2 sx2 sz2", "s1 = s2 - √((sx2 - sx1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sx1 sz1 s2 sx2 sz2 Δsy", "s1 = s2 - √((sx2 - sx1) ^ 2 + Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sx1 s2 sx2", "s1 = s2 + sx1 - sx2", "", "110",
+    '"s1 sx1 s2 sx2 Δsy", "s1 = s2 - √((sx2 - sx1) ^ 2 + Δsy ^ 2)", "", "110",
+    '"s1 sx1 s2 sx2 Δsy Δsz", "s1 = s2 - √((sx2 - sx1) ^ 2 + Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 sx1 s2 sx2 Δsz", "s1 = s2 - √((sx2 - sx1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 sx1 s2 sx2 θ", "s1 = s2 - (sx2 - sx1) : cos(θ)", "", "110",
+    '"s1 sy1 sz1 s2 sy2 sz2", "s1 = s2 - √((sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sy1 sz1 s2 sy2 sz2 Δsx", "s1 = s2 - √(Δsx ^ 2 + (sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sy1 s2 sy2", "s1 = s2 + sy1 - sy2", "", "110",
+    '"s1 sy1 s2 sy2 Δsx", "s1 = s2 - √(Δsx ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"s1 sy1 s2 sy2 Δsx Δsz", "s1 = s2 - √(Δsx ^ 2 + (sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 sy1 s2 sy2 Δsz", "s1 = s2 - √((sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 sy1 s2 sy2 θ", "s1 = s2 - (sy2 - sy1) : sin(θ)", "", "110",
+    '"s1 sz1 s2 sz2", "s1 = s2 + sz1 - sz2", "", "110",
+    '"s1 sz1 s2 sz2 Δsx", "s1 = s2 - √(Δsx ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sz1 s2 sz2 Δsx Δsy", "s1 = s2 - √(Δsx ^ 2 + Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sz1 s2 sz2 Δsy", "s1 = s2 - √(Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s1 sz1 s2 sz2 θ", "s1 = s2 - (sz2 - sz1) : cos(θ)", "", "110",
+    '"s1 sz1 s2 sz2 θ ϕ", "s1 = s2 - (sz2 - sz1) : cos(θ) : cos(ϕ)", "", "110",
+    '"s1 s2 sx1 sx2 θ ϕ", "s1 = s2 - (sx2 - sx1) : cos(θ) : sin(ϕ)", "", "110",
+    '"s1 s2 Δsx", "s1 = s2 - Δsx", "", "110",
+    '"s1 s2 Δsx Δsy", "s1 = s2 - √(Δsx ^ 2 + Δsy ^ 2)", "", "110",
+    '"s1 s2 Δsx Δsy Δsz", "s1 = s2 - √(Δsx ^ 2 + Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 s2 Δsx Δsz", "s1 = s2 - √(Δsx ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 s2 Δsx θ", "s1 = s2 - Δsx : cos(θ)", "", "110",
+    '"s1 s2 Δsx θ ϕ", "s1 = s2 - Δsx : cos(θ) : sin(ϕ)", "", "110",
+    '"s1 s2 Δsy", "s1 = s2 - Δsy", "", "110",
+    '"s1 s2 Δsy Δsz", "s1 = s2 - √(Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"s1 s2 Δsy θ", "s1 = s2 - Δsy : sin(θ)", "", "110",
+    '"s1 s2 Δsz", "s1 = s2 - Δsz", "", "110",
+    '"s1 s2 Δsz θ", "s1 = s2 - Δsz : cos(θ)", "", "110",
+    '"s1 s2 Δsz θ ϕ", "s1 = s2 - Δsz : cos(θ) : cos(ϕ)", "", "110",
+
+    '"sx1 s1 sy1 sz1 s2 sx2 sy2 sz2", "sx1 = sx2 - √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx1 s1 sy1 s2 sx2 sy2", "sx1 = sx2 - √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sx1 s1 sy1 s2 sx2 sy2 Δsz", "sx1 = sx2 - √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx1 s1 sz1 s2 sx2 sz2", "sx1 = sx2 - √((s2 - s1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx1 s1 sz1 s2 sx2 sz2 Δsy", "sx1 = sx2 - √((s2 - s1) ^ 2 - Δsy ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx1 s1 s2 sx2", "sx1 = sx2 + s1 - s2", "", "110",
+    '"sx1 s1 s2 sx2 Δsy", "sx1 = sx2 - √((s2 - s1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sx1 s1 s2 sx2 Δsy Δsz", "sx1 = sx2 - √((s2 - s1) ^ 2 - Δsy ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx1 s1 s2 sx2 Δsz", "sx1 = sx2 - √((s2 - s1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx1 s1 s2 sx2 θ", "sx1 = sx2 - (s2 - s1) cos(θ)", "", "110",
+    '"sx1 s1 s2 sx2 θ ϕ", "sx1 = sx2 - (s2 - s1) cos(θ) sin(ϕ)", "", "110",
+    '"sx1 sy1 sz1 sx2 sy2 sz2 Δs", "sx1 = sx2 - √(Δs ^ 2 - (sy2 - sy1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx1 sy1 sx2 sy2 Δs", "sx1 = sx2 - √(Δs ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sx1 sy1 sx2 sy2 Δs Δsz", "sx1 = sx2 - √(Δs ^ 2 - (sy2 - sy1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx1 sy1 sx2 sy2 θ", "sx1 = sx2 - (sy2 - sy1) : tan(θ)", "", "110",
+    '"sx1 sy1 sx2 sy2 θ ϕ", "sx1 = sx2 - (sy2 - sy1) sin(ϕ) : tan(θ)", "", "110",
+    '"sx1 sz1 sx2 sz2 Δs", "sx1 = sx2 - √(Δs ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx1 sz1 sx2 sz2 Δs Δsy", "sx1 = sx2 - √(Δs ^ 2 - Δsy ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx1 sz1 sx2 sz2 ϕ", "sx1 = sx2 - (sz2 - sz1) tan(ϕ)", "", "110",
+    '"sx1 sx2 Δs", "sx1 = sx2 - Δs", "", "110",
+    '"sx1 sx2 Δs Δsy", "sx1 = sx2 - √(Δs ^ 2 - Δsy ^ 2)", "", "110",
+    '"sx1 sx2 Δs Δsy Δsz", "sx1 = sx2 - √(Δs ^ 2 - Δsy ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx1 sx2 Δs Δsz", "sx1 = sx2 - √(Δs ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx1 sx2 Δs θ", "sx1 = sx2 - Δs cos(θ)", "", "110",
+    '"sx1 sx2 Δs θ ϕ", "sx1 = sx2 - Δs cos(θ) sin(ϕ)", "", "110",
+    '"sx1 sx2 Δsy θ", "sx1 = sx2 - Δsy : tan(θ)", "", "110",
+    '"sx1 sx2 Δsy θ ϕ", "sx1 = sx2 - Δsy sin(ϕ) : tan(θ)", "", "110",
+    '"sx1 sx2 Δsz ϕ", "sx1 = sx2 - Δsz tan(ϕ)", "", "110",
+
+    '"sy1 s1 sx1 sz1 s2 sx2 sy2 sz2", "sy1 = sy2 - √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy1 s1 sx1 s2 sx2 sy2", "sy1 = sy2 - √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sy1 s1 sx1 s2 sx2 sy2 Δsz", "sy1 = sy2 - √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy1 s1 sz1 s2 sy2 sz2", "sy1 = sy2 - √((s2 - s1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy1 s1 sz1 s2 sy2 sz2 Δsx", "sy1 = sy2 - √((s2 - s1) ^ 2 - Δsx ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy1 s1 s2 sy2", "sy1 = sy2 + s1 - s2", "", "110",
+    '"sy1 s1 s2 sy2 Δsx", "sy1 = sy2 - √((s2 - s1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"sy1 s1 s2 sy2 Δsx Δsz", "sy1 = sy2 - √((s2 - s1) ^ 2 - Δsx ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy1 s1 s2 sy2 Δsz", "sy1 = sy2 - √((s2 - s1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy1 s1 s2 sy2 θ", "sy1 = sy2 - (s2 - s1) sin(θ)", "", "110",
+    '"sy1 sx1 sz1 sx2 sy2 sz2 Δs", "sy1 = sy2 - √(Δs ^ 2 - (sx2 - sx1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy1 sx1 sx2 sy2 Δs", "sy1 = sy2 - √(Δs ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sy1 sx1 sx2 sy2 Δs Δsz", "sy1 = sy2 - √(Δs ^ 2 - (sx2 - sx1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy1 sx1 sx2 sy2 θ", "sy1 = sy2 - (sx2 - sx1) tan(θ)", "", "110",
+    '"sy1 sx1 sx2 sy2 θ ϕ", "sy1 = sy2 - (sx2 - sx1) tan(θ) : sin(ϕ)", "", "110",
+    '"sy1 sz1 sy2 sz2 Δs", "sy1 = sy2 - √(Δs ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy1 sz1 sy2 sz2 Δs Δsx", "sy1 = sy2 - √(Δs ^ 2 - Δsx ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy1 sz1 sy2 sz2 θ", "sy1 = sy2 - (sz2 - sz1) tan(θ)", "", "110",
+    '"sy1 sz1 sy2 sz2 θ ϕ", "sy1 = sy2 - (sz2 - sz1) tan(θ) : cos(ϕ)", "", "110",
+    '"sy1 sy2 Δs", "sy1 = sy2 - Δs", "", "110",
+    '"sy1 sy2 Δs Δsx", "sy1 = sy2 - √(Δs ^ 2 - Δsx ^ 2)", "", "110",
+    '"sy1 sy2 Δs Δsx Δsz", "sy1 = sy2 - √(Δs ^ 2 - Δsx ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy1 sy2 Δs Δsz", "sy1 = sy2 - √(Δs ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy1 sy2 Δs θ", "sy1 = sy2 - Δs sin(θ)", "", "110",
+    '"sy1 sy2 Δsx θ", "sy1 = sy2 - Δsx tan(θ)", "", "110",
+    '"sy1 sy2 Δsx θ ϕ", "sy1 = sy2 - Δsx tan(θ) : sin(ϕ)", "", "110",
+    '"sy1 sy2 Δsz θ", "sy1 = sy2 - Δsz tan(θ)", "", "110",
+    '"sy1 sy2 Δsz θ ϕ", "sy1 = sy2 - Δsz tan(θ) : cos(ϕ)", "", "110",
+
+    '"sz1 s1 sx1 sy1 s2 sx2 sy2 sz2", "sz1 = sz2 - √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz1 s1 sx1 s2 sx2 sz2", "sz1 = sz2 - √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sz1 s1 sx1 s2 sx2 sz2 Δsy", "sz1 = sz2 - √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz1 s1 sy1 s2 sy2 sz2", "sz1 = sz2 - √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz1 s1 sy1 s2 sy2 sz2 Δsx", "sz1 = sz2 - √((s2 - s1) ^ 2 - Δsx ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz1 s1 s2 sz2", "sz1 = sz2 + s1 - s2", "", "110",
+    '"sz1 s1 s2 sz2 Δsx", "sz1 = sz2 - √((s2 - s1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"sz1 s1 s2 sz2 Δsx Δsy", "sz1 = sz2 - √((s2 - s1) ^ 2 - Δsx ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz1 s1 s2 sz2 Δsy", "sz1 = sz2 - √((s2 - s1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz1 s1 s2 sz2 θ", "sz1 = sz2 - (s2 - s1) cos(θ)", "", "110",
+    '"sz1 s1 s2 sz2 θ ϕ", "sz1 = sz2 - (s2 - s1) cos(θ) cos(ϕ)", "", "110",
+    '"sz1 sx1 sy1 sx2 sy2 sz2 Δs", "sz1 = sz2 - √(Δs ^ 2 - (sx2 - sx1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz1 sx1 sx2 sz2 Δs", "sz1 = sz2 - √(Δs ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sz1 sx1 sx2 sz2 Δs Δsy", "sz1 = sz2 - √(Δs ^ 2 - (sx2 - sx1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz1 sx1 sx2 sz2 ϕ", "sz1 = sz2 - (sx2 - sx1) : tan(ϕ)", "", "110",
+    '"sz1 sy1 sy2 sz2 Δs", "sz1 = sz2 - √(Δs ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz1 sy1 sy2 sz2 Δs Δsx", "sz1 = sz2 - √(Δs ^ 2 - Δsx ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz1 sy1 sy2 sz2 θ", "sz1 = sz2 - (sy2 - sy1) : tan(θ)", "", "110",
+    '"sz1 sy1 sy2 sz2 θ ϕ", "sz1 = sz2 - (sy2 - sy1) cos(ϕ) : tan(θ)", "", "110",
+    '"sz1 sz2 Δs", "sz1 = sz2 - Δs", "", "110",
+    '"sz1 sz2 Δs Δsx", "sz1 = sz2 - √(Δs ^ 2 - Δsx ^ 2)", "", "110",
+    '"sz1 sz2 Δs Δsx Δsy", "sz1 = sz2 - √(Δs ^ 2 - Δsx ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz1 sz2 Δs Δsy", "sz1 = sz2 - √(Δs ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz1 sz2 Δs θ", "sz1 = sz2 - Δs cos(θ)", "", "110",
+    '"sz1 sz2 Δs θ ϕ", "sz1 = sz2 - Δs cos(θ) cos(ϕ)", "", "110",
+    '"sz1 sz2 Δsx ϕ", "sz1 = sz2 - Δsx : tan(ϕ)", "", "110",
+    '"sz1 sz2 Δsy θ", "sz1 = sz2 - Δsy : tan(θ)", "", "110",
+    '"sz1 sz2 Δsy θ ϕ", "sz1 = sz2 - Δsy cos(ϕ) : tan(θ)", "", "110",
+
+    '"s2 s1 sx1 sy1 sz1 sx2 sy2 sz2", "s2 = s1 + √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sx1 sy1 sx2 sy2", "s2 = s1 + √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"s2 s1 sx1 sy1 sx2 sy2 Δsz", "s2 = s1 + √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 sx1 sz1 sx2 sz2", "s2 = s1 + √((sx2 - sx1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sx1 sz1 sx2 sz2 Δsy", "s2 = s1 + √((sx2 - sx1) ^ 2 + Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sx1 sx2", "s2 = s1 + sx2 - sx1", "", "110",
+    '"s2 s1 sx1 sx2 Δsy", "s2 = s1 + √((sx2 - sx1) ^ 2 + Δsy ^ 2)", "", "110",
+    '"s2 s1 sx1 sx2 Δsy Δsz", "s2 = s1 + √((sx2 - sx1) ^ 2 + Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 sx1 sx2 Δsz", "s2 = s1 + √((sx2 - sx1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 sx1 sx2 θ", "s2 = s1 + (sx2 - sx1) : cos(θ)", "", "110",
+    '"s2 s1 sx1 sx2 θ ϕ", "s2 = s1 + (sx2 - sx1) : cos(θ) : sin(ϕ)", "", "110",
+    '"s2 s1 sy1 sz1 sy2 sz2", "s2 = s1 + √((sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sy1 sz1 sy2 sz2 Δsx", "s2 = s1 + √(Δsx ^ 2 + (sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sy1 sy2", "s2 = s1 + sy2 - sy1", "", "110",
+    '"s2 s1 sy1 sy2 Δsx", "s2 = s1 + √(Δsx ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"s2 s1 sy1 sy2 Δsx Δsz", "s2 = s1 + √(Δsx ^ 2 + (sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 sy1 sy2 Δsz", "s2 = s1 + √((sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 sy1 sy2 θ", "s2 = s1 + (sy2 - sy1) : sin(θ)", "", "110",
+    '"s2 s1 sz1 sz2", "s2 = s1 + sz2 - sz1", "", "110",
+    '"s2 s1 sz1 sz2 Δsx", "s2 = s1 + √(Δsx ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sz1 sz2 Δsx Δsy", "s2 = s1 + √(Δsx ^ 2 + Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sz1 sz2 Δsy", "s2 = s1 + √(Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"s2 s1 sz1 sz2 θ", "s2 = s1 + (sz2 - sz1) : cos(θ)", "", "110",
+    '"s2 s1 sz1 sz2 θ ϕ", "s2 = s1 + (sz2 - sz1) : cos(θ) : cos(ϕ)", "", "110",
+    '"s2 s1 Δsx", "s2 = s1 + Δsx", "", "110",
+    '"s2 s1 Δsx Δsy", "s2 = s1 + √(Δsx ^ 2 + Δsy ^ 2)", "", "110",
+    '"s2 s1 Δsx Δsy Δsz", "s2 = s1 + √(Δsx ^ 2 + Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 Δsx Δsz", "s2 = s1 + √(Δsx ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 Δsx θ", "s2 = s1 + Δsx : cos(θ)", "", "110",
+    '"s2 s1 Δsx θ ϕ", "s2 = s1 + Δsx : cos(θ) : sin(ϕ)", "", "110",
+    '"s2 s1 Δsy", "s2 = s1 + Δsy", "", "110",
+    '"s2 s1 Δsy Δsz", "s2 = s1 + √(Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"s2 s1 Δsy θ", "s2 = s1 + Δsy : sin(θ)", "", "110",
+    '"s2 s1 Δsz", "s2 = s1 + Δsz", "", "110",
+    '"s2 s1 Δsz θ", "s2 = s1 + Δsz : cos(θ)", "", "110",
+    '"s2 s1 Δsz θ ϕ", "s2 = s1 + Δsz : cos(θ) : cos(ϕ)", "", "110",
+
+    '"sx2 s1 sx1 sy1 sz1 s2 sy2 sz2", "sx2 = sx1 + √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx2 s1 sx1 sy1 s2 sy2 Δsz", "sx2 = sx1 + √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx2 s1 sx1 sz1 s2 sz2", "sx2 = sx1 + √((s2 - s1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx2 s1 sx1 sz1 s2 sz2 Δsy", "sx2 = sx1 + √((s2 - s1) ^ 2 - Δsy ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx2 s1 sx1 s2", "sx2 = sx1 + s2 - s1", "", "110",
+    '"sx2 s1 sx1 s2 sy1 sy2", "sx2 = sx1 + √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sx2 s1 sx1 s2 Δsy", "sx2 = sx1 + √((s2 - s1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sx2 s1 sx1 s2 Δsy Δsz", "sx2 = sx1 + √((s2 - s1) ^ 2 - Δsy ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx2 s1 sx1 s2 Δsz", "sx2 = sx1 + √((s2 - s1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx2 s1 sx1 s2 θ", "sx2 = sx1 + (s2 - s1) cos(θ)", "", "110",
+    '"sx2 s1 sx1 s2 θ ϕ", "sx2 = sx1 + (s2 - s1) cos(θ) sin(ϕ)", "", "110",
+    '"sx2 sx1 sy1 sz1 sy2 sz2 Δs", "sx2 = sx1 + √(Δs ^ 2 - (sy2 - sy1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx2 sx1 sy1 sy2 Δs", "sx2 = sx1 + √(Δs ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sx2 sx1 sy1 sy2 Δs Δsz", "sx2 = sx1 + √(Δs ^ 2 - (sy2 - sy1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx2 sx1 sy1 sy2 θ", "sx2 = sx1 + (sy2 - sy1) : tan(θ)", "", "110",
+    '"sx2 sx1 sy1 sy2 θ ϕ", "sx2 = sx1 + (sy2 - sy1) sin(ϕ) : tan(θ)", "", "110",
+    '"sx2 sx1 sz1 sz2 Δs", "sx2 = sx1 + √(Δs ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx2 sx1 sz1 sz2 Δs Δsy", "sx2 = sx1 + √(Δs ^ 2 - Δsy ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sx2 sx1 sz1 sz2 ϕ", "sx2 = sx1 + (sz2 - sz1) tan(ϕ)", "", "110",
+    '"sx2 sx1 Δs", "sx2 = sx1 + Δs", "", "110", "",
+    '"sx2 sx1 Δs Δsy", "sx2 = sx1 + √(Δs ^ 2 - Δsy ^ 2)", "", "110",
+    '"sx2 sx1 Δs Δsy Δsz", "sx2 = sx1 + √(Δs ^ 2 - Δsy ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx2 sx1 Δs Δsz", "sx2 = sx1 + √(Δs ^ 2 - Δsz ^ 2)", "", "110",
+    '"sx2 sx1 Δs θ", "sx2 = sx1 + Δs cos(θ)", "", "110",
+    '"sx2 sx1 Δs θ ϕ", "sx2 = sx1 + Δs cos(θ) sin(ϕ)", "", "110",
+    '"sx2 sx1 Δsy θ", "sx2 = sx1 + Δsy : tan(θ)", "", "110",
+    '"sx2 sx1 Δsy θ ϕ", "sx2 = sx1 + Δsy sin(ϕ) : tan(θ)", "", "110",
+    '"sx2 sx1 Δsz ϕ", "sx2 = sx1 + Δsz tan(ϕ)", "", "110",
+
+    '"sy2 s1 sx1 sy1 sz1 s2 sx2 sz2", "sy2 = sy1 + √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy2 s1 sx1 sy1 s2 sx2 Δsz", "sy2 = sy1 + √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy2 s1 sx1 s2 sx2 sy1", "sy2 = sy1 + √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sy2 s1 sy1 sz1 s2 sz2", "sy2 = sy1 + √((s2 - s1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy2 s1 sy1 sz1 s2 sz2 Δsx", "sy2 = sy1 + √((s2 - s1) ^ 2 - Δsx ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy2 s1 sy1 s2", "sy2 = sy1 + s2 - s1", "", "110",
+    '"sy2 s1 sy1 s2 Δsx", "sy2 = sy1 + √((s2 - s1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"sy2 s1 sy1 s2 Δsx Δsz", "sy2 = sy1 + √((s2 - s1) ^ 2 - Δsx ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy2 s1 sy1 s2 Δsz", "sy2 = sy1 + √((s2 - s1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy2 s1 sy1 s2 θ", "sy2 = sy1 + (s2 - s1) sin(θ)", "", "110",
+    '"sy2 sx1 sy1 sx2 Δs", "sy2 = sy1 + √(Δs ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sy2 sx1 sy1 sx2 Δs Δsz", "sy2 = sy1 + √(Δs ^ 2 - (sx2 - sx1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy2 sx1 sy1 sx2 θ", "sy2 = sy1 + (sx2 - sx1) tan(θ)", "", "110",
+    '"sy2 sx1 sy1 sx2 θ ϕ", "sy2 = sy1 + (sx2 - sx1) tan(θ) : sin(ϕ)", "", "110",
+    '"sy2 sx1 sy1 sz1 sx2 sz2 Δs", "sy2 = sy1 + √(Δs ^ 2 - (sx2 - sx1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy2 sy1 sz1 sz2 Δs", "sy2 = sy1 + √(Δs ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy2 sy1 sz1 sz2 Δs Δsx", "sy2 = sy1 + √(Δs ^ 2 - Δsx ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"sy2 sy1 sz1 sz2 θ", "sy2 = sy1 + (sz2 - sz1) tan(θ)", "", "110",
+    '"sy2 sy1 sz1 sz2 θ ϕ", "sy2 = sy1 + (sz2 - sz1) tan(θ) : cos(ϕ)", "", "110",
+    '"sy2 sy1 Δs", "sy2 = sy1 + Δs", "", "110",
+    '"sy2 sy1 Δs Δsx", "sy2 = sy1 + √(Δs ^ 2 - Δsx ^ 2)", "", "110",
+    '"sy2 sy1 Δs Δsx Δsz", "sy2 = sy1 + √(Δs ^ 2 - Δsx ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy2 sy1 Δs Δsz", "sy2 = sy1 + √(Δs ^ 2 - Δsz ^ 2)", "", "110",
+    '"sy2 sy1 Δs θ", "sy2 = sy1 + Δs sin(θ)", "", "110",
+    '"sy2 sy1 Δsx θ", "sy2 = sy1 + Δsx tan(θ)", "", "110",
+    '"sy2 sy1 Δsx θ ϕ", "sy2 = sy1 + Δsx tan(θ) : sin(ϕ)", "", "110",
+    '"sy2 sy1 Δsz θ", "sy2 = sy1 + Δsz tan(θ)", "", "110",
+    '"sy2 sy1 Δsz θ ϕ", "sy2 = sy1 + Δsz tan(θ) : cos(ϕ)", "", "110",
+
+    '"sz2 s1 sx1 sy1 sz1 s2 sx2 sy2", "sz2 = sz1 + √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz2 s1 sx1 sz1 s2 sx2", "sz2 = sz1 + √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sz2 s1 sx1 sz1 s2 sx2 Δsy", "sz2 = sz1 + √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz2 s1 sy1 sz1 s2 sy2", "sz2 = sz1 + √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz2 s1 sy1 sz1 s2 sy2 Δsx", "sz2 = sz1 + √((s2 - s1) ^ 2 - Δsx ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz2 s1 sz1 s2", "sz2 = sz1 + s2 - s1", "", "110",
+    '"sz2 s1 sz1 s2 Δsx", "sz2 = sz1 + √((s2 - s1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"sz2 s1 sz1 s2 Δsx Δsy", "sz2 = sz1 + √((s2 - s1) ^ 2 - Δsx ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz2 s1 sz1 s2 Δsy", "sz2 = sz1 + √((s2 - s1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz2 s1 sz1 s2 θ", "sz2 = sz1 + (s2 - s1) cos(θ)", "", "110",
+    '"sz2 s1 sz1 s2 θ ϕ", "sz2 = sz1 + (s2 - s1) cos(θ) cos(ϕ)", "", "110",
+    '"sz2 sx1 sy1 sz1 sx2 sy2 Δs", "sz2 = sz1 + √(Δs ^ 2 - (sx2 - sx1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz2 sx1 sz1 sx2 Δs", "sz2 = sz1 + √(Δs ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"sz2 sx1 sz1 sx2 Δs Δsy", "sz2 = sz1 + √(Δs ^ 2 - (sx2 - sx1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz2 sx1 sz1 sx2 ϕ", "sz2 = sz1 + (sx2 - sx1) : tan(ϕ)", "", "110",
+    '"sz2 sy1 sz1 sy2 Δs", "sz2 = sz1 + √(Δs ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz2 sy1 sz1 sy2 Δs Δsx", "sz2 = sz1 + √(Δs ^ 2 - Δsx ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"sz2 sy1 sz1 sy2 θ", "sz2 = sz1 + (sy2 - sy1) : tan(θ)", "", "110",
+    '"sz2 sy1 sz1 sy2 θ ϕ", "sz2 = sz1 + (sy2 - sy1) cos(ϕ) : tan(θ)", "", "110",
+    '"sz2 sz1 Δs", "sz2 = sz1 + Δs", "", "110",
+    '"sz2 sz1 Δs θ", "sz2 = sz1 + Δs cos(θ)", "", "110",
+    '"sz2 sz1 Δs θ ϕ", "sz2 = sz1 + Δs cos(θ) cos(ϕ)", "", "110",
+    '"sz2 sz1 Δs Δsx", "sz2 = sz1 + √(Δs ^ 2 - Δsx ^ 2)", "", "110",
+    '"sz2 sz1 Δs Δsx Δsy", "sz2 = sz1 + √(Δs ^ 2 - Δsx ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz2 sz1 Δs Δsy", "sz2 = sz1 + √(Δs ^ 2 - Δsy ^ 2)", "", "110",
+    '"sz2 sz1 Δsx ϕ", "sz2 = sz1 + Δsx : tan(ϕ)", "", "110",
+    '"sz2 sz1 Δsy θ", "sz2 = sz1 + Δsy : tan(θ)", "", "110",
+    '"sz2 sz1 Δsy θ ϕ", "sz2 = sz1 + Δsy cos(ϕ) : tan(θ)", "", "110",
+
+    '"Δs sx1 sy1 sz1 sx2 sy2 sz2", "Δs = √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sx1 sy1 sx2 sy2", "Δs = √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"Δs sx1 sy1 sx2 sy2 Δsz", "Δs = √((sx2 - sx1) ^ 2 + (sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"Δs sx1 sz1 sx2 sz2", "Δs = √((sx2 - sx1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sx1 sz1 sx2 sz2 Δsy", "Δs = √((sx2 - sx1) ^ 2 + Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sx1 sx2", "Δs = sx2 - sx1", "", "110",
+    '"Δs sx1 sx2 Δsy", "Δs = √((sx2 - sx1) ^ 2 + Δsy ^ 2)", "", "110",
+    '"Δs sx1 sx2 Δsy Δsz", "Δs = √((sx2 - sx1) ^ 2 + Δsy ^ 2 + Δsz ^ 2)", "", "110",
+    '"Δs sx1 sx2 Δsz", "Δs = √((sx2 - sx1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"Δs sx1 sx2 θ", "Δs = (sx2 - sx1) : cos(θ)", "", "110",
+    '"Δs sx1 sx2 θ ϕ", "Δs = (sx2 - sx1) : cos(θ) : sin(ϕ)", "", "110",
+    '"Δs sy1 sz1 sy2 sz2", "Δs = √((sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sy1 sz1 sy2 sz2 Δsx", "Δs = √(Δsx ^ 2 + (sy2 - sy1) ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sy1 sy2", "Δs = sy2 - sy1", "", "110",
+    '"Δs sy1 sy2 Δsx", "Δs = √(Δsx ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"Δs sy1 sy2 Δsx Δsz", "Δs = √(Δsx ^ 2 + (sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"Δs sy1 sy2 Δsz", "Δs = √((sy2 - sy1) ^ 2 + Δsz ^ 2)", "", "110",
+    '"Δs sy1 sy2 θ", "Δs = (sy2 - sy1) : sin(θ)", "", "110",
+    '"Δs sz1 sz2", "Δs = sz2 - sz1", "", "110",
+    '"Δs sz1 sz2 Δsx", "Δs = √(Δsx ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sz1 sz2 Δsx Δsy", "Δs = √(Δsx ^ 2 + Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sz1 sz2 Δsy", "Δs = √(Δsy ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δs sz1 sz2 θ", "Δs = (sz2 - sz1) : cos(θ)", "", "110",
+    '"Δs sz1 sz2 θ ϕ", "Δs = (sz2 - sz1) : cos(θ) : cos(ϕ)", "", "110",
+
+    '"Δsx s1 sy1 sz1 s2 sy2 sz2", "Δsx = √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsx s1 sy1 s2 sy2", "Δsx = √((s2 - s1) ^ 2 + (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsx s1 sy1 s2 sy2 Δsz", "Δsx = √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsx s1 sz1 s2 sz2", "Δsx = √((s2 - s1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsx s1 sz1 s2 sz2 Δsy", "Δsx = √((s2 - s1) ^ 2 - Δsy ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsx s1 s2", "Δsx = s2 - s1", "", "110",
+    '"Δsx s1 s2 Δsy", "Δsx = √((s2 - s1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"Δsx s1 s2 Δsy Δsz", "Δsx = √((s2 - s1) ^ 2 - Δsy ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsx s1 s2 Δsz", "Δsx = √((s2 - s1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsx s1 s2 θ", "Δsx = (s2 - s1) cos(θ)", "", "110",
+    '"Δsx s1 s2 θ ϕ", "Δsx = (s2 - s1) cos(θ) sin(ϕ)", "", "110",
+    '"Δsx sy1 sz1 sy2 sz2 Δs", "Δsx = √(Δs ^ 2 - (sy2 - sy1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsx sy1 sy2 Δs", "Δsx = √(Δs ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsx sy1 sy2 Δs Δsz", "Δsx = √(Δs ^ 2 - (sy2 - sy1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsx sy1 sy2 θ", "Δsx = (sy2 - sy1) : tan(θ)", "", "110",
+    '"Δsx sy1 sy2 θ ϕ", "Δsx = (sy2 - sy1) sin(ϕ) : tan(θ)", "", "110",
+    '"Δsx sz1 sz2 Δs", "Δsx = √(Δs ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsx sz1 sz2 Δs Δsy", "Δsx = √(Δs ^ 2 - Δsy ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsx sz1 sz2 ϕ", "Δsx = (sz2 - sz1) tan(ϕ)", "", "110",
+
+    '"Δsy s1 sx1 sz1 s2 sx2 sz2", "Δsy = √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsy s1 sx1 s2 sx2", "Δsy = √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"Δsy s1 sx1 s2 sx2 Δsz", "Δsy = √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsy s1 sz1 s2 sz2", "Δsy = √((s2 - s1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsy s1 sz1 s2 sz2 Δsx", "Δsy = √((s2 - s1) ^ 2 - Δsx ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsy s1 s2", "Δsy = s2 - s1", "", "110",
+    '"Δsy s1 s2 Δsx", "Δsy = √((s2 - s1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"Δsy s1 s2 Δsx Δsz", "Δsy = √((s2 - s1) ^ 2 - Δsx ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsy s1 s2 Δsz", "Δsy = √((s2 - s1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsy s1 s2 θ", "Δsy = (s2 - s1) sin(θ)", "", "110",
+    '"Δsy sx1 sz1 sx2 sz2 Δs", "Δsy = √(Δs ^ 2 - (sx2 - sx1) ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsy sx1 sx2 Δs", "Δsy = √(Δs ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"Δsy sx1 sx2 Δs Δsz", "Δsy = √(Δs ^ 2 - (sx2 - sx1) ^ 2 - Δsz ^ 2)", "", "110",
+    '"Δsy sx1 sx2 θ", "Δsy = (sx2 - sx1) tan(θ)", "", "110",
+    '"Δsy sx1 sx2 θ ϕ", "Δsy = (sx2 - sx1) tan(θ) : sin(ϕ)", "", "110",
+    '"Δsy sz1 sz2 Δs", "Δsy = √(Δs ^ 2 + (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsy sz1 sz2 Δs Δsx", "Δsy = √(Δs ^ 2 - Δsx ^ 2 - (sz2 - sz1) ^ 2)", "", "110",
+    '"Δsy sz1 sz2 θ", "Δsy = (sz2 - sz1) tan(θ)", "", "110",
+    '"Δsy sz1 sz2 θ ϕ", "Δsy = (sz2 - sz1) tan(θ) : cos(ϕ)", "", "110",
+
+    '"Δsz s1 sx1 sy1 s2 sx2 sy2", "Δsz = √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsz s1 sx1 s2 sx2", "Δsz = √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"Δsz s1 sx1 s2 sx2 Δsy", "Δsz = √((s2 - s1) ^ 2 - (sx2 - sx1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"Δsz s1 sy1 s2 sy2", "Δsz = √((s2 - s1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsz s1 sy1 s2 sy2 Δsx", "Δsz = √((s2 - s1) ^ 2 - Δsx ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsz s1 s2", "Δsz = s2 - s1", "", "110",
+    '"Δsz s1 s2 θ", "Δsz = (s2 - s1) cos(θ)", "", "110",
+    '"Δsz s1 s2 θ ϕ", "Δsz = (s2 - s1) cos(θ) cos(ϕ)", "", "110",
+    '"Δsz s1 s2 Δsx", "Δsz = √((s2 - s1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"Δsz s1 s2 Δsx Δsy", "Δsz = √((s2 - s1) ^ 2 - Δsx ^ 2 - Δsy ^ 2)", "", "110",
+    '"Δsz s1 s2 Δsy", "Δsz = √((s2 - s1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"Δsz sx1 sy1 sx2 sy2 Δs", "Δsz = √(Δs ^ 2 - (sx2 - sx1) ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsz sx1 sx2 Δs", "Δsz = √(Δs ^ 2 - (sx2 - sx1) ^ 2)", "", "110",
+    '"Δsz sx1 sx2 Δs Δsy", "Δsz = √(Δs ^ 2 - (sx2 - sx1) ^ 2 - Δsy ^ 2)", "", "110",
+    '"Δsz sx1 sx2 ϕ", "Δsz = (sx2 - sx1) : tan(ϕ)", "", "110",
+    '"Δsz sy1 sy2 Δs", "Δsz = √(Δs ^ 2 - (sy2 - sy1) ^ 2)", "", "110",
+    '"Δsz sy1 sy2 Δs Δsx", "Δsz = √(Δs ^ 2 - (sy2 - sy1) ^ 2 - Δsx ^ 2)", "", "110",
+    '"Δsz sy1 sy2 θ", "Δsz = (sy2 - sy1) : tan(θ)", "", "110",
+    '"Δsz sy1 sy2 θ ϕ", "Δsz = (sy2 - sy1) cos(ϕ) : tan(θ)", "", "110",
+
+    '"θ s1 sx1 s2 sx2", "θ = acos((sx2 - sx1) : (s2 - s1))", "", "110",
+    '"θ s1 sx1 s2 sx2 ϕ", "θ = acos((sx2 - sx1) : (s2 - s1) : sin(ϕ))", "", "110",
+    '"θ s1 sy1 s2 sy2", "θ = asin((sy2 - sy1) : (s2 - s1))", "", "110",
+    '"θ s1 sz1 s2 sz2", "θ = acos((sz2 - sz1) : (s2 - s1))", "", "110",
+    '"θ s1 sz1 s2 sz2 ϕ", "θ = acos((sz2 - sz1) : (s2 - s1) : cos(ϕ))", "", "110",
+    '"θ s1 s2 Δsx", "θ = acos(Δsx : (s2 - s1))", "", "110",
+    '"θ s1 s2 Δsx ϕ", "θ = acos(Δsx : (s2 - s1) : sin(ϕ))", "", "110",
+    '"θ s1 s2 Δsy", "θ = asin(Δsy : (s2 - s1))", "", "110",
+    '"θ s1 s2 Δsz", "θ = acos(Δsz : (s2 - s1))", "", "110",
+    '"θ s1 s2 Δsz ϕ", "θ = acos(Δsz : (s2 - s1) : cos(ϕ))", "", "110",
+    '"θ sx1 sy1 sx2 sy2", "θ = atan((sy2 - sy1) : (sx2 - sx1))", "", "110",
+    '"θ sx1 sy1 sx2 sy2 ϕ", "θ = atan((sy2 - sy1) sin(ϕ) : (sx2 - sx1))", "", "110",
+    '"θ sx1 sx2 Δs", "θ = acos((sx2 - sx1) : Δs)", "", "110",
+    '"θ sx1 sx2 Δs ϕ", "θ = acos((sx2 - sx1) : Δs : sin(ϕ))", "", "110",
+    '"θ sx1 sx2 Δsy", "θ = atan(Δsy : (sx2 - sx1))", "", "110",
+    '"θ sx1 sx2 Δsy ϕ", "θ = atan(Δsy sin(ϕ) : (sx2 - sx1))", "", "110",
+    '"θ sy1 sz1 sy2 sz2", "θ = atan((sy2 - sy1) : (sz2 - sz1))", "", "110",
+    '"θ sy1 sz1 sy2 sz2 ϕ", "θ = atan((sy2 - sy1) cos(ϕ) : (sz2 - sz1))", "", "110",
+    '"θ sy1 sy2 Δs", "θ = asin((sy2 - sy1) : Δs)", "", "110",
+    '"θ sy1 sy2 Δsx", "θ = atan((sy2 - sy1) : Δsx)", "", "110",
+    '"θ sy1 sy2 Δsx ϕ", "θ = atan((sy2 - sy1) sin(ϕ) : Δsx)", "", "110",
+    '"θ sy1 sy2 Δsz", "θ = atan((sy2 - sy1) : Δsz)", "", "110",
+    '"θ sy1 sy2 Δsz ϕ", "θ = atan((sy2 - sy1) cos(ϕ) : Δsz)", "", "110",
+    '"θ sz1 sz2 Δs", "θ = acos((sz2 - sz1) : Δs)", "", "110",
+    '"θ sz1 sz2 Δs ϕ", "θ = acos((sz2 - sz1) : Δs : cos(ϕ))", "", "110",
+    '"θ sz1 sz2 Δsy", "θ = atan(Δsy : (sz2 - sz1))", "", "110",
+    '"θ sz1 sz2 Δsy ϕ", "θ = atan(Δsy cos(ϕ) : (sz2 - sz1))", "", "110",
+
+    '"ϕ s1 sx1 s2 sx2 θ", "ϕ = asin((sx2 - sx1) : (s2 - s1) : cos(θ))", "", "110",
+    '"ϕ s1 sz1 s2 sz2 θ", "ϕ = acos((sz2 - sz1) : (s2 - s1) : cos(θ))", "", "110",
+    '"ϕ s1 s2 Δsx θ", "ϕ = asin(Δsx : (s2 - s1) : cos(θ))", "", "110",
+    '"ϕ s1 s2 Δsz θ", "ϕ = acos(Δsz : (s2 - s1) : cos(θ))", "", "110",
+    '"ϕ sx1 sy1 sx2 sy2 θ", "ϕ = asin((sx2 - sx1) tan(θ) : (sy2 - sy1))", "", "110",
+    '"ϕ sx1 sz1 sx2 sz2", "ϕ = atan((sx2 - sx1) : (sz2 - sz1))", "", "110",
+    '"ϕ sx1 sx2 Δs θ", "ϕ = asin((sx2 - sx1) : Δs : cos(θ))", "", "110",
+    '"ϕ sx1 sx2 Δsy θ", "ϕ = atan((sx2 - sx1) tan(θ) : Δsy)", "", "110",
+    '"ϕ sx1 sx2 Δsz", "ϕ = atan((sx2 - sx1) : Δsz)", "", "110",
+    '"ϕ sy1 sz1 sy2 sz2 θ", "ϕ = acos((sz2 - sz1) tan(θ) : (sy2 - sy1))", "", "110",
+    '"ϕ sy1 sy2 Δsx θ", "ϕ = asin(Δsx tan(θ) : (sy2 - sy1))", "", "110",
+    '"ϕ sy1 sy2 Δsz θ", "ϕ = acos(Δsz tan(θ) : (sy2 - sy1))", "", "110",
+    '"ϕ sz1 sz2 Δs θ", "ϕ = acos((sz2 - sz1) : Δs : cos(θ))", "", "110",
+    '"ϕ sz1 sz2 Δsx", "ϕ = atan(Δsx : (sz2 - sz1))", "", "110",
+    '"ϕ sz1 sz2 Δsy θ", "ϕ = acos((sz2 - sz1) tan(θ) : Δsy)", "", "110",
+
+
+    '"v1 vx1 vy1 vz1 v2 vx2 vy2 vz2", "v1 = v2 - √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vx1 vy1 v2 vx2 vy2", "v1 = v2 - √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"v1 vx1 vy1 v2 vx2 vy2 Δvz", "v1 = v2 - √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 vx1 vz1 v2 vx2 vz2", "v1 = v2 - √((vx2 - vx1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vx1 vz1 v2 vx2 vz2 Δvy", "v1 = v2 - √((vx2 - vx1) ^ 2 + Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vx1 v2 vx2", "v1 = v2 + vx1 - vx2", "", "110",
+    '"v1 vx1 v2 vx2 Δvy", "v1 = v2 - √((vx2 - vx1) ^ 2 + Δvy ^ 2)", "", "110",
+    '"v1 vx1 v2 vx2 Δvy Δvz", "v1 = v2 - √((vx2 - vx1) ^ 2 + Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 vx1 v2 vx2 Δvz", "v1 = v2 - √((vx2 - vx1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 vx1 v2 vx2 θ", "v1 = v2 - (vx2 - vx1) : cos(θ)", "", "110",
+    '"v1 vy1 vz1 v2 vy2 vz2", "v1 = v2 - √((vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vy1 vz1 v2 vy2 vz2 Δvx", "v1 = v2 - √(Δvx ^ 2 + (vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vy1 v2 vy2", "v1 = v2 + vy1 - vy2", "", "110",
+    '"v1 vy1 v2 vy2 Δvx", "v1 = v2 - √(Δvx ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"v1 vy1 v2 vy2 Δvx Δvz", "v1 = v2 - √(Δvx ^ 2 + (vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 vy1 v2 vy2 Δvz", "v1 = v2 - √((vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 vy1 v2 vy2 θ", "v1 = v2 - (vy2 - vy1) : sin(θ)", "", "110",
+    '"v1 vz1 v2 vz2", "v1 = v2 + vz1 - vz2", "", "110",
+    '"v1 vz1 v2 vz2 Δvx", "v1 = v2 - √(Δvx ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vz1 v2 vz2 Δvx Δvy", "v1 = v2 - √(Δvx ^ 2 + Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vz1 v2 vz2 Δvy", "v1 = v2 - √(Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v1 vz1 v2 vz2 θ", "v1 = v2 - (vz2 - vz1) : cos(θ)", "", "110",
+    '"v1 vz1 v2 vz2 θ ϕ", "v1 = v2 - (vz2 - vz1) : cos(θ) : cos(ϕ)", "", "110",
+    '"v1 v2 vx1 vx2 θ ϕ", "v1 = v2 - (vx2 - vx1) : cos(θ) : sin(ϕ)", "", "110",
+    '"v1 v2 Δvx", "v1 = v2 - Δvx", "", "110",
+    '"v1 v2 Δvx Δvy", "v1 = v2 - √(Δvx ^ 2 + Δvy ^ 2)", "", "110",
+    '"v1 v2 Δvx Δvy Δvz", "v1 = v2 - √(Δvx ^ 2 + Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 v2 Δvx Δvz", "v1 = v2 - √(Δvx ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 v2 Δvx θ", "v1 = v2 - Δvx : cos(θ)", "", "110",
+    '"v1 v2 Δvx θ ϕ", "v1 = v2 - Δvx : cos(θ) : sin(ϕ)", "", "110",
+    '"v1 v2 Δvy", "v1 = v2 - Δvy", "", "110",
+    '"v1 v2 Δvy Δvz", "v1 = v2 - √(Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"v1 v2 Δvy θ", "v1 = v2 - Δvy : sin(θ)", "", "110",
+    '"v1 v2 Δvz", "v1 = v2 - Δvz", "", "110",
+    '"v1 v2 Δvz θ", "v1 = v2 - Δvz : cos(θ)", "", "110",
+    '"v1 v2 Δvz θ ϕ", "v1 = v2 - Δvz : cos(θ) : cos(ϕ)", "", "110",
+
+    '"vx1 v1 vy1 vz1 v2 vx2 vy2 vz2", "vx1 = vx2 - √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx1 v1 vy1 v2 vx2 vy2", "vx1 = vx2 - √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vx1 v1 vy1 v2 vx2 vy2 Δvz", "vx1 = vx2 - √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx1 v1 vz1 v2 vx2 vz2", "vx1 = vx2 - √((v2 - v1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx1 v1 vz1 v2 vx2 vz2 Δvy", "vx1 = vx2 - √((v2 - v1) ^ 2 - Δvy ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx1 v1 v2 vx2", "vx1 = vx2 + v1 - v2", "", "110",
+    '"vx1 v1 v2 vx2 Δvy", "vx1 = vx2 - √((v2 - v1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vx1 v1 v2 vx2 Δvy Δvz", "vx1 = vx2 - √((v2 - v1) ^ 2 - Δvy ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx1 v1 v2 vx2 Δvz", "vx1 = vx2 - √((v2 - v1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx1 v1 v2 vx2 θ", "vx1 = vx2 - (v2 - v1) cos(θ)", "", "110",
+    '"vx1 v1 v2 vx2 θ ϕ", "vx1 = vx2 - (v2 - v1) cos(θ) sin(ϕ)", "", "110",
+    '"vx1 vy1 vz1 vx2 vy2 vz2 Δv", "vx1 = vx2 - √(Δv ^ 2 - (vy2 - vy1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx1 vy1 vx2 vy2 Δv", "vx1 = vx2 - √(Δv ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vx1 vy1 vx2 vy2 Δv Δvz", "vx1 = vx2 - √(Δv ^ 2 - (vy2 - vy1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx1 vy1 vx2 vy2 θ", "vx1 = vx2 - (vy2 - vy1) : tan(θ)", "", "110",
+    '"vx1 vy1 vx2 vy2 θ ϕ", "vx1 = vx2 - (vy2 - vy1) sin(ϕ) : tan(θ)", "", "110",
+    '"vx1 vz1 vx2 vz2 Δv", "vx1 = vx2 - √(Δv ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx1 vz1 vx2 vz2 Δv Δvy", "vx1 = vx2 - √(Δv ^ 2 - Δvy ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx1 vz1 vx2 vz2 ϕ", "vx1 = vx2 - (vz2 - vz1) tan(ϕ)", "", "110",
+    '"vx1 vx2 Δv", "vx1 = vx2 - Δv", "", "110",
+    '"vx1 vx2 Δv Δvy", "vx1 = vx2 - √(Δv ^ 2 - Δvy ^ 2)", "", "110",
+    '"vx1 vx2 Δv Δvy Δvz", "vx1 = vx2 - √(Δv ^ 2 - Δvy ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx1 vx2 Δv Δvz", "vx1 = vx2 - √(Δv ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx1 vx2 Δv θ", "vx1 = vx2 - Δv cos(θ)", "", "110",
+    '"vx1 vx2 Δv θ ϕ", "vx1 = vx2 - Δv cos(θ) sin(ϕ)", "", "110",
+    '"vx1 vx2 Δvy θ", "vx1 = vx2 - Δvy : tan(θ)", "", "110",
+    '"vx1 vx2 Δvy θ ϕ", "vx1 = vx2 - Δvy sin(ϕ) : tan(θ)", "", "110",
+    '"vx1 vx2 Δvz ϕ", "vx1 = vx2 - Δvz tan(ϕ)", "", "110",
+
+    '"vy1 v1 vx1 vz1 v2 vx2 vy2 vz2", "vy1 = vy2 - √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy1 v1 vx1 v2 vx2 vy2", "vy1 = vy2 - √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vy1 v1 vx1 v2 vx2 vy2 Δvz", "vy1 = vy2 - √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy1 v1 vz1 v2 vy2 vz2", "vy1 = vy2 - √((v2 - v1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy1 v1 vz1 v2 vy2 vz2 Δvx", "vy1 = vy2 - √((v2 - v1) ^ 2 - Δvx ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy1 v1 v2 vy2", "vy1 = vy2 + v1 - v2", "", "110",
+    '"vy1 v1 v2 vy2 Δvx", "vy1 = vy2 - √((v2 - v1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"vy1 v1 v2 vy2 Δvx Δvz", "vy1 = vy2 - √((v2 - v1) ^ 2 - Δvx ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy1 v1 v2 vy2 Δvz", "vy1 = vy2 - √((v2 - v1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy1 v1 v2 vy2 θ", "vy1 = vy2 - (v2 - v1) sin(θ)", "", "110",
+    '"vy1 vx1 vz1 vx2 vy2 vz2 Δv", "vy1 = vy2 - √(Δv ^ 2 - (vx2 - vx1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy1 vx1 vx2 vy2 Δv", "vy1 = vy2 - √(Δv ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vy1 vx1 vx2 vy2 Δv Δvz", "vy1 = vy2 - √(Δv ^ 2 - (vx2 - vx1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy1 vx1 vx2 vy2 θ", "vy1 = vy2 - (vx2 - vx1) tan(θ)", "", "110",
+    '"vy1 vx1 vx2 vy2 θ ϕ", "vy1 = vy2 - (vx2 - vx1) tan(θ) : sin(ϕ)", "", "110",
+    '"vy1 vz1 vy2 vz2 Δv", "vy1 = vy2 - √(Δv ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy1 vz1 vy2 vz2 Δv Δvx", "vy1 = vy2 - √(Δv ^ 2 - Δvx ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy1 vz1 vy2 vz2 θ", "vy1 = vy2 - (vz2 - vz1) tan(θ)", "", "110",
+    '"vy1 vz1 vy2 vz2 θ ϕ", "vy1 = vy2 - (vz2 - vz1) tan(θ) : cos(ϕ)", "", "110",
+    '"vy1 vy2 Δv", "vy1 = vy2 - Δv", "", "110",
+    '"vy1 vy2 Δv Δvx", "vy1 = vy2 - √(Δv ^ 2 - Δvx ^ 2)", "", "110",
+    '"vy1 vy2 Δv Δvx Δvz", "vy1 = vy2 - √(Δv ^ 2 - Δvx ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy1 vy2 Δv Δvz", "vy1 = vy2 - √(Δv ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy1 vy2 Δv θ", "vy1 = vy2 - Δv sin(θ)", "", "110",
+    '"vy1 vy2 Δvx θ", "vy1 = vy2 - Δvx tan(θ)", "", "110",
+    '"vy1 vy2 Δvx θ ϕ", "vy1 = vy2 - Δvx tan(θ) : sin(ϕ)", "", "110",
+    '"vy1 vy2 Δvz θ", "vy1 = vy2 - Δvz tan(θ)", "", "110",
+    '"vy1 vy2 Δvz θ ϕ", "vy1 = vy2 - Δvz tan(θ) : cos(ϕ)", "", "110",
+
+    '"vz1 v1 vx1 vy1 v2 vx2 vy2 vz2", "vz1 = vz2 - √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz1 v1 vx1 v2 vx2 vz2", "vz1 = vz2 - √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vz1 v1 vx1 v2 vx2 vz2 Δvy", "vz1 = vz2 - √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz1 v1 vy1 v2 vy2 vz2", "vz1 = vz2 - √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz1 v1 vy1 v2 vy2 vz2 Δvx", "vz1 = vz2 - √((v2 - v1) ^ 2 - Δvx ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz1 v1 v2 vz2", "vz1 = vz2 + v1 - v2", "", "110",
+    '"vz1 v1 v2 vz2 Δvx", "vz1 = vz2 - √((v2 - v1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"vz1 v1 v2 vz2 Δvx Δvy", "vz1 = vz2 - √((v2 - v1) ^ 2 - Δvx ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz1 v1 v2 vz2 Δvy", "vz1 = vz2 - √((v2 - v1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz1 v1 v2 vz2 θ", "vz1 = vz2 - (v2 - v1) cos(θ)", "", "110",
+    '"vz1 v1 v2 vz2 θ ϕ", "vz1 = vz2 - (v2 - v1) cos(θ) cos(ϕ)", "", "110",
+    '"vz1 vx1 vy1 vx2 vy2 vz2 Δv", "vz1 = vz2 - √(Δv ^ 2 - (vx2 - vx1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz1 vx1 vx2 vz2 Δv", "vz1 = vz2 - √(Δv ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vz1 vx1 vx2 vz2 Δv Δvy", "vz1 = vz2 - √(Δv ^ 2 - (vx2 - vx1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz1 vx1 vx2 vz2 ϕ", "vz1 = vz2 - (vx2 - vx1) : tan(ϕ)", "", "110",
+    '"vz1 vy1 vy2 vz2 Δv", "vz1 = vz2 - √(Δv ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz1 vy1 vy2 vz2 Δv Δvx", "vz1 = vz2 - √(Δv ^ 2 - Δvx ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz1 vy1 vy2 vz2 θ", "vz1 = vz2 - (vy2 - vy1) : tan(θ)", "", "110",
+    '"vz1 vy1 vy2 vz2 θ ϕ", "vz1 = vz2 - (vy2 - vy1) cos(ϕ) : tan(θ)", "", "110",
+    '"vz1 vz2 Δv", "vz1 = vz2 - Δv", "", "110",
+    '"vz1 vz2 Δv Δvx", "vz1 = vz2 - √(Δv ^ 2 - Δvx ^ 2)", "", "110",
+    '"vz1 vz2 Δv Δvx Δvy", "vz1 = vz2 - √(Δv ^ 2 - Δvx ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz1 vz2 Δv Δvy", "vz1 = vz2 - √(Δv ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz1 vz2 Δv θ", "vz1 = vz2 - Δv cos(θ)", "", "110",
+    '"vz1 vz2 Δv θ ϕ", "vz1 = vz2 - Δv cos(θ) cos(ϕ)", "", "110",
+    '"vz1 vz2 Δvx ϕ", "vz1 = vz2 - Δvx : tan(ϕ)", "", "110",
+    '"vz1 vz2 Δvy θ", "vz1 = vz2 - Δvy : tan(θ)", "", "110",
+    '"vz1 vz2 Δvy θ ϕ", "vz1 = vz2 - Δvy cos(ϕ) : tan(θ)", "", "110",
+
+    '"v2 v1 vx1 vy1 vz1 vx2 vy2 vz2", "v2 = v1 + √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vx1 vy1 vx2 vy2", "v2 = v1 + √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"v2 v1 vx1 vy1 vx2 vy2 Δvz", "v2 = v1 + √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 vx1 vz1 vx2 vz2", "v2 = v1 + √((vx2 - vx1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vx1 vz1 vx2 vz2 Δvy", "v2 = v1 + √((vx2 - vx1) ^ 2 + Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vx1 vx2", "v2 = v1 + vx2 - vx1", "", "110",
+    '"v2 v1 vx1 vx2 Δvy", "v2 = v1 + √((vx2 - vx1) ^ 2 + Δvy ^ 2)", "", "110",
+    '"v2 v1 vx1 vx2 Δvy Δvz", "v2 = v1 + √((vx2 - vx1) ^ 2 + Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 vx1 vx2 Δvz", "v2 = v1 + √((vx2 - vx1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 vx1 vx2 θ", "v2 = v1 + (vx2 - vx1) : cos(θ)", "", "110",
+    '"v2 v1 vx1 vx2 θ ϕ", "v2 = v1 + (vx2 - vx1) : cos(θ) : sin(ϕ)", "", "110",
+    '"v2 v1 vy1 vz1 vy2 vz2", "v2 = v1 + √((vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vy1 vz1 vy2 vz2 Δvx", "v2 = v1 + √(Δvx ^ 2 + (vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vy1 vy2", "v2 = v1 + vy2 - vy1", "", "110",
+    '"v2 v1 vy1 vy2 Δvx", "v2 = v1 + √(Δvx ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"v2 v1 vy1 vy2 Δvx Δvz", "v2 = v1 + √(Δvx ^ 2 + (vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 vy1 vy2 Δvz", "v2 = v1 + √((vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 vy1 vy2 θ", "v2 = v1 + (vy2 - vy1) : sin(θ)", "", "110",
+    '"v2 v1 vz1 vz2", "v2 = v1 + vz2 - vz1", "", "110",
+    '"v2 v1 vz1 vz2 Δvx", "v2 = v1 + √(Δvx ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vz1 vz2 Δvx Δvy", "v2 = v1 + √(Δvx ^ 2 + Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vz1 vz2 Δvy", "v2 = v1 + √(Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"v2 v1 vz1 vz2 θ", "v2 = v1 + (vz2 - vz1) : cos(θ)", "", "110",
+    '"v2 v1 vz1 vz2 θ ϕ", "v2 = v1 + (vz2 - vz1) : cos(θ) : cos(ϕ)", "", "110",
+    '"v2 v1 Δvx", "v2 = v1 + Δvx", "", "110",
+    '"v2 v1 Δvx Δvy", "v2 = v1 + √(Δvx ^ 2 + Δvy ^ 2)", "", "110",
+    '"v2 v1 Δvx Δvy Δvz", "v2 = v1 + √(Δvx ^ 2 + Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 Δvx Δvz", "v2 = v1 + √(Δvx ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 Δvx θ", "v2 = v1 + Δvx : cos(θ)", "", "110",
+    '"v2 v1 Δvx θ ϕ", "v2 = v1 + Δvx : cos(θ) : sin(ϕ)", "", "110",
+    '"v2 v1 Δvy", "v2 = v1 + Δvy", "", "110",
+    '"v2 v1 Δvy Δvz", "v2 = v1 + √(Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"v2 v1 Δvy θ", "v2 = v1 + Δvy : sin(θ)", "", "110",
+    '"v2 v1 Δvz", "v2 = v1 + Δvz", "", "110",
+    '"v2 v1 Δvz θ", "v2 = v1 + Δvz : cos(θ)", "", "110",
+    '"v2 v1 Δvz θ ϕ", "v2 = v1 + Δvz : cos(θ) : cos(ϕ)", "", "110",
+
+    '"vx2 v1 vx1 vy1 vz1 v2 vy2 vz2", "vx2 = vx1 + √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx2 v1 vx1 vy1 v2 vy2 Δvz", "vx2 = vx1 + √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx2 v1 vx1 vz1 v2 vz2", "vx2 = vx1 + √((v2 - v1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx2 v1 vx1 vz1 v2 vz2 Δvy", "vx2 = vx1 + √((v2 - v1) ^ 2 - Δvy ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx2 v1 vx1 v2", "vx2 = vx1 + v2 - v1", "", "110",
+    '"vx2 v1 vx1 v2 vy1 vy2", "vx2 = vx1 + √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vx2 v1 vx1 v2 Δvy", "vx2 = vx1 + √((v2 - v1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vx2 v1 vx1 v2 Δvy Δvz", "vx2 = vx1 + √((v2 - v1) ^ 2 - Δvy ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx2 v1 vx1 v2 Δvz", "vx2 = vx1 + √((v2 - v1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx2 v1 vx1 v2 θ", "vx2 = vx1 + (v2 - v1) cos(θ)", "", "110",
+    '"vx2 v1 vx1 v2 θ ϕ", "vx2 = vx1 + (v2 - v1) cos(θ) sin(ϕ)", "", "110",
+    '"vx2 vx1 vy1 vz1 vy2 vz2 Δv", "vx2 = vx1 + √(Δv ^ 2 - (vy2 - vy1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx2 vx1 vy1 vy2 Δv", "vx2 = vx1 + √(Δv ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vx2 vx1 vy1 vy2 Δv Δvz", "vx2 = vx1 + √(Δv ^ 2 - (vy2 - vy1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx2 vx1 vy1 vy2 θ", "vx2 = vx1 + (vy2 - vy1) : tan(θ)", "", "110",
+    '"vx2 vx1 vy1 vy2 θ ϕ", "vx2 = vx1 + (vy2 - vy1) sin(ϕ) : tan(θ)", "", "110",
+    '"vx2 vx1 vz1 vz2 Δv", "vx2 = vx1 + √(Δv ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx2 vx1 vz1 vz2 Δv Δvy", "vx2 = vx1 + √(Δv ^ 2 - Δvy ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vx2 vx1 vz1 vz2 ϕ", "vx2 = vx1 + (vz2 - vz1) tan(ϕ)", "", "110",
+    '"vx2 vx1 Δv", "vx2 = vx1 + Δv", "", "110", "",
+    '"vx2 vx1 Δv Δvy", "vx2 = vx1 + √(Δv ^ 2 - Δvy ^ 2)", "", "110",
+    '"vx2 vx1 Δv Δvy Δvz", "vx2 = vx1 + √(Δv ^ 2 - Δvy ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx2 vx1 Δv Δvz", "vx2 = vx1 + √(Δv ^ 2 - Δvz ^ 2)", "", "110",
+    '"vx2 vx1 Δv θ", "vx2 = vx1 + Δv cos(θ)", "", "110",
+    '"vx2 vx1 Δv θ ϕ", "vx2 = vx1 + Δv cos(θ) sin(ϕ)", "", "110",
+    '"vx2 vx1 Δvy θ", "vx2 = vx1 + Δvy : tan(θ)", "", "110",
+    '"vx2 vx1 Δvy θ ϕ", "vx2 = vx1 + Δvy sin(ϕ) : tan(θ)", "", "110",
+    '"vx2 vx1 Δvz ϕ", "vx2 = vx1 + Δvz tan(ϕ)", "", "110",
+
+    '"vy2 v1 vx1 vy1 vz1 v2 vx2 vz2", "vy2 = vy1 + √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy2 v1 vx1 vy1 v2 vx2 Δvz", "vy2 = vy1 + √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy2 v1 vx1 v2 vx2 vy1", "vy2 = vy1 + √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vy2 v1 vy1 vz1 v2 vz2", "vy2 = vy1 + √((v2 - v1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy2 v1 vy1 vz1 v2 vz2 Δvx", "vy2 = vy1 + √((v2 - v1) ^ 2 - Δvx ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy2 v1 vy1 v2", "vy2 = vy1 + v2 - v1", "", "110",
+    '"vy2 v1 vy1 v2 Δvx", "vy2 = vy1 + √((v2 - v1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"vy2 v1 vy1 v2 Δvx Δvz", "vy2 = vy1 + √((v2 - v1) ^ 2 - Δvx ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy2 v1 vy1 v2 Δvz", "vy2 = vy1 + √((v2 - v1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy2 v1 vy1 v2 θ", "vy2 = vy1 + (v2 - v1) sin(θ)", "", "110",
+    '"vy2 vx1 vy1 vx2 Δv", "vy2 = vy1 + √(Δv ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vy2 vx1 vy1 vx2 Δv Δvz", "vy2 = vy1 + √(Δv ^ 2 - (vx2 - vx1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy2 vx1 vy1 vx2 θ", "vy2 = vy1 + (vx2 - vx1) tan(θ)", "", "110",
+    '"vy2 vx1 vy1 vx2 θ ϕ", "vy2 = vy1 + (vx2 - vx1) tan(θ) : sin(ϕ)", "", "110",
+    '"vy2 vx1 vy1 vz1 vx2 vz2 Δv", "vy2 = vy1 + √(Δv ^ 2 - (vx2 - vx1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy2 vy1 vz1 vz2 Δv", "vy2 = vy1 + √(Δv ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy2 vy1 vz1 vz2 Δv Δvx", "vy2 = vy1 + √(Δv ^ 2 - Δvx ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"vy2 vy1 vz1 vz2 θ", "vy2 = vy1 + (vz2 - vz1) tan(θ)", "", "110",
+    '"vy2 vy1 vz1 vz2 θ ϕ", "vy2 = vy1 + (vz2 - vz1) tan(θ) : cos(ϕ)", "", "110",
+    '"vy2 vy1 Δv", "vy2 = vy1 + Δv", "", "110",
+    '"vy2 vy1 Δv Δvx", "vy2 = vy1 + √(Δv ^ 2 - Δvx ^ 2)", "", "110",
+    '"vy2 vy1 Δv Δvx Δvz", "vy2 = vy1 + √(Δv ^ 2 - Δvx ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy2 vy1 Δv Δvz", "vy2 = vy1 + √(Δv ^ 2 - Δvz ^ 2)", "", "110",
+    '"vy2 vy1 Δv θ", "vy2 = vy1 + Δv sin(θ)", "", "110",
+    '"vy2 vy1 Δvx θ", "vy2 = vy1 + Δvx tan(θ)", "", "110",
+    '"vy2 vy1 Δvx θ ϕ", "vy2 = vy1 + Δvx tan(θ) : sin(ϕ)", "", "110",
+    '"vy2 vy1 Δvz θ", "vy2 = vy1 + Δvz tan(θ)", "", "110",
+    '"vy2 vy1 Δvz θ ϕ", "vy2 = vy1 + Δvz tan(θ) : cos(ϕ)", "", "110",
+
+    '"vz2 v1 vx1 vy1 vz1 v2 vx2 vy2", "vz2 = vz1 + √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz2 v1 vx1 vz1 v2 vx2", "vz2 = vz1 + √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vz2 v1 vx1 vz1 v2 vx2 Δvy", "vz2 = vz1 + √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz2 v1 vy1 vz1 v2 vy2", "vz2 = vz1 + √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz2 v1 vy1 vz1 v2 vy2 Δvx", "vz2 = vz1 + √((v2 - v1) ^ 2 - Δvx ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz2 v1 vz1 v2", "vz2 = vz1 + v2 - v1", "", "110",
+    '"vz2 v1 vz1 v2 Δvx", "vz2 = vz1 + √((v2 - v1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"vz2 v1 vz1 v2 Δvx Δvy", "vz2 = vz1 + √((v2 - v1) ^ 2 - Δvx ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz2 v1 vz1 v2 Δvy", "vz2 = vz1 + √((v2 - v1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz2 v1 vz1 v2 θ", "vz2 = vz1 + (v2 - v1) cos(θ)", "", "110",
+    '"vz2 v1 vz1 v2 θ ϕ", "vz2 = vz1 + (v2 - v1) cos(θ) cos(ϕ)", "", "110",
+    '"vz2 vx1 vy1 vz1 vx2 vy2 Δv", "vz2 = vz1 + √(Δv ^ 2 - (vx2 - vx1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz2 vx1 vz1 vx2 Δv", "vz2 = vz1 + √(Δv ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"vz2 vx1 vz1 vx2 Δv Δvy", "vz2 = vz1 + √(Δv ^ 2 - (vx2 - vx1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz2 vx1 vz1 vx2 ϕ", "vz2 = vz1 + (vx2 - vx1) : tan(ϕ)", "", "110",
+    '"vz2 vy1 vz1 vy2 Δv", "vz2 = vz1 + √(Δv ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz2 vy1 vz1 vy2 Δv Δvx", "vz2 = vz1 + √(Δv ^ 2 - Δvx ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"vz2 vy1 vz1 vy2 θ", "vz2 = vz1 + (vy2 - vy1) : tan(θ)", "", "110",
+    '"vz2 vy1 vz1 vy2 θ ϕ", "vz2 = vz1 + (vy2 - vy1) cos(ϕ) : tan(θ)", "", "110",
+    '"vz2 vz1 Δv", "vz2 = vz1 + Δv", "", "110",
+    '"vz2 vz1 Δv θ", "vz2 = vz1 + Δv cos(θ)", "", "110",
+    '"vz2 vz1 Δv θ ϕ", "vz2 = vz1 + Δv cos(θ) cos(ϕ)", "", "110",
+    '"vz2 vz1 Δv Δvx", "vz2 = vz1 + √(Δv ^ 2 - Δvx ^ 2)", "", "110",
+    '"vz2 vz1 Δv Δvx Δvy", "vz2 = vz1 + √(Δv ^ 2 - Δvx ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz2 vz1 Δv Δvy", "vz2 = vz1 + √(Δv ^ 2 - Δvy ^ 2)", "", "110",
+    '"vz2 vz1 Δvx ϕ", "vz2 = vz1 + Δvx : tan(ϕ)", "", "110",
+    '"vz2 vz1 Δvy θ", "vz2 = vz1 + Δvy : tan(θ)", "", "110",
+    '"vz2 vz1 Δvy θ ϕ", "vz2 = vz1 + Δvy cos(ϕ) : tan(θ)", "", "110",
+
+    '"Δv vx1 vy1 vz1 vx2 vy2 vz2", "Δv = √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vx1 vy1 vx2 vy2", "Δv = √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"Δv vx1 vy1 vx2 vy2 Δvz", "Δv = √((vx2 - vx1) ^ 2 + (vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"Δv vx1 vz1 vx2 vz2", "Δv = √((vx2 - vx1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vx1 vz1 vx2 vz2 Δvy", "Δv = √((vx2 - vx1) ^ 2 + Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vx1 vx2", "Δv = vx2 - vx1", "", "110",
+    '"Δv vx1 vx2 Δvy", "Δv = √((vx2 - vx1) ^ 2 + Δvy ^ 2)", "", "110",
+    '"Δv vx1 vx2 Δvy Δvz", "Δv = √((vx2 - vx1) ^ 2 + Δvy ^ 2 + Δvz ^ 2)", "", "110",
+    '"Δv vx1 vx2 Δvz", "Δv = √((vx2 - vx1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"Δv vx1 vx2 θ", "Δv = (vx2 - vx1) : cos(θ)", "", "110",
+    '"Δv vx1 vx2 θ ϕ", "Δv = (vx2 - vx1) : cos(θ) : sin(ϕ)", "", "110",
+    '"Δv vy1 vz1 vy2 vz2", "Δv = √((vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vy1 vz1 vy2 vz2 Δvx", "Δv = √(Δvx ^ 2 + (vy2 - vy1) ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vy1 vy2", "Δv = vy2 - vy1", "", "110",
+    '"Δv vy1 vy2 Δvx", "Δv = √(Δvx ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"Δv vy1 vy2 Δvx Δvz", "Δv = √(Δvx ^ 2 + (vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"Δv vy1 vy2 Δvz", "Δv = √((vy2 - vy1) ^ 2 + Δvz ^ 2)", "", "110",
+    '"Δv vy1 vy2 θ", "Δv = (vy2 - vy1) : sin(θ)", "", "110",
+    '"Δv vz1 vz2", "Δv = vz2 - vz1", "", "110",
+    '"Δv vz1 vz2 Δvx", "Δv = √(Δvx ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vz1 vz2 Δvx Δvy", "Δv = √(Δvx ^ 2 + Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vz1 vz2 Δvy", "Δv = √(Δvy ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δv vz1 vz2 θ", "Δv = (vz2 - vz1) : cos(θ)", "", "110",
+    '"Δv vz1 vz2 θ ϕ", "Δv = (vz2 - vz1) : cos(θ) : cos(ϕ)", "", "110",
+
+    '"Δvx v1 vy1 vz1 v2 vy2 vz2", "Δvx = √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvx v1 vy1 v2 vy2", "Δvx = √((v2 - v1) ^ 2 + (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvx v1 vy1 v2 vy2 Δvz", "Δvx = √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvx v1 vz1 v2 vz2", "Δvx = √((v2 - v1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvx v1 vz1 v2 vz2 Δvy", "Δvx = √((v2 - v1) ^ 2 - Δvy ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvx v1 v2", "Δvx = v2 - v1", "", "110",
+    '"Δvx v1 v2 Δvy", "Δvx = √((v2 - v1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"Δvx v1 v2 Δvy Δvz", "Δvx = √((v2 - v1) ^ 2 - Δvy ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvx v1 v2 Δvz", "Δvx = √((v2 - v1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvx v1 v2 θ", "Δvx = (v2 - v1) cos(θ)", "", "110",
+    '"Δvx v1 v2 θ ϕ", "Δvx = (v2 - v1) cos(θ) sin(ϕ)", "", "110",
+    '"Δvx vy1 vz1 vy2 vz2 Δv", "Δvx = √(Δv ^ 2 - (vy2 - vy1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvx vy1 vy2 Δv", "Δvx = √(Δv ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvx vy1 vy2 Δv Δvz", "Δvx = √(Δv ^ 2 - (vy2 - vy1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvx vy1 vy2 θ", "Δvx = (vy2 - vy1) : tan(θ)", "", "110",
+    '"Δvx vy1 vy2 θ ϕ", "Δvx = (vy2 - vy1) sin(ϕ) : tan(θ)", "", "110",
+    '"Δvx vz1 vz2 Δv", "Δvx = √(Δv ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvx vz1 vz2 Δv Δvy", "Δvx = √(Δv ^ 2 - Δvy ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvx vz1 vz2 ϕ", "Δvx = (vz2 - vz1) tan(ϕ)", "", "110",
+
+    '"Δvy v1 vx1 vz1 v2 vx2 vz2", "Δvy = √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvy v1 vx1 v2 vx2", "Δvy = √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"Δvy v1 vx1 v2 vx2 Δvz", "Δvy = √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvy v1 vz1 v2 vz2", "Δvy = √((v2 - v1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvy v1 vz1 v2 vz2 Δvx", "Δvy = √((v2 - v1) ^ 2 - Δvx ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvy v1 v2", "Δvy = v2 - v1", "", "110",
+    '"Δvy v1 v2 Δvx", "Δvy = √((v2 - v1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"Δvy v1 v2 Δvx Δvz", "Δvy = √((v2 - v1) ^ 2 - Δvx ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvy v1 v2 Δvz", "Δvy = √((v2 - v1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvy v1 v2 θ", "Δvy = (v2 - v1) sin(θ)", "", "110",
+    '"Δvy vx1 vz1 vx2 vz2 Δv", "Δvy = √(Δv ^ 2 - (vx2 - vx1) ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvy vx1 vx2 Δv", "Δvy = √(Δv ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"Δvy vx1 vx2 Δv Δvz", "Δvy = √(Δv ^ 2 - (vx2 - vx1) ^ 2 - Δvz ^ 2)", "", "110",
+    '"Δvy vx1 vx2 θ", "Δvy = (vx2 - vx1) tan(θ)", "", "110",
+    '"Δvy vx1 vx2 θ ϕ", "Δvy = (vx2 - vx1) tan(θ) : sin(ϕ)", "", "110",
+    '"Δvy vz1 vz2 Δv", "Δvy = √(Δv ^ 2 + (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvy vz1 vz2 Δv Δvx", "Δvy = √(Δv ^ 2 - Δvx ^ 2 - (vz2 - vz1) ^ 2)", "", "110",
+    '"Δvy vz1 vz2 θ", "Δvy = (vz2 - vz1) tan(θ)", "", "110",
+    '"Δvy vz1 vz2 θ ϕ", "Δvy = (vz2 - vz1) tan(θ) : cos(ϕ)", "", "110",
+
+    '"Δvz v1 vx1 vy1 v2 vx2 vy2", "Δvz = √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvz v1 vx1 v2 vx2", "Δvz = √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"Δvz v1 vx1 v2 vx2 Δvy", "Δvz = √((v2 - v1) ^ 2 - (vx2 - vx1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"Δvz v1 vy1 v2 vy2", "Δvz = √((v2 - v1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvz v1 vy1 v2 vy2 Δvx", "Δvz = √((v2 - v1) ^ 2 - Δvx ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvz v1 v2", "Δvz = v2 - v1", "", "110",
+    '"Δvz v1 v2 θ", "Δvz = (v2 - v1) cos(θ)", "", "110",
+    '"Δvz v1 v2 θ ϕ", "Δvz = (v2 - v1) cos(θ) cos(ϕ)", "", "110",
+    '"Δvz v1 v2 Δvx", "Δvz = √((v2 - v1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"Δvz v1 v2 Δvx Δvy", "Δvz = √((v2 - v1) ^ 2 - Δvx ^ 2 - Δvy ^ 2)", "", "110",
+    '"Δvz v1 v2 Δvy", "Δvz = √((v2 - v1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"Δvz vx1 vy1 vx2 vy2 Δv", "Δvz = √(Δv ^ 2 - (vx2 - vx1) ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvz vx1 vx2 Δv", "Δvz = √(Δv ^ 2 - (vx2 - vx1) ^ 2)", "", "110",
+    '"Δvz vx1 vx2 Δv Δvy", "Δvz = √(Δv ^ 2 - (vx2 - vx1) ^ 2 - Δvy ^ 2)", "", "110",
+    '"Δvz vx1 vx2 ϕ", "Δvz = (vx2 - vx1) : tan(ϕ)", "", "110",
+    '"Δvz vy1 vy2 Δv", "Δvz = √(Δv ^ 2 - (vy2 - vy1) ^ 2)", "", "110",
+    '"Δvz vy1 vy2 Δv Δvx", "Δvz = √(Δv ^ 2 - (vy2 - vy1) ^ 2 - Δvx ^ 2)", "", "110",
+    '"Δvz vy1 vy2 θ", "Δvz = (vy2 - vy1) : tan(θ)", "", "110",
+    '"Δvz vy1 vy2 θ ϕ", "Δvz = (vy2 - vy1) cos(ϕ) : tan(θ)", "", "110",
+
+    '"θ v1 vx1 v2 vx2", "θ = acos((vx2 - vx1) : (v2 - v1))", "", "110",
+    '"θ v1 vx1 v2 vx2 ϕ", "θ = acos((vx2 - vx1) : (v2 - v1) : sin(ϕ))", "", "110",
+    '"θ v1 vy1 v2 vy2", "θ = asin((vy2 - vy1) : (v2 - v1))", "", "110",
+    '"θ v1 vz1 v2 vz2", "θ = acos((vz2 - vz1) : (v2 - v1))", "", "110",
+    '"θ v1 vz1 v2 vz2 ϕ", "θ = acos((vz2 - vz1) : (v2 - v1) : cos(ϕ))", "", "110",
+    '"θ v1 v2 Δvx", "θ = acos(Δvx : (v2 - v1))", "", "110",
+    '"θ v1 v2 Δvx ϕ", "θ = acos(Δvx : (v2 - v1) : sin(ϕ))", "", "110",
+    '"θ v1 v2 Δvy", "θ = asin(Δvy : (v2 - v1))", "", "110",
+    '"θ v1 v2 Δvz", "θ = acos(Δvz : (v2 - v1))", "", "110",
+    '"θ v1 v2 Δvz ϕ", "θ = acos(Δvz : (v2 - v1) : cos(ϕ))", "", "110",
+    '"θ vx1 vy1 vx2 vy2", "θ = atan((vy2 - vy1) : (vx2 - vx1))", "", "110",
+    '"θ vx1 vy1 vx2 vy2 ϕ", "θ = atan((vy2 - vy1) sin(ϕ) : (vx2 - vx1))", "", "110",
+    '"θ vx1 vx2 Δv", "θ = acos((vx2 - vx1) : Δv)", "", "110",
+    '"θ vx1 vx2 Δv ϕ", "θ = acos((vx2 - vx1) : Δv : sin(ϕ))", "", "110",
+    '"θ vx1 vx2 Δvy", "θ = atan(Δvy : (vx2 - vx1))", "", "110",
+    '"θ vx1 vx2 Δvy ϕ", "θ = atan(Δvy sin(ϕ) : (vx2 - vx1))", "", "110",
+    '"θ vy1 vz1 vy2 vz2", "θ = atan((vy2 - vy1) : (vz2 - vz1))", "", "110",
+    '"θ vy1 vz1 vy2 vz2 ϕ", "θ = atan((vy2 - vy1) cos(ϕ) : (vz2 - vz1))", "", "110",
+    '"θ vy1 vy2 Δv", "θ = asin((vy2 - vy1) : Δv)", "", "110",
+    '"θ vy1 vy2 Δvx", "θ = atan((vy2 - vy1) : Δvx)", "", "110",
+    '"θ vy1 vy2 Δvx ϕ", "θ = atan((vy2 - vy1) sin(ϕ) : Δvx)", "", "110",
+    '"θ vy1 vy2 Δvz", "θ = atan((vy2 - vy1) : Δvz)", "", "110",
+    '"θ vy1 vy2 Δvz ϕ", "θ = atan((vy2 - vy1) cos(ϕ) : Δvz)", "", "110",
+    '"θ vz1 vz2 Δv", "θ = acos((vz2 - vz1) : Δv)", "", "110",
+    '"θ vz1 vz2 Δv ϕ", "θ = acos((vz2 - vz1) : Δv : cos(ϕ))", "", "110",
+    '"θ vz1 vz2 Δvy", "θ = atan(Δvy : (vz2 - vz1))", "", "110",
+    '"θ vz1 vz2 Δvy ϕ", "θ = atan(Δvy cos(ϕ) : (vz2 - vz1))", "", "110",
+
+    '"ϕ v1 vx1 v2 vx2 θ", "ϕ = asin((vx2 - vx1) : (v2 - v1) : cos(θ))", "", "110",
+    '"ϕ v1 vz1 v2 vz2 θ", "ϕ = acos((vz2 - vz1) : (v2 - v1) : cos(θ))", "", "110",
+    '"ϕ v1 v2 Δvx θ", "ϕ = asin(Δvx : (v2 - v1) : cos(θ))", "", "110",
+    '"ϕ v1 v2 Δvz θ", "ϕ = acos(Δvz : (v2 - v1) : cos(θ))", "", "110",
+    '"ϕ vx1 vy1 vx2 vy2 θ", "ϕ = asin((vx2 - vx1) tan(θ) : (vy2 - vy1))", "", "110",
+    '"ϕ vx1 vz1 vx2 vz2", "ϕ = atan((vx2 - vx1) : (vz2 - vz1))", "", "110",
+    '"ϕ vx1 vx2 Δv θ", "ϕ = asin((vx2 - vx1) : Δv : cos(θ))", "", "110",
+    '"ϕ vx1 vx2 Δvy θ", "ϕ = atan((vx2 - vx1) tan(θ) : Δvy)", "", "110",
+    '"ϕ vx1 vx2 Δvz", "ϕ = atan((vx2 - vx1) : Δvz)", "", "110",
+    '"ϕ vy1 vz1 vy2 vz2 θ", "ϕ = acos((vz2 - vz1) tan(θ) : (vy2 - vy1))", "", "110",
+    '"ϕ vy1 vy2 Δvx θ", "ϕ = asin(Δvx tan(θ) : (vy2 - vy1))", "", "110",
+    '"ϕ vy1 vy2 Δvz θ", "ϕ = acos(Δvz tan(θ) : (vy2 - vy1))", "", "110",
+    '"ϕ vz1 vz2 Δv θ", "ϕ = acos((vz2 - vz1) : Δv : cos(θ))", "", "110",
+    '"ϕ vz1 vz2 Δvx", "ϕ = atan(Δvx : (vz2 - vz1))", "", "110",
+    '"ϕ vz1 vz2 Δvy θ", "ϕ = acos((vz2 - vz1) tan(θ) : Δvy)", "", "110",
+
+    '363 * 2 = 726 (Δs, Δv)
+    '''''''''''''''''''''''''''''''''
+    '''''''''''''''''''''''''''''''''
+    '''''''''''''''''''''''''''''''''
+    '''''''''''''''''''''''''''''''''
+    '''''''''''''''''''''''''''''''''
+    '''''''''''''''''''''''''''''''''
+
+  End Sub
 #End Region
 #Region "EEEE"
 

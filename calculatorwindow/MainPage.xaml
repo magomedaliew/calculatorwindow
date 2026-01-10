@@ -11,12 +11,12 @@
 
  <Grid Name="AA00">
   <Grid Name="AԹ01">
-   <AppBarButton>
-    <Image Name="Թ100"/>
+   <AppBarButton Name="Թ101">
+    <Image Name="Թ110"/>
    </AppBarButton>
-   <AppBarButton Name="Թ101" Click="Թ_AA"/>
-   <AppBarButton Name="Թ102" Click="Թ_AB"/>
-   <Canvas Name="Թ103"/>
+   <AppBarButton Name="Թ102" Click="Թ_A_"/>
+   <AppBarButton Name="Թ103" Click="Թ_A_"/>
+   <Canvas Name="Թ104"/>
   </Grid>
   <Grid Name="AA01">
    <Grid Name="A100">
@@ -51,7 +51,7 @@
     </AppBarButton>
    </Grid>
    <Grid Name="B100">
-    <Grid Name="B101"/>
+    <ListView Name="B101"/>
     <Rectangle Name="B102"/>
     <ScrollViewer Name="Հ101">
      <Grid Name="Ξ101"/>
