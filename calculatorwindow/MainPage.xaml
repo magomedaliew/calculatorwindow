@@ -15,7 +15,7 @@
     <Image Name="Թ110"/>
    </AppBarButton>
    <AppBarButton Name="Թ102" Click="Թ_A_"/>
-   <AppBarButton Name="Թ103" Click="Թ_A_"/>
+   <AppBarButton Name="Թ103" Click="Թ_B_"/>
    <Canvas Name="Թ104"/>
   </Grid>
   <Grid Name="AA01">
@@ -57,7 +57,12 @@
      <Grid Name="Ξ101"/>
     </ScrollViewer>
     <ScrollViewer Name="Հ102">
-     <Grid Name="Ξ102"/>
+     <Grid Name="Ξ102">
+      <!--<Line/>
+      <ScrollViewer Name="ΞΞ01">
+       <TextBlock/>
+      </ScrollViewer>-->
+     </Grid>
     </ScrollViewer>
     <ScrollViewer Name="Հ103">
      <Grid Name="Ξ103"/>

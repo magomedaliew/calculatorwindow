@@ -27,18 +27,20 @@ Public NotInheritable Class MainPage
 #Region "≡≡≡≡"
 #Region "A-01"
   ' Controlls
-  Private AA_ As New Line ' Text Kursor in Ξ101
+  Private AA_ As New Line ' Text Kursor in FB_
   Private BԳ_ As New Button ' Chemisches Element
   Private CA_ As New Canvas ' AA01 Rows Canvas
   Private CԳ_ As New Canvas ' Canvas 1 in Ξ102
-  Private DA_ As New TextBox ' Übersetzung Ξ101
+  Private DA_ As New TextBox ' Übersetzung FB_
   Private EB_ As New ListView ' Chemische Liste
   Private FA_ As New TextBlock ' Allgemeiner TB
-  Private FB_ As New TextBlock ' Periodentabelle
+  Private FB_ As New TextBlock ' Eingabe Block
   Private FC_ As New TextBlock ' Periodentabelle
-
+  Private FD_ As New TextBlock ' Periodentabelle
   Private Ϟ101 As New TextBlock
   Private Ϟ102 As New TextBlock
+  Private SA_ As New ScrollViewer
+  Private SB_ As New ScrollViewer
 #End Region
 #Region "A-02"
   ' Klassen
@@ -278,6 +280,8 @@ Public NotInheritable Class MainPage
       ToolTipService.SetToolTip(A110, New ToolTip With {.Content = A_D.GetString("A020")})
       ToolTipService.SetToolTip(A111, New ToolTip With {.Content = A_D.GetString("A021")})
 
+      Ξ102.Children.Add(SA_) : SA_.Content = FA_ : Ξ102.Children.Add(SB_) : SA_.Content = FB_
+
       AΞA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
 
       'If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
@@ -293,9 +297,9 @@ Public NotInheritable Class MainPage
       B101.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : Հ101.Visibility = 1
       Հ103.Visibility = 1 : AA_.StrokeThickness = 2 : C126.Content = A_D.GetString("A254")
 
-      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ101.Tapped, AddressOf B_ՀA
+      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ102.Tapped, AddressOf B_ՀA
       AddHandler DA_.SelectionChanged, AddressOf B_ΞA : AddHandler AΞA.Tick, AddressOf B_ϞA
-      AddHandler B101.SelectionChanged, AddressOf Թ_AB
+      AddHandler B101.SelectionChanged, AddressOf Թ_AB : AddHandler SB_.Tapped, AddressOf B_ՀA
 
       Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
       Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ104)
@@ -346,7 +350,7 @@ Public NotInheritable Class MainPage
       Թ103.Content = "⛭" : Թ102.Icon =
         New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
 
-      DA_.Focus(3) : AΞA.Start() : AAFC() : AAFB() : A_B_() ' : AAFA()
+      DA_.Focus(3) : AAFC() : AAFB() : A_B_() ' : AAFA()
     Catch ex As Exception : End Try ' Ϟ102.Text = ex.Message
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
@@ -458,17 +462,27 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "B100"
   Private Sub B_ՀA(a As Object, b As TappedRoutedEventArgs)
-    Try : DA_.Focus(3) : AAH = 1 : DA_.SelectionLength = 0
-      BJA = Math.Ceiling((b.GetPosition(Հ102).X - 4) / 10)
-      If BJA > DA_.Text.Length Then BJA = DA_.Text.Length
-      AA_.Visibility = 0 : AΞA.Start() : AA_.X1 = BJA * 10
-      AA_.X2 = BJA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
-      DA_.SelectionStart = BJA : Catch ex As Exception
-    End Try '  : Ϟ102.Text = "B_ՀA: " & ex.Message
+
+    Try : FB_.Focus(3) : AAH = 1
+
+      AA_.Visibility = 0 : AΞA.Start()
+
+    Catch ex As Exception : End Try
+
+    'Try : DA_.Focus(3) : AAH = 1 : DA_.SelectionLength = 0
+    '  BJA = Math.Ceiling((b.GetPosition(Հ102).X - 4) / 10)
+    '  If BJA > DA_.Text.Length Then BJA = DA_.Text.Length
+    '  AA_.Visibility = 0 : AΞA.Start()
+
+    '  'AA_.X1 = BJA * 10
+    '  'AA_.X2 = BJA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
+
+    '  DA_.SelectionStart = BJA : Catch ex As Exception
+    'End Try '  : Ϟ102.Text = "B_ՀA: " & ex.Message
   End Sub
   Private Sub B_ϞA()
     ' Kursor-1-Blinken AA_
-    'Select Case A103.Visibility : Case 0 : A103.Visibility = 1 : Case 1 : A103.Visibility = 0 : End Select
+    Select Case AA_.Visibility : Case 0 : AA_.Visibility = 1 : Case 1 : AA_.Visibility = 0 : End Select
   End Sub
   Private Sub B_ΔA()
     Try ' DA_ Eingabe: TextChanged
@@ -913,12 +927,14 @@ Public NotInheritable Class MainPage
     DՃB = B101.Items(B101.SelectedIndex).Split(" ")
     ' Formel
     FA_ = New TextBlock With {.Text = DՃA(B101.SelectedIndex * 5 + 1)}
-    Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 0) : Grid.SetColumn(FA_, 4)
-    Grid.SetColumnSpan(FA_, 2)
+    'Ξ102.Children.Add(FA_)
+    Grid.SetRow(AA_, 0) : Grid.SetColumn(AA_, 4)
+    Grid.SetRow(SA_, 0) : Grid.SetColumn(SA_, 4)
+    Grid.SetColumnSpan(SA_, 2)
     Ξ102.RowDefinitions.Item(1).Height = New GridLength(3, 2)
 
     ' Dimensionsliste-Symbolen
-    For Each i As String In DՃB
+    For Each i In DՃB
       DGC &= (i & "     ").Substring(0, 5) & vbCrLf & vbCrLf : Next
     FA_ = New TextBlock With {.Text = DGC} : DGC = ""
     Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 2) : Grid.SetColumn(FA_, 2)
@@ -929,6 +945,14 @@ Public NotInheritable Class MainPage
     FA_ = New TextBlock With {.Text = DGC}
     Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 2) : Grid.SetColumn(FA_, 3)
     'Ξ102.ColumnDefinitions.Item(3).Width = New GridLength(FA_.Width, 1)
+
+    ' Kursor
+    'AΞA.Start()
+    'AA_.X1 = Ξ102.ColumnDefinitions.Item(2).ActualWidth + 500 : AA_.X2 = AA_.X1
+    'AA_.Y1 = Ξ102.RowDefinitions.Item(2).ActualHeight + 10 : AA_.Y2 = AA_.Y2 + 13
+
+    'AA_.X2 = BJA * 10 : AA_.Y1 = 2 : AA_.Y2 = 15
+
   End Sub
 #End Region
 #End Region
@@ -1429,9 +1453,9 @@ Public NotInheritable Class MainPage
 
 
     ' □
-    'FB_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
+    'FC_ = New TextBlock With {.Text = "∫", .FontFamily = New FontFamily("Consolas"),
     '  .Scale = New System.Numerics.Vector3(1.0, 3.0, 1.0),
-    '  .Margin = New Thickness(BJA * 10, BJB * 10 - 10, 0, 0)} : B111.Children.Insert(BJA - 1, FB_)
+    '  .Margin = New Thickness(BJA * 10, BJB * 10 - 10, 0, 0)} : B111.Children.Insert(BJA - 1, FC_)
     'BDA.Insert(BJA - 1, BJA * 10) : BDB.Insert(BJA - 1, BJB * 10 - 10) : BJA += 1
     'BJB += 1 : AA_.X1 = BJA * 10 : AA_.X2 = BJA * 10 : AA_.Y1 = BJB * 10 : AA_.Y2 = BJB * 10 + 17
     'If BJA > 2 Then : For i = 0 To BJA - 3 Step 1
@@ -3282,7 +3306,7 @@ Public NotInheritable Class MainPage
         B401.Foreground = New SolidColorBrush(Colors.White) : End Select : B300.Visibility = 1
     AAB = 6
     AGA = If(CByte(AGA) < 10, "00", If(CByte(AGA) < 100, "0", "")) & AGA : EB_.Visibility = 1
-    FC_.Text = A_B.GetString("A" & AGA) : FB_.Text = (A_A.GetString("B" & AGA) & "          ").
+    FD_.Text = A_B.GetString("A" & AGA) : FC_.Text = (A_A.GetString("B" & AGA) & "          ").
       Substring(0, 10) & A_D.GetString("B" & AGA) : If B400.RowDefinitions.Count > 0 Then Exit Sub
 
     Dim aaaaa As New Grid : Dim aaaab As TextBlock : Dim aaaac As New GridLength(7, 2)
@@ -3295,11 +3319,11 @@ Public NotInheritable Class MainPage
 
     B400.RowDefinitions.Item(1).Height = aaaac : B400.ColumnDefinitions.Item(1).Width = aaaac
     aaaaa.RowDefinitions.Item(2).Height = aaaac : aaaaa.ColumnDefinitions.Item(0).Width = aaaac
-    aaaaa.ColumnDefinitions.Item(2).Width = New GridLength(2, 2) : FB_.FontSize = 16
-    B401.Content = aaaaa : FC_.FontSize = 16
+    aaaaa.ColumnDefinitions.Item(2).Width = New GridLength(2, 2) : FC_.FontSize = 16
+    B401.Content = aaaaa : FD_.FontSize = 16
 
-    aaaaa.Children.Add(FB_) : Grid.SetRow(FB_, 0) : Grid.SetColumn(FB_, 0)
-    aaaaa.Children.Add(FC_) : Grid.SetRow(FC_, 2) : Grid.SetColumn(FC_, 2) : Grid.SetRow(B400, 2)
+    aaaaa.Children.Add(FC_) : Grid.SetRow(FC_, 0) : Grid.SetColumn(FC_, 0)
+    aaaaa.Children.Add(FD_) : Grid.SetRow(FD_, 2) : Grid.SetColumn(FD_, 2) : Grid.SetRow(B400, 2)
     aaaab = New TextBlock With {.MinWidth = 50, .MinHeight = 20, .IsTextSelectionEnabled = False}
     aaaaa.Children.Add(aaaab) : Grid.SetRow(aaaab, 1) : Grid.SetColumn(aaaab, 1) : Grid.SetColumn(B401, 1)
     aaaab = New TextBlock With {.IsTextSelectionEnabled = False, .Text = A_E.GetString("A003"),
