@@ -23,6 +23,6 @@ System Refinement: Ongoing error correction, logic validation, and feature enhan
 
 Link References:
 
-Android Plattform: https://github.com/magomedaliew/calculatorandroid.git
+Android Plattform: https://github.com/magomedaliew/calculatorandroid
 
 Maui Projekt:
