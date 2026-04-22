@@ -21,8 +21,8 @@ Content Expansion: Continuously increasing the library of definition formulas to
 
 System Refinement: Ongoing error correction, logic validation, and feature enhancement.
 
-Link References:
-
-Android Plattform: https://github.com/magomedaliew/calculatorandroid
+Android Projekt: https://github.com/magomedaliew/calculatorandroid
 
 Maui Projekt:
+
+Thanks
