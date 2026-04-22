@@ -20,3 +20,9 @@ Unifying the Windows and Android (only Design for portrait format) codebases int
 Content Expansion: Continuously increasing the library of definition formulas to exponentially grow the available combination possibilities.
 
 System Refinement: Ongoing error correction, logic validation, and feature enhancement.
+
+Link References:
+
+Android Plattform: https://github.com/magomedaliew/calculatorandroid.git
+
+Maui Projekt:
