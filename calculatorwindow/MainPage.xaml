@@ -58,10 +58,6 @@
     </ScrollViewer>
     <ScrollViewer Name="Հ102">
      <Grid Name="Ξ102">
-      <!--<Line/>
-      <ScrollViewer Name="ΞΞ01">
-       <TextBlock/>
-      </ScrollViewer>-->
      </Grid>
     </ScrollViewer>
     <ScrollViewer Name="Հ103">
