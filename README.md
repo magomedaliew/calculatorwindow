@@ -1,4 +1,4 @@
-Welcome to Calculator-World,
+**Welcome to Calculator-World**,
 
 a comprehensive computational engine designed to provide formulas, solutions, and step-by-step derivations for Mathematics, Physics, and Chemistry.
 
