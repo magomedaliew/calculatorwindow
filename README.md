@@ -18,8 +18,11 @@ a comprehensive computational engine designed to provide formulas, solutions, an
 
 • System Refinement: Ongoing error correction, logic validation, and feature enhancement.
 
-Android Projekt: https://github.com/magomedaliew/calculatorandroid
+**Link References**:
 
-Maui Projekt:
+• Android Projekt: https://github.com/magomedaliew/calculatorandroid
+
+• Maui Projekt:
+https://github.com/magomedaliew/calculator
 
 Thanks
