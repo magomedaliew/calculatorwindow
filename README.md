@@ -12,7 +12,7 @@ a comprehensive computational engine designed to provide formulas, solutions, an
 
 • Minimizing memory footprint and increasing processing speed.
 
-• Cross-Platform Integration (MAUI): Unifying the Windows and Android (only Design for portrait format) codebases into a single .NET MAUI project.
+• Cross-Platform Integration (MAUI): Unifying the Windows and Android (only Design for portrait format) codebases into a single .NET MAUI project (Links are below).
 
 • Content Expansion: Continuously increasing the library of definition formulas to exponentially grow the available combination possibilities.
 
