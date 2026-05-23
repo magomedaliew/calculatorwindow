@@ -60,7 +60,6 @@ Public NotInheritable Class MainPage
   Private AAE As Byte ' Farben Nummer für ACAB
   Private AAF As Byte ' Farben Nummer für ACAB
   Private AAG As Byte ' Farben Nummer für ACAB
-  Private AAH As Byte ' Eingabe Umschalte Zahl
   Private AAI As Byte ' Quer-Hochformat-Design
   Private AAJ As Integer ' Dimension-Tabelle-Zahl
   Private AAK As Integer ' Dimension-Tabelle-Zahl
@@ -178,7 +177,6 @@ Public NotInheritable Class MainPage
   Private ReadOnly BՆԸ As New List(Of Integer) ' Term y Position
   Private ReadOnly BՆԺ As New List(Of Integer) ' Term x Skalierung
   Private ReadOnly BՆƐ As New List(Of Integer) ' Term y Skalierung
-
 #End Region
 #Region "A-13"
   ' Chemie
@@ -247,20 +245,7 @@ Public NotInheritable Class MainPage
       For i = 1 To 50 Step 1 : Ξ102.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 6 Step 1 : Ξ102.ColumnDefinitions.Add(New ColumnDefinition) : Next
 
-      AA01.Children.Add(CA_) : AA01.Children.Add(DA_) : Ξ102.Children.Add(CԳ_)
-      'CԳ_.Children.Add(AA_)
-      CԳ_.Children.Add(Ϟ101)
-
-      Grid.SetColumn(Թ102, 1) : Grid.SetColumn(Թ103, 2) : Grid.SetColumn(Թ104, 3)
-      Grid.SetColumn(A101, 0) : Grid.SetColumn(A102, 1) : Grid.SetColumn(A103, 2)
-      Grid.SetColumn(A104, 3) : Grid.SetColumn(A105, 4) : Grid.SetColumn(A106, 5)
-      Grid.SetColumn(A107, 6) : Grid.SetColumn(A108, 7) : Grid.SetColumn(A109, 8)
-      Grid.SetColumn(A110, 9) : Grid.SetColumn(A111, 10) : Grid.SetColumn(A112, 11)
-      Grid.SetColumn(Թ101, 0)
-
-      Grid.SetRow(AԹ01, 0) : Grid.SetRow(AA01, 1) : Grid.SetRow(B100, 2)
-      Grid.SetRow(B200, 2) : Grid.SetRow(B400, 2) : Grid.SetRow(B500, 2)
-      Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4)
+      AA01.Children.Add(CA_) : AA01.Children.Add(DA_) : Ξ102.Children.Add(CԳ_) : CԳ_.Children.Add(Ϟ101)
 
       AA00.RowDefinitions.Item(0).Height = New GridLength(32, 1)
       AԹ01.ColumnDefinitions.Item(0).Width = New GridLength(46, 1)
@@ -282,38 +267,17 @@ Public NotInheritable Class MainPage
       ToolTipService.SetToolTip(A110, New ToolTip With {.Content = A_D.GetString("A020")})
       ToolTipService.SetToolTip(A111, New ToolTip With {.Content = A_D.GetString("A021")})
 
-      'Ξ102.Children.Add(SA_) : SA_.Content = FA_ : Ξ102.Children.Add(SB_) : SA_.Content = FB_
+      Grid.SetRow(Թ101, 0) : Grid.SetColumn(Թ101, 0) : Grid.SetRow(Թ102, 0) : Grid.SetColumn(Թ102, 1)
+      Grid.SetRow(Թ103, 0) : Grid.SetColumn(Թ103, 2) : Grid.SetRow(Թ104, 0) : Grid.SetColumn(Թ104, 3)
+      Grid.SetRow(A101, 0) : Grid.SetColumn(A101, 0) : Grid.SetRow(A102, 0) : Grid.SetColumn(A102, 1)
+      Grid.SetRow(A103, 0) : Grid.SetColumn(A103, 2) : Grid.SetRow(A104, 0) : Grid.SetColumn(A104, 3)
+      Grid.SetRow(A105, 0) : Grid.SetColumn(A105, 4) : Grid.SetRow(A106, 0) : Grid.SetColumn(A106, 5)
+      Grid.SetRow(A107, 0) : Grid.SetColumn(A107, 6) : Grid.SetRow(A108, 0) : Grid.SetColumn(A108, 7)
+      Grid.SetRow(A109, 0) : Grid.SetColumn(A109, 8) : Grid.SetRow(A110, 0) : Grid.SetColumn(A110, 9)
+      Grid.SetRow(A111, 0) : Grid.SetColumn(A111, 10) : Grid.SetRow(A112, 0) : Grid.SetColumn(A112, 11)
 
-      AΞA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
-
-      'If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
-      '  Ϟ102.FontFamily = New FontFamily("Segoe UI") : Ϟ102.Text = A_D.GetString("A900")
-      'End If
-
-      A111.Content = "A1" : A112.Content = "B1" : DA_.MaxHeight = 0 : DA_.MaxWidth = 0
-      B101.Margin = New Thickness(10, 0, 10, 0) : B102.Margin = New Thickness(5, -25, 5, 2)
-      Հ101.Margin = New Thickness(15, 5, 15, 7) : Հ102.Margin = New Thickness(15, 5, 15, 7)
-      Հ103.Margin = New Thickness(15, 5, 15, 7)
-
-      'Ξ101 Հ101
-      B101.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : Հ101.Visibility = 1
-      Հ103.Visibility = 1
-      'AA_.StrokeThickness = 2
-      C126.Content = A_D.GetString("A254")
-
-      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ102.Tapped, AddressOf B_ՀA
-      AddHandler DA_.SelectionChanged, AddressOf B_ΞA : AddHandler AΞA.Tick, AddressOf B_ϞA
-      AddHandler B101.SelectionChanged, AddressOf Թ_AB ' : AddHandler SB_.Tapped, AddressOf B_ՀA
-
-      Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
-      Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ104)
-      Dim ac = ApplicationView.GetForCurrentView().TitleBar ' !!! Reihenfolge !!!
-      ac.ButtonPressedForegroundColor = Colors.Pink : ac.ButtonHoverForegroundColor = Colors.Pink
-      'AddHandler aa.LayoutMetricsChanged, AddressOf A_C_
-
-      _EA = Color.FromArgb(170, 170, 170, 170) : _EE = Color.FromArgb(255, 0, 255, 120)
-      _EB = Colors.Blue : _EC = Colors.Magenta : _ED = Colors.DeepSkyBlue
-      _EF = Colors.Orange : _GA = New Color() {_EA, _EB, _EC, _ED, _EE, _EF} : AAB = 1 : AAH = 1
+      Grid.SetRow(AԹ01, 0) : Grid.SetRow(AA01, 1) : Grid.SetRow(B100, 2) : Grid.SetRow(B200, 2)
+      Grid.SetRow(B400, 2) : Grid.SetRow(B500, 2) : Grid.SetRow(B300, 2) : Grid.SetRow(C100, 4)
 
       Grid.SetRow(C101, 0) : Grid.SetColumn(C101, 1) : Grid.SetRow(C102, 0) : Grid.SetColumn(C102, 2)
       Grid.SetRow(C103, 0) : Grid.SetColumn(C103, 3) : Grid.SetRow(C104, 0) : Grid.SetColumn(C104, 4)
@@ -351,12 +315,37 @@ Public NotInheritable Class MainPage
       Grid.SetRow(C161, 3) : Grid.SetColumn(C161, 16) : Grid.SetRow(C162, 3) : Grid.SetColumn(C162, 17)
       Grid.SetRow(C163, 3) : Grid.SetColumn(C163, 18) : Grid.SetRow(C164, 3) : Grid.SetColumn(C164, 19)
 
-      Թ103.Content = "⛭" : Թ102.Icon =
-        New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+      AΞA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
 
-      DA_.AcceptsReturn = True : DA_.TextWrapping = TextWrapping.Wrap
+      'If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
+      '  Ϟ102.FontFamily = New FontFamily("Segoe UI") : Ϟ102.Text = A_D.GetString("A900")
+      'End If
 
-      DA_.Focus(3) : AAFC() : AAFB() : A_B_() ' : AAFA()
+      B101.Margin = New Thickness(10, 0, 10, 0) : B102.Margin = New Thickness(5, -25, 5, 2)
+      Հ101.Margin = New Thickness(15, 5, 15, 7) : Հ102.Margin = New Thickness(15, 5, 15, 7)
+      Հ103.Margin = New Thickness(15, 5, 15, 7)
+
+      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ102.Tapped, AddressOf B_ՀA
+      AddHandler DA_.SelectionChanged, AddressOf B_ΞA : AddHandler AΞA.Tick, AddressOf B_ϞA
+      AddHandler B101.SelectionChanged, AddressOf Թ_AB ' : AddHandler SB_.Tapped, AddressOf B_ՀA
+
+      Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
+      Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ104)
+      Dim ac = ApplicationView.GetForCurrentView().TitleBar ' !!! Reihenfolge !!!
+      ac.ButtonPressedForegroundColor = Colors.Pink : ac.ButtonHoverForegroundColor = Colors.Pink
+      'AddHandler aa.LayoutMetricsChanged, AddressOf A_C_
+
+      DA_.MaxHeight = 0 : DA_.MaxWidth = 0 : DA_.AcceptsReturn = True : DA_.TextWrapping = TextWrapping.Wrap
+
+      B101.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : Հ101.Visibility = 1 : Հ103.Visibility = 1
+
+      A111.Content = "A1" : A112.Content = "B1" : C126.Content = A_D.GetString("A254") : Թ103.Content = "⛭"
+      Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+
+      _EA = Color.FromArgb(170, 170, 170, 170) : _EB = Colors.Blue : _EC = Colors.Magenta : _ED = Colors.DeepSkyBlue
+      _EE = Color.FromArgb(255, 0, 255, 120) : _EF = Colors.Orange : _GA = New Color() {_EA, _EB, _EC, _ED, _EE, _EF}
+
+      DA_.Focus(3) : BՆԹ.Add(0) : BՆԸ.Add(0) : AAB = 1 : AAFC() : AAFB() : A_B_()
     Catch ex As Exception : End Try ' Ϟ102.Text = ex.Message
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
@@ -468,18 +457,19 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "B100"
   Private Sub B_ՀA(a As Object, b As TappedRoutedEventArgs)
-    Dim iu = CԳ_.TransformToVisual(Հ102)
-    Dim ui As Point = iu.TransformPoint(New Point(0, 0))
-    BJA = Math.Ceiling((b.GetPosition(Հ102).X - ui.X) / 10)
-    BJB = Math.Ceiling((b.GetPosition(Հ102).Y - ui.Y) / 10)
-    B_ՀB()
+    BJC = Math.Ceiling((b.GetPosition(CԳ_).X) / 10)
+    BJB = Math.Ceiling((b.GetPosition(CԳ_).Y) / 32.8)
+    BJA = DA_.Text.Length : BJB -= 1
+    For i = 0 To BՆԹ.Count - 2 Step 1
+      If BՆԹ(i) = BJC And BՆԸ(i) = BJB Then BJA = i : Exit For
+    Next : B_ՀB()
   End Sub
   Private Sub B_ՀB()
-    Try : DA_.Focus(3) : AAH = 1 : DA_.SelectionLength = 0
-      If BJA > DA_.Text.Length Then BJA = DA_.Text.Length
+    Try : DA_.Focus(3) : DA_.SelectionLength = 0
       Ϟ101.Visibility = 0 : AΞA.Start() : DA_.SelectionStart = BJA
-      Ϟ101.Margin = New Thickness(BJA * 10 - 5, BJB * 10, 0, 0)
-      If DA_.Text = "" Then Ϟ101.Text = "💎" : Exit Sub Else Ϟ101.Text = "|"
+      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
+      If DA_.Text = "" Then : Ϟ101.Text = "💎" : Exit Sub
+      Else : Ϟ101.Text = "|" : End If
     Catch ex As Exception : Ϟ102.Text = "B_ՀA: " & ex.Message
     End Try ' A_D.GetString("A201") & ☘️💎🔆🏵️🍁
   End Sub
@@ -487,44 +477,81 @@ Public NotInheritable Class MainPage
     ' Kursor-1-Blinken AA_
     Select Case Ϟ101.Visibility : Case 0 : Ϟ101.Visibility = 1 : Case 1 : Ϟ101.Visibility = 0 : End Select
   End Sub
+  Private Sub B_ΞA()
+    Try : BJA = DA_.SelectionStart : BJE = DA_.Text.Length
+      ' Elemente Bearbeitung
+      Select Case BJE - BJD
+        Case > 0 ' wenn der Text größer geworden ist: a(bc|d
+          ' Elemente Insert
+          For i = BJA + BJD - BJE To BJA - 1 Step 1
+
+            Select Case DA_.Text.Substring(i, 1)
+              Case vbCr : AGA = "" : Case vbLf : AGA = "" : Case vbCrLf : AGA = ""
+              Case Else : AGA = DA_.Text.Substring(i, 1) : End Select
+
+            BՆԹ.Insert(i, 0) : BՆԸ.Insert(i, 0)
+
+            CԳ_.Children.Insert(i, New TextBlock With {.Text = AGA,
+                              .Foreground = New SolidColorBrush(ACAB(AAG))})
+          Next
+          ' Elemente Positionen
+          For i = BJA + BJD - BJE To CԳ_.Children.Count - 1 Step 1
+            ' Positionen Kursor in BՆԹ, BՆԸ
+            BՆԹ(i) = BJC : BՆԸ(i) = BJB
+            ' Positionen einschlißlich Kursor
+            ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 32.8, 0, 0)
+            ' Einstellungen BJB, BJC ! Reihenfolge !
+            If ACAF(CԳ_.Children(i)).Text = "" Then BJC = 0 : BJB += 1 Else BJC += 1
+            ' Rückstellung BJC für Kursor 
+            If i = CԳ_.Children.Count - 1 Then : BJC -= 1 : End If : Next
+        Case < 0 ' wenn der Text kleiner geworden ist: a|bc)d
+          ' Einstellungen BJB, BJC
+          BJB = BՆԸ(BJA) : BJC = BՆԹ(BJA)
+          ' Elemente Remove
+          For i = BJA To BJA + BJD - BJE - 1 Step 1 ' !!!!!
+            CԳ_.Children.RemoveAt(i) : BՆԹ.RemoveAt(i) : BՆԸ.RemoveAt(i) : Next
+          ' Positionen Korrektur
+          For i = BJA To CԳ_.Children.Count - 1 Step 1
+            ' Positionen Kursor in BՆԹ, BՆԸ
+            BՆԹ(i) = BJC : BՆԸ(i) = BJB
+            ' Positionen einschlißlich Kursor
+            ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 32.8, 0, 0)
+            ' Einstellungen BJB, BJC ! Reihenfolge !
+            If ACAF(CԳ_.Children(i)).Text = "" Then BJC = 0 : BJB += 1 Else BJC += 1
+            ' Rückstellung BJC für Kursor 
+            If i = CԳ_.Children.Count - 1 Then : BJC -= 1 : End If
+          Next
+          ' Wiederherstellungen BJB, BJC
+          BJB = BՆԸ(BJA) : BJC = BՆԹ(BJA)
+        Case = 0 ' wenn der Text gleich groß geblieben ist: abcd
+          ' Farben Korrektur
+          For i = 0 To CԳ_.Children.Count - 2 Step 1
+            ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(ACAB(AAG))
+          Next
+          ' Farben Selection
+          For i = BJA To BJA + DA_.SelectionLength - 1 Step 1
+            ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
+          Next
+          ' BJC Start Korrektur (Case 0: ∆ BJA)
+          BJB = BՆԸ(BJA) : BJC = BՆԹ(BJA)
+      End Select
+      ' Kursor Visibility
+      If DA_.SelectionLength = 0 Then : AΞA.Start()
+        Ϟ101.Visibility = 0
+      Else : AΞA.Stop() : Ϟ101.Visibility = 1 : End If
+      ' Kursor Position
+      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
+      ' Kursor Zeichen
+      Ϟ101.Text = If(DA_.Text = "", "💎", "|") : BJD = BJE
+      ' Exception Message
+    Catch ex As Exception : Ϟ102.Text = "B_ΞA: " & ex.Message
+    End Try
+  End Sub
   Private Sub B_ΔA()
     Try ' DA_ Eingabe: TextChanged
-      BJE = DA_.Text.Length
-      ' Board-Tasten- Eingabe
-      If BHA = True Then DA_.Focus(3) : BJA = BJC + BJE - BJD : DA_.SelectionStart = BJA : BHA = False
-      ' wenn der Text kleiner geworden ist: ' a|bc)d
-      If BJE - BJD < 0 Then
-        For i = BJA + BJD - BJE - 1 To BJA Step -1 : CԳ_.Children.RemoveAt(i) : Next
-        For i = BJA To CԳ_.Children.Count - 2 Step 1
-          ACAF(CԳ_.Children(i)).Margin = New Thickness(i * 10, BJB * 10, 0, 0)
-        Next : End If
-      ' wenn der Text größer geworden ist: ' a(bc|d
-      If BJE - BJD > 0 Then
-        For i = BJA + BJD - BJE To BJA - 1 Step 1
-          CԳ_.Children.Insert(i, New TextBlock With {.Text = DA_.Text.Substring(i, 1),
-                               .Foreground = New SolidColorBrush(Colors.Red)})
-          If DA_.Text.Substring(i, 1) = vbCrLf Then : BJB += 1 : End If
-        Next ' ACAB(AAG)
-        For i = BJA + BJD - BJE To CԳ_.Children.Count - 2 Step 1
-          ACAF(CԳ_.Children(i)).Margin = New Thickness(i * 10, BJB * 10, 0, 0) : Next : End If
-      ' ! Reihenfolge !
-      BJD = BJE : If DA_.Text = "" Then Ϟ101.Text = "💎" : Exit Sub Else Ϟ101.Text = "|" ' A_D.GetString("A201") & 
+      DA_.MaxWidth = 500 : DA_.MaxHeight = 100
+      ' Exception Message
     Catch ex As Exception : Ϟ102.Text = "B_ΔA: " & ex.Message : End Try
-  End Sub
-  Private Sub B_ΞA()
-
-    DA_.MaxWidth = 500 : DA_.MaxHeight = 100
-
-    BJA = DA_.SelectionStart ' DA_ Eingabe: SelectionChanged
-    For i = 0 To CԳ_.Children.Count - 2 Step 1
-      ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(ACAB(AAG))
-    Next
-    For i = BJA To BJA + DA_.SelectionLength - 1 Step 1
-      ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
-    Next
-    If DA_.SelectionLength = 0 Then : AΞA.Start() : Ϟ101.Visibility = 0 ' AA_.Visibility = 0
-      Ϟ101.Margin = New Thickness(BJA * 10 - 5, BJB * 10, 0, 0)
-    Else : AΞA.Stop() : Ϟ101.Visibility = 1 : End If ' AA_.Visibility = 1
   End Sub
   Private Sub B_ΔB()
     Try ' DB_ Eingabe: TextChanged
@@ -845,25 +872,25 @@ Public NotInheritable Class MainPage
 #End Region
 #Region "C100"
   Private Sub C_AA(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content)
+    DA_.Text = DA_.Text.Insert(BJA, a.Content) : BJA += a.Content.Length : DA_.SelectionStart = BJA
   End Sub
   Private Sub C_AB(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, " " & a.Content & " ")
+    DA_.Text = DA_.Text.Insert(BJA, " " & a.Content & " ") : BJA += a.Content.Length : DA_.SelectionStart = BJA
   End Sub
   Private Sub C_AC(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, " - ")
+    BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, " - ")
   End Sub
   Private Sub C_AD(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "()")
+    BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "()")
   End Sub
   Private Sub C_AE(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "(')")
+    BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "(')")
   End Sub
   Private Sub C_AF(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "('')")
+    BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "('')")
   End Sub
   Private Sub C_AG(a As Button, b As RoutedEventArgs)
-    If AAH = 1 Then BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "(''d)")
+    BJC = DA_.SelectionStart : BHA = True : DA_.Text = DA_.Text.Insert(BJC, a.Content & "(''d)")
   End Sub
   Private Sub C_AH(a As Button, b As RoutedEventArgs)
     Select Case a.Content
@@ -1474,7 +1501,7 @@ Public NotInheritable Class MainPage
     KB.Clear() : KC.Clear() : KD.Clear() : KE.Clear()
     KF.Clear() : BՑB.Clear() : BՑA.Clear() : KJ.Clear()
     KK.Clear() : KL.Clear() : MQ_.Clear() : MR_.Clear()
-    KG.Clear() : MQ_.Add(0) : _M = 0
+    KG.Clear() : _M = 0 : MQ_.Add(0)
     _AA = A_D.GetString("A302") : _AB = A_D.GetString("A253")
     _AC = A_D.GetString("A254") : KB.Add(_AA & "  : a = a")
     ' Symbolen   Reihenfolge !!!
@@ -3303,6 +3330,7 @@ Public NotInheritable Class MainPage
 #End Region
 #End Region
 #Region "DDDD"
+#Region "D-AA"
   Private Sub DAAA()
     '1     Formeln Laden
     Select Case DGA
@@ -6836,6 +6864,7 @@ Public NotInheritable Class MainPage
     '''''''''''''''''''''''''''''''''
 
   End Sub
+#End Region
 #End Region
 #Region "EEEE"
 
