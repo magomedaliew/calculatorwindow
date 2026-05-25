@@ -325,15 +325,14 @@ Public NotInheritable Class MainPage
       Հ101.Margin = New Thickness(15, 5, 15, 7) : Հ102.Margin = New Thickness(15, 5, 15, 7)
       Հ103.Margin = New Thickness(15, 5, 15, 7)
 
-      AddHandler DA_.TextChanged, AddressOf B_ΔA : AddHandler Հ102.Tapped, AddressOf B_ՀA
-      AddHandler DA_.SelectionChanged, AddressOf B_ΞA : AddHandler AΞA.Tick, AddressOf B_ϞA
-      AddHandler B101.SelectionChanged, AddressOf Թ_AB ' : AddHandler SB_.Tapped, AddressOf B_ՀA
+      AddHandler Հ102.Tapped, AddressOf B_ՀA : AddHandler DA_.SelectionChanged, AddressOf B_ΞA
+      AddHandler AΞA.Tick, AddressOf B_ϞA : AddHandler B101.SelectionChanged, AddressOf Թ_AB
+      AddHandler DA_.TextChanged, AddressOf B_ΔA
 
       Dim aa = CoreApplication.GetCurrentView().TitleBar : aa.ExtendViewIntoTitleBar = True
       Dim ab = ApplicationView.GetForCurrentView().TitleBar : Window.Current.SetTitleBar(Թ104)
       Dim ac = ApplicationView.GetForCurrentView().TitleBar ' !!! Reihenfolge !!!
       ac.ButtonPressedForegroundColor = Colors.Pink : ac.ButtonHoverForegroundColor = Colors.Pink
-      'AddHandler aa.LayoutMetricsChanged, AddressOf A_C_
 
       DA_.MaxHeight = 0 : DA_.MaxWidth = 0 : DA_.AcceptsReturn = True : DA_.TextWrapping = TextWrapping.Wrap
 
@@ -478,10 +477,33 @@ Public NotInheritable Class MainPage
     Select Case Ϟ101.Visibility : Case 0 : Ϟ101.Visibility = 1 : Case 1 : Ϟ101.Visibility = 0 : End Select
   End Sub
   Private Sub B_ΞA()
-    Try : BJA = DA_.SelectionStart : BJE = DA_.Text.Length
+    Try : BJA = DA_.SelectionStart
+      ' Farben Korrektur
+      For i = 0 To CԳ_.Children.Count - 2 Step 1
+        ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(ACAB(AAG))
+      Next
+      ' Farben Selection
+      For i = BJA To BJA + DA_.SelectionLength - 1 Step 1
+        ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
+      Next
+      ' Kursor Visibility
+      If DA_.SelectionLength = 0 Then : AΞA.Start()
+        Ϟ101.Visibility = 0
+      Else : AΞA.Stop() : Ϟ101.Visibility = 1 : End If
+      ' Kursor Position
+      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
+      'Ϟ101.Text = "      " & CStr(BJA) & " " & CStr(BJB) & " " & CStr(BJC)
+      ' Exception Message
+    Catch ex As Exception : Ϟ102.Text = "B_ΞA: " & ex.Message
+    End Try
+  End Sub
+  Private Sub B_ΔA()
+    Try : BJE = DA_.Text.Length : DA_.MaxWidth = 500 : DA_.MaxHeight = 100
       ' Elemente Bearbeitung
       Select Case BJE - BJD
         Case > 0 ' wenn der Text größer geworden ist: a(bc|d
+          ' Einstellungen BJB, BJC
+          BJB = BՆԸ(BJA + BJD - BJE) : BJC = BՆԹ(BJA + BJD - BJE)
           ' Elemente Insert
           For i = BJA + BJD - BJE To BJA - 1 Step 1
 
@@ -508,12 +530,12 @@ Public NotInheritable Class MainPage
           ' Einstellungen BJB, BJC
           BJB = BՆԸ(BJA) : BJC = BՆԹ(BJA)
           ' Elemente Remove
-          For i = BJA To BJA + BJD - BJE - 1 Step 1 ' !!!!!
-            CԳ_.Children.RemoveAt(i) : BՆԹ.RemoveAt(i) : BՆԸ.RemoveAt(i) : Next
+          For i = BJA To BJA + BJD - BJE - 1 Step 1
+            CԳ_.Children.RemoveAt(BJA) : BՆԹ.RemoveAt(BJA) : BՆԸ.RemoveAt(BJA) : Next
           ' Positionen Korrektur
           For i = BJA To CԳ_.Children.Count - 1 Step 1
             ' Positionen Kursor in BՆԹ, BՆԸ
-            BՆԹ(i) = BJC : BՆԸ(i) = BJB
+            BՆԸ(i) = BJB : BՆԹ(i) = BJC
             ' Positionen einschlißlich Kursor
             ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 32.8, 0, 0)
             ' Einstellungen BJB, BJC ! Reihenfolge !
@@ -521,37 +543,13 @@ Public NotInheritable Class MainPage
             ' Rückstellung BJC für Kursor 
             If i = CԳ_.Children.Count - 1 Then : BJC -= 1 : End If
           Next
-          ' Wiederherstellungen BJB, BJC
-          BJB = BՆԸ(BJA) : BJC = BՆԹ(BJA)
-        Case = 0 ' wenn der Text gleich groß geblieben ist: abcd
-          ' Farben Korrektur
-          For i = 0 To CԳ_.Children.Count - 2 Step 1
-            ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(ACAB(AAG))
-          Next
-          ' Farben Selection
-          For i = BJA To BJA + DA_.SelectionLength - 1 Step 1
-            ACAF(CԳ_.Children(i)).Foreground = New SolidColorBrush(Colors.SkyBlue)
-          Next
-          ' BJC Start Korrektur (Case 0: ∆ BJA)
-          BJB = BՆԸ(BJA) : BJC = BՆԹ(BJA)
+          'Case = 0 ' wenn der Text gleich groß geblieben ist: abcd
       End Select
-      ' Kursor Visibility
-      If DA_.SelectionLength = 0 Then : AΞA.Start()
-        Ϟ101.Visibility = 0
-      Else : AΞA.Stop() : Ϟ101.Visibility = 1 : End If
       ' Kursor Position
       Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
       ' Kursor Zeichen
       Ϟ101.Text = If(DA_.Text = "", "💎", "|") : BJD = BJE
-      ' Exception Message
-    Catch ex As Exception : Ϟ102.Text = "B_ΞA: " & ex.Message
-    End Try
-  End Sub
-  Private Sub B_ΔA()
-    Try ' DA_ Eingabe: TextChanged
-      DA_.MaxWidth = 500 : DA_.MaxHeight = 100
-      ' Exception Message
-    Catch ex As Exception : Ϟ102.Text = "B_ΔA: " & ex.Message : End Try
+    Catch ex As Exception : End Try
   End Sub
   Private Sub B_ΔB()
     Try ' DB_ Eingabe: TextChanged
