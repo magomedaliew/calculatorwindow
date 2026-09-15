@@ -38,7 +38,12 @@ Public NotInheritable Class MainPage
   Private FC_ As New TextBlock ' Periodentabelle
   Private FD_ As New TextBlock ' Periodentabelle
   Private Ϟ101 As New TextBlock
-  Private Ϟ102 As New TextBlock
+  Private Ϟ201 As New TextBlock
+  Private Ϟ202 As New TextBlock
+  Private Ϟ203 As New TextBlock
+  Private Ϟ204 As New TextBlock
+  Private Ϟ205 As New TextBlock
+
   'Private SA_ As New ScrollViewer
   'Private SB_ As New ScrollViewer
 #End Region
@@ -247,6 +252,13 @@ Public NotInheritable Class MainPage
 
       AA01.Children.Add(CA_) : AA01.Children.Add(DA_) : Ξ102.Children.Add(CԳ_) : CԳ_.Children.Add(Ϟ101)
 
+
+      For i = 1 To 5 Step 1 : Ξ103.RowDefinitions.Add(New RowDefinition) : Next
+      Ξ103.Children.Add(Ϟ201) : Ξ103.Children.Add(Ϟ202) : Ξ103.Children.Add(Ϟ203)
+      Ξ103.Children.Add(Ϟ204) : Ξ103.Children.Add(Ϟ205)
+      Grid.SetRow(Ϟ201, 0) : Grid.SetRow(Ϟ202, 1) : Grid.SetRow(Ϟ203, 2) : Grid.SetRow(Ϟ204, 3)
+      Grid.SetRow(Ϟ205, 4)
+
       AA00.RowDefinitions.Item(0).Height = New GridLength(32, 1)
       AԹ01.ColumnDefinitions.Item(0).Width = New GridLength(46, 1)
       AԹ01.ColumnDefinitions.Item(1).Width = New GridLength(46, 1)
@@ -255,6 +267,8 @@ Public NotInheritable Class MainPage
       Ξ102.ColumnDefinitions.Item(1).Width = New GridLength(20, 1)
       AԹ01.ColumnDefinitions.Item(3).Width = New GridLength(AAA0.ActualWidth - 46 * 6, 1)
 
+      ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
+      ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A002")})
       ToolTipService.SetToolTip(A101, New ToolTip With {.Content = A_D.GetString("A011")})
       ToolTipService.SetToolTip(A102, New ToolTip With {.Content = A_D.GetString("A012")})
       ToolTipService.SetToolTip(A103, New ToolTip With {.Content = A_D.GetString("A013")})
@@ -318,7 +332,7 @@ Public NotInheritable Class MainPage
       AΞA = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
 
       'If ApplicationData.Current.LocalSettings.Values("upgrade") <> "18.02.2022" Then
-      '  Ϟ102.FontFamily = New FontFamily("Segoe UI") : Ϟ102.Text = A_D.GetString("A900")
+      '  Ϟ201.FontFamily = New FontFamily("Segoe UI") : Ϟ201.Text = A_D.GetString("A900")
       'End If
 
       B101.Margin = New Thickness(10, 0, 10, 0) : B102.Margin = New Thickness(5, -25, 5, 2)
@@ -339,33 +353,81 @@ Public NotInheritable Class MainPage
       B101.Visibility = 1 : B511.Visibility = 1 : B513.Visibility = 1 : Հ101.Visibility = 1 : Հ103.Visibility = 1
 
       A111.Content = "A1" : A112.Content = "B1" : C126.Content = A_D.GetString("A254") : Թ103.Content = "⛭"
-      Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+      ' Segoe MDL2 Assets ' Segoe Fluent Icons
+      Թ101.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
+      Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE8A9), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
 
       _EA = Color.FromArgb(170, 170, 170, 170) : _EB = Colors.Blue : _EC = Colors.Magenta : _ED = Colors.DeepSkyBlue
       _EE = Color.FromArgb(255, 0, 255, 120) : _EF = Colors.Orange : _GA = New Color() {_EA, _EB, _EC, _ED, _EE, _EF}
 
       DA_.Focus(3) : BՆԹ.Add(0) : BՆԸ.Add(0) : AAB = 1 : AAFC() : AAFB() : A_B_()
-    Catch ex As Exception : End Try ' Ϟ102.Text = ex.Message
+    Catch ex As Exception : End Try ' Ϟ201.Text = ex.Message
   End Sub
   Private Sub A_B_() Handles AAA0.SizeChanged
     Try : If AAA0.ActualWidth > 1.5 * AAA0.ActualHeight Then
         If AAA <> 1 Then : AAA = 1 : End If : AAAA() : Else
         If AAA <> 2 Then : AAA = 2 : End If : AAAA() : End If
-    Catch ex As Exception : End Try '  : Ϟ102.Text = ex.Message
+    Catch ex As Exception : End Try '  : Ϟ201.Text = ex.Message
   End Sub
 #End Region
 #Region "Թ_10"
   Private Sub Թ_A_()
-    Select Case AAB
-      Case 1, 7 ' Anhang
-        AAB = 2 : ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A002")}) : AAAA()
-        Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE8A9), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
-      Case Else ' Home ' Segoe MDL2 Assets ' Segoe Fluent Icons
-        AAB = 1 : ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")}) : AAAA()
-        Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
-    End Select
+    AAB = 1 : AAAA()
   End Sub
   Private Sub Թ_B_()
+    AAB = 2 : AAAA() : ApplicationData.Current.LocalSettings.Values("upgrade") = "xxxx"
+
+    If Ϟ201.Inlines.Count = 0 Then
+      ' Liste 1
+      Ϟ201.FontFamily = New FontFamily("Segoe UI")
+      Ϟ201.Inlines.Add(New Run With {.Text = A_D.GetString("A000") & vbLf,
+                     .Foreground = New SolidColorBrush(Colors.Blue)})
+      Ϟ201.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A001") & vbLf & vbLf,
+                     .Foreground = New SolidColorBrush(Colors.Black)})
+      Ϟ201.Inlines.Add(New Run With {.Text = A_D.GetString("E001") & vbLf,
+                     .Foreground = New SolidColorBrush(Colors.Lime)})
+      Ϟ201.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A002") & vbLf & vbLf,
+                     .Foreground = New SolidColorBrush(Colors.Black)})
+
+      ' Liste 2
+      Dim aa() As String : aa = New String() {
+    A_D.GetString("E002"), A_D.GetString("E201"), A_D.GetString("E202"),
+    "a", "b", "a ^ b", "b", "√a", "√(a ' b)", "log", "a", "b", "log(a ' b)",
+    "lim", "a", "b", "lim(a ' b)", "Ʃ", "a", "b", "c", "Ʃ(a ' b ' c)", "∏",
+    "a", "b", "c", "∏(a ' b ' c)", "a", "∫", "b", "x dx", "∫(a ' b ' x d(x))"
+    }
+      Dim ab() As Thickness : ab = New Thickness() {New Thickness(0, 0, 0, 0),
+        New Thickness(30, 50, 0, 0),
+        New Thickness(200, 50, 0, 0), New Thickness(30, 100, 0, 0), New Thickness(38, 97, 0, 0),
+        New Thickness(200, 100, 0, 0), New Thickness(30, 147, 0, 0), New Thickness(37, 150, 0, 0),
+        New Thickness(200, 150, 0, 0), New Thickness(30, 200, 0, 0), New Thickness(55, 205, 0, 0),
+        New Thickness(62, 200, 0, 0), New Thickness(200, 200, 0, 0), New Thickness(30, 250, 0, 0),
+        New Thickness(55, 255, 0, 0), New Thickness(62, 250, 0, 0), New Thickness(200, 250, 0, 0),
+        New Thickness(30, 300, 0, 0), New Thickness(39, 307, 0, 0), New Thickness(39, 295, 0, 0),
+        New Thickness(45, 300, 0, 0), New Thickness(200, 300, 0, 0), New Thickness(30, 350, 0, 0),
+        New Thickness(39, 357, 0, 0), New Thickness(39, 345, 0, 0), New Thickness(45, 350, 0, 0),
+        New Thickness(200, 350, 0, 0), New Thickness(30, 407, 0, 0), New Thickness(37, 400, 0, 0),
+        New Thickness(46, 395, 0, 0), New Thickness(52, 400, 0, 0), New Thickness(200, 400, 0, 0)}
+      Dim ac(31) As TextBlock : Dim ad As New Canvas
+
+      Ξ103.Children.Add(ad) : Grid.SetRow(ad, 1)
+      ad.Background = New SolidColorBrush(Colors.AliceBlue)
+
+      For i = 0 To 31 Step 1 : ac(i) = New TextBlock With {.Text = aa(i),
+          .Margin = ab(i)}
+        Ξ103.Children.Add(ac(i)) : Grid.SetRow(ac(i), 1) : Next ' ACAB(AAG)
+
+      ac(0).FontFamily = New FontFamily("Segoe UI")
+      ac(1).FontFamily = New FontFamily("Segoe UI")
+      ac(2).FontFamily = New FontFamily("Segoe UI")
+
+      ac(0).Foreground = New SolidColorBrush(Colors.Blue)
+      ac(1).Foreground = New SolidColorBrush(Colors.Lime)
+      ac(2).Foreground = New SolidColorBrush(Colors.Lime)
+    End If
+
+  End Sub
+  Private Sub Թ_C_()
     ABBC()
   End Sub
 #End Region
@@ -407,7 +469,7 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub A_AF()
     Try : AAB = 1 : AAAA() : If CA = "" Then Exit Sub
-      Ϟ102.Text = "" : Ϟ102.FontFamily = New FontFamily("Consolas")
+      Ϟ201.Text = "" : Ϟ201.FontFamily = New FontFamily("Consolas")
 
       If A105.Background.ToString() = New SolidColorBrush(Colors.Lime).ToString() Then
         A105.Background = New SolidColorBrush(Colors.Pink)
@@ -415,9 +477,9 @@ Public NotInheritable Class MainPage
         Ξ102.Children.Add(New Button With {.Width = 15, .Height = 15, .Background = New SolidColorBrush(Colors.Pink)})
 
         For i = 0 To 3 Step 1 ' KA.Count - 1
-          Ϟ102.Inlines.Add(New Run With {.Text = KA(i).Replace(_AB, _AC) & vbCrLf,
+          Ϟ201.Inlines.Add(New Run With {.Text = KA(i).Replace(_AB, _AC) & vbCrLf,
                      .Foreground = New SolidColorBrush(Colors.Blue)})
-          Ϟ102.Inlines.Add(New Run With {.Text = KB(i) & vbCrLf & vbCrLf,
+          Ϟ201.Inlines.Add(New Run With {.Text = KB(i) & vbCrLf & vbCrLf,
                            .Foreground = New SolidColorBrush(Colors.SkyBlue)})
         Next
       ElseIf A105.Background.ToString() = New SolidColorBrush(Colors.Pink).ToString() Then
@@ -469,7 +531,7 @@ Public NotInheritable Class MainPage
       Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
       If DA_.Text = "" Then : Ϟ101.Text = "💎" : Exit Sub
       Else : Ϟ101.Text = "|" : End If
-    Catch ex As Exception : Ϟ102.Text = "B_ՀA: " & ex.Message
+    Catch ex As Exception : Ϟ201.Text = "B_ՀA: " & ex.Message
     End Try ' A_D.GetString("A201") & ☘️💎🔆🏵️🍁
   End Sub
   Private Sub B_ϞA()
@@ -494,7 +556,7 @@ Public NotInheritable Class MainPage
       Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
       'Ϟ101.Text = "      " & CStr(BJA) & " " & CStr(BJB) & " " & CStr(BJC)
       ' Exception Message
-    Catch ex As Exception : Ϟ102.Text = "B_ΞA: " & ex.Message
+    Catch ex As Exception : Ϟ201.Text = "B_ΞA: " & ex.Message
     End Try
   End Sub
   Private Sub B_ΔA()
@@ -575,85 +637,22 @@ Public NotInheritable Class MainPage
         BBAB()
 
       End If
-      'BJF = BJE : If DB_.Text = "" Then Ϟ102.Text = A_D.GetString("A202") : Exit Sub Else Ϟ102.Text = ""
-    Catch ex As Exception : Ϟ102.Text = "B_ΔB: " & ex.Message : End Try
+      'BJF = BJE : If DB_.Text = "" Then Ϟ201.Text = A_D.GetString("A202") : Exit Sub Else Ϟ201.Text = ""
+    Catch ex As Exception : Ϟ201.Text = "B_ΔB: " & ex.Message : End Try
   End Sub
 #End Region
 #Region "B200"
   Private Sub B_BA()
-    ApplicationData.Current.LocalSettings.Values("upgrade") = "xxxx"
-    Ϟ102.FontFamily = New FontFamily("Segoe UI") : AAB = 3 : AAAA()
-    Ξ102.Children.Clear() : Ξ102.Children.Add(Ϟ102) : Ϟ102.Text = ""
-    Ϟ102.Inlines.Add(New Run With {.Text = A_D.GetString("A000") & vbLf,
-                     .Foreground = New SolidColorBrush(Colors.Blue)})
-    Ϟ102.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A001") &
-                     vbLf & vbLf,
-                     .Foreground = New SolidColorBrush(Colors.Black)})
-    Ϟ102.Inlines.Add(New Run With {.Text = A_D.GetString("E001") & vbLf,
-                     .Foreground = New SolidColorBrush(Colors.Lime)})
-    Ϟ102.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A002"),
-                     .Foreground = New SolidColorBrush(Colors.Black)})
+    AAB = 3 : AAAA()
+    Հ103.ChangeView(Nothing, 0, Nothing)
   End Sub
   Private Sub B_BB()
-    Ϟ102.FontFamily = New FontFamily("Consolas") : AAB = 3 : AAAA()
-    Ξ102.Children.Clear() : Ξ102.Children.Add(Ϟ102) : Ϟ102.Text = ""
-
-    Dim aa() As String : aa = New String() {
-    A_D.GetString("E002"), A_D.GetString("E201"), A_D.GetString("E202"),
-    "a", "b", "a ^ b", "b", "√a", "√(a ' b)", "log", "a", "b", "log(a ' b)",
-    "lim", "a", "b", "lim(a ' b)", "Ʃ", "a", "b", "c", "Ʃ(a ' b ' c)", "∏",
-    "a", "b", "c", "∏(a ' b ' c)", "a", "∫", "b", "x dx", "∫(a ' b ' x d(x))"
-    }
-    Dim ab() As Thickness : ab = New Thickness() {New Thickness(30, 0, 0, 0),
-    New Thickness(30, 50, 0, 0),
-    New Thickness(200, 50, 0, 0), New Thickness(30, 100, 0, 0), New Thickness(38, 97, 0, 0),
-    New Thickness(200, 100, 0, 0), New Thickness(30, 147, 0, 0), New Thickness(37, 150, 0, 0),
-    New Thickness(200, 150, 0, 0), New Thickness(30, 200, 0, 0), New Thickness(55, 205, 0, 0),
-    New Thickness(62, 200, 0, 0), New Thickness(200, 200, 0, 0), New Thickness(30, 250, 0, 0),
-    New Thickness(55, 255, 0, 0), New Thickness(62, 250, 0, 0), New Thickness(200, 250, 0, 0),
-    New Thickness(30, 300, 0, 0), New Thickness(39, 307, 0, 0), New Thickness(39, 295, 0, 0),
-    New Thickness(45, 300, 0, 0), New Thickness(200, 300, 0, 0), New Thickness(30, 350, 0, 0),
-    New Thickness(39, 357, 0, 0), New Thickness(39, 345, 0, 0), New Thickness(45, 350, 0, 0),
-    New Thickness(200, 350, 0, 0), New Thickness(30, 407, 0, 0), New Thickness(37, 400, 0, 0),
-    New Thickness(46, 395, 0, 0), New Thickness(52, 400, 0, 0), New Thickness(200, 400, 0, 0)}
-
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, -3, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 47, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 97, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 147, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 197, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 247, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 297, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 347, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-    Ξ102.Children.Add(New Canvas With {.Margin = New Thickness(0, 397, 0, 0),
-                      .Background = New SolidColorBrush(Colors.AliceBlue), .Width = 350, .Height = 25})
-
-    For i = 0 To 31 Step 1
-      Ξ102.Children.Add(New TextBlock With {.Text = aa(i), .Margin = ab(i),
-                      .Foreground = New SolidColorBrush(Colors.Blue)}) : Next ' ACAB(AAG)
-
+    AAB = 3 : AAAA()
+    Հ103.ChangeView(Nothing, Ξ103.RowDefinitions(0).ActualHeight, Nothing)
   End Sub
   Private Sub B_BC()
-
-    AAB = 4 : AAAA() : Ξ102.Children.Clear() : Ξ102.Children.Add(Ϟ102) : Ϟ102.Text = ""
-    Ϟ102.Inlines.Add(New Run With {.Text = A_D.GetString("A300") & vbLf,
-                     .Foreground = New SolidColorBrush(Colors.Blue)})
-    Ϟ102.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A003") &
-                     vbLf & vbLf,
-                     .Foreground = New SolidColorBrush(Colors.Black)})
-    Ϟ102.Inlines.Add(New Run With {.Text = A_D.GetString("E301") & vbLf,
-                     .Foreground = New SolidColorBrush(Colors.Lime)})
-    Ϟ102.Inlines.Add(New Run With {.Text = vbLf & A_E.GetString("A004"),
-                     .Foreground = New SolidColorBrush(Colors.Black)})
-
+    AAB = 3 : AAAA()
+    Հ103.ChangeView(Nothing, Ξ103.RowDefinitions(1).ActualHeight, Nothing)
   End Sub
   Private Sub B_BD()
     AAB = 7 : B500.Visibility = 0 : B100.Visibility = 1 : B200.Visibility = 1 ' : AAFA()
@@ -696,7 +695,7 @@ Public NotInheritable Class MainPage
     Try : ADAA() : Catch ex As Exception : End Try
   End Sub
   Private Sub B_BF()
-    '    AAB = 3 : AAAA() : ABAD(5) : Ϟ102.FontFamily = New FontFamily("Consolas")
+    '    AAB = 3 : AAAA() : ABAD(5) : Ϟ201.FontFamily = New FontFamily("Consolas")
     '    ' Mathematik - Formeln
     '    ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("E003") & "   " & vbLf & vbLf)
     '    ABAE(Colors.White, Colors.Green, A_D.GetString("E101") & vbLf)
@@ -809,16 +808,16 @@ Public NotInheritable Class MainPage
     'ln(a ^ b) = b · ln(a)
     'ln(e ^ a) = a")
     '_EA = Color.FromArgb(255, 0, 176, 80)
-    'Ϟ102.Document.Selection.CharacterFormat.Weight = 0
+    'Ϟ201.Document.Selection.CharacterFormat.Weight = 0
   End Sub
   Private Sub B_BG()
-    'AAB = 3 : AAAA() : ABAD(5) : Ϟ102.FontFamily = New FontFamily("Consolas")
+    'AAB = 3 : AAAA() : ABAD(5) : Ϟ201.FontFamily = New FontFamily("Consolas")
     '' Chemie - Formeln
     'ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("E004") & "   " & vbLf &
     '     vbLf) : ABAE(Colors.White, Colors.Green, "c = n / V" & vbLf & "M = m / n")
   End Sub
   Private Sub B_BH()
-    '    AAB = 3 : AAAA() : ABAD(10) : Ϟ102.FontFamily = New FontFamily("Consolas")
+    '    AAB = 3 : AAAA() : ABAD(10) : Ϟ201.FontFamily = New FontFamily("Consolas")
     '    ' Physik - Formeln
     '    ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("E005") & "   " & vbLf & vbLf)
     '    ABAE(Colors.White, Colors.Green, A_D.GetString("A109") & vbLf)
@@ -857,7 +856,7 @@ Public NotInheritable Class MainPage
     'A = √(Ax2 + Ay2 + Az2)")
   End Sub
   Private Sub B_BI()
-    'AAB = 3 : AAAA() : ABAD(10) : Ϟ102.FontFamily = New FontFamily("Consolas")
+    'AAB = 3 : AAAA() : ABAD(10) : Ϟ201.FontFamily = New FontFamily("Consolas")
     '' Dimensionen
     'ABAE(Colors.AliceBlue, Colors.Blue, "   " & A_D.GetString("A109") & "   " & vbLf & vbLf)
     'For i = 1 To 87 Step 1 : AGA = If(i < 10, "00", "0") & CStr(i)
@@ -962,8 +961,6 @@ Public NotInheritable Class MainPage
     C100.ColumnDefinitions.Item(0).Width = New GridLength(0.5, 2)
     C100.ColumnDefinitions.Item(20).Width = New GridLength(4.5, 2)
     For i = 5 To 19 Step 1 : C100.ColumnDefinitions.Item(i).Width = New GridLength(1, 2) : Next
-    ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
-    Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
   End Sub
   Private Sub AABB()
     ' H-A => Q-A : Q-A° => Q-A
@@ -1005,8 +1002,6 @@ Public NotInheritable Class MainPage
     C100.ColumnDefinitions.Item(10).Width = New GridLength(0, 2)
     C100.ColumnDefinitions.Item(20).Width = New GridLength(30, 1)
     'C100.ColumnDefinitions.Item(20).Width = New GridLength(0.3, 2)
-    ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
-    Թ102.Icon = New FontIcon With {.Glyph = ChrW(&HE80F), .FontFamily = New FontFamily("Segoe MDL2 Assets")}
   End Sub
   Private Sub AACB()
     ' Q-A => H-A : H-A° => H-A
@@ -1193,16 +1188,14 @@ Public NotInheritable Class MainPage
     ' Helligkeit - Bearbeitung
     Select Case ApplicationData.Current.LocalSettings.Values("lightness")
       Case "l"
-        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A002")})
         ToolTipService.SetToolTip(Թ103, New ToolTip With {.Content = A_D.GetString("A004")})
         ' ms-appx:///Assets/A_0_001.png
-        Թ110.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
+        'Թ110.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
         AAE = 14 : AAF = 0 : AAG = 1 : AAGB()
       Case "d"
-        ToolTipService.SetToolTip(Թ102, New ToolTip With {.Content = A_D.GetString("A001")})
         ToolTipService.SetToolTip(Թ103, New ToolTip With {.Content = A_D.GetString("A003")})
         ' ms-appx:///Assets/A_0_002.png
-        Թ110.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
+        'Թ110.Source = New BitmapImage(New Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"))
         AAE = 11 : AAF = 14 : AAG = 13 : AAGB()
     End Select : AAGA()
   End Sub
@@ -1268,7 +1261,7 @@ Public NotInheritable Class MainPage
     AA00.Background = New SolidColorBrush(ACAB(AAE)) : AA01.Background = New SolidColorBrush(ACAB(AAE))
   End Sub
   'Private Sub AIAS()
-  '  Select Case Ϟ102.Document.Selection.
+  '  Select Case Ϟ201.Document.Selection.
   '    CharacterFormat.ForegroundColor
   '    Case Colors.Black : AIAC(Colors.Blue)
   '    Case Colors.Blue : AIAC(Colors.Green)
@@ -1359,11 +1352,11 @@ Public NotInheritable Class MainPage
 #Region "A-AD"
   Private Async Sub ADAA()
     If ACAA() = True Then
-      Dim aaaaa As String = "AA" ' : Ϟ102.Document.Selection.StartPosition = 0
-      'Ϟ102.Document.Selection.EndPosition = _Ϟ102.Document.Selection.StoryLength
+      Dim aaaaa As String = "AA" ' : Ϟ201.Document.Selection.StartPosition = 0
+      'Ϟ201.Document.Selection.EndPosition = _Ϟ102.Document.Selection.StoryLength
 
       'aaaaa = A_D.GetString("A201") & ":   " & B102.Text & vbCrLf &
-      '  A_D.GetString("A202") & ":   " & Ϟ102.Document.Selection.Text
+      '  A_D.GetString("A202") & ":   " & Ϟ201.Document.Selection.Text
 
       Dim emailMessage As New EmailMessage With {.Body = aaaaa,
       .Subject = A_D.GetString("A105")}
@@ -1405,7 +1398,7 @@ Public NotInheritable Class MainPage
       BGA = BGA.Insert(BՆC(Ξ_A.AAA(2)), "ʃ") ' ʃ('ʃ'd'
       BGA = BGA.Remove(BՆC(Ξ_A.AAA(0)), 2) ' 'ʃ'd'
       BGA = BGA.Insert(BՆC(Ξ_A.AAA(0)), "'") ' ''ʃ'd'
-    End If : Ϟ102.Text = BGA
+    End If : Ϟ201.Text = BGA
   End Sub
   Private Sub AEAD()
     ' TERME MATHPRINT VIEW
@@ -1800,7 +1793,7 @@ Public NotInheritable Class MainPage
   Private Sub BBBA()
     If _I = 0 Then : KE.Clear() : KJ.Clear() : JA.Clear() : KF.Clear() : KE.Add(KA(_M)) : End If
 
-    'Ϟ102.Text = CA & vbCrLf & CStr(BՑA.Count) ' : DB_.MaxHeight = 500 : DB_.MaxWidth = 500
+    'Ϟ201.Text = CA & vbCrLf & CStr(BՑA.Count) ' : DB_.MaxHeight = 500 : DB_.MaxWidth = 500
 
     KE(_I) = KE(_I).Replace(_AB, _AC) : CA = KE(_I) : BBAA() : KF.Add(CC) : _L = BՑB.Count
   End Sub

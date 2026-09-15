@@ -1,4 +1,4 @@
-﻿ <Page Name="AAA0"
+﻿<Page Name="AAA0"
   mc:Ignorable="d"
   x:Class="calculatorwindow.MainPage"
   xmlns:local="using:calculatorwindow"
@@ -11,11 +11,9 @@
 
  <Grid Name="AA00">
   <Grid Name="AԹ01">
-   <AppBarButton Name="Թ101">
-    <Image Name="Թ110"/>
-   </AppBarButton>
-   <AppBarButton Name="Թ102" Click="Թ_A_"/>
-   <AppBarButton Name="Թ103" Click="Թ_B_"/>
+   <AppBarButton Name="Թ101" Click="Թ_A_"/>
+   <AppBarButton Name="Թ102" Click="Թ_B_"/>
+   <AppBarButton Name="Թ103" Click="Թ_C_"/>
    <Canvas Name="Թ104"/>
   </Grid>
   <Grid Name="AA01">
@@ -57,8 +55,7 @@
      <Grid Name="Ξ101"/>
     </ScrollViewer>
     <ScrollViewer Name="Հ102">
-     <Grid Name="Ξ102">
-     </Grid>
+     <Grid Name="Ξ102"/>
     </ScrollViewer>
     <ScrollViewer Name="Հ103">
      <Grid Name="Ξ103"/>
