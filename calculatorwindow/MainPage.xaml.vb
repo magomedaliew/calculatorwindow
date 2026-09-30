@@ -193,6 +193,8 @@ Public NotInheritable Class MainPage
   Private DGC As String ' Mehrzwecks String
   Private DՃA() As String ' Dimensions-Liste
   Private DՃB() As String ' Dimensions-Split
+  Private DՃC() As String ' Dimensions-Liste
+  Private DՃD() As String ' Dimensions-Liste
 #End Region
 #Region "A-15"
   ' A Byte
@@ -247,11 +249,10 @@ Public NotInheritable Class MainPage
       For i = 1 To 21 Step 1 : C100.ColumnDefinitions.Add(New ColumnDefinition) : Next
       For i = 1 To 12 Step 1 : Ξ101.RowDefinitions.Add(New RowDefinition) : Next
       For i = 1 To 15 Step 1 : Ξ101.ColumnDefinitions.Add(New ColumnDefinition) : Next
-      For i = 1 To 50 Step 1 : Ξ102.RowDefinitions.Add(New RowDefinition) : Next
-      For i = 1 To 6 Step 1 : Ξ102.ColumnDefinitions.Add(New ColumnDefinition) : Next
+      For i = 1 To 30 Step 1 : Ξ102.RowDefinitions.Add(New RowDefinition) : Next
+      For i = 1 To 5 Step 1 : Ξ102.ColumnDefinitions.Add(New ColumnDefinition) : Next
 
       AA01.Children.Add(CA_) : AA01.Children.Add(DA_) : Ξ102.Children.Add(CԳ_) : CԳ_.Children.Add(Ϟ101)
-
 
       For i = 1 To 5 Step 1 : Ξ103.RowDefinitions.Add(New RowDefinition) : Next
       Ξ103.Children.Add(Ϟ201) : Ξ103.Children.Add(Ϟ202) : Ξ103.Children.Add(Ϟ203)
@@ -280,6 +281,8 @@ Public NotInheritable Class MainPage
       ToolTipService.SetToolTip(A109, New ToolTip With {.Content = A_D.GetString("A019")})
       ToolTipService.SetToolTip(A110, New ToolTip With {.Content = A_D.GetString("A020")})
       ToolTipService.SetToolTip(A111, New ToolTip With {.Content = A_D.GetString("A021")})
+
+      Grid.SetRow(CԳ_, 2) : Grid.SetColumn(CԳ_, 2) : Grid.SetColumnSpan(CԳ_, 2)
 
       Grid.SetRow(Թ101, 0) : Grid.SetColumn(Թ101, 0) : Grid.SetRow(Թ102, 0) : Grid.SetColumn(Թ102, 1)
       Grid.SetRow(Թ103, 0) : Grid.SetColumn(Թ103, 2) : Grid.SetRow(Թ104, 0) : Grid.SetColumn(Թ104, 3)
@@ -360,6 +363,20 @@ Public NotInheritable Class MainPage
       _EA = Color.FromArgb(170, 170, 170, 170) : _EB = Colors.Blue : _EC = Colors.Magenta : _ED = Colors.DeepSkyBlue
       _EE = Color.FromArgb(255, 0, 255, 120) : _EF = Colors.Orange : _GA = New Color() {_EA, _EB, _EC, _ED, _EE, _EF}
 
+      DՃC = New String() {"a", "ax", "ay", "az", "c", "Ek1", "Ek2", "ΔEk", "Ep1", "Ep2", "ΔEp",
+        "F", "Fx", "Fy", "Fz", "Ff", "Ffx", "Ffy", "Ffz", "|Fn|", "Frg", "Frgx", "Frgy", "Frgz",
+        "Frh", "Frhx", "Frhy", "Frhz", "Frr", "Frrx", "Frry", "Frrz", "Ft", "Ftx", "Fty", "Ftz",
+        "k", "M", "m", "μg", "μh", "μr", "n", "P", "p", "px", "py", "pz", "s1", "sx1", "sy1",
+        "sz1", "s2", "sx2", "sy2", "sz2", "Δs", "Δsx", "Δsy", "Δsz", "t1", "t2", "Δt", "V", "v",
+        "vx", "vy", "vz", "v1", "vx1", "vy1", "vz1", "v2", "vx2", "vy2", "vz2", "Δv", "Δvx", "Δvy",
+        "Δvz", "{v}", "{vx}", "{vy}", "{vz}", "W", "θ", "ϕ"}
+      DՃD = New String() {"a", "c", "F", "k", "M", "m", "n", "P", "p", "V", "v", "W", "θ", "ϕ", "ax",
+        "ay", "az", "Ff", "Ft", "Fx", "Fy", "Fz", "μg", "μh", "μr", "px", "py", "pz", "s1", "s2", "Δs",
+        "t1", "t2", "Δt", "v1", "v2", "vx", "vy", "vz", "Δv", "Ek1", "Ek2", "ΔEk", "Ep1", "Ep2", "ΔEp",
+        "Ffx", "Ffy", "Ffz", "Frg", "Frh", "Frr", "Ftx", "Fty", "Ftz", "sx1", "sy1", "sz1", "sx2", "sy2",
+        "sz2", "Δsx", "Δsy", "Δsz", "vx1", "vy1", "vz1", "vx2", "vy2", "vz2", "Δvx", "Δvy", "Δvz", "{v}",
+        "Frgx", "Frgy", "Frgz", "Frhx", "Frhy", "Frhz", "Frrx", "Frry", "Frrz", "|Fn|", "{vx}", "{vy}", "{vz}"}
+
       DA_.Focus(3) : BՆԹ.Add(0) : BՆԸ.Add(0) : AAB = 1 : AAFC() : AAFB() : A_B_()
     Catch ex As Exception : End Try ' Ϟ201.Text = ex.Message
   End Sub
@@ -435,12 +452,10 @@ Public NotInheritable Class MainPage
   Private Sub A_AA()
     ' Dimensionen-Buttons Erstellen ! Reihenfolge !
     If Ξ101.Children.Count = 0 Then
-      Dim eaaaa As New Button ' : Dim eaaab As TextBlock
-      For i = 1 To 87 Step 1 : AGA = "B" & If(i < 10, "00", If(i < 100, "0", "")) & CStr(i)
-        'eaaab = New TextBlock With {.Text = A_C.GetString(AGA),
-        '.Foreground = New SolidColorBrush(Colors.Black), .IsTextSelectionEnabled = False}
+      Dim eaaaa As New Button
+      For i = 0 To 86 Step 1
         eaaaa = New Button With {.Background = New SolidColorBrush(Colors.AliceBlue),
-        .Padding = New Thickness(0), .HorizontalContentAlignment = 1, .Content = A_C.GetString(AGA),
+        .Padding = New Thickness(0), .HorizontalContentAlignment = 1, .Content = DՃC(i),
         .Margin = New Thickness(2)}
         Ξ101.Children.Add(eaaaa) : AddHandler eaaaa.Click, AddressOf Թ_AA : Next : End If
     ' Dimensionen-Buttons Verstellen ! Reihenfolge !
@@ -449,11 +464,6 @@ Public NotInheritable Class MainPage
     Else
       B101.Visibility = 1 : Հ101.Visibility = 0 : Հ102.Visibility = 1 : AAB = 7
       Հ103.Visibility = 1 : AAAA() : End If
-
-    'Dim aa As DispatcherTimer
-    'aa = New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(500)}
-    'AddHandler aa.Tick, AddressOf B_ϞA
-    'aa.Start()
   End Sub
   Private Sub A_AB()
   End Sub
@@ -519,7 +529,7 @@ Public NotInheritable Class MainPage
 #Region "B100"
   Private Sub B_ՀA(a As Object, b As TappedRoutedEventArgs)
     BJC = Math.Ceiling((b.GetPosition(CԳ_).X) / 10)
-    BJB = Math.Ceiling((b.GetPosition(CԳ_).Y) / 32.8)
+    BJB = Math.Ceiling((b.GetPosition(CԳ_).Y) / 40) ' 32.8
     BJA = DA_.Text.Length : BJB -= 1
     For i = 0 To BՆԹ.Count - 2 Step 1
       If BՆԹ(i) = BJC And BՆԸ(i) = BJB Then BJA = i : Exit For
@@ -528,7 +538,7 @@ Public NotInheritable Class MainPage
   Private Sub B_ՀB()
     Try : DA_.Focus(3) : DA_.SelectionLength = 0
       Ϟ101.Visibility = 0 : AΞA.Start() : DA_.SelectionStart = BJA
-      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
+      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 40, 0, 0)
       If DA_.Text = "" Then : Ϟ101.Text = "💎" : Exit Sub
       Else : Ϟ101.Text = "|" : End If
     Catch ex As Exception : Ϟ201.Text = "B_ՀA: " & ex.Message
@@ -553,7 +563,7 @@ Public NotInheritable Class MainPage
         Ϟ101.Visibility = 0
       Else : AΞA.Stop() : Ϟ101.Visibility = 1 : End If
       ' Kursor Position
-      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
+      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 40, 0, 0)
       'Ϟ101.Text = "      " & CStr(BJA) & " " & CStr(BJB) & " " & CStr(BJC)
       ' Exception Message
     Catch ex As Exception : Ϟ201.Text = "B_ΞA: " & ex.Message
@@ -583,7 +593,7 @@ Public NotInheritable Class MainPage
             ' Positionen Kursor in BՆԹ, BՆԸ
             BՆԹ(i) = BJC : BՆԸ(i) = BJB
             ' Positionen einschlißlich Kursor
-            ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 32.8, 0, 0)
+            ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 40, 0, 0)
             ' Einstellungen BJB, BJC ! Reihenfolge !
             If ACAF(CԳ_.Children(i)).Text = "" Then BJC = 0 : BJB += 1 Else BJC += 1
             ' Rückstellung BJC für Kursor 
@@ -599,7 +609,7 @@ Public NotInheritable Class MainPage
             ' Positionen Kursor in BՆԹ, BՆԸ
             BՆԸ(i) = BJB : BՆԹ(i) = BJC
             ' Positionen einschlißlich Kursor
-            ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 32.8, 0, 0)
+            ACAF(CԳ_.Children(i)).Margin = New Thickness(BՆԹ(i) * 10, BՆԸ(i) * 40, 0, 0)
             ' Einstellungen BJB, BJC ! Reihenfolge !
             If ACAF(CԳ_.Children(i)).Text = "" Then BJC = 0 : BJB += 1 Else BJC += 1
             ' Rückstellung BJC für Kursor 
@@ -608,7 +618,7 @@ Public NotInheritable Class MainPage
           'Case = 0 ' wenn der Text gleich groß geblieben ist: abcd
       End Select
       ' Kursor Position
-      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 32.8, 0, 0)
+      Ϟ101.Margin = New Thickness(BՆԹ(BJA) * 10 - 5, BՆԸ(BJA) * 40, 0, 0)
       ' Kursor Zeichen
       Ϟ101.Text = If(DA_.Text = "", "💎", "|") : BJD = BJE
     Catch ex As Exception : End Try
@@ -909,24 +919,30 @@ Public NotInheritable Class MainPage
   End Sub
   Private Sub Թ_AB()
 
-    B101.Visibility = 1 : Հ102.Visibility = 0
-    DՃB = B101.Items(B101.SelectedIndex).Split(" ")
+    B101.Visibility = 1 : Հ102.Visibility = 0 : DՃB = B101.Items(B101.SelectedIndex).Split(" ")
 
     ' Formel
-    FA_ = New TextBlock With {.Text = DՃA(B101.SelectedIndex * 5 + 1)}
-    Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 0) : Grid.SetColumn(FA_, 4)
-    Ξ102.RowDefinitions.Item(1).Height = New GridLength(3, 2)
+    FA_ = New TextBlock With {.Text = DՃA(B101.SelectedIndex * 5 + 1)} : Ξ102.Children.Add(FA_)
+    Grid.SetRow(FA_, 0) : Grid.SetColumn(FA_, 0) : Grid.SetColumnSpan(FA_, 5) : FA_.HorizontalAlignment = 1
 
     ' Dimensionen
-    For Each i In DՃB
-      DGC &= (i & "     ").Substring(0, 5) & "= " & vbCrLf & vbCrLf : Next
-    FA_ = New TextBlock With {.Text = DGC} : DGC = ""
-    Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 2) : Grid.SetColumn(FA_, 2)
-    Ξ102.ColumnDefinitions.Item(2).Width = New GridLength(70, 1)
+    For Each i In DՃB : DGC &= (i & "     ").Substring(0, 5) & "= " & vbCrLf : Next
+
+    'CԳ_.Background = New SolidColorBrush(Colors.AliceBlue)
+    CԳ_.HorizontalAlignment = HorizontalAlignment.Left : CԳ_.Width = 80 : CԳ_.Height = 40 * (DՃB.Count + 1)
 
     ' Eingabe
-    Grid.SetRow(CԳ_, 2) : Grid.SetColumn(CԳ_, 3) : Grid.SetColumnSpan(CԳ_, 2)
-    BJA = 0 : B_ՀB()
+    DGC = DGC.Insert(7, "?") : DA_.Text = DGC : DGC = "" : B_ՀB() ' !
+    BJA = DA_.Text.Length : BJD = 0 : B_ΔA() : DA_.SelectionStart = 16
+
+    ' Namenliste
+    For i = 0 To DՃB.Count - 1 Step 1 : For j = 1 To 87 Step 1
+
+        If DՃB(i) = DՃC(j - 1) Then : DGC &= (DՃB(i) & "     ").Substring(0, 5) & "= " &
+          A_D.GetString("C" & If(j < 10, "00", If(j < 100, "0", "")) & CStr(j)) & vbCrLf
+        End If : Next : Next
+
+    FA_ = New TextBlock With {.Text = DGC} : Ξ102.Children.Add(FA_) : Grid.SetRow(FA_, 4) : Grid.SetColumn(FA_, 2)
   End Sub
 #End Region
 #End Region
@@ -6853,6 +6869,14 @@ Public NotInheritable Class MainPage
     '''''''''''''''''''''''''''''''''
     '''''''''''''''''''''''''''''''''
     '''''''''''''''''''''''''''''''''
+
+  End Sub
+  Private Sub DAAB()
+
+    DՃB = DA_.Text.Split(vbCrLf)
+
+
+    'DGC
 
   End Sub
 #End Region
